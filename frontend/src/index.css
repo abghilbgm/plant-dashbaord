@@ -1,0 +1,72 @@
+body {
+  margin: 0;
+  background: #f3f4f6;
+  font-family: "Segoe UI", Arial;
+}
+
+/* app wrapper */
+.app {
+  padding: 10px;
+}
+
+/* panels */
+.panel {
+  background: white;
+  border-radius: 6px;
+  padding: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+h3 {
+  margin: 0 0 8px;
+  font-size: 14px;
+}
+
+/* TOP GRID */
+.grid-top {
+  display: grid;
+  grid-template-columns: 20% 30% 20% 15% 15%;
+  gap: 10px;
+}
+
+/* BOTTOM GRID */
+.grid-bottom {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: 50% 25% 25%;
+  gap: 10px;
+}
+
+/* layouts */
+.row {
+  display: flex;
+  gap: 10px;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.mini-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+/* KPI */
+.kpi-box {
+  background: #f8fafc;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.kpi-title {
+  font-size: 11px;
+}
+
+.kpi-value {
+  font-size: 18px;
+  font-weight: bold;
+}
