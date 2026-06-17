@@ -6,7 +6,7 @@ function Header() {
         color: "white",
         padding: "10px"
       }}>
-        <h2>Muri - Refinery Overview</h2>
+        <h2>BLG - Refinery Overview</h2>
       </div>
 
       <div style={{
