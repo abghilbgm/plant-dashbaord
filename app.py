@@ -35,10 +35,15 @@ else:
     print("[startup] Frontend dist/ already exists, skipping build.")
 
 # ──────────────────────────────────────────────
-# 2. Set up FastAPI backend
+# 2. Install backend dependencies & set up FastAPI
 # ──────────────────────────────────────────────
+reqs_file = os.path.join(BACKEND_DIR, "requirements.txt")
+if os.path.exists(reqs_file):
+    print("[startup] Installing backend dependencies...")
+    subprocess.run([sys.executable, "-m", "pip", "install", "-q", "-r", reqs_file], check=True)
+
 sys.path.insert(0, BACKEND_DIR)
-os.chdir(BACKEND_DIR)  # So SQLite relative paths (database.db) resolve correctly
+os.chdir(BACKEND_DIR)
 
 from main import app  # noqa: E402
 

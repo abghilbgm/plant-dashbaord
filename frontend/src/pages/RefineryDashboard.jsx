@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import {
   ResponsiveContainer,
   BarChart,
@@ -10,6 +10,7 @@ import {
   Line,
   CartesianGrid,
 } from "recharts";
+import { API_BASE, SECTIONS, TIME_RANGES, getDateString } from "../utils/config";
 
 /* ═══════════════════════════════════════════════════════
    BLG - REFINERY OVERVIEW DASHBOARD
@@ -160,6 +161,77 @@ export default function RefineryDashboard() {
   const [activeTab, setActiveTab] = useState("Overview");
   const [currentTime, setCurrentTime] = useState(new Date());
 
+  // --- TIME RANGE STATE ---
+  const [timeRange, setTimeRange] = useState("today");
+  const [selectedDate, setSelectedDate] = useState(getDateString(0));
+  const [customFrom, setCustomFrom] = useState(getDateString(-7));
+  const [customTo, setCustomTo] = useState(getDateString(0));
+
+  // --- DATA STATE ---
+  const [liveData, setLiveData] = useState({});  // { dashboard_name: { paramId: {today, yesterday, mtd} } }
+  const [loading, setLoading] = useState(false);
+  const [lastUpdated, setLastUpdated] = useState(null);
+
+  // --- Compute active date based on time range ---
+  const getActiveDate = useCallback(() => {
+    if (timeRange === "today") return getDateString(0);
+    if (timeRange === "yesterday") return getDateString(-1);
+    if (timeRange === "custom") return customTo;
+    return selectedDate;
+  }, [timeRange, selectedDate, customTo]);
+
+  // --- FETCH DATA FROM API ---
+  const fetchAllData = useCallback(async () => {
+    setLoading(true);
+    const date = getActiveDate();
+    const dashboardsToFetch = [...new Set(SECTIONS.map(s => s.dashboard))];
+
+    try {
+      const results = await Promise.allSettled(
+        dashboardsToFetch.map(name =>
+          fetch(`${API_BASE}/dashboard/${name}?date=${date}`).then(r => r.json())
+        )
+      );
+
+      const newData = {};
+      results.forEach((result, idx) => {
+        if (result.status === "fulfilled" && result.value.parameters) {
+          const dashName = dashboardsToFetch[idx];
+          newData[dashName] = {};
+          result.value.parameters.forEach(p => {
+            newData[dashName][p.parameterId] = {
+              today: p.today,
+              yesterday: p.yesterday,
+              mtd: p.mtd,
+              name: p.name,
+              unit: p.unit,
+              category: p.category,
+            };
+          });
+        }
+      });
+
+      setLiveData(newData);
+      setLastUpdated(new Date());
+    } catch (err) {
+      console.error("Data fetch error:", err);
+    } finally {
+      setLoading(false);
+    }
+  }, [getActiveDate]);
+
+  // --- Fetch on mount and when date changes ---
+  useEffect(() => {
+    fetchAllData();
+    const interval = setInterval(fetchAllData, 5 * 60 * 1000); // Auto-refresh every 5 min
+    return () => clearInterval(interval);
+  }, [fetchAllData]);
+
+  // --- Helper: get param value from live data ---
+  const getParamValue = (dashboard, paramId, field = "today") => {
+    return liveData?.[dashboard]?.[paramId]?.[field] ?? "--";
+  };
+
   useEffect(() => {
     document.body.style.overflow = "auto";
     document.body.style.background = "#f0f2f5";
@@ -195,6 +267,36 @@ export default function RefineryDashboard() {
           </button>
         ))}
       </nav>
+
+      {/* ═══ TIME RANGE SELECTOR ═══ */}
+      <div style={styles.timeBar}>
+        <div style={styles.timeBarLeft}>
+          <span style={{ fontSize: 11, fontWeight: 600, color: "#4a5568", marginRight: 12 }}>Data Range:</span>
+          {TIME_RANGES.map(tr => (
+            <button key={tr.value} onClick={() => setTimeRange(tr.value)}
+              style={{ ...styles.timeBtn, ...(timeRange === tr.value ? styles.timeBtnActive : {}) }}>
+              {tr.label}
+            </button>
+          ))}
+          {timeRange === "custom" && (
+            <span style={{ display: "flex", alignItems: "center", gap: 6, marginLeft: 12 }}>
+              <input type="date" value={customFrom} onChange={e => setCustomFrom(e.target.value)} style={styles.dateInput} />
+              <span style={{ fontSize: 11, color: "#718096" }}>to</span>
+              <input type="date" value={customTo} onChange={e => setCustomTo(e.target.value)} style={styles.dateInput} />
+            </span>
+          )}
+          {timeRange !== "custom" && timeRange !== "today" && timeRange !== "yesterday" && (
+            <input type="date" value={selectedDate} onChange={e => setSelectedDate(e.target.value)} style={{ ...styles.dateInput, marginLeft: 12 }} />
+          )}
+        </div>
+        <div style={styles.timeBarRight}>
+          {loading && <span style={{ fontSize: 10, color: "#dd6b20" }}>\u23F3 Loading...</span>}
+          {lastUpdated && !loading && (
+            <span style={{ fontSize: 10, color: "#718096" }}>Last updated: {lastUpdated.toLocaleTimeString("en-IN", { hour: "2-digit", minute: "2-digit" })}</span>
+          )}
+          <button onClick={fetchAllData} style={styles.refreshBtn}>\u21BB Refresh</button>
+        </div>
+      </div>
 
       {/* ═══ MAIN GRID ═══ */}
       <main style={styles.main}>
@@ -450,6 +552,51 @@ const styles = {
     color: "#fff",
     background: "rgba(255,255,255,0.15)",
     borderBottom: "2px solid #fff",
+  },
+  timeBar: {
+    background: "#fff",
+    borderBottom: "1px solid #e2e8f0",
+    padding: "8px 16px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    boxShadow: "0 1px 2px rgba(0,0,0,0.04)",
+  },
+  timeBarLeft: { display: "flex", alignItems: "center", gap: 4 },
+  timeBarRight: { display: "flex", alignItems: "center", gap: 12 },
+  timeBtn: {
+    background: "#edf2f7",
+    border: "1px solid #e2e8f0",
+    borderRadius: 4,
+    padding: "4px 10px",
+    fontSize: 10,
+    fontWeight: 600,
+    color: "#4a5568",
+    cursor: "pointer",
+    transition: "all 0.15s",
+  },
+  timeBtnActive: {
+    background: "#dd6b20",
+    borderColor: "#dd6b20",
+    color: "#fff",
+  },
+  dateInput: {
+    border: "1px solid #e2e8f0",
+    borderRadius: 4,
+    padding: "4px 8px",
+    fontSize: 11,
+    color: "#2d3748",
+    outline: "none",
+  },
+  refreshBtn: {
+    background: "#2b6cb0",
+    color: "#fff",
+    border: "none",
+    borderRadius: 4,
+    padding: "5px 12px",
+    fontSize: 10,
+    fontWeight: 600,
+    cursor: "pointer",
   },
   main: {
     padding: 12,

@@ -1,12 +1,14 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-import requests
-import sqlite3
+import psycopg2
+import psycopg2.extras
 from datetime import datetime, timedelta
 import random
 import warnings
 
 warnings.filterwarnings("ignore")
+
+from params_config import get_dashboard_config, get_all_dashboards, DB_CONFIG, DB_TABLE
 
 app = FastAPI()
 
@@ -18,53 +20,104 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-API_URL = "https://hindalco-belagavi.covacsis.com/api/third-party/raw-param/facts/dynamic-query"
-AUTH = ("report", "ipf@2014")
 
-# ---------- DATABASE CONFIG ----------
-def get_config(name):
-    con = sqlite3.connect("database.db")
-    cur = con.cursor()
-
-    cur.execute("SELECT machine_id FROM dashboards WHERE name=?", (name,))
-    row = cur.fetchone()
-
-    if not row:
-        con.close()
-        return None
-
-    machine_id = row[0]
-
-    cur.execute("""
-        SELECT parameter_id, display_name, unit, category
-        FROM parameters
-        WHERE dashboard_name=?
-        ORDER BY display_order
-    """, (name,))
-
-    rows = cur.fetchall()
-    con.close()
-
-    param_ids = []
-    meta = {}
-
-    for r in rows:
-        pid = r[0]
-        param_ids.append(pid)
-        meta[pid] = {"name": r[1], "unit": r[2], "category": r[3]}
-
-    return machine_id, param_ids, meta
+# ---------- DATABASE CONNECTION ----------
+def get_db():
+    return psycopg2.connect(
+        host=DB_CONFIG["host"],
+        port=DB_CONFIG["port"],
+        database=DB_CONFIG["database"],
+        user=DB_CONFIG["user"],
+        password=DB_CONFIG["password"],
+    )
 
 
-# ---------- COVACSIS BATCH API ----------
-def fetch_batch(payload):
+def query_db(sql, params=None):
+    conn = get_db()
     try:
-        res = requests.post(API_URL, json=payload, auth=AUTH, verify=False, timeout=8)
-        if res.status_code != 200:
-            return []
-        return res.json()
-    except Exception:
-        return []
+        with conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor) as cur:
+            cur.execute(sql, params)
+            return cur.fetchall()
+    finally:
+        conn.close()
+
+# ---------- CONFIG (from params_config.py) ----------
+def get_config(name):
+    return get_dashboard_config(name)
+
+
+# ---------- DATABASE QUERIES ----------
+def fetch_param_avg(machine_id, param_ids, start_dt, end_dt):
+    """
+    Query raw_parameter_fact for AVG value of parameters in a date range.
+    Returns: {param_id: avg_value}
+    """
+    if not param_ids:
+        return {}
+    try:
+        sql = f"""
+            SELECT parameter_id, AVG(value) as avg_value
+            FROM {DB_TABLE}
+            WHERE machine_id = %s
+              AND parameter_id = ANY(%s)
+              AND timestamp >= %s
+              AND timestamp <= %s
+            GROUP BY parameter_id
+        """
+        rows = query_db(sql, (machine_id, param_ids, start_dt, end_dt))
+        return {
+            row["parameter_id"]: round(float(row["avg_value"]), 3) if row["avg_value"] else None
+            for row in rows
+        }
+    except Exception as e:
+        print(f"[DB ERROR] fetch_param_avg: {e}")
+        return {}
+
+
+def fetch_param_hourly(machine_id, param_ids, date_dt):
+    """
+    Query raw_parameter_fact for hourly averages for trend charts.
+    Returns: {param_id: [{time: "HH:00", value: float}, ...]}
+    """
+    if not param_ids:
+        return {}
+    try:
+        sql = f"""
+            SELECT parameter_id,
+                   EXTRACT(HOUR FROM timestamp) as hour,
+                   AVG(value) as avg_value
+            FROM {DB_TABLE}
+            WHERE machine_id = %s
+              AND parameter_id = ANY(%s)
+              AND timestamp >= %s
+              AND timestamp < %s
+            GROUP BY parameter_id, EXTRACT(HOUR FROM timestamp)
+            ORDER BY parameter_id, hour
+        """
+        start_dt = date_dt.replace(hour=0, minute=0, second=0)
+        end_dt = start_dt + timedelta(days=1)
+        rows = query_db(sql, (machine_id, param_ids, start_dt, end_dt))
+
+        result = {pid: [] for pid in param_ids}
+        # Index by param_id and hour
+        hourly = {}
+        for row in rows:
+            pid = row["parameter_id"]
+            h = int(row["hour"])
+            if pid not in hourly:
+                hourly[pid] = {}
+            hourly[pid][h] = round(float(row["avg_value"]), 2) if row["avg_value"] else None
+
+        # Fill 24 hours for each param
+        for pid in param_ids:
+            for h in range(24):
+                val = hourly.get(pid, {}).get(h)
+                result[pid].append({"time": f"{h:02d}:00", "value": val})
+
+        return result
+    except Exception as e:
+        print(f"[DB ERROR] fetch_param_hourly: {e}")
+        return {pid: [] for pid in param_ids}
 
 
 # ---------- FALLBACK SIMULATION DATA (PFA MATCH) ----------
@@ -128,13 +181,19 @@ def get_fallback_value(pid, range_type):
 # ---------- API ENDPOINTS ----------
 
 @app.get("/api/dashboards")
-def get_dashboards():
-    con = sqlite3.connect("database.db")
-    cur = con.cursor()
-    cur.execute("SELECT name, description FROM dashboards ORDER BY id")
-    rows = cur.fetchall()
-    con.close()
-    return [{"name": r[0], "description": r[1]} for r in rows]
+def list_dashboards():
+    return get_all_dashboards()
+
+
+@app.get("/api/schema")
+def db_schema():
+    """Utility: discover raw_parameter_fact columns."""
+    try:
+        sql = "SELECT column_name, data_type FROM information_schema.columns WHERE table_name = %s ORDER BY ordinal_position"
+        rows = query_db(sql, (DB_TABLE,))
+        return {"table": DB_TABLE, "columns": [dict(r) for r in rows]}
+    except Exception as e:
+        return {"error": str(e)}
 
 
 @app.get("/api/dashboard/{name}")
@@ -145,62 +204,45 @@ def dashboard(name: str, date: str):
 
     machine_id, param_ids, meta = config
 
-    # Calculate date ranges
+    # Calculate date ranges (using datetime objects for PostgreSQL)
     dt = datetime.strptime(date, "%Y-%m-%d")
-    
-    today_start = int(dt.replace(hour=0, minute=0, second=0).timestamp() * 1000)
-    today_end = int(dt.replace(hour=23, minute=59, second=59).timestamp() * 1000)
-    
-    yesterday_start = today_start - 24 * 3600 * 1000
-    yesterday_end = today_end - 24 * 3600 * 1000
-    
-    month_start = int(dt.replace(day=1, hour=0, minute=0, second=0).timestamp() * 1000)
 
-    # Build multi-range payload
-    payload = []
-    for pid in param_ids:
-        payload.append({"machineId": machine_id, "parameterId": pid, "minDate": today_start, "maxDate": today_end})
-        payload.append({"machineId": machine_id, "parameterId": pid, "minDate": yesterday_start, "maxDate": yesterday_end})
-        payload.append({"machineId": machine_id, "parameterId": pid, "minDate": month_start, "maxDate": today_end})
+    today_start = dt.replace(hour=0, minute=0, second=0)
+    today_end = dt.replace(hour=23, minute=59, second=59)
 
-    # Execute API Batch query
-    raw = fetch_batch(payload)
+    yesterday_start = today_start - timedelta(days=1)
+    yesterday_end = today_end - timedelta(days=1)
 
-    # Map results back to ranges
-    data_map = {pid: {"today": None, "yesterday": None, "mtd": None} for pid in param_ids}
+    month_start = dt.replace(day=1, hour=0, minute=0, second=0)
 
-    for item in raw:
-        pid = item["parameterId"]
-        i_min = item.get("minDate")
-        val = item.get("meanValue")
+    # Query PostgreSQL for each range
+    today_vals = fetch_param_avg(machine_id, param_ids, today_start, today_end)
+    yesterday_vals = fetch_param_avg(machine_id, param_ids, yesterday_start, yesterday_end)
+    mtd_vals = fetch_param_avg(machine_id, param_ids, month_start, today_end)
 
-        if val is not None:
-            val = round(val, 3)
-
-        if i_min == today_start:
-            data_map[pid]["today"] = val
-        elif i_min == yesterday_start:
-            data_map[pid]["yesterday"] = val
-        elif i_min == month_start:
-            data_map[pid]["mtd"] = val
-
-    # Fill fallbacks for null responses
-    for pid in param_ids:
-        for range_key in ["today", "yesterday", "mtd"]:
-            if data_map[pid][range_key] is None:
-                data_map[pid][range_key] = get_fallback_value(pid, range_key)
-
-    # Format output grouped by category
+    # Build output
     parameters_output = []
     for pid in param_ids:
+        t_val = today_vals.get(pid)
+        y_val = yesterday_vals.get(pid)
+        m_val = mtd_vals.get(pid)
+
+        # Use fallback if DB returned None
+        if t_val is None:
+            t_val = get_fallback_value(pid, "today")
+        if y_val is None:
+            y_val = get_fallback_value(pid, "yesterday")
+        if m_val is None:
+            m_val = get_fallback_value(pid, "mtd")
+
         parameters_output.append({
             "parameterId": pid,
             "name": meta[pid]["name"],
             "unit": meta[pid]["unit"],
             "category": meta[pid]["category"],
-            "today": data_map[pid]["today"],
-            "yesterday": data_map[pid]["yesterday"],
-            "mtd": data_map[pid]["mtd"]
+            "today": t_val,
+            "yesterday": y_val,
+            "mtd": m_val,
         })
 
     return {
@@ -219,34 +261,7 @@ def trend(name: str, date: str):
     machine_id, param_ids, meta = config
     dt = datetime.strptime(date, "%Y-%m-%d")
 
-    # Generate 24 hour trend
-    payload = []
-    for h in range(24):
-        h_start = int((dt + timedelta(hours=h)).timestamp() * 1000)
-        h_end = int((dt + timedelta(hours=h, minutes=59)).timestamp() * 1000)
-        for pid in param_ids:
-            payload.append({"machineId": machine_id, "parameterId": pid, "minDate": h_start, "maxDate": h_end})
+    # Query PostgreSQL for hourly averages
+    result = fetch_param_hourly(machine_id, param_ids, dt)
 
-    raw = fetch_batch(payload)
-
-    # Group response hourly
-    result = {pid: [] for pid in param_ids}
-    for h in range(24):
-        h_start = int((dt + timedelta(hours=h)).timestamp() * 1000)
-        for pid in param_ids:
-            matching_item = next((item for item in raw if item["parameterId"] == pid and item["minDate"] == h_start), None)
-            val = matching_item.get("meanValue") if matching_item else None
-            
-            # Use fallback trend if null
-            if val is None:
-                # Add slight hourly variance
-                random.seed(pid + h)
-                base = get_fallback_value(pid, "today") or 100
-                val = base + random.uniform(-base*0.08, base*0.08)
-                
-            result[pid].append({
-                "time": f"{h:02d}:00",
-                "value": round(val, 2)
-            })
-
-    return result
+    return {"dashboard": name, "date": date, "trend": result}
