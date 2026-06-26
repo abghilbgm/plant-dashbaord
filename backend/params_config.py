@@ -43,9 +43,11 @@ DB_CONFIG = {
 # Table that stores raw parameter values
 DB_TABLE = "raw_parameter_fact"
 
-# Legacy API config (kept as fallback, not used when DB is available)
-API_URL = "https://hindalco-belagavi.covacsis.com/api/third-party/raw-param/facts/dynamic-query"
-API_AUTH = ("report", "ipf@2014")
+# Column names in raw_parameter_fact
+COL_MACHINE = "machine_name"     # adjust if different
+COL_PARAMETER = "parameter_name" # adjust if different
+COL_VALUE = "value"              # adjust if different
+COL_TIMESTAMP = "timestamp"      # adjust if different
 
 # ============================================================
 # DASHBOARDS & PARAMETERS
@@ -66,103 +68,92 @@ DASHBOARDS = {
             {"id": 1449, "name": "SODA", "unit": "%", "category": "Feed Hydrate Quality"},
             {"id": 1443, "name": "PSD D50", "unit": "micron", "category": "Feed Hydrate Quality"},
 
-            # --- Production ---
-            {"id": 1444, "name": "Hydrate Production", "unit": "T", "category": "Production"},
-            {"id": 1445, "name": "Evacuation", "unit": "T", "category": "Production"},
-
-            # --- Key Efficiencies ---
-            {"id": 1446, "name": "Bx Factor", "unit": "T/T", "category": "Key Efficiencies"},
-            {"id": 1447, "name": "Total Steam", "unit": "T/T", "category": "Key Efficiencies"},
-            {"id": 1450, "name": "Hydrate Power", "unit": "kWh/T", "category": "Key Efficiencies"},
-            {"id": 1451, "name": "Caustic Soda Loss", "unit": "kg/T", "category": "Key Efficiencies"},
-            {"id": 1452, "name": "Last Wash Soda", "unit": "gpl", "category": "Key Efficiencies"},
-
-            # --- Bauxite Quality ---
-            {"id": 1453, "name": "THA", "unit": "%", "category": "Bauxite Quality"},
-            {"id": 1454, "name": "K Silica", "unit": "%", "category": "Bauxite Quality"},
-            {"id": 1455, "name": "Slurry Density", "unit": "gm/cc", "category": "Bauxite Quality"},
-            {"id": 1456, "name": "Slurry Charge", "unit": "m3/h", "category": "Bauxite Quality"},
-
-            # --- Mixed Liquor Flow ---
-            {"id": 1457, "name": "Total Mixed Liq Flow", "unit": "m3/h", "category": "Mixed Liquor Flow"},
-            {"id": 1458, "name": "PGL Flow", "unit": "m3/h", "category": "Mixed Liquor Flow"},
-        ]
-    },
-
     # --------------------------------------------------------
-    # DASHBOARD 2: DIGESTION
+    # BOILER & STEAM
     # --------------------------------------------------------
-    "digestion": {
-        "machine_id": 18,
-        "description": "Digestion Reactor Operations",
+    "boiler_steam": {
+        "description": "Steam Generation & Distribution",
+        "machine": "Boiler_Section",
         "parameters": [
-            {"id": 1501, "name": "Autoclave 1 Temp", "unit": "\u00b0C", "category": "Temperature Profile"},
-            {"id": 1502, "name": "Autoclave 2 Temp", "unit": "\u00b0C", "category": "Temperature Profile"},
-            {"id": 1503, "name": "Autoclave 3 Temp", "unit": "\u00b0C", "category": "Temperature Profile"},
-            {"id": 1504, "name": "Reactor 1 Pressure", "unit": "MPa", "category": "Pressure & Density"},
-            {"id": 1505, "name": "Digestion Feed Density", "unit": "g/L", "category": "Pressure & Density"},
-            {"id": 1506, "name": "Caustic Strength", "unit": "g/L", "category": "Pressure & Density"},
-            {"id": 1507, "name": "Steam Supply Flow", "unit": "t/h", "category": "Steam & Heat Recovery"},
-            {"id": 1508, "name": "Flash Steam Recovery", "unit": "t/h", "category": "Steam & Heat Recovery"},
+            {"name": "Boiler Total Steam Flow", "category": "Steam"},
+            {"name": "Steam Flow To Digester", "category": "Steam"},
+            {"name": "Process Steam Flow", "category": "Steam"},
+            {"name": "Steam Flow To 13A", "category": "Steam"},
+            {"name": "Steam Flow To 13B", "category": "Steam"},
+            {"name": "Auxilary Steam Flow", "category": "Steam"},
+            {"name": "Evaporation Factor Steam", "category": "Efficiency"},
+            {"name": "Make Up Water Flow", "category": "Water"},
+            {"name": "Condensate Temperature", "category": "Temperature"},
+            {"name": "Evaporation Factor Steam PnB", "category": "Plan & Budget"},
         ]
     },
 
     # --------------------------------------------------------
-    # DASHBOARD 3: CALCINATION
+    # CALCINATION
     # --------------------------------------------------------
     "calcination": {
-        "machine_id": 18,
-        "description": "Fluidized Bed Alumina Calciner",
+        "description": "Calcination Section",
+        "machine": "Calcination_Section",
         "parameters": [
-            {"id": 1531, "name": "Furnace Chamber Temp", "unit": "\u00b0C", "category": "Burner Thermodynamics"},
-            {"id": 1532, "name": "Burner Fuel Gas Flow", "unit": "Nm3/h", "category": "Burner Thermodynamics"},
-            {"id": 1533, "name": "Primary Combustion Air", "unit": "m3/h", "category": "Burner Thermodynamics"},
-            {"id": 1534, "name": "Preheater Cyclone Temp", "unit": "\u00b0C", "category": "Product & Gas Cooling"},
-            {"id": 1535, "name": "Alumina Cooler Exit Temp", "unit": "\u00b0C", "category": "Product & Gas Cooling"},
-            {"id": 1536, "name": "Loss on Ignition (LOI)", "unit": "%", "category": "Quality Analytics"},
-            {"id": 1537, "name": "Specific Gas Consumed", "unit": "Nm3/t", "category": "Quality Analytics"},
+            {"name": "Total Sx Production", "category": "Production"},
+            {"name": "Total Spls  Production", "category": "Production"},
+            {"name": "Hydrate Cutting As Alumina", "category": "Production"},
+            {"name": "Calcinable Hydrate Stock", "category": "Stock"},
+            {"name": "NG Consumption SX", "category": "Energy"},
+            {"name": "TOTAL_EVACUATION", "category": "Dispatch"},
+            {"name": "Total Sx Production PnB", "category": "Plan & Budget"},
         ]
     },
 
     # --------------------------------------------------------
-    # DASHBOARD 4: STEAM & POWER
+    # DIGESTION
     # --------------------------------------------------------
-    "steam_power": {
-        "machine_id": 18,
-        "description": "Steam Generation & Cogen Power House",
+    "digestion": {
+        "description": "Digestion Section",
+        "machine": "DIGESTION",
         "parameters": [
-            {"id": 1561, "name": "HP Steam Flow", "unit": "t/h", "category": "Steam House"},
-            {"id": 1562, "name": "MP Steam Flow", "unit": "t/h", "category": "Steam House"},
-            {"id": 1563, "name": "LP Steam Flow", "unit": "t/h", "category": "Steam House"},
-            {"id": 1564, "name": "Cogen Turbine Generator", "unit": "MW", "category": "Electricity"},
-            {"id": 1565, "name": "Grid Power Export", "unit": "MW", "category": "Electricity"},
-            {"id": 1566, "name": "Boiler Thermal Efficiency", "unit": "%", "category": "Electricity"},
+            {"name": "SLURRY_FLOW", "category": "Flow"},
+            {"name": "MIX_LIQUOR_FLOW", "category": "Flow"},
+            {"name": "STEAM_FLOW_TO_LSH_AND_DIGESTER", "category": "Steam"},
+            {"name": "DIGESTER_1_TEMPERATURE", "category": "Temperature"},
+            {"name": "IBSH_OUTLET_TEMPERATURE", "category": "Temperature"},
+            {"name": "LSH_OUTLET_TEMPERATURE", "category": "Temperature"},
+            {"name": "BLOWOFF_SLURRY_OUTLET_TEMPERATURE", "category": "Temperature"},
+            {"name": "PDS_TANK_HOLDING_TIME", "category": "Process"},
         ]
     },
 
     # --------------------------------------------------------
-    # DASHBOARD 5: WATER & CONDENSATE
+    # PRECIPITATION
     # --------------------------------------------------------
-    "water_condensate": {
-        "machine_id": 18,
-        "description": "Water Intake, Recirculation & Recovery",
+    "precipitation": {
+        "description": "Precipitation Section",
+        "machine": "Precipitation_Section",
         "parameters": [
-            {"id": 1571, "name": "Raw Water Intake", "unit": "m3/h", "category": "Water Balance"},
-            {"id": 1572, "name": "Process Water Flow", "unit": "m3/h", "category": "Water Balance"},
-            {"id": 1573, "name": "Condensate Return Flow", "unit": "m3/h", "category": "Condensate Loop"},
-            {"id": 1574, "name": "Condensate Recovery Ratio", "unit": "%", "category": "Condensate Loop"},
+            {"name": "PHE Inlet Temp", "category": "Temperature"},
+            {"name": "PHE Outlet Temp", "category": "Temperature"},
+            {"name": "Fine Seed Tonnage", "category": "Process"},
+            {"name": "Coarse Seed 1 Tonnage", "category": "Process"},
+            {"name": "Green Liq Flow", "category": "Flow"},
+            {"name": "13A Steam Flow", "category": "Steam"},
+            {"name": "13A RC Flow", "category": "Flow"},
+            {"name": "Regular Filling Flow", "category": "Flow"},
         ]
     },
 
     # --------------------------------------------------------
-    # DASHBOARD 6: DISPATCH
+    # EVAPORATION
     # --------------------------------------------------------
-    "dispatch": {
-        "machine_id": 18,
-        "description": "Alumina Dispatch & Evacuation Silos",
+    "evaporation": {
+        "description": "Evaporation Section",
+        "machine": "Evaporatoration",
         "parameters": [
-            {"id": 1444, "name": "Hydrate Production", "unit": "T", "category": "Dispatch"},
-            {"id": 1445, "name": "Evacuation", "unit": "T", "category": "Dispatch"},
+            {"name": "13A Steam Flow", "category": "Steam"},
+            {"name": "13A RC Flow", "category": "Flow"},
+            {"name": "Spent Liq Flow 13A", "category": "Flow"},
+            {"name": "13A 1st Body Liq Temp", "category": "Temperature"},
+            {"name": "13A 2nd Body Liq Temp", "category": "Temperature"},
+            {"name": "13B Steam Flow", "category": "Steam"},
         ]
     },
 }
@@ -173,25 +164,31 @@ DASHBOARDS = {
 # ============================================================
 
 def get_dashboard_config(name):
-    """Get dashboard config by name. Returns (machine_id, param_ids, meta) or None."""
+    """
+    Get dashboard config by name.
+    Returns (machine_name, param_names, meta) or None.
+    - machine_name: str (exact DB machine name)
+    - param_names: list of str (exact DB parameter names)
+    - meta: dict {param_name: {"category": ...}}
+    """
     dash = DASHBOARDS.get(name)
     if not dash:
         return None
 
-    machine_id = dash["machine_id"]
-    param_ids = [p["id"] for p in dash["parameters"]]
+    machine_name = dash["machine"]
+    param_names = [p["name"] for p in dash["parameters"]]
     meta = {
-        p["id"]: {"name": p["name"], "unit": p["unit"], "category": p["category"]}
+        p["name"]: {"category": p["category"]}
         for p in dash["parameters"]
     }
-    return machine_id, param_ids, meta
+    return machine_name, param_names, meta
 
 
 def get_all_dashboards():
-    """Return list of all dashboard names and descriptions."""
+    """Return list of all dashboard keys and descriptions."""
     return [
-        {"name": name, "description": cfg["description"]}
-        for name, cfg in DASHBOARDS.items()
+        {"name": key, "description": cfg["description"], "machine": cfg["machine"]}
+        for key, cfg in DASHBOARDS.items()
     ]
 
 
