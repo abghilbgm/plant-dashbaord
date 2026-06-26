@@ -13,15 +13,13 @@ To add a new dashboard:
 
 Structure:
   DASHBOARDS = {
-    "dashboard_name": {
-      "machine_id": <int>,          # Covacsis machine ID
+    "dashboard_key": {
+      "machine": "Exact Machine Name",   # from DB master list
       "description": "...",
       "parameters": [
         {
-          "id": <int>,              # Covacsis parameter ID
-          "name": "Display Name",
-          "unit": "unit",
-          "category": "Section Name",
+          "name": "Exact Parameter Name",  # from DB master list
+          "category": "UI Section",
         },
         ...
       ]
@@ -55,18 +53,32 @@ COL_TIMESTAMP = "timestamp"      # adjust if different
 DASHBOARDS = {
 
     # --------------------------------------------------------
-    # DASHBOARD 1: EFFICIENCY & KEY KPIs
+    # OVERALL PLANT KPIs
     # --------------------------------------------------------
-    "efficiency": {
-        "machine_id": 18,
-        "description": "Key Efficiencies & Hydrate Quality",
+    "overall_plant": {
+        "description": "Plant-wide Production & Efficiency",
+        "machine": "OVERALL_PLANT",
         "parameters": [
-            # --- Feed Hydrate Quality ---
-            {"id": 1441, "name": "PSD +100", "unit": "%", "category": "Feed Hydrate Quality"},
-            {"id": 1442, "name": "PSD +200", "unit": "%", "category": "Feed Hydrate Quality"},
-            {"id": 1448, "name": "PSD +325", "unit": "%", "category": "Feed Hydrate Quality"},
-            {"id": 1449, "name": "SODA", "unit": "%", "category": "Feed Hydrate Quality"},
-            {"id": 1443, "name": "PSD D50", "unit": "micron", "category": "Feed Hydrate Quality"},
+            {"name": "Hydrate", "category": "Production"},
+            {"name": "Bauxite Consumption", "category": "Raw Material"},
+            {"name": "Bauxite FOM", "category": "Raw Material"},
+            {"name": "Bauxite Receipt Own", "category": "Raw Material"},
+            {"name": "Lime Cao", "category": "Raw Material"},
+            {"name": "Energy For Hydrate", "category": "Efficiency"},
+            {"name": "Boiler Oil", "category": "Efficiency"},
+            {"name": "Caustic Charged", "category": "Efficiency"},
+            {"name": "Caustic Soda (Liq With Residue)", "category": "Efficiency"},
+            {"name": "Fresh Water Supply From Pump House", "category": "Water"},
+            {"name": "Total Fresh Water From Pump House", "category": "Water"},
+            {"name": "Mill Water to Standard Plant", "category": "Water"},
+            {"name": "Mill Water to Specials Plant", "category": "Water"},
+            {"name": "Lagoon Water (Treated)", "category": "Water"},
+            {"name": "Hydrate PnB", "category": "Plan & Budget"},
+            {"name": "Energy For Hydrate PnB", "category": "Plan & Budget"},
+            {"name": "Boiler Oil PnB", "category": "Plan & Budget"},
+            {"name": "Caustic Charged PnB", "category": "Plan & Budget"},
+        ]
+    },
 
     # --------------------------------------------------------
     # BOILER & STEAM
