@@ -1,111 +1,73 @@
 /**
- * DASHBOARD CONFIGURATION
- * =======================
- * Single source of truth for frontend parameter display.
+ * DASHBOARD CONFIGURATION (NAME-BASED)
+ * =====================================
+ * Uses exact parameter names from the database master list.
+ * No parameter IDs — just names as they appear in the DB.
  *
  * To add a new parameter:
- *   1. Add it to params_config.py in backend (for data fetching)
- *   2. Add it to the relevant section below (for UI rendering)
- *
- * To add a new section:
- *   1. Add new entry to SECTIONS array
- *   2. Map the parameter IDs to the section
+ *   1. Add it to params_config.py (backend) with exact DB name
+ *   2. Add it here in the relevant section with a display label
  */
 
-// API base path (relative, works in Databricks App)
+// API base path (relative for Databricks App, proxied in Vite dev)
 export const API_BASE = "/api";
 
-// Default dashboard to load
-export const DEFAULT_DASHBOARD = "efficiency";
-
 // ============================================================
-// DASHBOARD SECTIONS - Controls the Overview page layout
-// Each section maps to a visual block on the dashboard
+// DASHBOARD SECTIONS — Controls the Overview page layout
+// "dashboard" = key in backend params_config.py
+// "name" = exact parameter name from DB (case-sensitive!)
+// "label" = what to show on the UI
 // ============================================================
 export const SECTIONS = [
   {
-    id: "raw_material",
-    title: "Raw Material",
-    type: "raw_material",  // card type for rendering
-    dashboard: "bauxite_quality",  // which backend dashboard to fetch from
-    params: [
-      // paramId maps to params_config.py -> id
-      { paramId: 1541, displayAs: "quality", label: "TAA%" },
-      { paramId: 1542, displayAs: "quality", label: "R. Silica%" },
-      { paramId: 1544, displayAs: "stock", label: "Slurry Density" },
-      { paramId: 1546, displayAs: "stock", label: "Slurry Charge" },
-    ],
-  },
-  {
     id: "production",
     title: "Production",
-    type: "production",
-    dashboard: "efficiency",
+    type: "kpi_grid",
+    dashboard: "overall_plant",
     params: [
-      { paramId: 1444, label: "Hydrate Production", unit: "T" },
-      { paramId: 1445, label: "Evacuation", unit: "T" },
+      { name: "Hydrate", label: "Hydrate Production", unit: "T" },
+      { name: "Bauxite Consumption", label: "Bauxite Consumption", unit: "T" },
+      { name: "Bauxite FOM", label: "Bauxite FOM", unit: "T" },
+      { name: "Hydrate PnB", label: "Hydrate P&B", unit: "T" },
     ],
   },
   {
-    id: "quality",
-    title: "Product Quality",
-    type: "line_chart",
-    dashboard: "efficiency",
+    id: "raw_material",
+    title: "Raw Material",
+    type: "kpi_grid",
+    dashboard: "overall_plant",
     params: [
-      { paramId: 1441, label: "PSD +100", unit: "%", color: "#e53e3e" },
-      { paramId: 1442, label: "PSD +200", unit: "%", color: "#2b6cb0" },
-      { paramId: 1448, label: "PSD +325", unit: "%", color: "#805ad5" },
-    ],
-  },
-  {
-    id: "critical_process",
-    title: "Critical Process Parameter",
-    type: "gauge",
-    dashboard: "efficiency",
-    params: [
-      { paramId: 1453, label: "THA", unit: "%", max: 50 },
-      { paramId: 1454, label: "K Silica", unit: "%", max: 10 },
-      { paramId: 1455, label: "Slurry Density", unit: "gm/cc", max: 2.5 },
-      { paramId: 1456, label: "Slurry Charge", unit: "m3/h", max: 200 },
+      { name: "Bauxite Receipt Own", label: "Bauxite Receipt", unit: "T" },
+      { name: "Lime Cao", label: "Lime CaO", unit: "%" },
+      { name: "Caustic Charged", label: "Caustic Charged", unit: "kg/T" },
+      { name: "Caustic Soda (Liq With Residue)", label: "Caustic Soda Loss", unit: "kg/T" },
     ],
   },
   {
     id: "efficiency",
     title: "Efficiency",
     type: "kpi_strip",
-    dashboard: "efficiency",
+    dashboard: "overall_plant",
     params: [
-      { paramId: 1446, label: "Bx Factor", unit: "T/T" },
-      { paramId: 1447, label: "Total Steam", unit: "T/T" },
-      { paramId: 1450, label: "Hydrate Power", unit: "kWh/T" },
-      { paramId: 1451, label: "Caustic Soda Loss", unit: "kg/T" },
-      { paramId: 1452, label: "Last Wash Soda", unit: "gpl" },
+      { name: "Energy For Hydrate", label: "Energy/Hydrate", unit: "kWh/T" },
+      { name: "Boiler Oil", label: "Boiler Oil", unit: "kg/T" },
+      { name: "Caustic Charged", label: "Caustic Charged", unit: "kg/T" },
+      { name: "Caustic Charged PnB", label: "Caustic P&B", unit: "kg/T" },
+      { name: "Energy For Hydrate PnB", label: "Energy P&B", unit: "kWh/T" },
     ],
   },
   {
-    id: "power",
-    title: "Power",
+    id: "steam",
+    title: "Steam & Power",
     type: "kpi_grid",
-    dashboard: "steam_power",
+    dashboard: "boiler_steam",
     params: [
-      { paramId: 1561, label: "HP Steam Flow", unit: "t/h" },
-      { paramId: 1562, label: "MP Steam Flow", unit: "t/h" },
-      { paramId: 1563, label: "LP Steam Flow", unit: "t/h" },
-      { paramId: 1564, label: "Cogen Power", unit: "MW" },
-      { paramId: 1565, label: "Grid Export", unit: "MW" },
-      { paramId: 1566, label: "Boiler Efficiency", unit: "%" },
-    ],
-  },
-  {
-    id: "water",
-    title: "Water Dashboard",
-    type: "kpi_grid",
-    dashboard: "water_condensate",
-    params: [
-      { paramId: 1571, label: "Raw Water Intake", unit: "m3/h" },
-      { paramId: 1572, label: "Process Water Flow", unit: "m3/h" },
-      { paramId: 1573, label: "Condensate Return", unit: "m3/h" },
-      { paramId: 1574, label: "Condensate Recovery", unit: "%" },
+      { name: "Boiler Total Steam Flow", label: "Total Steam", unit: "TPH" },
+      { name: "Steam Flow To Digester", label: "Steam to Digester", unit: "TPH" },
+      { name: "Process Steam Flow", label: "Process Steam", unit: "TPH" },
+      { name: "Evaporation Factor Steam", label: "Evap Factor", unit: "T/T" },
+      { name: "Make Up Water Flow", label: "Make Up Water", unit: "m3/hr" },
+      { name: "Condensate Temperature", label: "Condensate Temp", unit: "\u00b0C" },
     ],
   },
   {
@@ -114,10 +76,49 @@ export const SECTIONS = [
     type: "kpi_grid",
     dashboard: "calcination",
     params: [
-      { paramId: 1531, label: "Furnace Temp", unit: "\u00b0C" },
-      { paramId: 1532, label: "Fuel Gas Flow", unit: "Nm3/h" },
-      { paramId: 1536, label: "LOI", unit: "%" },
-      { paramId: 1537, label: "Specific Gas", unit: "Nm3/t" },
+      { name: "Total Sx Production", label: "Sx Production", unit: "T" },
+      { name: "Total Spls  Production", label: "Spls Production", unit: "T" },
+      { name: "Calcinable Hydrate Stock", label: "Hydrate Stock", unit: "T" },
+      { name: "NG Consumption SX", label: "NG Consumption", unit: "SCM" },
+      { name: "TOTAL_EVACUATION", label: "Total Evacuation", unit: "" },
+    ],
+  },
+  {
+    id: "digestion",
+    title: "Digestion",
+    type: "kpi_grid",
+    dashboard: "digestion",
+    params: [
+      { name: "SLURRY_FLOW", label: "Slurry Flow", unit: "m3/hr" },
+      { name: "MIX_LIQUOR_FLOW", label: "Mix Liquor Flow", unit: "m3/hr" },
+      { name: "STEAM_FLOW_TO_LSH_AND_DIGESTER", label: "Steam to Digester", unit: "TPH" },
+      { name: "DIGESTER_1_TEMPERATURE", label: "Digester 1 Temp", unit: "\u00b0C" },
+      { name: "IBSH_OUTLET_TEMPERATURE", label: "IBSH Outlet Temp", unit: "\u00b0C" },
+      { name: "PDS_TANK_HOLDING_TIME", label: "PDS Holding Time", unit: "Hrs" },
+    ],
+  },
+  {
+    id: "water",
+    title: "Water Dashboard",
+    type: "kpi_grid",
+    dashboard: "overall_plant",
+    params: [
+      { name: "Fresh Water Supply From Pump House", label: "Fresh Water Intake", unit: "m3/hr" },
+      { name: "Mill Water to Standard Plant", label: "Mill Water (Std)", unit: "m3/hr" },
+      { name: "Mill Water to Specials Plant", label: "Mill Water (Spl)", unit: "m3/hr" },
+      { name: "Lagoon Water (Treated)", label: "Lagoon Water", unit: "MLD" },
+    ],
+  },
+  {
+    id: "precipitation",
+    title: "Precipitation",
+    type: "kpi_grid",
+    dashboard: "precipitation",
+    params: [
+      { name: "PHE Inlet Temp", label: "PHE Inlet Temp", unit: "\u00b0C" },
+      { name: "PHE Outlet Temp", label: "PHE Outlet Temp", unit: "\u00b0C" },
+      { name: "Fine Seed Tonnage", label: "Fine Seed", unit: "tph" },
+      { name: "Green Liq Flow", label: "Green Liq Flow", unit: "m3/hr" },
     ],
   },
 ];

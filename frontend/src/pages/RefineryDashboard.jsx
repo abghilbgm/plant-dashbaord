@@ -227,9 +227,11 @@ export default function RefineryDashboard() {
     return () => clearInterval(interval);
   }, [fetchAllData]);
 
-  // --- Helper: get param value from live data ---
-  const getParamValue = (dashboard, paramId, field = "today") => {
-    return liveData?.[dashboard]?.[paramId]?.[field] ?? "--";
+  // --- Helper: get param value from live data (by NAME) ---
+  const getParamValue = (dashboard, paramName, field = "today") => {
+    const val = liveData?.[dashboard]?.[paramName]?.[field];
+    if (val === null || val === undefined) return "--";
+    return typeof val === "number" ? val.toLocaleString(undefined, { maximumFractionDigits: 2 }) : val;
   };
 
   useEffect(() => {
@@ -658,5 +660,12 @@ const styles = {
     borderRadius: 6,
     padding: 8,
     textAlign: "center",
+  },
+  paramCard: {
+    border: "1px solid #edf2f7",
+    borderRadius: 6,
+    padding: 10,
+    background: "#fafbfc",
+    transition: "all 0.15s",
   },
 };
