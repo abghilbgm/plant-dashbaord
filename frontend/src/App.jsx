@@ -1,8 +1,8 @@
-import Dashboard from "./pages/Dashboard";
+import RefineryDashboard from "./pages/RefineryDashboard";
 
 function App() {
   return (
-    <Dashboard />
+    <RefineryDashboard />
   );
 }
 
