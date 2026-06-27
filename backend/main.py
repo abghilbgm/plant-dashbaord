@@ -29,6 +29,7 @@ def get_db():
         database=DB_CONFIG["database"],
         user=DB_CONFIG["user"],
         password=DB_CONFIG["password"],
+        sslmode="disable",
     )
 
 
