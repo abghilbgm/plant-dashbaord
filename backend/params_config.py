@@ -44,7 +44,7 @@ DB_TABLE = "raw_parameter_fact"
 # Column names in raw_parameter_fact
 COL_MACHINE = "machine_name"     # adjust if different
 COL_PARAMETER = "parameter_name" # adjust if different
-COL_VALUE = "value"              # adjust if different
+COL_VALUE = "parameter_value"      # adjust if different
 COL_TIMESTAMP = "timestamp"      # adjust if different
 
 # ============================================================
@@ -77,6 +77,8 @@ DASHBOARDS = {
             {"name": "Energy For Hydrate PnB", "category": "Plan & Budget"},
             {"name": "Boiler Oil PnB", "category": "Plan & Budget"},
             {"name": "Caustic Charged PnB", "category": "Plan & Budget"},
+            {"name": "Overall Recovery", "category": "Efficiency"},
+            {"name": "BX_FACTOR", "category": "Efficiency"},
         ]
     },
 
@@ -166,6 +168,169 @@ DASHBOARDS = {
             {"name": "13A 1st Body Liq Temp", "category": "Temperature"},
             {"name": "13A 2nd Body Liq Temp", "category": "Temperature"},
             {"name": "13B Steam Flow", "category": "Steam"},
+        ]
+    },
+
+    # --------------------------------------------------------
+    # CLARIFICATION
+    # --------------------------------------------------------
+    "clarification": {
+        "description": "Clarification Section",
+        "machine": "Wash_Thickner_Section",
+        "parameters": [
+            {"name": "Liq_A Rake Motor Load", "category": "Rake Torque"},
+            {"name": "Liq_A Thickner Mud Level", "category": "Mud Level"},
+            {"name": "Liq_B Rake Motor Load", "category": "Rake Torque"},
+            {"name": "Liq_B Thickner Mud Level", "category": "Mud Level"},
+            {"name": "Liq_C Rake Motor Load", "category": "Rake Torque"},
+            {"name": "Liq_C Thickner Mud Level", "category": "Mud Level"},
+            {"name": "Liq_D Rake Motor Load", "category": "Rake Torque"},
+            {"name": "Liq_D_THICKNER_MUD_LEVEL", "category": "Mud Level"},
+            {"name": "Wash Water Flow", "category": "Flow"},
+            {"name": "First Wash Temperature", "category": "Temperature"},
+            {"name": "28A Gland Water Flow", "category": "Gland Water"},
+        ]
+    },
+
+    # --------------------------------------------------------
+    # RED MUD
+    # --------------------------------------------------------
+    "red_mud": {
+        "description": "Red Mud Filtration",
+        "machine": "Filter_Press_Section",
+        "parameters": [
+            {"name": "RED_MUD_MOIST_R_AND_M", "category": "Red Mud Cake Quality"},
+            {"name": "RED_MUD_LOM1000_DEGREE_C", "category": "Red Mud Cake Quality"},
+            {"name": "Fresh Water To Filter Press", "category": "Water Consumption"},
+            {"name": "DMS_CAKE_MOIST", "category": "DMS Cake Quality"},
+            {"name": "DMS_CAKE_SOLIDS", "category": "DMS Cake Quality"},
+            {"name": "DMS_FEED_SODA", "category": "Soda Recovery"},
+            {"name": "DMS_FILTRATE_SODA", "category": "Soda Recovery"},
+        ]
+    },
+
+    # --------------------------------------------------------
+    # LIQUOR FLOW
+    # --------------------------------------------------------
+    "liquor_flow": {
+        "description": "Liquor Circulation Flow",
+        "machine": "OVERALL_PLANT",
+        "parameters": [
+            {"name": "PGL_FLOW", "category": "Liquor Flow"},
+            {"name": "PGL_A_C", "category": "Liquor Ratio"},
+            {"name": "SPENT_LIQUOR_A_C", "category": "Liquor Ratio"},
+            {"name": "DIGESTION_FEED_CAUSTIC__CONCENTRATION", "category": "Chemical Concentration"},
+            {"name": "DIGESTION_FEED_A_C", "category": "Liquor Ratio"},
+        ]
+    },
+
+    # --------------------------------------------------------
+    # BAUXITE QUALITY
+    # --------------------------------------------------------
+    "bauxite_quality": {
+        "description": "Bauxite Feed Quality",
+        "machine": "OVERALL_PLANT",
+        "parameters": [
+            {"name": "THA", "category": "Bauxite Composition"},
+            {"name": "K_SIO2", "category": "Bauxite Composition"},
+            {"name": "T_SIO2", "category": "Bauxite Composition"},
+            {"name": "Bauxite Consumption", "category": "Consumption"},
+            {"name": "Bauxite FOM", "category": "Stock"},
+        ]
+    },
+
+    # --------------------------------------------------------
+    # VIBRATION MONITORING
+    # --------------------------------------------------------
+    "vibration_monitoring": {
+        "description": "Asset Vibration Analytics",
+        "machine": "ABM_4",
+        "parameters": [
+            {"name": "GB_VIBRATION", "category": "Vibration"},
+            {"name": "PINION_DE_BEARING_VIBRATION_EAST", "category": "Vibration"},
+            {"name": "PINION_DE_BEARING_VIBRATION_SOUTH", "category": "Vibration"},
+            {"name": "PINION_NDE_BEARING_VIBRATION_SOUTH", "category": "Vibration"},
+            {"name": "PINION_NDE_BEARING_VIBRATION_WEST", "category": "Vibration"},
+            {"name": "GB_BEARING_TEMP_DE", "category": "Bearing Temperature"},
+            {"name": "GB_BEARING_TEMP_NDE", "category": "Bearing Temperature"},
+            {"name": "Main BRG Temp DE", "category": "Main Bearing Temperature"},
+            {"name": "Main BRG Temp NDE", "category": "Main Bearing Temperature"},
+        ]
+    },
+
+    # --------------------------------------------------------
+    # DISPATCH
+    # --------------------------------------------------------
+    "dispatch": {
+        "description": "Production Evacuation & Dispatch",
+        "machine": "Calcination_Section",
+        "parameters": [
+            {"name": "TOTAL_EVACUATION", "category": "Dispatch Rate"},
+            {"name": "Calcinable Hydrate Stock", "category": "Stock Level"},
+            {"name": "Calcinable Hydrate Stock PnB", "category": "Plan & Budget"},
+        ]
+    },
+
+    # --------------------------------------------------------
+    # ENVIRONMENTAL
+    # --------------------------------------------------------
+    "environmental": {
+        "description": "EMS & Resource Sustainability",
+        "machine": "OVERALL_PLANT",
+        "parameters": [
+            {"name": "Fresh Water Supply From Pump House", "category": "Water Intake"},
+            {"name": "Total Fresh Water From Pump House", "category": "Water Consumption"},
+            {"name": "Lagoon Water (Treated)", "category": "Treated Water"},
+            {"name": "Rainfall", "category": "Weather"},
+            {"name": "Boiler Oil", "category": "Fuel Consumption"},
+        ]
+    },
+
+    # --------------------------------------------------------
+    # SHIFT KPIs
+    # --------------------------------------------------------
+    "shift_kpis": {
+        "description": "Shift Operating Target Summary",
+        "machine": "OVERALL_PLANT",
+        "parameters": [
+            {"name": "Hydrate PnB", "category": "Production Target"},
+            {"name": "Bauxite Consumption PnB", "category": "Material Target"},
+            {"name": "Bauxite FOM PnB", "category": "Stock Target"},
+            {"name": "Energy For Hydrate PnB", "category": "Energy Target"},
+            {"name": "Boiler Oil PnB", "category": "Fuel Target"},
+        ]
+    },
+
+    # --------------------------------------------------------
+    # STEAM POWER
+    # --------------------------------------------------------
+    "steam_power": {
+        "description": "Steam & Cogeneration Cogen Power",
+        "machine": "BIO_MASS",
+        "parameters": [
+            {"name": "TURBINE_LOAD", "category": "Power Generation"},
+            {"name": "TURBINE_SPEED", "category": "Turbine State"},
+            {"name": "TURBINE_INLET_STEAM_FLOW", "category": "Steam Flow"},
+            {"name": "TURBINE_EXTRACTION_STEAM_FLOW", "category": "Steam Flow"},
+            {"name": "TURBINE_EXHAUST_STEAM_FLOW", "category": "Steam Flow"},
+            {"name": "HP_HEADER_STEAM_PRESSURE", "category": "Steam Pressure"},
+            {"name": "MP_HEADER_STEAM_PRESSURE", "category": "Steam Pressure"},
+            {"name": "LP_HEADER_STEAM_PRESSURE", "category": "Steam Pressure"},
+        ]
+    },
+
+    # --------------------------------------------------------
+    # EFFICIENCY
+    # --------------------------------------------------------
+    "efficiency": {
+        "description": "Plant Operating Efficiencies",
+        "machine": "OVERALL_PLANT",
+        "parameters": [
+            {"name": "Overall Recovery", "category": "Recovery"},
+            {"name": "BX_FACTOR", "category": "Bauxite Factor"},
+            {"name": "Energy For Hydrate", "category": "Energy Efficiency"},
+            {"name": "Boiler Oil", "category": "Fuel Efficiency"},
+            {"name": "Caustic Soda (Liq With Residue)", "category": "Caustic Loss"},
         ]
     },
 }

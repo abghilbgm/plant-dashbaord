@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-import psycopg2
-import psycopg2.extras
+import pymysql
+import pymysql.cursors
 from datetime import datetime, timedelta
 import random
 import warnings
@@ -23,20 +23,20 @@ app.add_middleware(
 
 # ---------- DATABASE CONNECTION ----------
 def get_db():
-    return psycopg2.connect(
+    return pymysql.connect(
         host=DB_CONFIG["host"],
         port=DB_CONFIG["port"],
         database=DB_CONFIG["database"],
         user=DB_CONFIG["user"],
         password=DB_CONFIG["password"],
-        sslmode="disable",
+        cursorclass=pymysql.cursors.DictCursor
     )
 
 
 def query_db(sql, params=None):
     conn = get_db()
     try:
-        with conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor) as cur:
+        with conn.cursor() as cur:
             cur.execute(sql, params)
             return cur.fetchall()
     finally:
@@ -57,16 +57,18 @@ def fetch_param_avg(machine_name, param_names, start_dt, end_dt):
     if not param_names:
         return {}
     try:
+        placeholders = ", ".join(["%s"] * len(param_names))
         sql = f"""
-            SELECT {COL_PARAMETER} as param_name, AVG({COL_VALUE}) as avg_value
+            SELECT {COL_PARAMETER} as param_name, AVG({COL_VALUE} + 0.0) as avg_value
             FROM {DB_TABLE}
             WHERE {COL_MACHINE} = %s
-              AND {COL_PARAMETER} = ANY(%s)
+              AND {COL_PARAMETER} IN ({placeholders})
               AND {COL_TIMESTAMP} >= %s
               AND {COL_TIMESTAMP} <= %s
             GROUP BY {COL_PARAMETER}
         """
-        rows = query_db(sql, (machine_name, param_names, start_dt, end_dt))
+        params = [machine_name] + list(param_names) + [start_dt, end_dt]
+        rows = query_db(sql, params)
         return {
             row["param_name"]: round(float(row["avg_value"]), 3) if row["avg_value"] else None
             for row in rows
@@ -85,13 +87,14 @@ def fetch_param_hourly(machine_name, param_names, date_dt):
     if not param_names:
         return {}
     try:
+        placeholders = ", ".join(["%s"] * len(param_names))
         sql = f"""
             SELECT {COL_PARAMETER} as param_name,
                    EXTRACT(HOUR FROM {COL_TIMESTAMP}) as hour,
-                   AVG({COL_VALUE}) as avg_value
+                   AVG({COL_VALUE} + 0.0) as avg_value
             FROM {DB_TABLE}
             WHERE {COL_MACHINE} = %s
-              AND {COL_PARAMETER} = ANY(%s)
+              AND {COL_PARAMETER} IN ({placeholders})
               AND {COL_TIMESTAMP} >= %s
               AND {COL_TIMESTAMP} < %s
             GROUP BY {COL_PARAMETER}, EXTRACT(HOUR FROM {COL_TIMESTAMP})
@@ -99,7 +102,8 @@ def fetch_param_hourly(machine_name, param_names, date_dt):
         """
         start_dt = date_dt.replace(hour=0, minute=0, second=0)
         end_dt = start_dt + timedelta(days=1)
-        rows = query_db(sql, (machine_name, param_names, start_dt, end_dt))
+        params = [machine_name] + list(param_names) + [start_dt, end_dt]
+        rows = query_db(sql, params)
 
         result = {name: [] for name in param_names}
         hourly = {}
@@ -140,7 +144,7 @@ def db_schema():
 
 
 @app.get("/api/dashboard/{name}")
-def dashboard(name: str, date: str):
+def dashboard(name: str, date: str = None):
     config = get_config(name)
     if not config:
         return {"error": "not found"}
@@ -148,7 +152,11 @@ def dashboard(name: str, date: str):
     machine_name, param_names, meta = config
 
     # Calculate date ranges
-    dt = datetime.strptime(date, "%Y-%m-%d")
+    try:
+        dt = datetime.strptime(date, "%Y-%m-%d") if date else datetime.now()
+    except (ValueError, TypeError):
+        dt = datetime.now()
+
     today_start = dt.replace(hour=0, minute=0, second=0)
     today_end = dt.replace(hour=23, minute=59, second=59)
     yesterday_start = today_start - timedelta(days=1)
@@ -158,16 +166,26 @@ def dashboard(name: str, date: str):
     # Query PostgreSQL by parameter NAME
     today_vals = fetch_param_avg(machine_name, param_names, today_start, today_end)
     yesterday_vals = fetch_param_avg(machine_name, param_names, yesterday_start, yesterday_end)
+    
+    # Fetch day-before-yesterday as fallback
+    dby_start = today_start - timedelta(days=2)
+    dby_end = today_end - timedelta(days=2)
+    dby_vals = fetch_param_avg(machine_name, param_names, dby_start, dby_end)
+    
     mtd_vals = fetch_param_avg(machine_name, param_names, month_start, today_end)
 
     # Build output
     parameters_output = []
     for pname in param_names:
+        yesterday_val = yesterday_vals.get(pname)
+        if yesterday_val is None:
+            yesterday_val = dby_vals.get(pname)
+            
         parameters_output.append({
             "name": pname,
             "category": meta[pname]["category"],
             "today": today_vals.get(pname),
-            "yesterday": yesterday_vals.get(pname),
+            "yesterday": yesterday_val,
             "mtd": mtd_vals.get(pname),
         })
 
@@ -180,13 +198,16 @@ def dashboard(name: str, date: str):
 
 
 @app.get("/api/trend/{name}")
-def trend(name: str, date: str):
+def trend(name: str, date: str = None):
     config = get_config(name)
     if not config:
         return {"error": "not found"}
 
     machine_name, param_names, meta = config
-    dt = datetime.strptime(date, "%Y-%m-%d")
+    try:
+        dt = datetime.strptime(date, "%Y-%m-%d") if date else datetime.now()
+    except (ValueError, TypeError):
+        dt = datetime.now()
 
     # Query PostgreSQL for hourly trend by NAME
     result = fetch_param_hourly(machine_name, param_names, dt)

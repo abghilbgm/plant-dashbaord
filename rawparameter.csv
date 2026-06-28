@@ -1,0 +1,2483 @@
+"Sr no,",Nature,Machine Name,Parameter Name,Unit
+1,CUMULATIVE,BALL_MILL_A,BALL_MILL_A_KWH,kWh
+2,PURE,BALL_MILL_A,BALL_MILL_A_ACTIVE_POWER,kW
+3,CUMULATIVE,BALL_MILL_B,BALL_MILL_B_KWH,kWh
+4,PURE,BALL_MILL_B,BALL_MILL_B_ACTIVE_POWER,kW
+5,CUMULATIVE,BALL_MILL_C,BALL_MILL_C_KWH,kWh
+6,PURE,BALL_MILL_C,BALL_MILL_C_ACTIVE_POWER,kW
+7,CUMULATIVE,BALL_MILL_D,BALL_MILL_D_KWH,kWh
+8,PURE,BALL_MILL_D,BALL_MILL_D_ACTIVE_POWER,kW
+9,CUMULATIVE,DIGESTION,MCC_18A_1_KWH,kWh
+10,PURE,DIGESTION,MCC_18A_1_ACTIVE_POWER,kW
+11,CUMULATIVE,DIGESTION,MCC_18D_3_KWH,kWh
+12,PURE,DIGESTION,MCC_18D_3_ACTIVE_POWER,kW
+13,CUMULATIVE,DIGESTION,MCC_4A_1_KWH,kWh
+14,PURE,DIGESTION,MCC_4A_1_ACTIVE_POWER,kW
+15,CUMULATIVE,DIGESTION,MCC_4B_3_KWH,kWh
+16,PURE,DIGESTION,MCC_4B_3_ACTIVE_POWER,kW
+17,CUMULATIVE,DIGESTION,MCC_4D_4_KWH,kWh
+18,PURE,DIGESTION,MCC_4D_4_ACTIVE_POWER,kW
+19,CUMULATIVE,DIGESTION,MCC_4E_5_KWH,kWh
+20,PURE,DIGESTION,MCC_4E_5_ACTIVE_POWER,kW
+21,CUMULATIVE,DIGESTION,MCC_4E_6_KWH,kWh
+22,PURE,DIGESTION,MCC_4E_6_ACTIVE_POWER,kW
+23,PURE,DIGESTION,IBSH_OUTLET_TEMPERATURE,C
+24,PURE,BALL_MILL_A,BALL_MILL_A,TPH
+25,PURE,BALL_MILL_B,BALL_MILL_B,TPH
+26,PURE,BALL_MILL_C,BALL_MILL_C,TPH
+27,PURE,BALL_MILL_D,BALL_MILL_D,TPH
+28,PURE,DIGESTION,SLURRY_FLOW,m3/hr
+29,PURE,DIGESTION,PDS1_LEVEL,meter
+30,PURE,DIGESTION,PDS_2_LEVEL,meter
+31,PURE,DIGESTION,PDS_3_LEVEL,meter
+32,PURE,DIGESTION,PDS_4_LEVEL,meter
+33,PURE,DIGESTION,MIX_LIQUOR_FLOW,m3/hr
+34,PURE,DIGESTION,GLAND_WATER_FLOW,m3/hr
+35,PURE,DIGESTION,CLEAR_CONDENSATE_FLOW,m3/hr
+36,PURE,DIGESTION,STEAM_FLOW_TO_LSH_AND_DIGESTER,TPH
+37,PURE,DIGESTION,LSH_OUTLET_TEMPERATURE,C
+38,PURE,DIGESTION,LSH_INLET_TEMPERATURE,C
+39,PURE,DIGESTION,BLOWOFF_SLURRY_OUTLET_TEMPERATURE,C
+40,PURE,DIGESTION,FT4_INLET_TEMPERATURE,C
+41,PURE,DIGESTION,PDS_TANK_HOLDING_TIME,Hrs
+42,PURE,DIGESTION,DIGESTER_1_TEMPERATURE,C
+43,PURE,DIGESTION,DIGESTER_2_TEMPERATURE,C
+44,PURE,DIGESTION,DIGESTER_3_TEMPERATURE,C
+45,PURE,DIGESTION,DIGESTER_4_TEMPERATURE,C
+46,PURE,DIGESTION,DIGESTER_5_TEMPERATURE,C
+47,PURE,DIGESTION,DIGESTER_6_TEMPERATURE,C
+48,PURE,DIGESTION,HEATER_11_TEMPERATURE,C
+49,PURE,DIGESTION,HEATER_12_TEMPERATURE,C
+50,PURE,DIGESTION,HEATER_13_TEMPERATURE,C
+51,PURE,DIGESTION,HEATER_14_TEMPERATURE,C
+52,PURE,DIGESTION,HEATER_16_TEMPERATURE,C
+53,PURE,DIGESTION,20_LB_FLASH_TANK_VACUUM,kg/cm2
+54,PURE,DIGESTION,10_LB_FLASH_TANK_VACUUM,kg/cm2
+55,PURE,DIGESTION,0_LB_FLASH_TANK_VACUUM,kg/cm2
+56,PURE,KILN_2,PRIMARY_AIR_PRESSURE_KILN_2,inchwc
+57,PURE,KILN_2,FLUE_GAS_TEMP,C
+58,PURE,KILN_2,ESP_INLET_TEMP,C
+59,PURE,KILN_2,HOT_ZONE_TEMP,C
+60,PURE,KILN_2,COMBIN_SPEED_FEED_RATE_TO_KILN_2,RPM
+61,PURE,KILN_2,STACK,inchwc
+62,PURE,KILN_2,ESP_INLET_DRAFT,inchwc
+63,PURE,KILN_2,POLYCLONE_DRAFT,inchwc
+64,PURE,KILN_2,MULTICLONE_DRAFT,inchwc
+65,PURE,KILN_2,O2_PERCENTAGE,percentage
+66,PURE,KILN_2,CO_PERCENTAGE,percentage
+67,PURE,KILN_2,OUTPUT,TPH
+68,PURE,KILN_2,RC_OUTLET_TEMP,C
+69,PURE,KILN_2,HYDRATE_SLURRY_FLOW_TO_PAN_FILTER_2,m3/hr
+70,PURE,KILN_2,WASH_WATER_FLOW_TO_PAN_FILTER_2,m3/hr
+71,PURE,KILN_2,PAN_FILTER_2_VACCUM,inchhg
+72,PURE,KILN_2,NG_FIRING_RATE,SCM/Hr
+73,PURE,DIGESTION,MIX_LIQUOR_CONCENTRATION,gpl
+74,PURE,DIGESTION,MIX_LIQUOR_RATIO,ratio
+75,PURE,DIGESTION,BLOW_OFF_RATIO,ratio
+76,PURE,DIGESTION,K_SILICA_IN_BAUXITE,percentage
+77,PURE,DIGESTION,SUSPENDED_SOLIDS,gpl
+78,PURE,DIGESTION,FILLING_CONCENTRATION,gpl
+79,PURE,DIGESTION,FILLING_RATIO,ratio
+80,PURE,DIGESTION,SPENT_LIQUOR_CONCENTRATION,gpl
+81,PURE,DIGESTION,SPENT_LIQUOR_RATIO,ratio
+82,PURE,KILN_2,MOISTURE,percentage
+83,PURE,KILN_2,ENTRAINED_SODA,gpl
+84,PURE,KILN_2,NG_GCV,Kcal/SCM
+85,PURE,KILN_2,NG_NCV,unit
+86,PURE,KILN_2,SSA,m2/g
+87,PURE,DIGESTION,MIX_LIQUOR_FLOW_TO_GRINDING,m3/hr
+88,PURE,BALL_MILL_A,BALL_MILL_A_LIQUOR_FLOW,m3/hr
+89,PURE,BALL_MILL_B,BALL_MILL_B_LIQUOR_FLOW,m3/hr
+90,PURE,BALL_MILL_C,BALL_MILL_C_LIQUOR_FLOW,m3/hr
+91,PURE,BALL_MILL_D,BALL_MILL_D_LIQUOR_FLOW,m3/hr
+92,PURE,KILN_2,ALF3_CHARGING,kg/hr
+93,PURE,LIQ_A,Motor Load,Watts
+94,PURE,LIQ_B,Motor Load,Watts
+95,PURE,LIQ_C,Motor Load,Watts
+96,PURE,LIQ_D,Motor Load,Watts
+97,PURE,T_3,Motor Load,Watts
+98,PURE,T_5,Motor Load,Watts
+99,PURE,T_7,Motor Load,Watts
+100,PURE,T_6,Motor Load,Watts
+101,PURE,T_4,Motor Load,Watts
+102,PURE,LIQ_A,Synfloc Flow PPM,PPM
+103,PURE,LIQ_A,Synfloc Flow LPH,LPH
+104,PURE,LIQ_B,Synfloc Flow PPM,PPM
+105,PURE,LIQ_B,Synfloc Flow LPH,LPH
+106,PURE,LIQ_C,Synfloc Flow PPM,PPM
+107,PURE,LIQ_C,Synfloc Flow LPH,LPH
+108,PURE,LIQ_D,Synfloc Flow PPM,PPM
+109,PURE,LIQ_D,Synfloc Flow LPH,LPH
+110,PURE,T_3,Synfloc Flow LPH,LPH
+111,PURE,T_3,Synfloc Flow PPM,PPM
+112,PURE,T_5,Synfloc Flow LPH,LPH
+113,PURE,T_5,Synfloc Flow PPM,PPM
+114,PURE,T_7,Synfloc Flow LPH,LPH
+115,PURE,T_7,Synfloc Flow PPM,PPM
+116,PURE,T_6,Synfloc Flow LPH,LPH
+117,PURE,T_6,Synfloc Flow PPM,PPM
+118,PURE,T_4,Synfloc Flow LPH,LPH
+119,PURE,T_4,Synfloc Flow PPM,PPM
+120,PURE,LIQ_A,Under Flow Rate,m3/hr
+121,PURE,LIQ_B,Under Flow Rate,m3/hr
+122,PURE,LIQ_C,Under Flow Rate,m3/hr
+123,PURE,LIQ_D,Under Flow Rate,m3/hr
+124,PURE,T_3,Under Flow Rate,m3/hr
+125,PURE,T_5,Under Flow Rate,m3/hr
+126,PURE,T_7,Under Flow Rate,m3/hr
+127,PURE,T_6,Under Flow Rate,m3/hr
+128,PURE,T_4,Under Flow Rate,m3/hr
+129,PURE,Wash_Thickner_Section,Wash Water Flow,m3/hr
+130,PURE,Wash_Thickner_Section,28A Gland Water Flow,m3/hr
+131,PURE,Wash_Thickner_Section,First Wash Temperature,C
+132,PURE,Wash_Thickner_Section,Filter Feed Pressure,kg/cm2
+133,PURE,Wash_Thickner_Section,Wash Filteration Pressure,kg/cm2
+134,PURE,Wash_Thickner_Section,Lagoon Water Flow,m3/hr
+135,PURE,Precipitation_Section,PHE Inlet Temp,C
+136,PURE,Precipitation_Section,PHE Outlet Temp,C
+137,PURE,Precipitation_Section,Hydro Cyclone Pressure,kg/cm2
+138,PURE,Precipitation_Section,Gland Water Flow 6A_7A,m3/hr
+139,PURE,Precipitation_Section,HWT 9 Den,gm/cc
+140,PURE,Precipitation_Section,HWT 14 Den,gm/cc
+141,PURE,Precipitation_Section,Pri to HWT Den,gm/cc
+142,PURE,Precipitation_Section,T56 Temp,C
+143,PURE,Precipitation_Section,First Agglo Tank Temp T42,C
+144,PURE,Precipitation_Section,Regular Filling Flow,m3/hr
+145,PURE,Precipitation_Section,Special Filling temp,C
+146,PURE,Precipitation_Section,Special Filling Flow,m3/hr
+147,PURE,Precipitation_Section,Spent Liquor Temp Heater Inlet,C
+148,PURE,Precipitation_Section,Spent Liquor Temp Heater Outlet,C
+149,PURE,Precipitation_Section,Fine Seed Tonnage,tph
+150,PURE,Precipitation_Section,Coarse Seed 1 Tonnage,tph
+151,PURE,Precipitation_Section,Coarse Seed 2 Tonnage,tph
+152,PURE,Precipitation_Section,13A Steam Flow,tph
+153,PURE,Precipitation_Section,13A RC Flow,m3/hr
+154,PURE,Precipitation_Section,13A Spent Liq Feed Flow,m3/hr
+155,PURE,Precipitation_Section,13B Spent Liq Feed Flow,m3/hr
+156,PURE,Precipitation_Section,13B Steam Flow,tph
+157,PURE,Precipitation_Section,13B RC Flow,m3/hr
+158,PURE,Precipitation_Section,SSC Rxn Tank1 Temp,C
+159,PURE,Precipitation_Section,Green Liq Flow,m3/hr
+160,PURE,Precipitation_Section,Lime Building Steam Flow,m3/hr
+161,PURE,Precipitation_Section,8D Lime charge,Kg/hr
+162,PURE,Precipitation_Section,Oxalate Filling Temp,C
+163,PURE,Precipitation_Section,Oxalate Liq Temp,C
+164,PURE,Precipitation_Section,Oxalate Filling Flow,m3/hr
+165,PURE,Precipitation_Section,5A/7A Steam Flow,tph
+166,PURE,Precipitation_Section,Compressor 1 Power,kw
+167,PURE,Precipitation_Section,Compressor 2 Power,kw
+168,PURE,Precipitation_Section,Compressor 3 Power,kw
+169,PURE,Precipitation_Section,Compressor 4 Power,kw
+170,PURE,Precipitation_Section,Compressor 5 Power,kw
+171,PURE,Precipitation_Section,Compressor 6 Power,kw
+172,PURE,Precipitation_Section,Compressor 7 Power,kw
+173,PURE,Precipitation_Section,Compressor 8 Power,kw
+174,PURE,Precipitation_Section,Compressor 9 Power,kw
+175,PURE,Precipitation_Section,45A Total Air flow,Nm3/hr
+176,CUMULATIVE,ABM_1,Feed Bin Load Cell,T
+177,CUMULATIVE,ABM_2,Feed Bin Load Cell,T
+178,CUMULATIVE,ABM_3,Feed Bin Load Cell,T
+179,CUMULATIVE,CBM,Feed Bin Load Cell,T
+180,CUMULATIVE,AFG,Feed Bin Load Cell,T
+181,CUMULATIVE,MM_1&3,Feed Bin Load Cell,T
+182,CUMULATIVE,NAFG,Feed Bin Load Cell,T
+183,CUMULATIVE,ABM_1,Product Bin Load Cell,T
+184,CUMULATIVE,ABM_2,Product Bin Load Cell,T
+185,CUMULATIVE,ABM_3,Product Bin Load Cell,T
+186,CUMULATIVE,CBM,Product Bin Load Cell,T
+187,CUMULATIVE,HBM_1,Product Bin Load Cell,T
+188,CUMULATIVE,ACM_60,Product Bin Load Cell,T
+189,CUMULATIVE,HBM_3,Product Bin Load Cell,T
+190,CUMULATIVE,HBM_4,Product Bin Load Cell,T
+191,CUMULATIVE,AFG,Product Bin Load Cell,T
+192,CUMULATIVE,MM_1&3,Product Bin Load Cell,T
+193,CUMULATIVE,NAFG,Product Bin Load Cell,T
+194,PURE,CBM,Feed Rate,TPH
+195,PURE,CBM,Return Flow Rate,TPH
+196,PURE,AFG,Classifier RPM,RPM
+197,PURE,NAFG,Classifier RPM,RPM
+198,PURE,CBM,Classifier RPM,RPM
+199,PURE,CBM,Draft Pressure,MMWC
+200,PURE,MM_1&3,MM1 Feed Screw RPM,RPM
+201,PURE,MM_1&3,MM3 Feed Screw RPM,RPM
+202,PURE,MM_1&3,MM1 Chamber Pressure,kg/cm2
+203,PURE,MM_1&3,MM3 Chamber Pressure,kg/cm2
+204,PURE,MM_1&3,MM1 Venturi Pressure,kg/cm2
+205,PURE,MM_1&3,MM3 Venturi Pressure,kg/cm2
+206,CUMULATIVE,AFG,Load Cell Weight,kg
+207,CUMULATIVE,NAFG,Load Cell Weight,kg
+208,PURE,AFG,Grinding Air Pressure,kg/cm2
+209,PURE,NAFG,Grinding Air Pressure,kg/cm2
+210,PURE,MM_1&3,MM-1 Grinding Air Flow,NM3/HR
+211,PURE,MM_1&3,MM-3 Grinding Air Flow,NM3/HR
+212,PURE,AFG,Grinding Air Flow,NM3/HR
+213,PURE,NAFG,Grinding Air Flow,NM3/HR
+214,PURE,Specials_Section,HT 1 compressor running time,KW
+215,PURE,Specials_Section,HT 2 compressor running time,KW
+216,PURE,Specials_Section,C66-6  compressor 6 running time load,KW
+217,PURE,Specials_Section,C66-7 compressor 7 running time load ,KW
+218,PURE,Specials_Section,C66-8 compressor 8 running time load,KW
+219,PURE,Specials_Section,C66-9 compressor 9 running time load,KW
+220,PURE,Specials_Section,C66-10 compressor 10 running time  load,KW
+221,PURE,Specials_Section,C66-11 compressor 11 running time  load,KW
+222,PURE,Specials_Section,C66-12 compressor 12 running time  load,KW
+223,PURE,Specials_Section,C66-13 compressor 13 running time  load,KW
+224,PURE,Specials_Section,C66-14 compressor 14 running time  load,KW
+225,PURE,ABM_1,Motor Load,KW
+226,PURE,ABM_2,Motor Load,KW
+227,PURE,ABM_3,Motor Load,KW
+228,PURE,CBM,Motor Load,KW
+229,PURE,HBM_1,Motor Load,KW
+230,PURE,HBM_2,Motor Load,KW
+231,PURE,HBM_3,Motor Load,KW
+232,PURE,HBM_4,Motor Load,KW
+233,PURE,ACM_60,Motor Load,KW
+234,PURE,ACM_120,Motor Load,KW
+235,CUMULATIVE,Specials_Section,61-1 Tank Load cell,T
+236,CUMULATIVE,Specials_Section,61-2 Tank Load cell,T
+237,CUMULATIVE,Specials_Section,61-3 Tank Load cell,T
+238,CUMULATIVE,Specials_Section,61-4 Tank Load cell,T
+239,CUMULATIVE,Specials_Section,73-1 tank load cell,T
+240,CUMULATIVE,Specials_Section,73-2 tank load cell,T
+241,CUMULATIVE,Specials_Section,73-3 tank load cell,T
+242,CUMULATIVE,Specials_Section,74-4 tank load cell,T
+243,CUMULATIVE,Specials_Section,74-5 tank load cell,T
+244,CUMULATIVE,Specials_Section,74-6 tank Load cell,T
+245,CUMULATIVE,Specials_Section,65-1 tank Load cell,T
+246,CUMULATIVE,Specials_Section,65-2 tank load cell,T
+247,CUMULATIVE,Specials_Section,65-3 tank load cell,T
+248,CUMULATIVE,Specials_Section,68-1 tank load cell,T
+249,CUMULATIVE,Specials_Section,68-2 tank load cell,T
+250,CUMULATIVE,Specials_Section,77-1 tank load cell,T
+251,CUMULATIVE,Specials_Section,77-2 tank load cell,T
+252,CUMULATIVE,Specials_Section,77-3 tank load cell,T
+253,CUMULATIVE,Specials_Section,77-4 tank load cell,T
+254,CUMULATIVE,Specials_Section,77-5 tank load cell,T
+255,CUMULATIVE,Specials_Section,77-6 tank load cell,T
+256,CUMULATIVE,Specials_Section,77-7 tank load cell,T
+257,CUMULATIVE,Specials_Section,77-8 tank load cell,T
+258,CUMULATIVE,Specials_Section,77-9 tank load cell,T
+259,CUMULATIVE,Specials_Section,77-10 tank load cell,T
+260,PURE,KILN_1,Pan Filter 1 Hyd Flow,m3/hr
+261,PURE,KILN_1,Pan Filter 1 Vacuum,inchwc
+262,PURE,KILN_1,Pan Filter 1 Combin Level,ft
+263,PURE,KILN_2,Pan Filter 2 Hyd Flow,m3/hr
+264,PURE,KILN_2,Pan Filter 2 Vacuum,inchwc
+265,PURE,KILN_2,Pan Filter 2 Combin Level,ft
+266,PURE,KILN_1,NG Flow,scm/hr
+267,PURE,KILN_1,FGT,C
+268,PURE,KILN_1,HZT,C
+269,PURE,KILN_1,Stack,inchwc
+270,PURE,KILN_1,Feed Rate,tph
+271,PURE,KILN_1,CO,percentage
+272,PURE,KILN_1,O2,percentage
+273,PURE,KILN_2,NG Flow,scm/hr
+274,PURE,KILN_2,FGT,C
+275,PURE,KILN_2,HZT,C
+276,PURE,KILN_2,Feed Rate,tph
+277,PURE,KILN_2,CO,percentage
+278,PURE,KILN_2,O2,percentage
+279,PURE,KILN_3,NG Flow,scm/hr
+280,PURE,KILN_3,FGT,C
+281,PURE,KILN_3,HZT,C
+282,PURE,KILN_3,Stack,mmwc
+283,PURE,KILN_3,Feed Rate,tph
+284,PURE,KILN_3,CO,percentage
+285,PURE,KILN_3,O2,percentage
+286,PURE,KILN_4,NG Flow,scm/hr
+287,PURE,KILN_4,FGT,C
+288,PURE,KILN_4,HZT,C
+289,PURE,KILN_4,Stack,mmwc
+290,PURE,KILN_4,Feed Rate,RPM
+291,PURE,KILN_4,CO,percentage
+292,PURE,KILN_4,O2,percentage
+293,CUMULATIVE,HBM_2,Product Bin Load Cell,T
+294,CUMULATIVE,ACM_120,Product Bin Load Cell,T
+295,PURE,Wash_Thickner_Section,Overflow Mud 1,mg/L
+296,PURE,Wash_Thickner_Section,Overflow Mud 2,mg/L
+297,PURE,Wash_Thickner_Section,Last Wash Soda,gpl
+298,PURE,Wash_Thickner_Section,Mud In Filtrate,mg/L
+299,PURE,KILN_1,Pan Filter 1 Moisture,percentage
+300,PURE,KILN_1,Pan Filter 1 Soda,percentage
+301,PURE,KILN_2,Pan Filter 1 Moisture,percentage
+302,PURE,KILN_2,Pan Filter 1 Soda,percentage
+303,PURE,Precipitation_Section,Filling Concentration,gpl
+304,PURE,Precipitation_Section,Filling Ratio,ratio
+305,PURE,Precipitation_Section,Spent Liquor Ratio,ratio
+306,PURE,Precipitation_Section,Spent Liquor Concentration,gpl
+307,PURE,Precipitation_Section,Green Liquor Soda,gpl
+308,PURE,Precipitation_Section,Spent Liquor Causticity,percentage
+309,PURE,Precipitation_Section,Agglomeration Efficiency,micron
+310,PURE,Precipitation_Section,Tank 48 45u,micron
+311,PURE,Precipitation_Section,HAT 3_5u,micron
+312,PURE,Precipitation_Section,HAT 45u,micron
+313,PURE,Precipitation_Section,HAT D50,micron
+314,PURE,Precipitation_Section,HAT SSA,m2/g
+315,PURE,Precipitation_Section,Fine Seed 3_5u,micron
+316,PURE,Precipitation_Section,Fine Seed 45u,micron
+317,PURE,Precipitation_Section,Fine Seed D50,micron
+318,PURE,Precipitation_Section,Fine Seed SSA,m2/g
+319,PURE,Precipitation_Section,Feed Hydrate 3_5u,micron
+320,PURE,Precipitation_Section,Feed Hydrate 45u,micron
+321,PURE,Precipitation_Section,Feed Hydrate D50,micron
+322,PURE,Precipitation_Section,Feed Hydrate SSA,m2/g
+323,PURE,Precipitation_Section,Green Liq Concentration,gpl
+324,PURE,Precipitation_Section,Initial Causticity,gpl
+325,PURE,Precipitation_Section,Final Causticity,gpl
+326,PURE,SFD_1,SFD 1 Feed Moisture,percentage
+327,PURE,SFD_2,SFD 2 Feed Moisture,percentage
+328,PURE,Precipitation_Section,MCC HT Compressor Power,kWh
+329,PURE,KILN_2,Na2O(%),percentage
+330,PURE,KILN_2,SiO2(%),percentage
+331,PURE,KILN_3,Na2O(%),percentage
+332,PURE,KILN_3,SiO2(%),percentage
+333,PURE,KILN_4,Na2O(%),percentage
+334,PURE,KILN_4,SiO2(%),percentage
+335,PURE,Precipitation_Section,Batch Filling Concentration,gpl
+336,PURE,Precipitation_Section,Batch Filling Ratio,gpl
+337,PURE,Precipitation_Section,13A Thick Liq Concentration,ratio
+338,PURE,Precipitation_Section,13B Thick Liq Concentration,gpl
+339,PURE,Precipitation_Section,Spent Liq Oxalate,gpl
+340,PURE,Precipitation_Section,Pump off Oxalate 1,gpl
+341,PURE,Precipitation_Section,Pump off Oxalate 2,gpl
+342,PURE,HBM_1,Feed Bin Load Cell,T
+343,PURE,ACM_60,Feed Bin Load Cell,T
+344,PURE,SFD_1,SFD 1 Draft Pressure,kg/cm2
+345,PURE,SFD_2,SFD 2 Draft Pressure,kg/cm2
+346,PURE,ACM_60,Feed RAL RPM,RPM
+347,PURE,ACM_120,Feed RAL RPM,RPM
+348,PURE,SFD,Feed Screw RPM,RPM
+349,PURE,SFD_1,SFD-1 Dryer Inlet Temperature,C
+350,PURE,SFD_1,SFD-1 Dryer Outlet Temperature,C
+351,PURE,SFD_2,SFD-2 Dryer Inlet Temperature,C
+352,PURE,SFD_2,SFD-2 Dryer Outlet Temperature,C
+353,PURE,HBM_2,Feed Bin Load Cell,T
+354,PURE,ACM_120,Feed Bin Load Cell,T
+355,PURE,LIQ_D,Solids Percentage,percentage
+356,PURE,LIQ_D,Wash Efficiency,percentage
+357,PURE,LIQ_C,Solids Percentage,percentage
+358,PURE,LIQ_C,Wash Efficiency,percentage
+359,PURE,LIQ_B,Solids Percentage,percentage
+360,PURE,LIQ_B,Wash Efficiency,percentage
+361,PURE,LIQ_A,Solids Percentage,percentage
+362,PURE,LIQ_A,Wash Efficiency,percentage
+363,PURE,T_3,Solids Percentage,percentage
+364,PURE,T_3,Wash Efficiency,percentage
+365,PURE,T_5,Solids Percentage,percentage
+366,PURE,T_5,Wash Efficiency,percentage
+367,PURE,T_7,Solids Percentage,percentage
+368,PURE,T_7,Wash Efficiency,percentage
+369,PURE,T_6,Solids Percentage,percentage
+370,PURE,T_6,Wash Efficiency,percentage
+371,PURE,T_4,Solids Percentage,percentage
+372,PURE,T_4,Wash Efficiency,percentage
+373,PURE,LIQ_A,Cytec Flow PPM,PPM
+374,PURE,LIQ_A,Cytec Flow LPH,LPH
+375,PURE,LIQ_B,Cytec Flow PPM,PPM
+376,PURE,LIQ_B,Cytec Flow LPH,LPH
+377,PURE,LIQ_C,Cytec Flow PPM,PPM
+378,PURE,LIQ_C,Cytec Flow LPH,LPH
+379,PURE,LIQ_D,Cytec Flow PPM,PPM
+380,PURE,LIQ_D,Cytec Flow LPH,LPH
+381,PURE,Wash_Thickner_Section,Filter Press 1 FP Feeding Pressure,kg/cm2
+382,PURE,Wash_Thickner_Section,Filter Press 1 Squeezing Pressure,kg/cm2
+383,PURE,Wash_Thickner_Section,Filter Press 1 Slurry Feed Flow,m3/hr
+384,PURE,Wash_Thickner_Section,Filter Press 1 Hydraulic Pressure,bar
+385,PURE,Wash_Thickner_Section,Filter Press 1 Wash Water Tank Level,meter
+386,PURE,Wash_Thickner_Section,Filter Press 1 Squeezing Water Tank Level,meter
+387,PURE,Wash_Thickner_Section,Filter Press 1 Number Of Cycle,number
+388,PURE,Wash_Thickner_Section,Filter Press 2 FP Feeding Pressure,kg/cm2
+389,PURE,Wash_Thickner_Section,Filter Press 2 Squeezing Pressure,kg/cm2
+390,PURE,Wash_Thickner_Section,Filter Press 2 Slurry Feed Flow,m3/hr
+391,PURE,Wash_Thickner_Section,Filter Press 2 Hydraulic Pressure,bar
+392,PURE,Wash_Thickner_Section,Filter Press 2 Wash Water Tank Level,meter
+393,PURE,Wash_Thickner_Section,Filter Press 2 Squeezing Water Tank Level,meter
+394,PURE,Wash_Thickner_Section,Filter Press 2 Number Of Cycle,number
+395,PURE,Boiler_1,Boiler 1 NG Flow,SCM/hr
+396,PURE,Boiler_2,Boiler 2 NG Flow,SCM/hr
+397,PURE,Boiler_3,Boiler 3 NG Flow,SCM/hr
+398,PURE,Boiler_4,Boiler 4 NG Flow,SCM/hr
+399,PURE,Boiler_5,Boiler 5 NG Flow,SCM/hr
+400,PURE,Boiler_1,Boiler 1 Steam Flow,TPH
+401,PURE,Boiler_2,Boiler 2 Steam Flow,TPH
+402,PURE,Boiler_3,Boiler 3 Steam Flow,TPH
+403,PURE,Boiler_4,Boiler 4 Steam Flow,TPH
+404,PURE,Boiler_5,Boiler 5 Steam Flow,TPH
+405,PURE,Boiler_Section,Make Up Water Flow,m3/hr
+406,PURE,Boiler_Section,Condensate Temperature,C
+407,PURE,Boiler_Section,Steam Flow To Digester,TPH
+408,PURE,Boiler_Section,Steam Flow To IBSH,TPH
+409,PURE,Boiler_Section,Steam Flow To 13A,TPH
+410,PURE,Boiler_Section,Steam Flow To 13B,TPH
+411,PURE,Boiler_Section,Steam Flow To 7A,TPH
+412,PURE,Boiler_Section,Steam Flow To 8A,TPH
+413,PURE,KILN_1,Molochite Dosage,kg/hr
+414,PURE,KILN_2,Molochite Dosage,kg/hr
+415,PURE,KILN_4,Molochite Dosage,kg/hr
+416,PURE,KILN_3,Molochite Dosage,kg/hr
+417,PURE,KILN_3,TiO2 Dosage,kg/hr
+418,PURE,KILN_3,MgO Dosage,kg/hr
+419,PURE,KILN_3,MgF2 Dosage,kg/hr
+420,PURE,KILN_3,Mineralizer Dosage 5,kg/hr
+421,PURE,KILN_1,ALF3 Dosage,kg/hr
+422,PURE,KILN_4,ALF3 Dosage,kg/hr
+423,PURE,DIGESTION,IBSH Inlet Temperature,C
+424,PURE,DIGESTION,IBSH Outlet Temperature(Stage-1),C
+425,PURE,Boiler_Section,Auxilary Steam Flow,TPH
+426,PURE,Boiler_Section,Process Steam Flow,TPH
+427,PURE,Boiler_Section,Specials Steam Flow,TPH
+428,PURE,OVERALL_PLANT,Mill Water to Standard Plant,m3/hr
+429,PURE,OVERALL_PLANT,Mill Water to Specials Plant,m3/hr
+430,CUMULATIVE,KILN_2,61-1 Tank Load cell,T
+431,CUMULATIVE,KILN_2,61-2 Tank Load cell,T
+432,CUMULATIVE,KILN_2,61-5 tank load cell,T
+433,CUMULATIVE,KILN_2,68-1 tank load cell,T
+434,CUMULATIVE,KILN_2,68-2 tank load cell,T
+435,CUMULATIVE,KILN_3,20-1 tank load cell,T
+436,CUMULATIVE,KILN_3,20-2 tank load cell,T
+437,CUMULATIVE,KILN_4,73-1 tank load cell,T
+438,CUMULATIVE,KILN_4,73-2 tank load cell,T
+439,PURE,OVERALL_PLANT,Hydrate,T
+440,PURE,Precipitation_Section,Vanadium,T
+441,PURE,Calcination_Section,Sx Gr(Spls) Caln,T
+442,PURE,Calcination_Section,Spls Hydrate As Alumina,T
+443,PURE,Calcination_Section,Total Spls  Production,T
+444,PURE,Calcination_Section,Hydrate Cutting As Alumina,T
+445,PURE,OVERALL_PLANT,Boiler Oil,kg/T
+446,PURE,OVERALL_PLANT,Energy For Hydrate,kWh/T
+447,PURE,OVERALL_PLANT,Lagoon Water (Treated),MLD
+448,PURE,OVERALL_PLANT,Caustic Charged,kg/T
+449,PURE,OVERALL_PLANT,Caustic Soda (Liq With Residue),kg/T
+450,PURE,OVERALL_PLANT,Bauxite FOM,T
+451,PURE,OVERALL_PLANT,Bauxite Receipt Own,T
+452,PURE,OVERALL_PLANT,Bauxite Receipt Purchase,T
+453,PURE,OVERALL_PLANT,Bauxite Consumption,T
+454,PURE,OVERALL_PLANT,Bauxite At Goa,T
+455,PURE,Calcination_Section,Calcinable Hydrate Stock,T
+456,PURE,OVERALL_PLANT,Rainfall,MM
+457,PURE,DIGESTION,Total Al203,percentage
+458,PURE,DIGESTION,Total Silica,percentage
+459,PURE,Wash_Thickner_Section,No Of I & II Filter Press Trips,number
+460,PURE,Precipitation_Section,Batch Circulation Hrs,Hrs
+461,PURE,Wash_Thickner_Section,No Of DMS Trips,number
+462,PURE,Boiler_Section,Evaporation Factor Steam,T/T
+463,PURE,Calcination_Section,NG Consumption SX,SCM
+464,PURE,OVERALL_PLANT,Bauxite Receipt Souce1,T
+465,PURE,OVERALL_PLANT,Bauxite Receipt Souce2,T
+466,PURE,OVERALL_PLANT,Bauxite Receipt Souce3,T
+467,PURE,OVERALL_PLANT,Bauxite Receipt Souce4,T
+468,PURE,Calcination_Section,Total Sx Production,T
+469,PURE,LIQ_D,Decanter,unit
+470,PURE,LIQ_C,Decanter,unit
+471,PURE,LIQ_B,Decanter,unit
+472,PURE,LIQ_A,Decanter,unit
+473,CUMULATIVE,ABM_1,Feed Bin Load Cell Inverse,T
+474,CUMULATIVE,ABM_2,Feed Bin Load Cell Inverse,T
+475,CUMULATIVE,ABM_3,Feed Bin Load Cell Inverse,T
+476,CUMULATIVE,HBM_1,Feed Bin Load Cell Inverse,T
+477,CUMULATIVE,HBM_2,Feed Bin Load Cell Inverse,T
+478,PURE,SFD_1,NG consumption SFD 1,SCM
+479,PURE,SFD_2,NG consumption SFD 2,SCM
+480,PURE,SFD,NG consumption Precalciner,SCM
+481,CUMULATIVE,Precipitation_Section,MCC HT Compressor kWh,kWh
+482,PURE,Precipitation_Section,Suspended Hydrates,gpl
+483,PURE,OVERALL_PLANT,Lime Cao,percentage
+484,PURE,DIGESTION,THA,percentage
+485,PURE,Precipitation_Section,HAT,gpl
+486,PURE,Precipitation_Section,THA,percentage
+487,PURE,Precipitation_Section,HAT Ratio,percentage
+488,PURE,Wash_Thickner_Section,Moisture,percentage
+489,PURE,KILN_2,TARGET_SSA,m3/g
+490,PURE,KILN_2,ALF3_CHARGING_SET_POINT,kg/hr
+491,PURE,BALL_MILL_A,Liquor Feed Rate,m3/hr
+492,PURE,BALL_MILL_B,Liquor Feed Rate,m3/hr
+493,PURE,BALL_MILL_C,Liquor Feed Rate,m3/hr
+494,PURE,BALL_MILL_D,Liquor Feed Rate,m3/hr
+495,PURE,DIGESTION,Fine Slurry Density,gm/cc
+496,PURE,Boiler_Section,Boiler Total Steam Flow,TPH
+497,PURE,DIGESTION,Digester Steam Flow,TPH
+498,PURE,DIGESTION,RC Flow,m3/hr
+499,PURE,Precipitation_Section,7A Vacuum Heater Condensate Flow,m3/hr
+500,PURE,OVERALL_PLANT,Fresh Water Supply From Pump House,m3/hr
+501,CUMULATIVE,OVERALL_PLANT,Total Fresh Water From Pump House,m3
+502,PURE,Filter_Press_Section,Fresh Water To Filter Press,m3/hr
+503,PURE,Wash_Thickner_Section,Fresh Water To 5A KP Seal Application,m3/hr
+504,PURE,DIGESTION,Fresh Water To 4A Vacuum Condensate,m3/hr
+505,PURE,DIGESTION,Auxiliary Area Gland Water,m3/hr
+506,PURE,Precipitation_Section,Treated Water To White Area,m3/hr
+507,PURE,High_Rating_Pumps,P-18A-3A,Amp
+508,PURE,High_Rating_Pumps,P-18A-3B,Amp
+509,PURE,High_Rating_Pumps,P-4A-1C,Amp
+510,PURE,High_Rating_Pumps,P-4A-1A,Amp
+511,PURE,High_Rating_Pumps,P-4A-1B,Amp
+512,PURE,High_Rating_Pumps,P-5A-5A,kW
+513,PURE,High_Rating_Pumps,P-5A-5B,kW
+514,PURE,High_Rating_Pumps,P-6A-2A,Amp
+515,PURE,High_Rating_Pumps,P-6A-2B,Amp
+516,PURE,High_Rating_Pumps,P-6A-2C,Amp
+517,PURE,High_Rating_Pumps,P-6A-2D,Amp
+518,PURE,High_Rating_Pumps,P-6A-4A,kW
+519,PURE,High_Rating_Pumps,P-6A-4B,kW
+520,PURE,High_Rating_Pumps,P-7A-3B,Amp
+521,PURE,High_Rating_Pumps,P-7A-3A,Amp
+522,PURE,High_Rating_Pumps,P-7D-15A,Amp
+523,PURE,High_Rating_Pumps,P-7D-15B,Amp
+524,PURE,High_Rating_Pumps,P-7A-11A,Amp
+525,PURE,High_Rating_Pumps,P-7A-11B,kW
+526,PURE,High_Rating_Pumps,P-7A-11C,Amp
+527,PURE,High_Rating_Pumps,P-7A-11D,kW
+528,PURE,Calcination_Section,Mill Water To 9A Inj Tank,m3/hr
+529,PURE,KILN_1,Wash Water To Pan Filter 1,m3/hr
+530,PURE,KILN_1,Kiln 1 Cooler Outlet Temp,C
+531,CUMULATIVE,KILN_1,T-82-1,T
+532,CUMULATIVE,KILN_1,T-82-2,T
+533,CUMULATIVE,KILN_1,T-82-3,T
+534,CUMULATIVE,KILN_1,T-82-4,T
+535,PURE,Precipitation_Section,Spent Liq Tank-1 Level,meter
+536,PURE,Precipitation_Section,Spent Liq Tank-2 Level,meter
+537,PURE,Precipitation_Section,6A-TT-4,kW
+539,PURE,Precipitation_Section,6A-TT-1,Amp
+540,PURE,Precipitation_Section,6A-TT-2,Amp
+541,PURE,Precipitation_Section,6A-TT-3,Amp
+542,PURE,Precipitation_Section,9A HST Overflow Return,m3/hr
+543,PURE,Precipitation_Section,9A Filtrate Injection Return Flow,m3/hr
+544,PURE,Precipitation_Section,PPT-55 Agitator Motor,kW
+545,PURE,Precipitation_Section,PPT-56 Agitator Motor,kW
+546,PURE,Precipitation_Section,Barometric Pressure,kg/cm2
+547,PURE,KILN_4,Kiln 4 Feed VFD Output,percentage
+548,PURE,KILN_1,Kiln 1 NG Flow,SCM/Hr
+549,PURE,Precipitation_Section,PPT-56 Tank Level,meter
+550,PURE,KILN_4,Kiln 4 RC (cooler) Outlet Temp,C
+551,PURE,KILN_3,Kiln 3 Cooler Outlet Temp,C
+552,PURE,KILN_4,ID Fan Load,Amp
+553,PURE,KILN_4,ESP Outlet Temp,C
+554,PURE,KILN_4,ESP Inlet Temp,C
+555,PURE,KILN_4,ESP Inlet Pressure,MMWC
+556,PURE,Cooling_Tower_26,Cooling Tower Water Outlet Flow,m3/hr
+557,PURE,Cooling_Tower_26,Cooling Tower Water Outlet Temp,C
+558,PURE,Cooling_Tower_26,Cooling Tower Water Inlet Temp,C
+559,PURE,KILN_4,P Hood Air Pressure,MMWC
+560,PURE,KILN_4,Primary Air Pressure,MMWC
+561,PURE,KILN_4,Feed Hopper Level,meter
+562,PURE,KILN_4,Feed Inlet Temp,C
+563,PURE,KILN_4,Feed Inlet Pressure,MMWC
+564,PURE,KILN_2,Combin Level,meter
+565,PURE,KILN_2,Panfeeder 2 Hydrate Flow,m3/hr
+566,PURE,KILN_1,ESP Inlet Temp,C
+567,CUMULATIVE,KILN_1,Combin Level,T
+568,PURE,SFD,First Wash Hydrate Flow,m3/hr
+569,PURE,Filter_Press_1,Drip Tray Open,State
+570,PURE,Filter_Press_1,High Pressure Unloading,State
+571,PURE,Filter_Press_1,Releasing,State
+572,PURE,Filter_Press_1,Plate Taking,State
+573,PURE,Filter_Press_1,Plate Shifting,State
+574,CUMULATIVE,Filter_Press_1,Drip Tray Close,State
+575,PURE,Filter_Press_1,Pressing,State
+576,PURE,Filter_Press_1,Holding Pressure,State
+577,PURE,Filter_Press_1,Feeding,State
+578,PURE,Filter_Press_1,Feeding Delay,State
+579,PURE,Filter_Press_1,Squeezing,State
+580,PURE,Filter_Press_1,Emptying,State
+581,PURE,Filter_Press_1,Blowing,State
+582,PURE,Filter_Press_1,Cycle Waiting,State
+583,PURE,Filter_Press_1,High Speed Back,State
+584,PURE,Filter_Press_1,Wash Tank Level,meter
+585,PURE,Filter_Press_1,Squeez Tank Level,meter
+586,PURE,Filter_Press_2,Drip Tray Open,State
+587,PURE,Filter_Press_2,High Pressure Unloading,State
+588,PURE,Filter_Press_2,Releasing,State
+589,PURE,Filter_Press_2,Plate Taking,State
+590,PURE,Filter_Press_2,Plate Shifting,State
+591,CUMULATIVE,Filter_Press_2,Drip Tray Close,State
+592,PURE,Filter_Press_2,Pressing,State
+593,PURE,Filter_Press_2,Holding Pressure,State
+594,PURE,Filter_Press_2,Feeding,State
+595,PURE,Filter_Press_2,Feeding Delay,State
+596,PURE,Filter_Press_2,Squeezing,State
+597,PURE,Filter_Press_2,Emptying,State
+598,PURE,Filter_Press_2,Blowing,State
+599,PURE,Filter_Press_2,Cycle Waiting,State
+600,PURE,Filter_Press_2,High Speed Back,State
+601,PURE,Filter_Press_2,Wash Tank Level,meter
+602,PURE,Filter_Press_2,Squeez Tank Level,meter
+603,PURE,Filter_Press_1,FP Feeding Pressure,kg/cm2
+604,PURE,Filter_Press_1,Squeezing Pressure,kg/cm2
+605,PURE,Filter_Press_1,Slurry Feed Flow,m3/hr
+606,PURE,Filter_Press_1,Hydraulic Pressure,bar
+607,PURE,Filter_Press_1,Wash Water Tank Level,meter
+608,PURE,Filter_Press_1,Squeezing Water Tank Level,meter
+609,CUMULATIVE,Filter_Press_1,Number Of Cycle,number
+610,PURE,Filter_Press_2,FP Feeding Pressure,kg/cm2
+611,PURE,Filter_Press_2,Squeezing Pressure,kg/cm2
+612,PURE,Filter_Press_2,Slurry Feed Flow,m3/hr
+613,PURE,Filter_Press_2,Hydraulic Pressure,bar
+614,PURE,Filter_Press_2,Wash Water Tank Level,meter
+615,PURE,Filter_Press_2,Squeezing Water Tank Level,meter
+616,CUMULATIVE,Filter_Press_2,Number Of Cycle,number
+617,PURE,SFD_1,Dryer Inlet Temperature,C
+618,PURE,SFD_1,Dryer Outlet Temperature,C
+619,PURE,SFD_1,Draft Pressure,MMWC
+620,PURE,SFD_1,Feed Screw Speed,Hz
+621,PURE,SFD_1,Appron Feeder Frequency,Hz
+622,PURE,SFD_1,Dust Collector DP,MMWC
+623,PURE,SFD_1,Dust Collector Outlet Temperature,C
+624,CUMULATIVE,SFD_1,Product Bin Weight-1,T
+625,CUMULATIVE,SFD_1,Product Bin Weight-2,T
+626,PURE,SFD_1,Total Power,kW
+627,PURE,SFD_2,Dryer Inlet Temperature,C
+628,PURE,SFD_2,Dryer Outlet Temperature,C
+629,PURE,SFD_2,Draft Pressure,MMWC
+630,PURE,SFD_2,Feed Screw Speed,Hz
+631,PURE,SFD_2,Appron Feeder Frequency,Hz
+632,PURE,SFD_2,Dust Collector DP,MMWC
+633,PURE,SFD_2,Dust Collector Outlet Temperature,C
+634,CUMULATIVE,SFD_2,Product Bin Weight-1,T
+635,CUMULATIVE,SFD_2,Product Bin Weight-2,T
+636,PURE,SFD_2,Total Power,kW
+637,CUMULATIVE,ACM_60,Feed Bin Weight,T
+638,CUMULATIVE,ACM_60,Product Bin Weight,T
+639,PURE,ACM_60,Classifier Speed,RPM
+640,PURE,ACM_60,Dust Collecotr DP,MMWC
+641,PURE,ACM_60,Total Power,Amp
+642,CUMULATIVE,ACM_120,Feed Bin Weight,T
+643,CUMULATIVE,ACM_120,Product Bin Weight,T
+644,PURE,ACM_120,Air Flow,Nm3/hr
+645,PURE,ACM_120,Air Flow Temp ,C
+646,PURE,ACM_120,Air Pressure,MMWC
+647,PURE,ACM_120,Classifier Speed,RPM
+648,PURE,ACM_120,Feed RAL-6 Speed,RPM
+649,PURE,ACM_120,Feed RAL-8 Speed,RPM
+650,PURE,ACM_120,Dust Collecotr DP,MMWC
+651,PURE,ACM_120,Total Power,Amp
+652,CUMULATIVE,HBM_1,Feed Bin Weight,T
+653,CUMULATIVE,HBM_1,Product Bin Weight,T
+654,PURE,HBM_1,Conveying Blower Pressure,MMWC
+655,PURE,HBM_1,Total Power,kW
+656,CUMULATIVE,HBM_2,Feed Bin Weight,T
+657,CUMULATIVE,HBM_2,Product Bin Weight BS,T
+658,CUMULATIVE,HBM_2,Product Bin Weight AS,T
+659,PURE,HBM_2,Conveying Blower Pressure,MMWC
+660,PURE,HBM_2,Total Power,kW
+661,PURE,KILN_1,SSA,m2/g
+662,PURE,KILN_3,SSA,m2/g
+663,PURE,KILN_4,SSA,m2/g
+664,PURE,CBM,Machine On,kw
+665,PURE,OVERALL_PLANT,Hydrate PnB,t
+666,PURE,Auxiliary_Section,Oxalate Production PnB,t
+667,PURE,Calcination_Section,Sx Gr(Spls) Caln PnB,t
+668,PURE,Calcination_Section,Spls Hydrate As Alumina PnB,t
+669,PURE,Calcination_Section,Total Spls Production PnB,t
+670,PURE,Calcination_Section,Hydrate Cutting As Alumina PnB,t
+671,PURE,OVERALL_PLANT,Boiler Oil PnB,Kg/t
+672,PURE,OVERALL_PLANT,Energy For Hydrate PnB,kwh/t
+673,PURE,OVERALL_PLANT,Lagoon Water (Treated) PnB,MLD
+674,PURE,OVERALL_PLANT,Caustic Charged PnB,kg/t
+675,PURE,OVERALL_PLANT,Caustic Soda (Liq With Residue) PnB,kg/t
+676,PURE,OVERALL_PLANT,Bauxite FOM PnB,t
+677,PURE,OVERALL_PLANT,Bauxite Receipt Own PnB,t
+678,PURE,OVERALL_PLANT,Bauxite Receipt Purchase PnB,t
+679,PURE,OVERALL_PLANT,Bauxite Consumption PnB,t
+680,PURE,OVERALL_PLANT,Bauxite At Goa PnB,t
+681,PURE,Calcination_Section,Calcinable Hydrate Stock PnB,t
+682,PURE,OVERALL_PLANT,Rainfall PnB,MM
+683,PURE,DIGESTION,Total Al203 PnB,%
+684,PURE,DIGESTION,Total Silica PnB,%
+685,PURE,Wash_Thickner_Section,No Of I & II Filter Press Trips PnB,Nos
+686,PURE,Precipitation_Section,Batch Circulation Hrs PnB,hrs
+687,PURE,Wash_Thickner_Section,No Of DMS Trips PnB,Nos
+688,PURE,Boiler_Section,Evaporation Factor Steam PnB,t/t
+689,PURE,Calcination_Section,NG Consumption SX PnB,SCM
+690,PURE,OVERALL_PLANT,EGA PnB,t
+691,PURE,OVERALL_PLANT,GCMIL PnB,t
+692,PURE,OVERALL_PLANT,BHOOMI PnB,t
+693,PURE,OVERALL_PLANT,Bauxite Receipt Souce4 PnB,t
+694,PURE,Calcination_Section,Total Spl including Sx PnB,t
+695,PURE,OVERALL_PLANT,Lime %Cao PnB,%
+696,PURE,OVERALL_PLANT,Red Mud Sale PnB,t
+697,PURE,OVERALL_PLANT,Bauxite Plant FOM PnB,t
+698,PURE,OVERALL_PLANT,Bauxite Stock in plant PnB,t
+699,PURE,OVERALL_PLANT,Total Bauxite stock PnB,t
+700,PURE,OVERALL_PLANT,Reason for slurry stoppage PnB,state
+701,PURE,OVERALL_PLANT,Reason for equipment stoppage PnB,state
+702,PURE,DIGESTION,0LB Heater Inlet Temp,C
+703,PURE,DIGESTION,Heater 15 Outlet Temp,C
+704,PURE,DIGESTION,Heater 1 Outlet Temp,C
+705,PURE,DIGESTION,Heater 2 Outlet Temp,C
+706,PURE,DIGESTION,Heater 3 Outlet Temp,C
+707,PURE,DIGESTION,Heater 4 Outlet Temp,C
+708,PURE,DIGESTION,Heater 5 Outlet Temp,C
+709,PURE,DIGESTION,Heater 6 Outlet Temp,C
+710,PURE,DIGESTION,Heater 7 Outlet Temp,C
+711,PURE,DIGESTION,Heater 8 Outlet Temp,C
+712,PURE,DIGESTION,Heater 9 Outlet Temp,C
+713,PURE,DIGESTION,Heater_ 10 Outlet Temp,C
+714,PURE,DIGESTION,LHS HTR Outlet Temp,C
+715,PURE,DIGESTION,LHS _11 Outlet,C
+716,PURE,DIGESTION,LHS _12 Outlet,C
+717,PURE,DIGESTION,LHS _13 Outlet,C
+718,PURE,DIGESTION,LHS _14 Outlet,C
+719,PURE,DIGESTION,LHS _16 Outlet,C
+720,PURE,DIGESTION,4A LSH Steam Press Ctrl,kg/cm2
+721,PURE,DIGESTION,4A LSH Steam PRS Press,kg/cm2
+722,PURE,Evaporatoration,13A Steam Flow,TPH
+723,PURE,Evaporatoration,13A RC Flow,m3/hr
+724,PURE,Evaporatoration,Spent Liq Flow 13A,meter
+725,PURE,Evaporatoration,13A 2nd Product Flow,m3/hr
+726,PURE,Evaporatoration,13A 1st Body Chest Pressure,kg/cm2
+727,PURE,Evaporatoration,13A 2nd Body Chest Pressure,kg/cm2
+728,PURE,Evaporatoration,13A 1st Body Liq Temp,C
+729,PURE,Evaporatoration,13A 2nd Body Liq Temp,C
+730,PURE,Evaporatoration,Spent Outlet Temp,C
+731,PURE,Evaporatoration,13B Steam Flow,m3/hr
+732,PURE,Evaporatoration,13B 1st Body Chest Pressure,kg/cm2
+733,PURE,Evaporatoration,13B 2nd Body Chest Pressure,kg/cm2
+734,PURE,Evaporatoration,13B 1st Body Liq Temp,C
+735,PURE,Evaporatoration,13B 2nd Body Liq Temp,C
+736,PURE,Auxiliary_Section,OXALATE Filling Flow,m3/hr
+737,PURE,Auxiliary_Section,VANADIUM Filling Flow,m3/hr
+738,PURE,Auxiliary_Section,OXALATE Tank_4 Temp,C
+739,PURE,Auxiliary_Section,T_29_10 Tank Temp,C
+740,PURE,Lime_Building,Green Liq Flow,m3/hr
+741,PURE,Lime_Building,Lime Feed Belt speed,RPM
+742,PURE,Lime_Building,8A Heater Outlet Temp,C
+743,PURE,Lime_Building,8A Steam Flow,m3/hr
+744,PURE,Lime_Building,Reaction Tank _1 Temp,C
+745,PURE,Lime_Building,Reaction Tank _2 Temp,C
+746,PURE,Lime_Building,1B Precoat Tank Temp,C
+747,PURE,Lime_Building,Precoat Tank Temp Ctrl,C
+748,PURE,Lime_Building,Precoat Tank Level,meter
+749,PURE,Lime_Building,Pond Water Flow,m3/hr
+750,PURE,Wash_Thickner_Section,Liq_A Rake Motor Load,Watts
+751,PURE,Wash_Thickner_Section,Liq_B Rake Motor Load,Watts
+752,PURE,Wash_Thickner_Section,Liq_C Rake Motor Load,Watts
+753,PURE,Wash_Thickner_Section,Liq_D Rake Motor Load,Watts
+754,PURE,Wash_Thickner_Section,T_6 Rake Motor Load,Watts
+755,PURE,Wash_Thickner_Section,T_4 Rake Motor Load,Watts
+756,PURE,Wash_Thickner_Section,T_7 Rake Motor Load,Watts
+757,PURE,Wash_Thickner_Section,Liq_C Thickner Mud Level ,inches
+758,PURE,Wash_Thickner_Section,Liq_A Thickner Mud Level ,inches
+759,PURE,Wash_Thickner_Section,Liq_B Thickner Mud Level ,inches
+760,PURE,Wash_Thickner_Section,Thickner Mud Level T_3,inches
+761,PURE,Wash_Thickner_Section,Thickner Mud Level T_5,inches
+762,PURE,Wash_Thickner_Section,Thickner Mud Level T_6,inches
+763,PURE,Wash_Thickner_Section,Thickner Mud Level T_7,inches
+764,PURE,Wash_Thickner_Section,Thickner Mud Level T_4,inches
+765,PURE,Precipitation_Section,Tank _42 Temp,C
+766,PURE,Precipitation_Section,Tank_47 Temp,C
+767,PURE,Precipitation_Section,Tank _52 Temp,C
+768,PURE,Precipitation_Section,Tank _56 Temp,C
+769,PURE,Precipitation_Section,Spent Liq Heater Inlet Temp,C
+770,PURE,Precipitation_Section,Stage 4 Heater Outlet Temp,C
+771,PURE,Precipitation_Section,Stage 1 Heater Outlet Temp,C
+772,PURE,Precipitation_Section,Coarse Seed 1 Density,gm/cc
+773,PURE,Precipitation_Section,Coarse Seed 2 Flow,m3/hr
+774,PURE,Precipitation_Section,Coarse Seed 2 Density,gm/cc
+775,PURE,Precipitation_Section,Fine Seed Flow,m3/hr
+776,PURE,Precipitation_Section,Fine Seed Density,gm/cc
+777,PURE,Precipitation_Section,Seed Flow Primary To PPT 52,m3/hr
+778,PURE,Precipitation_Section,PPT_14 Underflow Density,gm/cc
+779,PURE,DIGESTION,LSH Chest Pressure,kg/cm2
+780,PURE,Evaporatoration,13B RC Flow,m3/hr
+781,PURE,Evaporatoration,13B Product Flow,m3/hr
+782,PURE,Evaporatoration,13B 2nd Product Flow,m3/hr
+783,PURE,Wash_Thickner_Section,T_5 Rake Motor Load,Watts
+784,PURE,KILN_3,Kiln_3 SGAC Flue Gas Temp,C
+785,PURE,DIGESTION,Digester Mix Liq Flow,m3/hr
+786,PURE,DIGESTION,Steam Flow To Digester,TPH
+787,PURE,High_Rating_Pumps,P-7A-6A,kW
+788,PURE,High_Rating_Pumps,P-7A-6B,kW
+789,PURE,High_Rating_Pumps,P-7A-6C,kW
+790,PURE,High_Rating_Pumps,P-7A-6E,kW
+791,PURE,OVERALL_BALL_MILL,Fine Slurry Density,gm/cc
+792,PURE,High_Rating_Pumps,Total Mix liquor flow,m3/hr
+793,PURE,Filter_Press_1,Filterpress 1 Energy,kW
+794,PURE,Filter_Press_2,Filterpress 2 Energy,kW
+795,PURE,OVERALL_BALL_MILL,Fine Slurry Density Digestion,gm/cc
+796,PURE,OVERALL_BALL_MILL,Grinding Aid Flow,m3/hr
+797,PURE,OVERALL_BALL_MILL,BHOOMI,percentage
+798,PURE,OVERALL_BALL_MILL,VIMETCO,percentage
+799,PURE,OVERALL_BALL_MILL,EGA,percentage
+800,PURE,OVERALL_BALL_MILL,ASHAPURA,percentage
+801,PURE,OVERALL_BALL_MILL,OMC,percentage
+802,PURE,OVERALL_BALL_MILL,SOLOMON,percentage
+803,PURE,OVERALL_BALL_MILL,Uncrushed Shed,percentage
+804,PURE,OVERALL_BALL_MILL,GCMIL,percentage
+805,PURE,OVERALL_BALL_MILL,Crushed Shed,percentage
+806,PURE,OVERALL_BALL_MILL,Carpet,percentage
+807,PURE,OVERALL_BALL_MILL,THA,percentage
+808,PURE,OVERALL_BALL_MILL,Minus 60 Mesh,percentage
+809,PURE,KILN_2,GRCA_COMBIN_SPEED_FEED_RATE_TO_KILN_2_2,RPM
+810,PURE,KILN_2,GRCA_OUTPUT_2,TPH
+811,PURE,KILN_2,GRCA_RC_OUTLET_TEMP_4,C
+812,PURE,KILN_2,GRCA_FLUE_GAS_TEMP_1,C
+813,PURE,KILN_2,GRCA_STACK_1,inchwc
+814,PURE,KILN_2,GRCA_STACK,inchwc
+815,PURE,KILN_2,GRCA_COMBIN_SPEED_FEED_RATE_TO_KILN_2,RPM
+816,PURE,KILN_2,GRCA_OUTPUT,TPH
+817,PURE,KILN_2,GRCA_COMBIN_SPEED_FEED_RATE_TO_KILN_2_1,RPM
+818,PURE,KILN_2,GRCA_FLUE_GAS_TEMP,C
+819,PURE,KILN_2,GRCA_OUTPUT_1,TPH
+820,PURE,KILN_2,GRCA_RC_OUTLET_TEMP,C
+821,PURE,KILN_2,GRCA_ESP_INLET_TEMP,C
+822,PURE,KILN_2,GRCA_RC_OUTLET_TEMP_3,C
+823,PURE,KILN_2,GRCA_RC_OUTLET_TEMP_2,C
+824,PURE,KILN_2,LRCA_HOT_ZONE_TEMP,C
+825,PURE,KILN_2,LRCA_HOT_ZONE_TEMP_1,C
+826,PURE,KILN_2,LRCA_FLUE_GAS_TEMP,C
+827,PURE,KILN_2,LRCA_FLUE_GAS_TEMP_1,C
+828,PURE,KILN_2,LRCA_COMBIN_SPEED_FEED_RATE_TO_KILN_2,RPM
+829,PURE,KILN_2,LRCA_COMBIN_SPEED_FEED_RATE_TO_KILN_2_1,RPM
+830,PURE,KILN_2,LRCA_STACK,inchwc
+831,PURE,KILN_2,LRCA_STACK_1,inchwc
+832,PURE,KILN_2,LRCA_OUTPUT,TPH
+833,PURE,KILN_2,LRCA_OUTPUT_1,TPH
+834,PURE,KILN_2,LRCA_MOISTURE,percentage
+835,PURE,KILN_2,LRCA_MOISTURE_1,percentage
+836,PURE,KILN_2,LRCA_ENTRAINED_SODA,gpl
+837,PURE,KILN_2,LRCA_ENTRAINED_SODA_1,gpl
+838,PURE,KILN_2,LRCA_NG_ENERGY,kw
+839,PURE,KILN_2,LRCA_NG_ENERGY_1,kw
+840,PURE,KILN_2,LRCA_RC_OUTLET_TEMP,C
+841,PURE,KILN_2,LRCA_RC_OUTLET_TEMP_1,C
+842,PURE,KILN_2,SSA_PREDICTION,m2/g
+843,PURE,KILN_2,FALSE_NEGATIVE,unit
+844,PURE,KILN_2,FALSE_POSITIVE,unit
+845,PURE,KILN_2,TRUE_NEGATIVE,unit
+846,PURE,KILN_2,TRUE_POSITIVE,unit
+847,PURE,Precipitation_Section,Heater 3-4 Inlet Temperature,C
+848,PURE,Precipitation_Section,Heater 5-6 Inlet Temperature,C
+849,PURE,Precipitation_Section,Heater 7-8 Inlet Temperature,C
+850,PURE,Wash_Thickner_Section,Liq D Density,gm/cc
+851,PURE,Wash_Thickner_Section,Liq C Density,gm/cc
+852,PURE,Wash_Thickner_Section,Liq B Density,gm/cc
+853,PURE,Wash_Thickner_Section,Liq A Density,gm/cc
+854,PURE,Wash_Thickner_Section,T4 Density,gm/cc
+855,PURE,OVERALL_PLANT,Total seed gpl,gpl
+856,PURE,OVERALL_PLANT,Loop1,Hrs
+857,PURE,OVERALL_PLANT,Loop2,Hrs
+858,PURE,OVERALL_PLANT,Dead tanks,number
+859,PURE,OVERALL_PLANT,Reactivity,unit
+860,PURE,AFG,Rinsing Air Press,mbar
+861,PURE,AFG,DC Diff Pressure,MMWC
+862,PURE,CBM,Feed Ral Frequency,Hz
+863,PURE,CBM,Return Ral Frequency,Hz
+864,PURE,CBM,Venturi Pressure,MMWC
+865,PURE,CBM,Classifier Outlet Pressure,MMWC
+866,PURE,CBM,Exhaust Fan Pressure,MMWC
+867,CUMULATIVE,MM_1,Feed Tank,T
+868,PURE,MM_1,Feed Screw Frequency,Hz
+869,PURE,MM_1,Air Flow,Nm3/hr
+870,PURE,MM_1,Chamber Pressure,psi
+871,PURE,MM_1,Venturi Press Psi,psi
+872,PURE,MM_1,DC Diff Pressure,MMWC
+873,CUMULATIVE,MM_1,Product Tank,T
+874,CUMULATIVE,MM_3,Feed Tank,T
+875,PURE,MM_3,Feed Screw Frequency,Hz
+876,PURE,MM_3,Air Flow,Nm3/hr
+877,PURE,MM_3,Chamber Pressure,psi
+878,PURE,MM_3,Venturi Press Psi,psi
+879,PURE,MM_3,DC Diff Pressure,MMWC
+880,CUMULATIVE,MM_3,Product Tank,T
+881,PURE,NAFG,Rinsing Air Press,mbar
+882,PURE,NAFG,Classifier Current,Amp
+883,PURE,NAFG,DC Diff Pressure,MMWC
+884,PURE,Specials_Compressed_Air_Network,Airflow To 9A,Nm3/hr
+885,PURE,Specials_Compressed_Air_Network,Conveying Air From Std Plant,Nm3/hr
+886,PURE,Specials_Compressed_Air_Network,Hydrate Section Air Flow,Nm3/hr
+887,PURE,Specials_Compressed_Air_Network,Conveying Air Flow,Nm3/hr
+888,PURE,Specials_Compressed_Air_Network,Conveying Air Pressure At AR-2,Kg/cm2
+889,PURE,Specials_Compressed_Air_Network,Conveying Air Pressure At Ph-1A,Kg/cm2
+890,PURE,Specials_Compressors,78 CC BOV,percentage
+891,PURE,Specials_Compressors,78 CC IGV,percentage
+892,PURE,Specials_Compressors,78 CC Motor Current,Amp
+893,PURE,Specials_Compressors,78 CC GB Oil Pressure,Kg/cm2
+894,PURE,Specials_Compressors,78 CC Outlet Pressure,Kg/cm2
+895,PURE,Specials_Compressors,78 CC GB Oil Temp,C
+896,PURE,Specials_Compressors,78 CC Outlet Temp,C
+897,PURE,Specials_Compressors,SC1 Outlet Pressure,Kg/cm2
+898,PURE,Specials_Compressors,SC1 GB Oil Pressure,Kg/cm2
+899,PURE,Specials_Compressors,SC1 Outlet Temp,C
+900,PURE,Specials_Compressors,SC1 GB Oil Temp,C
+901,PURE,Specials_Compressors,SC2 Outlet Pressure,Kg/cm2
+902,PURE,Specials_Compressors,SC2 GB Oil Pressure,Kg/cm2
+903,PURE,Specials_Compressors,SC2 Outlet Temp,C
+904,PURE,Specials_Compressors,SC2 GB Oil Temp,C
+905,PURE,Specials_Compressors,SC3 Outlet Pressure,Kg/cm2
+906,PURE,Specials_Compressors,SC3 GB Oil Pressure,Kg/cm2
+907,PURE,Specials_Compressors,SC3 Outlet Temp,C
+908,PURE,Specials_Compressors,SC3 GB Oil Temp,C
+909,PURE,Specials_Compressors,HT-1 BOV,percentage
+910,PURE,Specials_Compressors,HT-1 IGV,percentage
+911,PURE,Specials_Compressors,HT-1 Motor Current,Amp
+912,PURE,Specials_Compressors,HT-1 GB Oil Pressure,Kg/cm2
+913,PURE,Specials_Compressors,HT-1 Outlet Pressure,Kg/cm2
+914,PURE,Specials_Compressors,HT-1 GB Oil Temp,C
+915,PURE,Specials_Compressors,HT-1 Outlet Temp,C
+916,PURE,Specials_Compressors,HT-2 BOV,percentage
+917,PURE,Specials_Compressors,HT-2 IGV,percentage
+918,PURE,Specials_Compressors,HT-2 Motor Current,Amp
+919,PURE,Specials_Compressors,HT-2 GB Oil Pressure,Kg/cm2
+920,PURE,Specials_Compressors,HT-2 Outlet Pressure,Kg/cm2
+921,PURE,Specials_Compressors,HT-2 GB Oil Temp,C
+922,PURE,Specials_Compressors,HT-2 Outlet Temp,C
+923,PURE,Specials_Compressors,78 CC Power,kW
+924,PURE,Specials_Compressors,78 SC-1,kW
+925,PURE,Specials_Compressors,78 SC-2,kW
+926,PURE,Specials_Compressors,78 SC-3,kW
+927,PURE,Specials_cooling_water_Network,26E CW PHE Outlet Temp,C
+928,PURE,Specials_cooling_water_Network,26E SW PHE Inlet Temp,C
+929,PURE,Specials_cooling_water_Network,26E SW PHE Outlet Temp,C
+930,PURE,Specials_cooling_water_Network,26E CW PHE Inlet Temp,C
+931,PURE,Specials_cooling_water_Network,79 Cooling Water Flow,m3/hr
+932,PURE,Specials_cooling_water_Network,79 Soft Water Flow,m3/hr
+933,PURE,Specials_cooling_water_Network,79 CW PHE Inlet Pressure,Kg/cm2
+934,PURE,Specials_cooling_water_Network,79 CW PHE Outlet Pressure,Kg/cm2
+935,PURE,Specials_cooling_water_Network,79 Soft Water Pressure,Kg/cm2
+936,PURE,Specials_cooling_water_Network,79 SW PHE Inlet Pressure,Kg/cm2
+937,PURE,Specials_cooling_water_Network,79 SW PHE Outlet Pressure,Kg/cm2
+938,PURE,Specials_cooling_water_Network,79 CW PHE Inlet Temp,C
+939,PURE,Specials_cooling_water_Network,79 CW PHE Outlet Temp,C
+940,PURE,Specials_cooling_water_Network,79 Soft Water Temp,C
+941,PURE,Specials_cooling_water_Network,79 SW PHE Inlet Temp,C
+942,PURE,Specials_cooling_water_Network,79 SW PHE Outlet Temp,C
+943,PURE,Specials_Water_Network,9A RC Temp,C
+944,PURE,Specials_Water_Network,First Wash RC Flow,m3/hr
+945,PURE,Specials_Water_Network,Fw RC Temp,C
+946,PURE,Specials_Water_Network,K-1 RC Flow,m3/hr
+947,PURE,Specials_Water_Network,K-2 RC Flow,m3/hr
+948,PURE,Specials_Water_Network,Total Mill Water Flow,m3/hr
+949,PURE,Calcination_Section,4A RC Temp,C
+950,PURE,Calcination_Section,4A RC Flow,m3/hr
+951,PURE,OVERALL_PLANT,Oxalate Prod,number
+952,PURE,OVERALL_PLANT,KILN_1 B Grade Prod,number
+953,PURE,OVERALL_PLANT,KILN_2 Prod,number
+954,PURE,OVERALL_PLANT,KILN_3 Prod,number
+955,PURE,OVERALL_PLANT,KILN_4 Prod,number
+956,PURE,Specials_cooling_water_Network,26E Cooling Water Flow,M3/Hr
+957,PURE,Wash_Thickner_Section,T-28A-8 Tank Level,Meter
+958,PURE,Wash_Thickner_Section,T-28A-9 Tank Level,Meter
+959,PURE,Wash_Thickner_Section,T-28A-10 Tank Level,Meter
+960,PURE,Wash_Thickner_Section,T-28A-11 Tank Level,Meter
+961,PURE,Wash_Thickner_Section,T-28A-12 Tank Level,Meter
+962,PURE,Wash_Thickner_Section,T-28A-13 Tank Level,Meter
+963,PURE,Wash_Thickner_Section,T-28A-14 Tank Level,Meter
+964,PURE,Wash_Thickner_Section,T-28A-16 Tank Level,Meter
+965,PURE,Wash_Thickner_Section,5A Fliter Feed Flow,m3/hr
+966,PURE,Wash_Thickner_Section,Wash Advance Flow,m3/hr
+967,PURE,Wash_Thickner_Section,Filtrate Tank Level,Meter
+968,PURE,Wash_Thickner_Section,Lime Flow-1,m3/hr
+969,PURE,Wash_Thickner_Section,Lime Flow-2,m3/hr
+970,PURE,Wash_Thickner_Section,Caustic Temp,C
+971,PURE,Specials_Compressors,Conveying Air Pressure at AR2,kg/cm2
+972,PURE,Specials_Water_Network,Special Mill Water Pressure,kg/cm2
+973,PURE,Specials_cooling_water_Network,Special Mill Water Pressure,kg/cm2
+974,PURE,KILN_4,Feed Rate in TPH,TPH
+975,PURE,Specials_Compressors,HT 1 compressor kW,kW
+976,PURE,Specials_Compressors,HT 2 compressor kW,kW
+977,PURE,13A First Effect,13A First Body Level,meter
+978,PURE,13A Second Effect,13A Second Body Level,meter
+979,PURE,13A Third Effect,13A Third Body Level,meter
+980,PURE,13A Fourth Effect,13A Fourth Body Level,meter
+981,PURE,13A Fifth Effect,13A Fifth Body Level,meter
+982,PURE,13A Sixth Effect,13A Sixth Body Level,meter
+983,PURE,13A Seventh Effect,13A Seventh Body Level,meter
+984,PURE,13B First Effect,13B First Body Level,meter
+985,PURE,13B Second Effect,13B Second Body Level,meter
+986,PURE,13B Third Effect,13B Third Body Level,meter
+987,PURE,13B Fourth Effect,13B Fourth Body Level,meter
+988,PURE,13B Fifth Effect,13B Fifth Body Level,meter
+989,PURE,13B Sixth Effect,13B Sixth Body Level,meter
+990,PURE,DIGESTION,4A RC Temp,C
+991,PURE,DIGESTION,4A RC Flow,m3/hr
+992,CUMULATIVE,ABM_4,Feed Bin Weight 1,T
+993,CUMULATIVE,ABM_4,Feed Bin Weight 2,T
+994,CUMULATIVE,ABM_4,Product Bin Weight BS,T
+995,CUMULATIVE,ABM_4,Product Bin Weight AS,T
+996,PURE,ABM_4,Main BRG Temp DE,C
+997,PURE,ABM_4,Main BRG Temp NDE,C
+998,PURE,ABM_4,Bearing Inlet Oil Temp,C
+999,PURE,ABM_4,Vent Filter DP,MMWC
+1000,PURE,ABM_4,Mill Load,kWh
+1001,PURE,ABM_4,Mill Current,Amp
+1002,CUMULATIVE,ABM_5,Feed Bin Weight 5,T
+1003,CUMULATIVE,ABM_5,Feed Bin Weight 6,T
+1004,CUMULATIVE,ABM_5,Product Bin Weight BS,T
+1005,CUMULATIVE,ABM_5,Product Bin Weight AS,T
+1006,PURE,ABM_5,Main BRG Temp DE,C
+1007,PURE,ABM_5,Main BRG Temp NDE,C
+1008,PURE,ABM_5,Bearing Inlet Oil Temp,C
+1009,PURE,ABM_5,Vent Filter DP,MMWC
+1010,PURE,ABM_5,Mill Load,kWh
+1011,PURE,ABM_5,Mill Current,Amp
+1012,PURE,KILN_4,Kiln 4 Oil Flow,kg/min
+1013,PURE,KILN_4,Kiln 4 Oil Pressure,kg/cm2
+1014,PURE,KILN_4,Atomising Steam Pressure,kg/cm2
+1015,PURE,KILN_4,Kiln 4 Oil Temp,C
+1016,PURE,KILN_1,Kiln 1 RPM,Hz
+1017,PURE,Specials_Water_Network,4A RC Temp,C
+1018,PURE,Specials_Water_Network,4A RC Flow,m3/hr
+1019,PURE,Specials_Water_Network,Mill Water To 9A Inj Tank,m3/hr
+1020,PURE,ABM_2,Vent Filter DP,MMWC
+1021,PURE,ABM_3,Vent Filter DP,MMWC
+1022,PURE,CBM,GB Oil Temp,C
+1023,PURE,CBM,GB Oil Pressure DE,kg/cm2
+1024,PURE,CBM,GB Oil Pressure NDE,kg/cm2
+1025,PURE,CBM,LO Reservoir Temp,C
+1027,PURE,Specials_Compressors,HT-1 CW Inlet Temp,C
+1028,PURE,Specials_Compressors,HT-2 CW Inlet Temp,C
+1029,PURE,Specials_Compressors,78 CC CW Inlet Temp,C
+1030,PURE,First_Wash_Section,FW Feed Flow,m3/hr
+1031,PURE,First_Wash_Section,FW Feed Density,gm/cc
+1032,PURE,First_Wash_Section,FW Moisture,percentage
+1033,PURE,First_Wash_Section,T-20-3,T
+1034,PURE,First_Wash_Section,T-20-4,T
+1035,PURE,First_Wash_Section,PCH Feed Density,gm/cc
+1036,PURE,First_Wash_Section,FW WW Flow,m3/hr
+1037,PURE,Blender,Mill Load,kWh
+1038,PURE,KILN_4,Specials Steam Flow,Kg/hr
+1039,PURE,Specials_Compressed_Air_Network,PF Plant Air Flow,Nm3/hr
+1040,PURE,Specials_Water_Network,HST TO PF1 Feed Slurry Temp,C
+1041,PURE,Specials_Water_Network,HST TO PF2 Feed Slurry Temp,C
+1042,PURE,Specials_Water_Network,HST TO First Wash Feed Slurry Temp,C
+1043,PURE,OVERALL_PLANT,Overall Recovery,percentage
+1044,PURE,KILN_1,Kiln 1 Main Drive,RPM
+1045,PURE,KILN_1,Kiln 1 Rotary Cooler Drive,RPM
+1046,PURE,KILN_2,Kiln 2 Main Drive,RPM
+1047,PURE,KILN_2,Kiln 2 Rotary Cooler Drive,RPM
+1048,PURE,KILN_3,Kiln 3 Main Drive,RPM
+1049,PURE,KILN_4,Kiln 4 Main Drive,RPM
+1050,PURE,KILN_4,Kiln 4 ALF3 Feed Rate,kg/hr
+1051,PURE,KILN_4,T-9D-1,T
+1052,PURE,KILN_4,T-9D-2,T
+1053,PURE,KILN_1,SPECIAL_ALUMINA_PRODUCTION,Number
+1054,PURE,KILN_2,SPECIAL_ALUMINA_PRODUCTION,Number
+1055,PURE,KILN_3,SPECIAL_ALUMINA_PRODUCTION,Number
+1056,PURE,KILN_4,SPECIAL_ALUMINA_PRODUCTION,Number
+1057,PURE,MM_1&3,MICROFINED_ALUMINA_PRODUCTION,Number
+1058,PURE,AFG,MICROFINED_ALUMINA_PRODUCTION,Number
+1059,PURE,NAFG,MICROFINED_ALUMINA_PRODUCTION,Number
+1060,PURE,ABM_4,MICROFINED_ALUMINA_PRODUCTION,Number
+1061,PURE,ABM_5,MICROFINED_ALUMINA_PRODUCTION,Number
+1062,PURE,ABM_1,MILLED_ALUMINA_PRODUCTION,Number
+1063,PURE,ABM_2,MILLED_ALUMINA_PRODUCTION,Number
+1064,PURE,ABM_3,MILLED_ALUMINA_PRODUCTION,Number
+1065,PURE,ABM_4,MILLED_ALUMINA_PRODUCTION,Number
+1066,PURE,ABM_5,MILLED_ALUMINA_PRODUCTION,Number
+1067,PURE,CBM,MILLED_ALUMINA_PRODUCTION,Number
+1068,PURE,HBM_3,MILLED_ALUMINA_PRODUCTION,Number
+1069,PURE,HBM_4,MILLED_ALUMINA_PRODUCTION,Number
+1070,PURE,Third_Party_Milling,MILLED_ALUMINA_PRODUCTION,Number
+1071,PURE,SFD_1,SPECIAL_HYDRATE_PRODUCTION,Number
+1072,PURE,SFD_2,SPECIAL_HYDRATE_PRODUCTION,Number
+1073,PURE,ACM_120,MICROFINED_HYDRATE_PRODUCTION,Number
+1074,PURE,NACM_120,MICROFINED_HYDRATE_PRODUCTION,Number
+1075,PURE,HBM_1,MILLED_HYDRATE_PRODUCTION,Number
+1076,PURE,HBM_2,MILLED_HYDRATE_PRODUCTION,Number
+1077,PURE,HBM_3,MILLED_HYDRATE_PRODUCTION,Number
+1078,PURE,HBM_4,MILLED_HYDRATE_PRODUCTION,Number
+1079,PURE,Blender,BLENDED_HYDRATE_PRODUCTION,Number
+1080,PURE,Coated_Hydrate,COATED_HYDRATE_PRODUCTION,Number
+1081,PURE,Hydrate_Cutting,HYDRATE_CUTTING_PRODUCTION,Number
+1082,PURE,PCH,PCH_PRODUCTION,Number
+1083,PURE,KILN_1,SPECIAL_ALUMINA_OPERATING_PLAN,Number
+1084,PURE,KILN_2,SPECIAL_ALUMINA_OPERATING_PLAN,Number
+1085,PURE,KILN_3,SPECIAL_ALUMINA_OPERATING_PLAN,Number
+1086,PURE,KILN_4,SPECIAL_ALUMINA_OPERATING_PLAN,Number
+1087,PURE,MM_1&3,MICROFINED_ALUMINA_OPERATING_PLAN,Number
+1088,PURE,AFG,MICROFINED_ALUMINA_OPERATING_PLAN,Number
+1089,PURE,NAFG,MICROFINED_ALUMINA_OPERATING_PLAN,Number
+1090,PURE,ABM_4,MICROFINED_ALUMINA_OPERATING_PLAN,Number
+1091,PURE,ABM_5,MICROFINED_ALUMINA_OPERATING_PLAN,Number
+1092,PURE,ABM_1,MILLED_ALUMINA_OPERATING_PLAN,Number
+1093,PURE,ABM_2,MILLED_ALUMINA_OPERATING_PLAN,Number
+1094,PURE,ABM_3,MILLED_ALUMINA_OPERATING_PLAN,Number
+1095,PURE,ABM_4,MILLED_ALUMINA_OPERATING_PLAN,Number
+1096,PURE,ABM_5,MILLED_ALUMINA_OPERATING_PLAN,Number
+1097,PURE,CBM,MILLED_ALUMINA_OPERATING_PLAN,Number
+1098,PURE,HBM_3,MILLED_ALUMINA_OPERATING_PLAN,Number
+1099,PURE,HBM_4,MILLED_ALUMINA_OPERATING_PLAN,Number
+1100,PURE,Third_Party_Milling,MILLED_ALUMINA_OPERATING_PLAN,Number
+1101,PURE,SFD_1,SPECIAL_HYDRATE_OPERATING_PLAN,Number
+1102,PURE,SFD_2,SPECIAL_HYDRATE_OPERATING_PLAN,Number
+1103,PURE,ACM_120,MICROFINED_HYDRATE_OPERATING_PLAN,Number
+1104,PURE,NACM_120,MICROFINED_HYDRATE_OPERATING_PLAN,Number
+1105,PURE,HBM_1,MILLED_HYDRATE_OPERATING_PLAN,Number
+1106,PURE,HBM_2,MILLED_HYDRATE_OPERATING_PLAN,Number
+1107,PURE,HBM_3,MILLED_HYDRATE_OPERATING_PLAN,Number
+1108,PURE,HBM_4,MILLED_HYDRATE_OPERATING_PLAN,Number
+1109,PURE,Blender,BLENDED_HYDRATE_OPERATING_PLAN,Number
+1110,PURE,Coated_Hydrate,COATED_HYDRATE_OPERATING_PLAN,Number
+1111,PURE,Hydrate_Cutting,HYDRATE_CUTTING_OPERATING_PLAN,Number
+1112,PURE,PCH,PCH_OPERATING_PLAN,Number
+1113,PURE,Evaporatoration,13A Product Density,g/cc
+1114,PURE,Evaporatoration,13B Product Density,g/cc
+1115,PURE,Evaporatoration,13A Product Flow,m3/hr
+1117,PURE,Evaporatoration,13A_B PRS,kg/cm2
+1118,PURE,Evaporatoration,13A Conductivity,PPM
+1119,PURE,Evaporatoration,13B Conductivity,PPM
+1120,PURE,ABM_1,ABM-01 Motor Current,Amp
+1121,PURE,ABM_2,ABM-02 Motor Current,Amp
+1122,PURE,ABM_3,ABM-03 Motor Current,Amp
+1123,PURE,Precipitation_Section,Flash Cooling Inlet Flow,m3/hr
+1124,PURE,Precipitation_Section,Flash Cooling Outlet Flow,m3/hr
+1125,PURE,Precipitation_Section,Flash Cooling Inlet Temperature,C
+1126,PURE,Precipitation_Section,Flash Cooling Outlet Temperature,C
+1127,PURE,Precipitation_Section,FC Flash Tank Level Control,meter
+1128,PURE,Precipitation_Section,FC Flash Tank Level 1,meter
+1129,PURE,Precipitation_Section,Flash Cooling Water Outlet Flow,m3/hr
+1130,PURE,Precipitation_Section,FC Flash Tank Vacuum,kg/cm2
+1131,PURE,Precipitation_Section,FC Water Tank Level,meter
+1132,PURE,Precipitation_Section,FC Hotwell Conductivity,PPM
+1133,PURE,Precipitation_Section,FC Main Conductivity,PPM
+1134,PURE,Precipitation_Section,PPT-48 Temperature,C
+1135,PURE,Precipitation_Section,HST O_F,gpl
+1136,PURE,Precipitation_Section,Filtrate,gpl
+1137,PURE,Specials_Compressors,Conveying Air Flow,Nm3/hr
+1138,PURE,KILN_1,NG Skid i_l Pressure,Kg
+1139,PURE,KILN_1,NG Burner i_l Pressure,Kg
+1140,PURE,KILN_1,NG Temperature,C
+1141,PURE,KILN_2,T-9D-3,Kg
+1142,PURE,KILN_1,Steam Flow,Kg/hr
+1143,PURE,KILN_1,Oil Flow,lpm
+1144,PURE,KILN_1,Oil Burner i_l Pressure,Kg
+1145,PURE,KILN_1,Heater o_l Temp,C
+1146,PURE,KILN_1,Heater o_l Temp v_v,C
+1147,PURE,KILN_2,T-9D-4,Kg
+1148,PURE,KILN_2,Steam Flow,Kg/hr
+1149,PURE,KILN_2,Oil Flow Kiln,lpm
+1150,PURE,KILN_2,Oil Burner i_l Pressure,Kg
+1151,PURE,KILN_2,Heater o_l Temp Kiln,C
+1152,PURE,KILN_2,Heater o_l Temp v_v,C
+1153,PURE,KILN_2,NG skid i_l Pressure,Kg
+1154,PURE,KILN_2,NG Burner i_l Pressure,Kg
+1155,PURE,KILN_2,NG Temperature,C
+1156,PURE,KILN_3,ESP i_l Temp,C
+1157,PURE,KILN_3,Hood Draft,MMWC
+1158,PURE,KILN_3,ESP i_l Draft,MMWC
+1159,PURE,KILN_3,NG skid i_l Pressure,Kg
+1160,PURE,KILN_3,NG Burner i_l Pressure,Kg
+1161,PURE,KILN_3,NG Temperature,C
+1162,PURE,KILN_4,Hood Draft,MMWC
+1163,PURE,KILN_4,NG Skid i_l Pressure,Kg
+1164,PURE,KILN_4,NG Burner i_l Pressure,Kg
+1165,PURE,KILN_4,NG Temperature,C
+1166,PURE,KILN_4,Kiln DOT 75KL  Level,meter
+1167,PURE,KILN_1,Silo_1,meter
+1168,PURE,KILN_2,Silo_1,meter
+1169,PURE,KILN_1,Silo_2,meter
+1170,PURE,KILN_2,Silo_2,meter
+1171,PURE,KILN_3,PCH_Prod_Tank_Level,meter
+1172,PURE,KILN_3,Pre_Cal_NG_Flow,SCM/Hr
+1173,PURE,PF-1,First_Wash_Section,T
+1174,PURE,PF-2,First_Wash_Section,T
+1175,PURE,FW,First_Wash_Section,T
+1176,PURE,First_Wash_Section,PF-1,T
+1177,PURE,First_Wash_Section,PF-2,T
+1178,PURE,First_Wash_Section,FW,T
+1179,PURE,NACM_120,RUN_TIME,Hours
+1180,PURE,NACM_120,FEED_BIN_WEIGHT,T
+1181,PURE,NACM_120,PRODUCT_BIN_WEIGHT,T
+1182,PURE,NACM_120,AIR_FLOW,Nm3/hr
+1183,PURE,NACM_120,MILL_ROTOR_SPEED,RPM
+1184,PURE,NACM_120,MILL_LOAD,Amp
+1185,PURE,NACM_120,CLASSIFIER_SPEED,RPM
+1186,PURE,NACM_120,CLASSIFIER_CURRENT,Amp
+1187,PURE,NACM_120,FEED_RAL_6_SPEED,RPM
+1188,PURE,NACM_120,FEED_RAL_8_SPEED,RPM
+1189,PURE,NACM_120,DUST_COLLECTOR_DP,MMWC
+1190,PURE,NACM_120,EXHAUST_FAN_CURRENT,Amp
+1191,PURE,NACM_120,EXHAUST_FAN_HZ,%
+1192,PURE,NACM_120,MILL_VIBRATION,mm/s
+1193,PURE,NACM_120,MILL_OUTLET_TEMP,C
+1194,PURE,NACM_120,Total Power Consumption,kW
+1195,PURE,BIO_MASS,BOILER_STEAM_DRUM_LEVEL_1,%
+1196,PURE,BIO_MASS,BOILER_STEAM_DRUM_LEVEL_2,%
+1197,PURE,BIO_MASS,DEAERATOR_TANK_LEVEL,%
+1198,PURE,BIO_MASS,BOILER_FEED_WATER_FLOW,TPH
+1199,PURE,BIO_MASS,BOILER_O_L_SUPERHEATED_STEAM_FLOW_1,TPH
+1200,PURE,BIO_MASS,BOILER_O_L_SUPERHEATED_STEAM_FLOW_2,TPH
+1201,PURE,BIO_MASS,DEAERATOR_STEAM_FLOW,TPH
+1202,PURE,BIO_MASS,OXYGEN_ANALYSER,%
+1203,PURE,BIO_MASS,ESP_I_L_FG_TEMPERATURE,C
+1204,PURE,BIO_MASS,BOILER_STEAM_DRUM_PRESSURE,%
+1205,PURE,BIO_MASS,BOILER_O_L_SUPERHEATED_STEAM_PRESSURE,%
+1206,PURE,BIO_MASS,DEAERATOR_STEAM_PRESSURE,%
+1207,PURE,BIO_MASS,BOILER_O_L_SUPERHEATED_STEAM_TEMPERATURE,C
+1208,PURE,BIO_MASS,PRIMARY_SUPERHEATER_O_L_STEAM_TEMPERATURE,C
+1209,PURE,BIO_MASS,ECONOMISER_INLET_HEADER_WATER_TEMPERATURE,C
+1210,PURE,BIO_MASS,ECONOMISER_OUTLET_HEADER_WATER,C
+1211,PURE,BIO_MASS,FURNACE_DRAFT,MMWC
+1212,PURE,BIO_MASS,FURNACE_TEMPERATURE,C
+1213,PURE,BIO_MASS,TURBINE_SPEED,RPM
+1214,PURE,BIO_MASS,TURBINE_INLET_STEAM_PRESSURE_1,Kg/cm2
+1215,PURE,BIO_MASS,TURBINE_INLET_STEAM_TEMPERATURE,C
+1216,PURE,BIO_MASS,TURBINE_INLET_STEAM_FLOW,TPH
+1217,PURE,BIO_MASS,TURBINE_EXTR._STEAM_PRESSURE_1,Kg/cm2
+1218,PURE,BIO_MASS,EXTRACTION_STEAM_TEMPERATURE,C
+1219,PURE,BIO_MASS,EXT_STM_TEMPERATURE_ATER_DSH,TPH
+1220,PURE,BIO_MASS,TURBINE_EXTRACTION_STEAM_FLOW,TPH
+1221,PURE,BIO_MASS,TURBINE_LOAD,KW
+1222,PURE,BIO_MASS,TURBINE_EXHAUST_STEAM_PRESSURE_1,Kg/cm2
+1223,PURE,BIO_MASS,EXHAUST_STEAM_TEMPERATURE,TPH
+1224,PURE,BIO_MASS,TURBINE_EXHAUST_STEAM_FLOW,TPH
+1225,PURE,BIO_MASS,LUBE_OIL_HEADER_PRESSURE,Kg/cm2
+1226,PURE,BIO_MASS,CONTROLOIL_PRESSURE,Kg/cm2
+1227,PURE,BIO_MASS,LUBE_OIL_TEMPERATURE_AFTER_OI_COOLER,C
+1228,PURE,BIO_MASS,COOLING_WATER_PRESSURE,Kg/cm2
+1229,PURE,BIO_MASS,HP_HEADER_STEAM_PRESSURE,Kg/cm2
+1230,PURE,BIO_MASS,HP_HEADER_STEAM_TEMPERATURE,TPH
+1231,PURE,BIO_MASS,MP_HEADER_STEAM_PRESSURE,Kg/cm2
+1232,PURE,BIO_MASS,MP_HEADER_STEAM_TEMPERATURE,C
+1233,PURE,BIO_MASS,LP_HEADER_STEAM_PRESSURE,Kg/cm2
+1234,PURE,BIO_MASS,LP_HEADER_STEAM_TEMPERATURE_,C
+1235,PURE,BIO_MASS,EXHAUST_STEAM_TEMPERATURE_AFTER_DSH,TPH
+1236,PURE,BIO_MASS,WHEEL_CASE_PRESSURE,Kg/cm2
+1237,PURE,BIO_MASS,EXAUST_VENT,TPH
+1238,PURE,BIO_MASS,SPM,mg/Nm3
+1239,PURE,BIO_MASS,NOX,ppm
+1240,PURE,BIO_MASS,SOX,ppm
+1241,PURE,BIO_MASS,TG_KWH_TOTALIZER,MWH
+1242,PURE,BIO_MASS,EXPORT_KWH_TOTALIZER,KW
+1243,PURE,BIO_MASS,AUX_KWH_TOTALIZER,KW
+1244,PURE,Specials_Water_Network,WET_BULB_TEMP,Celsius
+1245,PURE,OVERALL_PLANT,KILN_PROD_SX_GRADE_PROD,unit
+1246,PURE,IMPORTED,EGA_FROM_KYARKOP,unit
+1247,PURE,IND,DHARNI_GROUP,unit
+1248,PURE,IND,GAMMA_IRON_INDIA_LTD,unit
+1249,PURE,High_Rating_Pumps,P_7A_17A_BATCH_FILLING_PUMP,kW
+1250,PURE,High_Rating_Pumps,P_7A_17B_BATCH_FILLING_PUMP,kW
+1251,PURE,OVERALL_PLANT,Total Steam,T/T
+1252,PURE,Specials_cooling_water_Network,WET_BULB_TEMP,C
+1254,PURE,Precipitation_Section,Regular Filling Temperature,C
+1255,PURE,Precipitation_Section,PHE Water flow,m3/hr
+1256,PURE,Precipitation_Section,Primary to 52 Tonnage,TPD
+1257,PURE,Evaporatoration,13B Spent Liq Flow,m3/hr
+1258,PURE,Evaporatoration,13A Vacuum,Kg/cm2
+1259,PURE,Evaporatoration,13B Vacuum,Kg/cm2
+1260,PURE,Precipitation_Section,Caustic Dosing,m3/hr
+1261,PURE,Evaporatoration,13A 1st body pressure,Kg/cm2
+1262,PURE,Evaporatoration,13A 2nd body Pressure,Kg/cm2
+1263,PURE,Evaporatoration,13A 3rd body Pressure,Kg/cm2
+1264,PURE,Evaporatoration,13A 4th body Pressure,Kg/cm2
+1265,PURE,Evaporatoration,13A 5th body Pressure,Kg/cm2
+1266,PURE,Evaporatoration,13A 6th body Pressure,Kg/cm2
+1267,PURE,Evaporatoration,13A 7th body pressure,Kg/cm2
+1268,PURE,Evaporatoration,13B 1st body pressure,Kg/cm2
+1269,PURE,Evaporatoration,13B 2nd body Pressure,Kg/cm2
+1270,PURE,Evaporatoration,13B 3rd body Pressure,Kg/cm2
+1271,PURE,Evaporatoration,13B 4th body Pressure,Kg/cm2
+1272,PURE,Evaporatoration,13B 5th body Pressure,Kg/cm2
+1273,PURE,Evaporatoration,13B 6th body Pressure,Kg/cm2
+1274,PURE,Evaporatoration,13A RC Conductivity,ppm
+1275,PURE,Evaporatoration,13B RC Conductivity,ppm
+1276,PURE,Evaporatoration,13A CC Conductivity,ppm
+1277,PURE,DIGESTION,18A-TT-3 Level,meter
+1278,PURE,DIGESTION,Thick Liq flow to TT-3,m3/hr
+1279,PURE,OVERALL_PLANT,Make-up water,m3/hr
+1280,PURE,Filteration,Filtrate temperature,C
+1281,PURE,Precipitation_Section,Fine Seed Charge,unit
+1282,PURE,Precipitation_Section,Primary to #52 flow,unit
+1283,PURE,Precipitation_Section,Compressor Pressure,kg/cm2
+1284,PURE,Precipitation_Section,Compressor Flow,m3/hr
+1285,PURE,Precipitation_Section,Spent Liq common Inlet Pressure,kg/cm2
+1286,PURE,Precipitation_Section,Spent Liq common outlet Pressure,kg/cm2
+1287,PURE,Precipitation_Section,Primary to PPT-52 Hydrate Flow,m3/hr
+1288,PURE,Precipitation_Section,TFT Tank level,meter
+1289,PURE,Precipitation_Section,Primary Injection tank Level,meter
+1290,PURE,Precipitation_Section,PPT-55 Tank level,meter
+1293,PURE,Precipitation_Section,7A Stream Pressure,m3/hr
+1294,PURE,DIGESTION,Flow 0 LB,m3/hr
+1295,PURE,DIGESTION,Sand Classifier,m3/hr
+1296,PURE,DIGESTION,to DMS,m3/hr
+1297,PURE,DIGESTION,Mix Liq Flow,m3/hr
+1298,PURE,DIGESTION,Dig - 1,kg/cm2
+1299,PURE,DIGESTION,Dig - 2,kg/cm2
+1300,PURE,DIGESTION,Dig - 3,kg/cm2
+1301,PURE,DIGESTION,Dig - 4,kg/cm2
+1302,PURE,DIGESTION,Dig - 5,kg/cm2
+1303,PURE,DIGESTION,Dig - 6,kg/cm2
+1304,PURE,DIGESTION,Blow Off,kg/cm2
+1305,PURE,DIGESTION,20 LB FT I/L,kg/cm2
+1306,PURE,DIGESTION,10 LB FT I/L,kg/cm2
+1307,PURE,DIGESTION,0 LB FT I/L,kg/cm2
+1308,PURE,DIGESTION,Booster Pump I/L,kg/cm2
+1309,PURE,DIGESTION,Booster Pump O/L,kg/cm2
+1310,PURE,DIGESTION,LSH I/L ,kg/cm2
+1311,PURE,DIGESTION,RED GLW,kg/cm2
+1313,PURE,DIGESTION,20 LB FT O/L ,C
+1314,PURE,DIGESTION,10 LB FB O/L,C
+1315,PURE,DIGESTION,FT - 4 O/L,C
+1316,PURE,DIGESTION,0 LB Htr I/L,C
+1317,PURE,DIGESTION,20 LB Htr O/L,C
+1318,PURE,DIGESTION,0 LB FT Vap,C
+1319,PURE,DIGESTION,10 LB Ft Vap,C
+1320,PURE,DIGESTION,20 LB Ft Vap,C
+1321,PURE,DIGESTION,Dilution,C
+1322,PURE,DIGESTION,PDS-1 I/L temperature,C
+1323,PURE,DIGESTION,PDS-2 I/L temperature,C
+1324,PURE,DIGESTION,PDS-4 O/L temperature,C
+1325,PURE,DIGESTION,PDS-5 O/L temperature,C
+1326,PURE,DIGESTION,PDS-6 O/L temperature,C
+1327,PURE,DIGESTION,Digester-3 temperature,C
+1328,PURE,DIGESTION,Digester-4 temperature,C
+1329,PURE,DIGESTION,Digester-5 temperature,C
+1330,PURE,DIGESTION,Digester-6 temperature,C
+1331,PURE,DIGESTION,Digester-1 pressure,kg/cm2
+1332,PURE,DIGESTION,Digester-2 pressure,kg/cm2
+1333,PURE,DIGESTION,Digester-3 pressure,kg/cm2
+1334,PURE,DIGESTION,Digester-4 pressure,kg/cm2
+1335,PURE,DIGESTION,Digester-5 pressure,kg/cm2
+1336,PURE,DIGESTION,Digester-6 pressure,kg/cm2
+1337,PURE,DIGESTION,Flash tank-4 pressure,kg/cm2
+1338,PURE,DIGESTION,Flash tank-1 level,meter
+1339,PURE,DIGESTION,Flash tank-2 level,meter
+1340,PURE,DIGESTION,Flash tank-3 level,meter
+1341,PURE,DIGESTION,Flash tank-4 level,meter
+1342,PURE,DIGESTION,Blow off tank level-1,meter
+1343,PURE,DIGESTION,Blow off tank level-2,meter
+1344,PURE,DIGESTION,Thickener feed temperature,C
+1345,PURE,DIGESTION,Dilution flow to blow off tank,m3/hr
+1346,PURE,DIGESTION,4A CC conductivity,ppm
+1347,PURE,DIGESTION,FT-4 heater O/L temperature,C
+1348,PURE,DIGESTION,FT-3 heater O/L temperature,C
+1349,PURE,DIGESTION,FT-2 heater O/L temperature,C
+1350,PURE,DIGESTION,Boiler main steam header pressure,kg/cm2
+1351,PURE,DIGESTION,FT-4 I/L pressure,kg/cm2
+1352,PURE,DIGESTION,Booster pump O/L pressure,kg/cm2
+1353,PURE,DIGESTION,LSH O/L pressure,kg/cm2
+1354,PURE,Precipitation_Section,First Agglo Temp,celcius
+1355,PURE,Precipitation_Section,Filling Conc,gpl
+1357,PURE,Precipitation_Section,Residence time Agglo,Hrs
+1360,PURE,Precipitation_Section,Fine Seed 3_5 m,%
+1361,PURE,Precipitation_Section,Fine Seed 45m,%
+1363,PURE,Precipitation_Section,Last Growth Temp,celcius
+1364,PURE,Precipitation_Section,Total Seed ,gpl
+1365,PURE,Precipitation_Section,Total Seed Tonnage,T
+1366,PURE,Precipitation_Section,Total Residence Time,Hrs
+1367,PURE,SFD_1,NG Pressure,mBar
+1368,PURE,SFD_2,NG Pressure,mBar
+1369,PURE,NACM 120,CLASSIFIER_SPEED,RPM
+1372,PURE,OVERALL_PLANT,Red Mud Sale,t 
+1373,PURE,STANDARD_HYDRATE,Lot No,number
+1374,PURE,STANDARD_HYDRATE,MOISTURE,%
+1375,PURE,STANDARD_HYDRATE,ENTSODA_HYD,%
+1376,PURE,STANDARD_HYDRATE,LOM_HYD,%
+1377,PURE,STANDARD_HYDRATE,+100D,%
+1378,PURE,STANDARD_HYDRATE,+200D,%
+1379,PURE,STANDARD_HYDRATE,+325D,%
+1380,PURE,STANDARD_HYDRATE,Na2OT,%
+1381,PURE,STANDARD_HYDRATE,SiO2,%
+1382,PURE,ACM_120,Grade,number
+1383,PURE,ACM_120,Lot No,number
+1384,PURE,ACM_120,Moist,%
+1385,PURE,ACM_120,SD50,micron
+1386,PURE,ACM_120,+325W,%
+1387,PURE,ACM_120,+63MW,%
+1388,PURE,ACM_120,SiO2,%
+1389,PURE,ACM_120,Na2OT,%
+1390,PURE,ACM_120,AlOH3,%
+1391,PURE,NACM_120,Grade,number
+1392,PURE,NACM_120,Lot No,number
+1393,PURE,NACM_120,Moist,%
+1394,PURE,NACM_120,SD50,micron
+1395,PURE,NACM_120,+325W,%
+1396,PURE,NACM_120,+63MW,%
+1397,PURE,NACM_120,SiO2,%
+1398,PURE,NACM_120,Na2OT,%
+1399,PURE,NACM_120,AlOH3,%
+1400,PURE,STANDARD_HYDRATE,Date,unit
+1401,PURE,ACM_120,Date,unit
+1402,PURE,NACM_120,Date,unit
+1404,PURE,Precipitation_Section,HAT Soda,%
+1405,PURE,Precipitation_Section,Fine Seed Soda,%
+1406,PURE,Evaporatoration,13A Steam Economy,T/T
+1407,PURE,Evaporatoration,13B Steam Economy,T/T
+1408,PURE,Evaporatoration,Oxalate level,gpl
+1409,PURE,Evaporatoration,Green Liq Soda,gpl
+1410,PURE,Evaporatoration,Caustic produced,TPD
+1411,PURE,Evaporatoration,Spent Liquor Causticity level,%
+1412,PURE,Evaporatoration,13A Thick Liq Concentration,gpl
+1413,PURE,Evaporatoration,13B Thick Liq Concentration,gpl
+1414,PURE,Evaporatoration,Spent Liq Conc,gpl
+1415,PURE,Evaporatoration,13A Concentration pick-up,gpl
+1416,PURE,Evaporatoration,13B Concentration pick-up,gpl
+1417,PURE,Evaporatoration,Mixed Liq Conc,gpl
+1418,PURE,Evaporatoration,Causticity,%
+1419,PURE,KILN_2,Feed_Rate,TPH
+1420,PURE,Evaporatoration,13A_CC_FLOW,m3/hr
+1421,PURE,Evaporatoration,13A_1ST_BODY_PRESSURE,Kg/cm2
+1422,PURE,Evaporatoration,13A_2ND_BODY_PRESSURE,Kg/cm2
+1423,PURE,Evaporatoration,13A_CC_CONDUCTIVITY,PPM
+1424,PURE,Evaporatoration,13B_CC_FLOW,m3/hr
+1425,PURE,Evaporatoration,13B_1ST_BODY_ PRESSURE,Kg/cm2
+1426,PURE,Evaporatoration,13B_2ND BODY PRESSURE,Kg/cm2
+1427,PURE,Evaporatoration,13B_CC_CONDUCTIVITY,PPM
+1428,PURE,Evaporatoration,MAX_HT_FLOW,m3/hr
+1429,PURE,Auxiliary_Section,TANK_1_LEVEL,m3/hr
+1430,PURE,Auxiliary_Section,HBF_O_L_FLOW_TO_POND,m3/hr
+1431,PURE,Auxiliary_Section,TANK_1_TO_TANK_5_FLOW,m3/hr
+1432,PURE,Auxiliary_Section,OXALATE_SEED_T_5_11_TO_T_4,m3/hr
+1433,PURE,Auxiliary_Section,HBD_FEED_FLOW,m3/hr
+1434,PURE,Auxiliary_Section,29A_PHE_WATER_FLOW,m3/hr
+1435,PURE,Auxiliary_Section,TANK_2_TO_TANK-10_FLOW,m3/hr
+1436,PURE,Lime_Building,1B_TANK_LEVEL,mtr
+1437,PURE,Lime_Building,CONDENSATE_FLOW_TO_8B_SIK,m3/hr
+1438,PURE,Lime_Building,1A_TANK_LEVEL,mtr
+1439,PURE,Lime_Building,8A_PRECOAT_FLOW,m3/hr
+1440,PURE,Lime_Building,RT_2_LEVEL,m3/hr
+1441,PURE,Auxiliary_Section,OXLATE_UNIT_1_FLOW,m3/hr
+1442,PURE,Auxiliary_Section,OXLATE_UNIT_2_FLOW,m3/hr
+1443,PURE,Auxiliary_Section,TANK_9_TO_TANK_2_FLOW,m3/hr
+1444,PURE,Lime_Building,CONDENSATE_FLOW_TO_8D_SLK,m3/hr
+1445,PURE,KILN_1,PRIMARY_AIR_PRESSURE,inchwc
+1446,PURE,Precipitation_Section,FEED_HYD_+100,%
+1447,PURE,Precipitation_Section,FEED_HYD_+200,%
+1448,PURE,Precipitation_Section,FEED_HYD_+325,%
+1449,PURE,Precipitation_Section,FEED_HYD_SODA,%
+1450,PURE,Wash_Thickner_Section,T_3_RAKE_MOTOR_LOAD,Watts
+1451,PURE,Precipitation_Section,8A_STEAM_PRESSURE,Kg/cm2
+1452,PURE,Wash_Thickner_Section,NALCO_DOSING_UNIT_1,LPH
+1453,PURE,Wash_Thickner_Section,NALCO_DOSING_UNIT_2,LPH
+1454,PURE,Boiler_2,B_2_DRUM_LEVEL_TXR,%
+1455,PURE,Boiler_1,B_1_DRUM_LEVEL_TXR,%
+1456,PURE,Boiler_1,B_1_FEED_WATER_FLOW_TXR,m3/hr
+1457,PURE,Boiler_1,B_1_OIL_FLOWMETER,Kg/hr
+1458,PURE,Boiler_1,B_1_AIR_FLOW,SCM/Hr
+1459,PURE,Boiler_1,B_1_OXYGEN_ANALYZER,SCM/Hr
+1460,PURE,Boiler_1,B_1_FURNACE_PRSSURE_TXR,SCM/Hr
+1461,PURE,Boiler_1,B_1_STEAM_DRUM_PRSSURE_TXR,kg/cm2
+1462,PURE,Boiler_2,B_2_FEED_WATER_FLOW_TXR,tons/hr
+1463,PURE,Boiler_2,B_2_OIL_FLOWMETER,kg/hr
+1464,PURE,Boiler_2,B_2_AIR_FLOW,SCM/Hr
+1465,PURE,Boiler_2,B_2_OXYGEN_ANALYZER,kg/hr
+1466,PURE,Boiler_2,B_2_FURNACE_PRSSURE_TXR,MMWC
+1467,PURE,Boiler_2,B_2_COMBUSTION_AIR_PRSSURE_TXR,kg/cm2
+1468,PURE,Boiler_2,B_2_STEAM_DRUM_PRESSURE,kg/cm2
+1469,PURE,Boiler_3,B_3_DRUM_LEVEL_TXR,%
+1470,PURE,Boiler_3,B_3_FEED_WATER_FLOW_TXR,M3/hr
+1471,PURE,Boiler_3,B_3_STEAM_FLOW_TXR,tons/hr
+1472,PURE,Boiler_3,B_3_OIL_FLOWMETER,kg/hr
+1473,PURE,Boiler_3,B_3_AIR_FLOW,SCM/Hr
+1474,PURE,Boiler_3,B_3_OXYGEN_ANALYZER,SCM/Hr
+1475,PURE,Boiler_3,B_3_ATOMISING_STEAM_PR_TXR,kg/cm2
+1476,PURE,Boiler_3,B_3_OIL_PRESSURE_AFTER_C_V,kg/cm2
+1477,PURE,Boiler_3,B_3_FURNACE_PRESSURE_TXR,MMWC
+1478,PURE,Boiler_3,B_3_COMBUSTION_AIR_PRESSURE_TXR,kg/cm2
+1479,PURE,Boiler_3,B_3_STEAM_DRUM_PRESSURE_TXR,kg/cm2
+1480,PURE,Boiler_4,B_4_DRUM_LEVEL_TXR,%
+1481,PURE,Boiler_4,B_4_FEED_WATER_FLOW_TXR,m3/hr
+1482,PURE,Boiler_4,B_4_STEAM_FLOW_TXR,tons/hr
+1483,PURE,Boiler_4,B_4_AIR_FLOW,kg/hr
+1484,PURE,Boiler_4,B_4_OIL_FLOWMETER,SCM/Hr
+1485,PURE,Boiler_4,B_4_OXYGEN_ANALYZER,SCM/Hr
+1486,PURE,Boiler_4,B_4_FURNACE_PRESSURE_TXR,MMWC
+1487,PURE,Boiler_4,B_4_STEAM_DRUM_PRESSURE_TXR,kg/cm2
+1488,PURE,Boiler_5,B_5_DRUM_LEVEL_TXR,%
+1489,PURE,Boiler_5,B_5_FEED_WATER_FLOW_TXR,m3/hr
+1490,PURE,Boiler_5,B_5_STEAM_FLOW_TXR,tons/hr
+1491,PURE,Boiler_5,B_5_OIL_FLOWMETER,kg/hr
+1492,PURE,Boiler_5,B_5_AIR_FLOW,SCM/Hr
+1493,PURE,Boiler_5,B_5_OXYGEN_ANALYZER,SCM/Hr
+1494,PURE,Boiler_5,B_5_FURNACE_PRESSURE_TXR,MMWC
+1495,PURE,Boiler_5,B_5_COMBUSTION_AIR_PRESSURE_TXR,kg/cm2
+1496,PURE,Boiler_5,B_5_STEAM_DRUM_PRESSURE_TXR,kg/cm2
+1497,PURE,Precipitation_Section,GREEN_LIQUID_HEATER_INLET_TEMP,celcius
+1498,PURE,PCH,PCH_TO_SGAC_DENSITY,gm/cc
+1499,PURE,PCH,MILL_WATER_FLOW_TO_PCH_SLURRY_TANK,m3/hr
+1500,PURE,PCH,PCH_SLURRY_TANK_LEVEL,meter
+1501,PURE,Boiler_Section,COND_CONDUCTIVITY_OF_NEEDLE_TANK,microS/cm
+1502,PURE,Boiler_Section,CONDENSATE_FLOW,m3/hr
+1503,PURE,Boiler_Section,PEOCESS_STEAM_FLOW_TXR,TPH
+1504,PURE,Boiler_Section,MAIN_OIL_FLOW_TO_DAY_OIL_TANK,kg/hr
+1505,PURE,Boiler_Section,MAKE_UP_WATER_FLOW,TPH
+1506,PURE,Boiler_Section,BOILER_RETURN_OIL_FLOWMETER,Kg/hr
+1507,PURE,Boiler_Section,OIL_PRESSURE_TXR,psi
+1508,PURE,Boiler_Section,PROCESS_STEAM_PR_TXR,kg/cm2
+1509,PURE,Special_Water_Network,MW_TO_PH-1A,m3/hr
+1510,PURE,Special_Water_Network,SW-TO_PH-1A,m3/hr
+1511,PURE,Specials_Water_Network,MW_TO_PH-1A,m3/hr
+1512,PURE,Specials_Water_Network,SW-TO_PH-1A,m3/hr
+1513,PURE,BIO_MASS,CST_INLET_FLOW,m3/hr
+1514,PURE,BIO_MASS,CST__OUTLET_FLOW_TOTAL,m3
+1515,PURE,BIO_MASS,CST_OUTLET_FLOW,m3/hr
+1516,PURE,BIO_MASS,FIT202_CST_OUTLET_FLOW_TOTAL,m3
+1517,PURE,BIO_MASS,CST_INLET_TEMP,celcius
+1518,PURE,BIO_MASS,PHE_OUTLET_TEMP,celcius
+1519,PURE,BIO_MASS,CST_LEVEL,meter
+1520,PURE,BIO_MASS,DM_INTERMIDIATE_WATER_TEMP,celcius
+1521,PURE,BIO_MASS,CST_INLET_CONDUCTIVITY,microseimens/cm2
+1522,PURE,BIO_MASS,MB_O_L_FLOW,m3/hr
+1523,PURE,BIO_MASS,MB_O_L_FLOW_TOTAL,m3
+1524,PURE,BIO_MASS,DMST_I_L_CONDUCTIVITY,microseimens/cm2
+1525,PURE,BIO_MASS,MB_O_L_CONDUCTIVITY,microseimens/cm2
+1526,PURE,BIO_MASS,MB_O_L_PH,pH
+1527,PURE,BIO_MASS,DM_SODIUM_PV,ppb
+1528,PURE,BIO_MASS,DM_SILICA_PV,ppb
+1529,PURE,BIO_MASS,MS_SODIUM_PV_CT303A,ppb
+1530,PURE,BIO_MASS,MS_SILICA_PV,ppb
+1531,PURE,BIO_MASS,FIT201_CST_OUTLET_FLOW_TOTAL,m3
+1532,PURE,Specials_Water_Network,MILL_WATER_TO_PH_1A,m3/hr
+1533,PURE,Specials_Water_Network,SOFT_WATER_TO_PH_1A,m3/hr
+1534,PURE,KILN_4,T_73_3,ton
+1535,PURE,KILN_4,T_73_4,ton
+1536,PURE,KILN_4,T_73_5,ton
+1537,PURE,KILN_4,T_73_6,ton
+1538,PURE,NAFG,T_75_1,ton
+1539,PURE,NAFG,T_75_2,ton
+1540,PURE,CBM,T_76_1,ton
+1541,PURE,CBM,T_76_2,ton
+1542,PURE,ABM_4,T_83_4C,ton
+1543,PURE,ABM_4,T_83_4D,ton
+1544,PURE,ABM_4,T_83_5C,ton
+1545,PURE,Wash_Thickner_Section,KELLY_PRESS_9_FLOW,m3/hr
+1546,PURE,ABM_5,T_83_5C,ton
+1547,PURE,ABM_5,T_83_5D,ton
+1548,PURE,Calcination_Section,TOTAL_EVACUATION,unit
+1549,PURE,ABSENTEEISM,ALUMINA_LAB_AND_ENVIRONMENT_HRS,Hours
+1550,PURE,ABSENTEEISM,BOILER_HOUSE_HRS,Hours
+1551,PURE,ABSENTEEISM,COMMERCIAL_ACCOUNTS_HRS,Hours
+1552,PURE,ABSENTEEISM,CORPORATE_SAFETY_HRS,Hours
+1553,PURE,ABSENTEEISM,CPP_ENGG_HRS,Hours
+1554,PURE,ABSENTEEISM,CPP_ENGG_ELE_HRS,Hours
+1555,PURE,ABSENTEEISM,CPP_PRODUCTION_HRS,Hours
+1556,PURE,ABSENTEEISM,EPD_HRS,Hours
+1557,PURE,ABSENTEEISM,GARAGE_HRS,Hours
+1558,PURE,ABSENTEEISM,HIC_ALUMINA_HRS,Hours
+1559,PURE,ABSENTEEISM,INSTRUMENTATION_AND_ELECTRICAL_HRS,Hours
+1560,PURE,ABSENTEEISM,MATERIALS_STORES_HRS,Hours
+1561,PURE,ABSENTEEISM,MATERIALS_TRAFFIC_HRS,Hours
+1562,PURE,ABSENTEEISM,MECHANICAL_ALUMINA_HRS,Hours
+1563,PURE,ABSENTEEISM,PERSONNEL_HRS,Hours
+1564,PURE,ABSENTEEISM,PPC_HRS,Hours
+1565,PURE,ABSENTEEISM,PRODUCTION_ALUMINA_HRS,Hours
+1566,PURE,ABSENTEEISM,PROJECT_VARUN_HRS,Hours
+1567,PURE,ABSENTEEISM,SYSTEMS_HRS,Hours
+1568,PURE,ABSENTEEISM,MA_COUNT_OF_WORK_MEN_A,number
+1569,PURE,ABSENTEEISM,MA_COUNT_OF_WORK_MEN_B,number
+1570,PURE,ABSENTEEISM,MA_COUNT_OF_WORK_MEN_C,number
+1571,PURE,ABSENTEEISM,CY_COUNT_OF_WORK_MEN_A,number
+1572,PURE,ABSENTEEISM,CY_COUNT_OF_WORK_MEN_B,number
+1573,PURE,ABSENTEEISM,CY_COUNT_OF_WORK_MEN_C,number
+1574,PURE,ABSENTEEISM,CY_COUNT_OF_WORK_MEN_D,number
+1575,PURE,ABSENTEEISM,MA_SUM_DAYS_A,number
+1576,PURE,ABSENTEEISM,MA_SUM_DAYS_B,number
+1577,PURE,ABSENTEEISM,MA_SUM_DAYS_C,number
+1578,PURE,ABSENTEEISM,CY_SUM_DAYS_A,number
+1579,PURE,ABSENTEEISM,CY_SUM_DAYS_B,number
+1580,PURE,ABSENTEEISM,CY_SUM_DAYS_C,number
+1581,PURE,ABSENTEEISM,CY_SUM_DAYS_D,number
+1582,PURE,CSR,TOTAL_BENEFICIARIES,number
+1583,PURE,CSR,TOTAL_APPROVED_PROJECTS,number
+1584,PURE,CSR,IN_PROGRESS,number
+1585,PURE,CSR,COMPLETED,number
+1586,PURE,CSR,NO_OF_GD,number
+1587,PURE,CSR,TOTAL_RESOLVED,number
+1588,PURE,CSR,PENDING,number
+1589,PURE,RECRUITMENT,NO_OF_POSITIONS,number
+1590,PURE,RECRUITMENT,NO_OF_CLOSED_POSITIONS,number
+1591,PURE,RECRUITMENT,NO_OF_POSITIONS_OPEN,number
+1592,PURE,RECRUITMENT,INTERVIEW_INPROCESS,number
+1593,PURE,RECRUITMENT,IRS_HIRING,number
+1594,PURE,RECRUITMENT,EXTERNAL_HIRING,number
+1595,PURE,RECRUITMENT,AVG_AGE,number
+1596,PURE,RECRUITMENT,MALE,number
+1597,PURE,RECRUITMENT,FEMALE,number
+1598,PURE,RECRUITMENT,AVG_TAT,number
+1599,PURE,RECRUITMENT,NO_OF_EXITS,number
+1600,PURE,RECRUITMENT,RESIGNATION,number
+1601,PURE,RECRUITMENT,RETIREMENT,number
+1602,PURE,RECRUITMENT,TRANSFER,number
+1603,PURE,RECRUITMENT,MALE_TWO,number
+1604,PURE,RECRUITMENT,FEMALE_TWO,number
+1605,PURE,OT,PRODUCTION_ALUMINA_BUDGET,unit
+1606,PURE,OT,BOILER_HOUSE_BUDGET,unit
+1607,PURE,OT,MECHANICAL_ALUMINA_BUDGET,unit
+1608,PURE,OT,INSTRUMENTATION_ELECTRICAL_BUDGET,unit
+1609,PURE,OT,SPECIAL_PRODUCTS_BUDGET,unit
+1610,PURE,OT,PPC_BUDGET,unit
+1611,PURE,OT,ALUMINA_LAB_ENVIRONMENT_BUDGET,unit
+1612,PURE,OT,CPP_MECHANICAL_ENG_BUDGET,unit
+1613,PURE,OT,CPP_ELECTRICAL_ENG_BUDGET,unit
+1614,PURE,OT,CPP_PRODUCTION_BUDGET,unit
+1615,PURE,OT,GARAGE_BUDGET,unit
+1616,PURE,OT,CIVIL_ALUMINA_BUDGET,unit
+1617,PURE,OT,MATERIALS_STORES_BUDGET,unit
+1618,PURE,OT,TOTAL_SUM_BUDGET,unit
+1619,PURE,OT,PRODUCTION_ALUMINA_GT,unit
+1620,PURE,OT,BOILER_HOUSE_GT,unit
+1621,PURE,OT,MECHANICAL_ALUMINA_GT,unit
+1622,PURE,OT,INSTRUMENTATION_ELECTRICAL_GT,unit
+1623,PURE,OT,SPECIAL_PRODUCTS_GT,unit
+1624,PURE,OT,PPC_GT,unit
+1625,PURE,OT,ALUMINA_LAB_ENVIRONMENT_GT,unit
+1626,PURE,OT,CPP_MECHANICAL_ENG_GT,unit
+1627,PURE,OT,CPP_ELECTRICAL_ENG_GT,unit
+1628,PURE,OT,CPP_PRODUCTION_GT,unit
+1629,PURE,OT,GARAGE_GT,unit
+1630,PURE,OT,CIVIL_ALUMINA_GT,unit
+1631,PURE,OT,MATERIALS_STORES_GT,unit
+1632,PURE,OT,TOTAL_SUM_GT,unit
+1633,PURE,OT,PRODUCTION_ALUMINA_COST,unit
+1634,PURE,OT,BOILER_HOUSE_COST,unit
+1635,PURE,OT,MECHANICAL_ALUMINA_COST,unit
+1636,PURE,OT,INSTRUMENTATION_ELECTRICAL_COST,unit
+1637,PURE,OT,SPECIAL_PRODUCTS_COST,unit
+1638,PURE,OT,PPC_COST,unit
+1639,PURE,OT,ALUMINA_LAB_ENVIRONMENT_COST,unit
+1640,PURE,OT,CPP_MECHANICAL_ENG_COST,unit
+1641,PURE,OT,CPP_ELECTRICAL_ENG_COST,unit
+1642,PURE,OT,CPP_PRODUCTION_COST,unit
+1643,PURE,OT,GARAGE_COST,unit
+1644,PURE,OT,CIVIL_ALUMINA_COST,unit
+1645,PURE,OT,MATERIALS_STORES_COST,unit
+1646,PURE,OT,TOTAL_SUM_COST,unit
+1647,PURE,OT,MATERIALS_TRAFFIC_BUDGET,unit
+1648,PURE,OT,DISPATCH_BUDGET,unit
+1649,PURE,OT,COMMERCIAL_ACCOUNTS_BUDGET,unit
+1650,PURE,OT,CPP_LABORATORY_BUDGET,unit
+1651,PURE,OT,HIC_ALUMINA_BUDGET,unit
+1652,PURE,OT,MATERIALS_TRAFFIC_GT,unit
+1653,PURE,OT,DISPATCH_GT,unit
+1654,PURE,OT,COMMERCIAL_ACCOUNTS_GT,unit
+1655,PURE,OT,CPP_LABORATORY_GT,unit
+1656,PURE,OT,HIC_ALUMINA_GT,unit
+1657,PURE,OT,MATERIALS_TRAFFIC_COST,unit
+1658,PURE,OT,DISPATCH_COST,unit
+1659,PURE,OT,COMMERCIAL_ACCOUNTS_COST,unit
+1660,PURE,OT,CPP_LABORATORY_COST,unit
+1661,PURE,OT,HIC_ALUMINA_COST,unit
+1662,PURE,Lime_Building,8A_CONDENSATE_TANK_TEMPERATURE,C
+1663,PURE,OVERALL_PLANT,BX_FACTOR,t/t
+1665,PURE,Evaporatoration,13A_HOTWELL_TEMPERATURE,celcius
+1666,PURE,Evaporatoration    ,13A_COLDWELL_TEMPREATURE,celcius
+1667,PURE,Evaporatoration,13B_HOTWELL_TEMPERATURE,celcius
+1668,PURE,Evaporatoration    ,13B_COLDWELL_TEMPREATURE,celcius
+1669,PURE,Evaporatoration,PHE_WATER_OUTLET_TEMPERATURE,celcius
+1670,PURE,Evaporatoration,PHE_WATER_INLET_TEMPERATURE,celcius
+1671,PURE,Evaporatoration,PHE_WATER_OUTLET_TEMPERATURE_1,celcius
+1672,PURE,Evaporatoration,PHE_WATER_INLET_TEMPREATURE_1,celcius
+1673,PURE,Evaporatoration,PHE_WATER_OUTLET_TEMPREATURE_2,celcius
+1674,PURE,Precipitation_Section,PPT51_AIR_FLOW,m3/hr
+1675,PURE,Wash_Thickner_Section,SENSOR_CLARITY,dB
+1676,PURE,Wash_Thickner_Section,INTERFACE_FROM_BOTTOM,m
+1677,PURE,Wash_Thickner_Section,MUD_LEVEL,m
+1678,PURE,Wash_Thickner_Section,H_MUD_LEVEL,m
+1679,PURE,Evaporatoration,13A_COLDWELL_TEMPREATURE,Celsius
+1680,PURE,Evaporatoration,13B_COLDWELL_TEMPREATURE,Celsius
+1681,PURE,KILN_1,CHIMNEY_DUST_COMMON,SPM
+1682,PURE,KILN_4,CHIMNEY_DUST_VALUE_K4,SPM
+1683,PURE,Precipitation_Section,DRAWOFF_1_11_A_B_C_TEMP,Celsius
+1684,PURE,Precipitation_Section,PUMP_OFF_TEMP,Celsius
+1685,PURE,Precipitation_Section,HYD_WASH_TANK_O_L_TEMP,Celsius
+1686,PURE,Precipitation_Section,P_6A_4ABC_COMN_HDR_PRESS,kg/cm2
+1687,PURE,Precipitation_Section,SP_LIQ_1ST_STAGE_O_L_PR,kg/cm2
+1688,PURE,Precipitation_Section,SP_LIQ_HTR_2ND_STG_O_L_PR,kg/cm2
+1689,PURE,Precipitation_Section,SP_LIQ_3RD_STG_HTR_O_L_PR,kg/cm2
+1690,PURE,Precipitation_Section,7A_HEATER_COMMON_O_L_PR,kg/cm2
+1691,PURE,Wash_Thickner_Section,LIQ_D_THICKNER_MUD_LEVEL,inches
+1692,PURE,LIQ_D,SENSOR_CLARITY,dB
+1693,PURE,LIQ_D,INTERFACE_FROM_BOTTOM,Feet
+1694,PURE,LIQ_D,MUD_LEVEL,Feet
+1695,PURE,LIQ_D,H_MUD_LEVEL,Feet
+1696,PURE,Evaporatoration,13A_PRODUCT_CONDUCTIVITY,PPM
+1697,PURE,Evaporatoration,13B_PRODUCT_CONDUCTIVITY,PPM
+1698,PURE,Evaporatoration,13A_FT_4_OUTLET_TEMP,Celsius
+1699,PURE,Evaporatoration,13A_FT_5_OUTLET_TEMP,Celsius
+1700,PURE,Evaporatoration,13A_FT_6_OUTLET_TEMP,Celsius
+1701,PURE,Evaporatoration,13B_FT_4_OUTLET_TEMP,Celsius
+1702,PURE,Evaporatoration,13B_FT_5_OUTLET_TEMP,Celsius
+1703,PURE,Evaporatoration,13B_FT_6_OUTLET_TEMP,Celsius
+1704,PURE,Evaporatoration,13AB_STEAM_INLET_TEMP_AFTER_PRS,Celsius
+1705,PURE,DIGESTION,MIX_LIQ_CONDUCTIVITY,ms
+1706,PURE,DIGESTION,MIX_LIQ_TEMP,Celsius
+1707,PURE,Precipitation_Section,TT_1_FLOW,m3/hr
+1708,PURE,Precipitation_Section,TT_2_FLOW,m3/hr
+1709,PURE,Precipitation_Section,TT_3_FLOW,m3/hr
+1710,PURE,Precipitation_Section,TT_4_FLOW,m3/hr
+1711,PURE,Precipitation_Section,TT_1_UNDERFLOW,m3/hr
+1712,PURE,Precipitation_Section,TT_2_UNDERFLOW,m3/hr
+1713,PURE,Precipitation_Section,TT_3_UNDERFLOW,m3/hr
+1714,PURE,Precipitation_Section,TT_4_UNDERFLOW,m3/hr
+1715,PURE,Precipitation_Section,2ND_UF,m3/hr
+1716,PURE,Precipitation_Section,TT_1_UNDER_DENSITY,gm/cc
+1717,PURE,Precipitation_Section,TT_2_UNDER_DENSITY,gm/cc
+1718,PURE,Precipitation_Section,TT_3_UNDER_DENSITY,gm/cc
+1719,PURE,Precipitation_Section,TT_4_UNDER_DENSITY,gm/cc
+1720,PURE,Precipitation_Section,2ND_UF_DENSITY,gm/cc
+1721,PURE,Precipitation_Section,FRESH_CAUSTIC_TO_7A,m3/hr
+1722,PURE,DIGESTION,MAIN_MIX_LIQ_FLOW,m3/hr
+1723,PURE,DIGESTION,P_18A_3A_LOAD,Amp
+1724,PURE,DIGESTION,P_18A_3B_LOAD,Amp
+1725,PURE,DIGESTION,P_4A_1A_LOAD,Amp
+1726,PURE,DIGESTION,P_4A_1B_LOAD,Amp
+1727,PURE,DIGESTION,P_4A_1C_LOAD,Amp
+1728,PURE,DIGESTION,VACCUM_COND_TANK_LVL,meter
+1729,PURE,DIGESTION,GLAND_WATER_TANK_LVL,meter
+1730,PURE,DIGESTION,RC_TANK_LVL,meter
+1731,PURE,DIGESTION,PDS_5_LEVEL,meter
+1732,PURE,DIGESTION,PDS_6_LEVEL,meter
+1733,PURE,DIGESTION,4A_RC_CONDUCTIVITY,PPM
+1734,PURE,DIGESTION,4A_RC_TO_28A_TEMP,Celsius
+1735,PURE,DIGESTION,4A_2A_GLW_PRESSURE,kg/cm3
+1736,PURE,DIGESTION,FT_3_O_L_TEMPERATURE,Celsius
+1737,PURE,DIGESTION,MAX_HT_FLOW,LT/HR
+1738,PURE,DIGESTION,FRESH_CAUSTIC_TO_28A_5A_7A,m3/hr
+1739,PURE,DIGESTION,SPENT_LIQ_FLOW_TO_18A_TT_4,m3/hr
+1740,PURE,DIGESTION,CAUSTIC_FLOW_TO_18A_TT_4,m3/hr
+1741,PURE,DIGESTION,18A_TT4_LEVEL,meter
+1742,PURE,DIGESTION,18A_TT1_LEVEL,meter
+1743,PURE,DIGESTION,18A_TT2_LEVEL,meter
+1744,PURE,LIQ_A,LIQ_A_SODA_U_F,gpl
+1745,PURE,LIQ_A,LIQ_A_SODA_O_F,gpl
+1746,PURE,LIQ_B,LIQ_B_SODA_U_F,gpl
+1747,PURE,LIQ_B,LIQ_B_SODA_O_F,gpl
+1748,PURE,LIQ_C,LIQ_C_SODA_U_F,gpl
+1749,PURE,LIQ_D,LIQ_D_SODA_U_F,gpl
+1750,PURE,T_3,T3_SODA_U_F,gpl
+1751,PURE,T_3,T3_SODA_O_F,gpl
+1752,PURE,T_4,T4_SODA_U_F,gpl
+1753,PURE,T_4,T4_SODA_O_F,gpl
+1754,PURE,T_5,T5_SODA_U_F,gpl
+1755,PURE,T_5,T5_SODA_O_F,gpl
+1756,PURE,T_7,T7_SODA_U_F,gpl
+1757,PURE,T_7,T7_SODA_O_F,gpl
+1758,PURE,T_6,T6_SODA_U_F,gpl
+1759,PURE,T_6,T6_SODA_O_F,gpl
+1760,PURE,Wash_Thickner_Section,THICKENER_O_F_CONCENTRATION,gpl
+1761,PURE,Wash_Thickner_Section,THICKENER_O_F_RATIO,ratio
+1762,PURE,AFG,OPA_D50,micron
+1763,PURE,AFG,OPA_D10,micron
+1764,PURE,AFG,OPA_D90,micron
+1765,PURE,KILN_1,PAB_11A_1C_CURRENT,Amp
+1766,PURE,KILN_1,PAB_11A_1C_MOTOR,Hz
+1767,PURE,KILN_1,PAB_11B_1C_CURRENT,Amp
+1768,PURE,KILN_2,PAB_11B_1C_CURRENT,Amp
+1769,PURE,Wash_Thickner_Section,DMS_FILTRATE,m3/hr
+1770,PURE,Boiler_Section,CONDENSATE_TANK_1,LVL
+1771,PURE,Boiler_Section,CONDENSATE_TANK_2,LVL
+1772,PURE,Boiler_Section,CONDENSATE_TANK_3,LVL
+1773,PURE,Boiler_Section,CONDENSATE_TANK_4,LVL
+1774,PURE,KILN_2,PAB_11B_1C_MOTOR,Hz
+1775,PURE,Precipitation_Section,7A_COMPRESSED_AIR_FLOW,m3/hr
+1776,PURE,Precipitation_Section,7A_COMPRESSED_AIR_PR,kg/cm2
+1777,PURE,Precipitation_Section,RED_AREA_UTILITY_AIRFLOW,m3/hr
+1778,PURE,Precipitation_Section,HT_COMP_AIR_FLOW,m3/hr
+1779,PURE,Precipitation_Section,CAUSTIC_CLEANING_TEMP,tph
+1780,PURE,DIGESTION,FINE_SLURRY_THA,%
+1781,PURE,DIGESTION,FINE_SLURRY_K_SIO2,%
+1782,PURE,DIGESTION,FINE_SLURRY_LOM405_DEG_C,%
+1783,PURE,DIGESTION,FINE_SLURRY_LOM1000_DEG_C,%
+1784,PURE,OVERALL_BALL_MILL,FEED_BAUXITE_PLUSH_10M,%
+1785,PURE,OVERALL_BALL_MILL,FEED_BAUXITE_MINUS_10M,%
+1786,PURE,Auxiliary_Section,VANADIUM_OXALATE_CAKE_SODA,STATE
+1787,PURE,DIGESTION,MIX_LIQUOR_CAUSTCONC,gpl
+1788,PURE,DIGESTION,MIX_LIQUOR_ALUMINA,gpl
+1789,PURE,DIGESTION,MIX_LIQUOR_CRBNT,gpl
+1790,PURE,DIGESTION,MIX_LIQUOR_CAUSTY,%
+1791,PURE,DIGESTION,BLOW_OFF_CAUSTCONC,gpl
+1792,PURE,DIGESTION,BLOW_OFF_ALUMINA,gpl
+1793,PURE,DIGESTION,BLOW_OFF_CRBNT,gpl
+1794,PURE,DIGESTION,BLOW_OFF_CAUSTY,%
+1795,PURE,Wash_Thickner_Section,LIQUOR_THICKNER_C_OR_D_CAUSTCONC,gpl
+1796,PURE,Wash_Thickner_Section,LIQUOR_THICKNER_C_OR_D_ALUMINA,gpl
+1797,PURE,Wash_Thickner_Section,LIQUOR_THICKNER_C_OR_D_CRBNT,gpl
+1798,PURE,Wash_Thickner_Section,LIQUOR_THICKNER_C_OR_D_CAUSTY,%
+1799,PURE,Wash_Thickner_Section,LIQUOR_THICKNER_D_OVERFLOW_CAUSTCONC,gpl
+1800,PURE,Wash_Thickner_Section,LIQUOR_THICKNER_D_OVERFLOW_ALUMINA,gpl
+1801,PURE,Wash_Thickner_Section,LIQUOR_THICKNER_D_OVERFLOW_CRBNT,gpl
+1802,PURE,Wash_Thickner_Section,LIQUOR_THICKNER_D_OVERFLOW_CAUSTY,%
+1803,PURE,Wash_Thickner_Section,LIQUOR_THICKNER_D_OVERFLOW_RTIO,STATE
+1804,PURE,Wash_Thickner_Section,LIQUOR_THICKNER_D_OVERFLOW_MUD,mgpl
+1805,PURE,Wash_Thickner_Section,1ST_WASH_OVERFLOW_CAUSTCONC,gpl
+1806,PURE,Wash_Thickner_Section,1ST_WASH_OVERFLOW_ALUMINA,gpl
+1807,PURE,Wash_Thickner_Section,1ST_WASH_OVERFLOW_CRBNT,gpl
+1808,PURE,Wash_Thickner_Section,1ST_WASH_OVERFLOW_CAUSTY,%
+1809,PURE,Wash_Thickner_Section,1ST_WASH_OVERFLOW_RTIO,STATE
+1810,PURE,Wash_Thickner_Section,5A_PRESS_CAUSTIC_CAUSTCONC,gpl
+1811,PURE,Wash_Thickner_Section,5A_PRESS_CAUSTIC_ALUMINA,gpl
+1812,PURE,Wash_Thickner_Section,5A_PRESS_CAUSTIC_CRBNT,gpl
+1813,PURE,Wash_Thickner_Section,5A_PRESS_CAUSTIC_CAUSTY,%
+1814,PURE,Wash_Thickner_Section,5A_PRESS_CAUSTIC_RTIO,STATE
+1815,PURE,Wash_Thickner_Section,LAST_WASH_O_F_SODA,gpl
+1816,PURE,Wash_Thickner_Section,LAST_WASH_DAY_COMPOSITE_LOM1000_DEGREE_C,%
+1817,PURE,Filter_Press_Section,DMS_CAKE_MOIST,%
+1818,PURE,Filter_Press_Section,DMS_CAKE_SOLIDS,%
+1819,PURE,Filter_Press_Section,DMS_CAKE_LOM1000_DEGREE_C,%
+1820,PURE,Filter_Press_Section,DMS_FEED_SODA,gpl
+1821,PURE,Filter_Press_Section,DMS_FILTRATE_SODA,gpl
+1822,PURE,Filter_Press_Section,DMS_FILTRATE_IN_28A_SODA,gpl
+1823,PURE,Filter_Press_1,FILTER_PRESS_1_CAKE_MOIST,%
+1824,PURE,Filter_Press_1,FILTER_PRESS_1_CAKE_SOLIDS,%
+1825,PURE,Filter_Press_1,FILTER_PRESS_1_CAKE_LOM1000°C,%
+1826,PURE,Filter_Press_1,FILTER_PRESS_1_FILTRATE_SODA,gpl
+1827,PURE,Filter_Press_1,FILTER_PRESS_1_FILTRATE_MUD,%
+1828,PURE,Filter_Press_1,FILTER_PRESS_1_FEED_SODA,gpl
+1829,PURE,Filter_Press_1,FILTER_PRESS_1_FEED_LOM1000°C,%
+1830,PURE,Filter_Press_2,FILTER_PRESS_2_CAKE_MOIST,%
+1831,PURE,Filter_Press_2,FILTER_PRESS_2_CAKE_SOLIDS,%
+1832,PURE,Filter_Press_2,FILTER_PRESS_2_CAKE_LOM1000°C,%
+1833,PURE,Filter_Press_2,FILTER_PRESS_2_FILTRATE_SODA,gpl
+1834,PURE,Filter_Press_2,FILTER_PRESS_2_FILTRATE_MUD,%
+1835,PURE,Filter_Press_2,FILTER_PRESS_2_FEED_SODA,gpl
+1836,PURE,Filter_Press_2,FILTER_PRESS_2_FEED_LOM1000_DEGREE_C,%
+1837,PURE,Wash_Thickner_Section,CLASSIFIER_DISCHARGE_SODA,gpl
+1838,PURE,Wash_Thickner_Section,WATER_TO_LAST_WASH_SODA,gpl
+1839,PURE,Cooling_Tower_26,COOLING_TOWER_SODA,gpl
+1840,PURE,Cooling_Tower_26,COOLING_TOWER_15B_SODA,gpl
+1841,PURE,Cooling_Tower_26,COOLING_TOWER_15A_SODA,gpl
+1842,PURE,Refinery_Water_Mapping,DRAIN_WATER_POINT_A_SODA,gpl
+1843,PURE,Refinery_Water_Mapping,DRAIN_WATER_POINT_B_SODA,gpl
+1844,PURE,Refinery_Water_Mapping,DRAIN_WATER_POINT_C_SODA,gpl
+1845,PURE,DIGESTION,VACCUM_CONDENSATE_SODA,gpl
+1846,PURE,DIGESTION,E_4A_15_RC_SODA,gpl
+1847,PURE,DIGESTION,E_4A_1_RC_SODA,gpl
+1848,PURE,DIGESTION,E_4A_2_RC_SODA,gpl
+1849,PURE,DIGESTION,E_4A_3_RC_SODA,gpl
+1850,PURE,DIGESTION,E_4A_4_RC_SODA,gpl
+1851,PURE,DIGESTION,E_4A_5_RC_SODA,gpl
+1852,PURE,DIGESTION,E_4A_6_RC_SODA,gpl
+1853,PURE,DIGESTION,E_4A_7_RC_SODA,gpl
+1854,PURE,DIGESTION,E_4A_8_RC_SODA,gpl
+1855,PURE,DIGESTION,E_4A_9_RC_SODA,gpl
+1856,PURE,DIGESTION,E_4A_10_RC_SODA,gpl
+1857,PURE,DIGESTION,E_4A_11_CC_SODA,gpl
+1858,PURE,DIGESTION,E_4A_12_CC_SODA,gpl
+1859,PURE,DIGESTION,E_4A_13_CC_SODA,gpl
+1860,PURE,DIGESTION,E_4A_14_CC_SODA,gpl
+1861,PURE,DIGESTION,E_4A_16_CC_SODA,gpl
+1862,PURE,Wash_Thickner_Section,28A_PIT_SODA,gpl
+1863,PURE,Wash_Thickner_Section,5A_PIT_SODA,gpl
+1864,PURE,Wash_Thickner_Section,5A_CAUSTIC_HEATER_CC_SODA,gpl
+1865,PURE,Wash_Thickner_Section,FILTRATE_5A_LOOP_1_MUD,mgpl
+1866,PURE,Wash_Thickner_Section,FILTRATE_5A_LOOP_2_MUD,mgpl
+1867,PURE,DIGESTION,PDS_TANK_2_CAUSTCONC,gpl
+1868,PURE,DIGESTION,PDS_TANK_2_ALUMINA,gpl
+1869,PURE,DIGESTION,PDS_TANK_2_CRBNT,gpl
+1870,PURE,DIGESTION,PDS_TANK_2_CAUSTY,%
+1871,PURE,DIGESTION,PDS_TANK_2_RTIO,STATE
+1872,PURE,DIGESTION,PDS_TANK_3_CAUSTCONC,gpl
+1873,PURE,DIGESTION,PDS_TANK_3_ALUMINA,gpl
+1874,PURE,DIGESTION,PDS_TANK_3_CRBNT,gpl
+1875,PURE,DIGESTION,PDS_TANK_3_CAUSTY,%
+1876,PURE,DIGESTION,PDS_TANK_3_RTIO,STATE
+1877,PURE,DIGESTION,PDS_TANK_4_CAUSTCONC,gpl
+1878,PURE,DIGESTION,PDS_TANK_4_ALUMINA,gpl
+1879,PURE,DIGESTION,PDS_TANK_4_CRBNT,gpl
+1880,PURE,DIGESTION,PDS_TANK_4_CAUSTY,%
+1881,PURE,DIGESTION,PDS_TANK_4_RTIO,STATE
+1882,PURE,DIGESTION,PDS_TANK_5_CAUSTCONC,gpl
+1883,PURE,DIGESTION,PDS_TANK_5_ALUMINA,gpl
+1884,PURE,DIGESTION,PDS_TANK_5_CRBNT,gpl
+1885,PURE,DIGESTION,PDS_TANK_5_CAUSTY,%
+1886,PURE,DIGESTION,PDS_TANK_5_RTIO,STATE
+1887,PURE,DIGESTION,PDS_TANK_6_CAUSTCONC,gpl
+1888,PURE,DIGESTION,PDS_TANK_6_ALUMINA,gpl
+1889,PURE,DIGESTION,PDS_TANK_6_CRBNT,gpl
+1890,PURE,DIGESTION,PDS_TANK_6_CAUSTY,%
+1891,PURE,DIGESTION,PDS_TANK_6_RTIO,STATE
+1892,PURE,DIGESTION,SAND_BALL_MILL_PRODUCT_SOLIDS,%
+1893,PURE,DIGESTION,SAND_BALL_MILL_PRODUCT_PLUS_14W,%
+1894,PURE,DIGESTION,SAND_BALL_MILL_PRODUCT_PLUS_30W,%
+1895,PURE,DIGESTION,SAND_BALL_MILL_PRODUCT_PLUS_60W,%
+1896,PURE,DIGESTION,SAND_BALL_MILL_PRODUCT_MINUS_60W,%
+1897,PURE,DIGESTION,SAND_BALL_MILL_PRODUCT_PLUS_100W,%
+1898,PURE,DIGESTION,SAND_BALL_MILL_PRODUCT_MINUS_100W,%
+1899,PURE,BALL_MILL_A,BALLMILL_A_COARSE_SLURRY_SOLIDS,%
+1900,PURE,BALL_MILL_A,BALLMILL_A_COARSE_SLURRY_PLUS_14W,%
+1901,PURE,BALL_MILL_A,BALLMILL_A_COARSE_SLURRY_PLUS_30W,%
+1902,PURE,BALL_MILL_A,BALLMILL_A_COARSE_SLURRY_PLUS_60W,%
+1903,PURE,BALL_MILL_A,BALLMILL_A_COARSE_SLURRY_MINUS_60W,%
+1904,PURE,BALL_MILL_A,BALLMILL_A_COARSE_SLURRY_PLUS_100W,%
+1905,PURE,BALL_MILL_A,BALLMILL_A_COARSE_SLURRY_MINUS_100W,%
+1906,PURE,BALL_MILL_B,BALLMILL_B_COARSE_SLURRY_SOLIDS,%
+1907,PURE,BALL_MILL_B,BALLMILL_B_COARSE_SLURRY_PLUS_14W,%
+1908,PURE,BALL_MILL_B,BALLMILL_B_COARSE_SLURRY_PLUS_30W,%
+1909,PURE,BALL_MILL_B,BALLMILL_B_COARSE_SLURRY_PLUS_60W,%
+1910,PURE,BALL_MILL_B,BALLMILL_B_COARSE_SLURRY_MINUS_60W,%
+1911,PURE,BALL_MILL_B,BALLMILL_B_COARSE_SLURRY_PLUS_100W,%
+1912,PURE,BALL_MILL_B,BALLMILL_B_COARSE_SLURRY_MINUS_100W,%
+1913,PURE,BALL_MILL_C,BALLMILL_C_COARSE_SLURRY_SOLIDS,%
+1914,PURE,BALL_MILL_C,BALLMILL_C_COARSE_SLURRY_PLUS_14W,%
+1915,PURE,BALL_MILL_C,BALLMILL_C_COARSE_SLURRY_PLUS_30W,%
+1916,PURE,BALL_MILL_C,BALLMILL_C_COARSE_SLURRY_PLUS_60W,%
+1917,PURE,BALL_MILL_C,BALLMILL_C_COARSE_SLURRY_MINUS_60W,%
+1918,PURE,BALL_MILL_C,BALLMILL_C_COARSE_SLURRY_PLUS_100W,%
+1920,PURE,BALL_MILL_D,BALLMILL_D_COARSE_SLURRY_SOLIDS,%
+1921,PURE,BALL_MILL_D,BALLMILL_D_COARSE_SLURRY_PLUS_14W,%
+1922,PURE,BALL_MILL_D,BALLMILL_D_COARSE_SLURRY_PLUS_30W,%
+1923,PURE,BALL_MILL_D,BALLMILL_D_COARSE_SLURRY_PLUS_60W,%
+1924,PURE,BALL_MILL_D,BALLMILL_D_COARSE_SLURRY_MINUS_60W,%
+1925,PURE,BALL_MILL_D,BALLMILL_D_COARSE_SLURRY_PLUS_100W,%
+1926,PURE,BALL_MILL_D,BALLMILL_D_COARSE_SLURRY_-MINUS_00W,%
+1927,PURE,Wash_Thickner_Section,KELLY_PRESS_HASH_1_MUD,mgpl
+1928,PURE,Wash_Thickner_Section,KELLY_PRESS_HASH_2_MUD,mgpl
+1929,PURE,Wash_Thickner_Section,KELLY_PRESS_HASH_3_MUD,mgpl
+1930,PURE,Wash_Thickner_Section,KELLY_PRESS_HASH_4_MUD,mgpl
+1931,PURE,Wash_Thickner_Section,KELLY_PRESS_HASH_5_MUD,mgpl
+1932,PURE,Wash_Thickner_Section,KELLY_PRESS_HASH_6_MUD,mgpl
+1933,PURE,Wash_Thickner_Section,KELLY_PRESS_HASH_7_MUD,mgpl
+1934,PURE,Wash_Thickner_Section,KELLY_PRESS_HASH_8_MUD,mgpl
+1935,PURE,Wash_Thickner_Section,KELLY_PRESS_HASH_9_MUD,mgpl
+1936,PURE,Wash_Thickner_Section,KELLY_PRESS_HASH_10_MUD,mgpl
+1937,PURE,Wash_Thickner_Section,KELLY_PRESS_HASH_11_MUD,mgpl
+1938,PURE,Wash_Thickner_Section,KELLY_PRESS_HASH_12_MUD,mgpl
+1939,PURE,Filter_Press_Section,RED_MUD_LOM1000_DEGREE_C,%
+1940,PURE,Filter_Press_Section,RED_MUD_MOIST_R_AND_M,%
+1941,PURE,Filter_Press_Section,RED_MUD_XRF01,%
+1942,PURE,Filter_Press_Section,RED_MUD_XRF02,%
+1943,PURE,Filter_Press_Section,RED_MUD_XRF03,%
+1944,PURE,Filter_Press_Section,RED_MUD_XRF04,%
+1945,PURE,Filter_Press_Section,RED_MUD_XRF05,%
+1946,PURE,Filter_Press_Section,RED_MUD_XRF06,%
+1947,PURE,Filter_Press_Section,RED_MUD_XRF07,%
+1948,PURE,Filter_Press_Section,RED_MUD_XRF08,%
+1949,PURE,Wash_Thickner_Section,PRECOAT_5A_MD50,microM
+1950,PURE,Wash_Thickner_Section,PRECOAT_5A_MD10,microM
+1951,PURE,Wash_Thickner_Section,PRECOAT_5A_MD90,microM
+1952,PURE,DIGESTION,ACID_BATCH_4A_ACDCONC,gpl
+1953,PURE,DIGESTION,ACID_BATCH_4A_ACDINHBTR-,STATE
+1954,PURE,DIGESTION,ACID_BATCH_4A_IRNCNTNT,%
+1955,PURE,DIGESTION,ACID_SHOT_4A_PHVAL,STATE
+1956,PURE,DIGESTION,ACID_SHOT_4A_ACDCONC,gpl
+1957,PURE,DIGESTION,ACID_SHOT_4A_IRNCNTNT,%
+1958,PURE,DIGESTION,IBSH_ACID_BATCH_ACDCONC,gpl
+1959,PURE,DIGESTION,IBSH_ACID_BATCH_ACDINHBTR-,STATE
+1960,PURE,DIGESTION,IBSH_ACID_BATCH_IRNCNTNT,%
+1961,PURE,DIGESTION,IBSH_ACID_SHOT_PHVAL,STATE
+1962,PURE,DIGESTION,IBSH_ACID_SHOT_ACDCONC,gpl
+1963,PURE,DIGESTION,IBSH_ACID_SHOT_IRNCNTNT,%
+1964,PURE,Lime_Building,PRECOAT_8A_MD50,microM
+1965,PURE,Lime_Building,PRECOAT_8A_MD10,microM
+1966,PURE,Lime_Building,PRECOAT_8A_MD90,microM
+1967,PURE,Precipitation_Section,FILLING_LIQUOR_CAUSTCONC,gpl
+1968,PURE,Precipitation_Section,FILLING_LIQUOR_ALUMINA,gpl
+1969,PURE,Precipitation_Section,FILLING_LIQUOR_CRBNT,gpl
+1970,PURE,Precipitation_Section,FILLING_LIQUOR_CAUSTY,%
+1971,PURE,Precipitation_Section,AGGLO_TANK_HASH_42_CAUSTCONC,gpl
+1972,PURE,Precipitation_Section,AGGLO_TANK_HASH_42_ALUMINA,gpl
+1973,PURE,Precipitation_Section,AGGLO_TANK_HASH_42_CRBNT,gpl
+1974,PURE,Precipitation_Section,AGGLO_TANK_HASH_42_CAUSTY,%
+1975,PURE,Precipitation_Section,AGGLO_TANK_HASH_42_RTIO,STATE
+1976,PURE,Precipitation_Section,HASH_47_CAUSTCONC,gpl
+1977,PURE,Precipitation_Section,HASH_47_ALUMINA,gpl
+1978,PURE,Precipitation_Section,HASH_47_CRBNT,gpl
+1979,PURE,Precipitation_Section,HASH_47_CAUSTY,%
+1980,PURE,Precipitation_Section,HASH_47_RTIO,STATE
+1981,PURE,Precipitation_Section,HASH_48_CAUSTCONC,gpl
+1982,PURE,Precipitation_Section,HASH_48_ALUMINA,gpl
+1983,PURE,Precipitation_Section,HASH_48_CRBNT,gpl
+1984,PURE,Precipitation_Section,HASH_48_CAUSTY,%
+1985,PURE,Precipitation_Section,HASH_48_RTIO,STATE
+1986,PURE,Precipitation_Section,HASH_52_CAUSTCONC,gpl
+1987,PURE,Precipitation_Section,HASH_52_ALUMINA,gpl
+1988,PURE,Precipitation_Section,HASH_52_CRBNT,gpl
+1989,PURE,Precipitation_Section,HASH_52_CAUSTY,%
+1990,PURE,Precipitation_Section,HASH_52_RTIO,STATE
+1991,PURE,Precipitation_Section,HASH_53_CAUSTCONC,gpl
+1992,PURE,Precipitation_Section,HASH_53_ALUMINA,gpl
+1993,PURE,Precipitation_Section,HASH_53_CRBNT,gpl
+1994,PURE,Precipitation_Section,HASH_53_CAUSTY,%
+1995,PURE,Precipitation_Section,HASH_53_RTIO,STATE
+1996,PURE,Precipitation_Section,HASH_53_3.5uMLVN,microM
+1997,PURE,Precipitation_Section,HASH_53_10uMLVN,microM
+1998,PURE,Precipitation_Section,HASH_53_20uMLVN,microM
+1999,PURE,Precipitation_Section,HASH_53_30uMLVN,microM
+2000,PURE,Precipitation_Section,HASH_53_45uMLVN,microM
+2001,PURE,Precipitation_Section,HASH_53_74uMLVN,microM
+2002,PURE,Precipitation_Section,HASH_53_105uMLVN,microM
+2003,PURE,Precipitation_Section,HASH_53_150uMLVN,microM
+2004,PURE,Precipitation_Section,HASH_53_MD50,microM
+2005,PURE,Precipitation_Section,HASH_53_MD10,microM
+2006,PURE,Precipitation_Section,HASH_53_MD90,microM
+2007,PURE,Precipitation_Section,HASH_53_SSA_M,m2/g
+2008,PURE,Precipitation_Section,HASH_53_HILALP_001,m2/g
+2009,PURE,Precipitation_Section,BATCH_FILLING_HASH_55_CAUSTCONC,gpl
+2010,PURE,Precipitation_Section,BATCH_FILLING_HASH_55_ALUMINA,gpl
+2011,PURE,Precipitation_Section,BATCH_FILLING_HASH_55_CRBNT,gpl
+2012,PURE,Precipitation_Section,BATCH_FILLING_HASH_55_CAUSTY,%
+2013,PURE,Precipitation_Section,BATCH_FILLING_HASH_55_RTIO,STATE
+2014,PURE,Precipitation_Section,BATCH_FILLING_HASH_55_SOLIDS,%
+2015,PURE,Precipitation_Section,BATCH_FILLING_HASH_56_CAUSTCONC,gpl
+2016,PURE,Precipitation_Section,BATCH_FILLING_HASH_56_ALUMINA,gpl
+2017,PURE,Precipitation_Section,BATCH_FILLING_HASH_56_CRBNT,gpl
+2018,PURE,Precipitation_Section,BATCH_FILLING_HASH_56_CAUSTY,%
+2019,PURE,Precipitation_Section,HAT_SHIFT_WISE_CAUSTCONC,gpl
+2020,PURE,Precipitation_Section,HAT_SHIFT_WISE_ALUMINA,gpl
+2021,PURE,Precipitation_Section,HAT_SHIFT_WISE_CRBNT,gpl
+2022,PURE,Precipitation_Section,HAT_SHIFT_WISE_CAUSTY,%
+2023,PURE,Precipitation_Section,SPENT_LIQUOR_CAUSTCONC,gpl
+2024,PURE,Precipitation_Section,SPENT_LIQUOR_ALUMINA,gpl
+2025,PURE,Precipitation_Section,SPENT_LIQUOR_CRBNT,gpl
+2026,PURE,Evaporatoration,THICK_LIQUOR_13_A_CAUSTCONC,gpl
+2027,PURE,Evaporatoration,THICK_LIQUOR_13_A_ALUMINA,gpl
+2028,PURE,Evaporatoration,THICK_LIQUOR_13_A_CRBNT,gpl
+2029,PURE,Evaporatoration,THICK_LIQUOR_13_A_CAUSTY,%
+2030,PURE,Evaporatoration,THICK_LIQUOR_13_A_RTIO,STATE
+2031,PURE,Evaporatoration,THICK_LIQUOR_13_B_CAUSTCONC,gpl
+2032,PURE,Evaporatoration,THICK_LIQUOR_13_B_ALUMINA,gpl
+2033,PURE,Evaporatoration,THICK_LIQUOR_13_B_CRBNT,gpl
+2034,PURE,Evaporatoration,THICK_LIQUOR_13_B_CAUSTY,%
+2035,PURE,Evaporatoration,THICK_LIQUOR_13_B_RTIO,STATE
+2036,PURE,Precipitation_Section,7A_CAUSTIC_CAUSTCONC,gpl
+2037,PURE,Precipitation_Section,7A_CAUSTIC_ALUMINA,gpl
+2038,PURE,Precipitation_Section,7A_CAUSTIC_CRBNT,gpl
+2039,PURE,Precipitation_Section,7A_CAUSTIC_CAUSTY,%
+2040,PURE,Precipitation_Section,7A_CAUSTIC_RTIO,STATE
+2041,PURE,Lime_Building,GREEN_LIQUOR_CAUSTCONC,gpl
+2042,PURE,Lime_Building,GREEN_LIQUOR_ALUMINA,gpl
+2043,PURE,Lime_Building,GREEN_LIQUOR_CRBNT,gpl
+2044,PURE,Lime_Building,GREEN_LIQUOR_RTIO,STATE
+2045,PURE,Lime_Building,CAUSTICIZED_LIQUOR_CAUSTCONC,gpl
+2046,PURE,Lime_Building,CAUSTICIZED_LIQUOR_ALUMINA,gpl
+2047,PURE,Lime_Building,CAUSTICIZED_LIQUOR_CRBNT,gpl
+2048,PURE,Lime_Building,CAUSTICIZED_LIQUOR_RTIO,STATE
+2049,PURE,Evaporatoration,13A_BEFORE_WASH_LIQUOR_CAUSTCONC,gpl
+2050,PURE,Evaporatoration,13A_BEFORE_WASH_LIQUOR_SODA,gpl
+2051,PURE,Evaporatoration,13A_BEFORE_WASH_LIQUOR_CAUSTY,%
+2052,PURE,Evaporatoration,13A_AFTER_WASH_LIQUOR_CAUSTCONC,gpl
+2053,PURE,Evaporatoration,13A_AFTER_WASH_LIQUOR_SODA,gpl
+2054,PURE,Evaporatoration,13A_AFTER_WASH_LIQUOR_CAUSTY,%
+2055,PURE,Evaporatoration,13B_BEFORE_WASH_LIQUOR_CAUSTCONC,gpl
+2056,PURE,Evaporatoration,13B_BEFORE_WASH_LIQUOR_SODA,gpl
+2057,PURE,Evaporatoration,13B_BEFORE_WASH_LIQUOR_CAUSTY,%
+2058,PURE,Evaporatoration,13B_AFTER_WASH_LIQUOR_CAUSTCONC,gpl
+2059,PURE,Evaporatoration,13B_AFTER_WASH_LIQUOR_SODA,gpl
+2060,PURE,Evaporatoration,13B_AFTER_WASH_LIQUOR_CAUSTY,%
+2061,PURE,Auxiliary_Section,VANADIUM_PUMP_OFF_LIQUOR_1_V2O5,gpl
+2062,PURE,Auxiliary_Section,VANADIUM_PUMP_OFF_LIQUOR_2_V2O5,gpl
+2063,PURE,Auxiliary_Section,VANADIUM_PUMP_OFF_LIQUOR_3_V205_V2O5,gpl
+2064,PURE,Refinery_Water_Mapping,MAIN_DRAIN_WATER_SODA,gpl
+2065,PURE,Refinery_Water_Mapping,DRAIN_WATER_POINT-D_SODA,gpl
+2066,PURE,Refinery_Water_Mapping,TREATED_WATER_SODA,gpl
+2067,PURE,Auxiliary_Section,VANDIUM_SLUDGE_WTRINSOLBL,%
+2068,PURE,Auxiliary_Section,VANDIUM_SLUDGE_PUR,%
+2069,PURE,Precipitation_Section,TRAY_FEED_7_BOTTOM_DAYWISE_SOLIDS,%
+2070,PURE,Precipitation_Section,COARSE_SEED_MALVERN_GRANULOMETRY_3_5uMLVN,microM
+2071,PURE,Precipitation_Section,COARSE_SEED_MALVERN_GRANULOMETRY_10uMLVN,microM
+2072,PURE,Precipitation_Section,COARSE_SEED_MALVERN_GRANULOMETRY_20uMLVN,microM
+2073,PURE,Precipitation_Section,COARSE_SEED_MALVERN_GRANULOMETRY_30uMLVN,microM
+2074,PURE,Precipitation_Section,COARSE_SEED_MALVERN_GRANULOMETRY_45uMLVN,microM
+2075,PURE,Precipitation_Section,COARSE_SEED_MALVERN_GRANULOMETRY_74uMLVN,microM
+2076,PURE,Precipitation_Section,COARSE_SEED_MALVERN_GRANULOMETRY_105uMLVN,microM
+2077,PURE,Precipitation_Section,COARSE_SEED_MALVERN_GRANULOMETRY_150uMLVN,microM
+2078,PURE,Precipitation_Section,COARSE_SEED_MALVERN_GRANULOMETRY_MD50,microM
+2079,PURE,Precipitation_Section,COARSE_SEED_MALVERN_GRANULOMETRY_MD10,microM
+2080,PURE,Precipitation_Section,COARSE_SEED_MALVERN_GRANULOMETRY_MD90,microM
+2081,PURE,Precipitation_Section,COARSE_SEED_MALVERN_GRANULOMETRY_SSA_M,m2/g
+2082,PURE,Precipitation_Section,COARSE_SEED_MALVERN_GRANULOMETRY_HILALP_001,m2/g
+2083,PURE,Precipitation_Section,FINE_SEED_MALVERN_GRANULOMETRY_3.5uMLVN,microM
+2084,PURE,Precipitation_Section,FINE_SEED_MALVERN_GRANULOMETRY_10uMLVN,microM
+2085,PURE,Precipitation_Section,FINE_SEED_MALVERN_GRANULOMETRY_20uMLVN,microM
+2086,PURE,Precipitation_Section,FINE_SEED_MALVERN_GRANULOMETRY_30uMLVN,microM
+2087,PURE,Precipitation_Section,FINE_SEED_MALVERN_GRANULOMETRY_74uMLVN,microM
+2088,PURE,Precipitation_Section,FINE_SEED_MALVERN_GRANULOMETRY_105uMLVN,microM
+2089,PURE,Precipitation_Section,FINE_SEED_MALVERN_GRANULOMETRY_150uMLVN,microM
+2090,PURE,Precipitation_Section,FINE_SEED_MALVERN_GRANULOMETRY_MD50,microM
+2091,PURE,Precipitation_Section,FINE_SEED_MALVERN_GRANULOMETRY_MD10,microM
+2092,PURE,Precipitation_Section,FINE_SEED_MALVERN_GRANULOMETRY_MD90,microM
+2093,PURE,Precipitation_Section,FINE_SEED_MALVERN_GRANULOMETRY_SSA_M,m2/g
+2094,PURE,Precipitation_Section,FINE_SEED_MALVERN_GRANULOMETRY_HILALP_001,m2/g
+2095,PURE,KILN_1,KILN_1_HYD_ENT_SODA,gpl
+2096,PURE,KILN_2,KILN_2_HYD_ENT_SODA,gpl
+2097,PURE,KILN_3,SGA_FEED_HYD_MOISTMA,%
+2098,PURE,KILN_3,SGA_FEED_HYD_ENT_SODA,gpl
+2099,PURE,KILN_3,SGA_FEED_HYD_PERCENTAGE_SODA_NA2O,%
+2100,PURE,KILN_3,SGA_DRIER_MOISTMA,%
+2101,PURE,KILN_3,SGA_DRIER_ENT_SODA,gpl
+2102,PURE,KILN_3,SGA_DRIER_PERCENTAGE_SODA_NA2O,%
+2103,PURE,First_Wash_Section,1ST_WASH_HYD_MOISTMA,%
+2104,PURE,First_Wash_Section,1ST_WASH_HYD_ENT_SODA,gpl
+2105,PURE,First_Wash_Section,1ST_WASH_HYD_PERCENTAGE_SODA_NA2O,%
+2106,PURE,SFD,SFD_1_ENT_SODA,gpl
+2107,PURE,SFD,SFD_1_PERCENTAGE_SODA_NA2O,%
+2108,PURE,SFD,SFD_2_ENT_SODA,gpl
+2109,PURE,SFD,SFD_2_PERCENTAGE_SODA_NA2O,%
+2110,PURE,Precipitation_Section,PHE_WATER_INLET_LINE_SODA,gpl
+2111,PURE,Precipitation_Section,PHE_WATER_OUTLET_LINE_SODA,gpl
+2112,PURE,Precipitation_Section,FLASH_COOLING_WATER_INLET_LINE_SODA,gpl
+2113,PURE,Precipitation_Section,FLASH_COOLING_WATER_OUTLET_LINE_SODA,gpl
+2114,PURE,DIGESTION,COMMON_VACUUM_CONDENSATE_SAMPLE_SODA,gpl
+2115,PURE,Precipitation_Section,ACID_BATCH_6A_ACDCONC,gpl
+2116,PURE,Precipitation_Section,ACID_BATCH_6A_ACDINHBTR-,STATE
+2117,PURE,Precipitation_Section,ACID_BATCH_6A_IRNCNTNT,%
+2118,PURE,Precipitation_Section,ACID_SHOT_6A_PHVAL,STATE
+2119,PURE,Precipitation_Section,ACID_SHOT_6A_ACDCONC,gpl
+2120,PURE,Precipitation_Section,ACID_SHOT_6A_IRNCNTNT,%
+2121,PURE,Evaporatoration,ACID_BATCH_13A_AND_13B_ACDCONC,gpl
+2122,PURE,Evaporatoration,ACID_BATCH_13A_AND_13B_ACDINHBTR-,STATE
+2123,PURE,Evaporatoration,ACID_BATCH_13A_AND_13B_IRNCNTNT,%
+2124,PURE,Evaporatoration,ACID_SHOT_13A_AND_13B_PHVAL,STATE
+2125,PURE,Evaporatoration,ACID_SHOT_13A_AND_13B_ACDCONC,gpl
+2126,PURE,Evaporatoration,ACID_SHOT_13A_AND_13B_IRNCNTNT,%
+2127,PURE,Precipitation_Section,ACID_BATCH_7A_ACDCONC,gpl
+2128,PURE,Precipitation_Section,ACID_BATCH_7A_ACDINHBTR-,STATE
+2129,PURE,Precipitation_Section,ACID_BATCH_7A_IRNCNTNT,%
+2130,PURE,Precipitation_Section,ACID_SHOT_7A_PHVAL,STATE
+2131,PURE,Precipitation_Section,ACID_SHOT_7A_ACDCONC,gpl
+2132,PURE,Precipitation_Section,ACID_SHOT_7A_IRNCNTNT,%
+2133,PURE,Evaporatoration,13A_RC_SAMPLE_SODA,gpl
+2134,PURE,Evaporatoration,13B_RC_SAMPLE_SODA,gpl
+2135,PURE,Evaporatoration,13A_CC_SAMPLE_SODA,gpl
+2136,PURE,Evaporatoration,13B_CC_SAMPLE_SODA,gpl
+2137,PURE,Evaporatoration,13A_3RD_BODY_RC_SAMPLE_SODA,gpl
+2138,PURE,Evaporatoration,13A_4TH_BODY_RC_SAMPLE_SODA,gpl
+2139,PURE,Evaporatoration,13B_4TH_BODY_RC_SAMPLE_SODA,gpl
+2140,PURE,Evaporatoration,13B_5TH_BODY_RC_SAMPLE_SODA,gpl
+2141,PURE,Boiler_1,BOILER-1_PHVAL,STATE
+2142,PURE,Boiler_1,BOILER_1_SULPHT,mgpl
+2143,PURE,Boiler_1,BOILER_1_PO4,mgpl
+2144,PURE,Boiler_1,BOILER_1_HRDNSS,mgpl
+2145,PURE,Boiler_1,BOILER_1_TDS,ppm
+2146,PURE,Boiler_2,BOILER_2_PHVAL,STATE
+2147,PURE,Boiler_2,BOILER_2_SULPHT_SO3,mgpl
+2148,PURE,Boiler_2,BOILER_2_PO4,mgpl
+2149,PURE,Boiler_2,BOILER_2_HRDNSS,mgpl
+2150,PURE,Boiler_2,BOILER_2_TDS,ppm
+2151,PURE,Boiler_3,BOILER_3_PHVAL,STATE
+2152,PURE,Boiler_3,BOILER_3_SULPHT,mgpl
+2153,PURE,Boiler_3,BOILER_3_PO4,mgpl
+2154,PURE,Boiler_3,BOILER_3_HRDNSS,mgpl
+2155,PURE,Boiler_3,BOILER_3_TDS,ppm
+2156,PURE,Boiler_4,BOILER_4_PHVAL,STATE
+2157,PURE,Boiler_4,BOILER_4_SULPHT,mgpl
+2158,PURE,Boiler_4,BOILER_4_PO4,mgpl
+2159,PURE,Boiler_4,BOILER_4_HRDNSS,mgpl
+2160,PURE,Boiler_4,BOILER_4_TDS,ppm
+2161,PURE,Boiler_5,BOILER_5_PHVAL,STATE
+2162,PURE,Boiler_5,BOILER_5_SULPHT,mgpl
+2163,PURE,Boiler_5,BOILER_5_PO4,mgpl
+2164,PURE,Boiler_5,BOILER_5_HRDNSS,mgpl
+2165,PURE,Boiler_5,BOILER_5_TDS,ppm
+2166,PURE,Lime_Building,BELT_LIME_PERCENTAGE_CAO,%
+2167,PURE,Lime_Building,BELT_LIME_LIMERACTY,celsius
+2168,PURE,Precipitation_Section,FINE_SLURRY_GRANULOMETRY_SOLIDS,%
+2169,PURE,Precipitation_Section,FINE_SLURRY_GRANULOMETRY_PLUS_14W,%
+2170,PURE,Precipitation_Section,FINE_SLURRY_GRANULOMETRY_PLUS_30W,%
+2171,PURE,Precipitation_Section,FINE_SLURRY_GRANULOMETRY_PLUS_60W,%
+2172,PURE,Precipitation_Section,FINE_SLURRY_GRANULOMETRY_MINUS_60W,%
+2173,PURE,Precipitation_Section,FINE_SLURRY_GRANULOMETRY_PLUS_100W,%
+2174,PURE,Precipitation_Section,FINE_SLURRY_GRANULOMETRY_MINUS_100W,%
+2175,PURE,Precipitation_Section,FINE_SLURRY_DAY_COMPOSITE_LOM1000_DEGREE_C,%
+2176,PURE,Precipitation_Section,FINE_SLURRY_DAY_COMPOSITE_XRF01,%
+2177,PURE,Precipitation_Section,FINE_SLURRY_DAY_COMPOSITE_XRF02,%
+2178,PURE,Precipitation_Section,FINE_SLURRY_DAY_COMPOSITE_XRF03,%
+2179,PURE,Precipitation_Section,FINE_SLURRY_DAY_COMPOSITE_XRF04,%
+2180,PURE,Precipitation_Section,FINE_SLURRY_DAY_COMPOSITE_XRF05,%
+2181,PURE,Precipitation_Section,FINE_SLURRY_DAY_COMPOSITE_XRF06,%
+2182,PURE,Precipitation_Section,FINE_SLURRY_DAY_COMPOSITE_XRF07,%
+2183,PURE,Precipitation_Section,FINE_SLURRY_DAY_COMPOSITE_XRF08,%
+2184,PURE,Precipitation_Section,FINE_SLURRY_LIQUOR_SILICA_SIO2GPL,gpl
+2185,PURE,Precipitation_Section,FINE_SLURRY_LIQUOR_SILICA_CAUSTCONC,gpl
+2186,PURE,Precipitation_Section,FINE_SLURRY_LIQUOR_SILICA_RTIO,STATE
+2187,PURE,DIGESTION,MIX_LIQUOR_LIQUOR_SILICA_SIO2GPL,gpl
+2188,PURE,DIGESTION,MIX_LIQUOR_LIQUOR_SILICA_CAUSTCONC,gpl
+2189,PURE,DIGESTION,MIX_LIQUOR_LIQUOR_SILICA_RTIO,STATE
+2190,PURE,DIGESTION,BLOW_OFF_LIQUOR_SILICA_SIO2GPL,gpl
+2191,PURE,DIGESTION,BLOW_OFF_LIQUOR_SILICA_CAUSTCONC,gpl
+2192,PURE,DIGESTION,BLOW_OFF_LIQUOR_SILICA_RTIO,STATE
+2193,PURE,DIGESTION,BLOW_OFF_DAY_COMPOSITE_LOM1000°C,%
+2194,PURE,DIGESTION,BLOW_OFF_DAY_COMPOSITE_XRF01,%
+2195,PURE,DIGESTION,BLOW_OFF_DAY_COMPOSITE_XRF02,%
+2196,PURE,DIGESTION,BLOW_OFF_DAY_COMPOSITE_XRF03,%
+2197,PURE,DIGESTION,BLOW_OFF_DAY_COMPOSITE_XRF04,%
+2198,PURE,DIGESTION,BLOW_OFF_DAY_COMPOSITE_XRF05,%
+2199,PURE,DIGESTION,BLOW_OFF_DAY_COMPOSITE_XRF06,%
+2200,PURE,DIGESTION,BLOW_OFF_DAY_COMPOSITE_XRF07,%
+2201,PURE,DIGESTION,BLOW_OFF_DAY_COMPOSITE_XRF08,%
+2202,PURE,DIGESTION,BLOW_OFF_RESIDUAL_GIBBSITE_HIC_RG01,%
+2203,PURE,Wash_Thickner_Section,LIQUOR_THICKNER_RESIDUAL_GIBBSITE_HIC_RG01,%
+2204,PURE,Wash_Thickner_Section,LAST_WASH_RESIDUAL_GIBBSITE_HIC_RG01,%
+2205,PURE,Wash_Thickner_Section,LAST_WASH_U_F_SODA,gpl
+2206,PURE,Filter_Press_Section,FILTER_PRESS_DAY_COMPOSITE_LOM1000_DEGREE_C,%
+2207,PURE,Filter_Press_Section,FILTER_PRESS_DAY_COMPOSITE_XRF01,%
+2208,PURE,Filter_Press_Section,FILTER_PRESS_DAY_COMPOSITE_XRF02,%
+2209,PURE,Filter_Press_Section,FILTER_PRESS_DAY_COMPOSITE_XRF03,%
+2210,PURE,Filter_Press_Section,FILTER_PRESS_DAY_COMPOSITE_XRF04,%
+2211,PURE,Filter_Press_Section,FILTER_PRESS_DAY_COMPOSITE_XRF05,%
+2212,PURE,Filter_Press_Section,FILTER_PRESS_DAY_COMPOSITE_XRF06,%
+2213,PURE,Filter_Press_Section,FILTER_PRESS_DAY_COMPOSITE_XRF07,%
+2214,PURE,Filter_Press_Section,FILTER_PRESS_DAY_COMPOSITE_XRF08,%
+2215,PURE,DIGESTION,PDS_TANK_1_DIG_INLET_LIQUOR_SILICA_SIO2GPL,gpl
+2216,PURE,DIGESTION,PDS_TANK_1_DIG_INLET_LIQUOR_SILICA_CAUSTCONC,gpl
+2217,PURE,DIGESTION,PDS_TANK_1_DIG_INLET_LIQUOR_SILICA_RTIO,STATE
+2218,PURE,Precipitation_Section,FILLING_LIQUOR_SILICA_SIO2GPL,gpl
+2219,PURE,Precipitation_Section,FILLING_LIQUOR_SILICA_CAUSTCONC,gpl
+2220,PURE,Precipitation_Section,FILLING_LIQUOR_SILICA_RTIO,STATE
+2221,PURE,Precipitation_Section,FILLING_LIQUOR_LIQUOR_IMPURITIES_HIC_NA2C2O4,g/l
+2222,PURE,Precipitation_Section,HASH_42_OCC_SODA_NA2OASHYD,%
+2223,PURE,Precipitation_Section,HASH_42_OCC_SODA_NA2OASAL,%
+2224,PURE,Precipitation_Section,HASH_47_OCC_SODA_NA2OASHYD,%
+2225,PURE,Precipitation_Section,HASH_47_OCC_SODA_NA2OASAL,%
+2226,PURE,Precipitation_Section,HASH_48_OCC_SODA_NA2OASHYD,%
+2227,PURE,Precipitation_Section,HASH_48_OCC_SODA_NA2OASAL,%
+2228,PURE,Precipitation_Section,HAT_OCC_SODA_MONTHLY_NA2OASHYD,%
+2229,PURE,Precipitation_Section,HAT_OCC_SODA_MONTHLY_NA2OASAL,%
+2230,PURE,Precipitation_Section,HAT_BOTTOM_DAY_COMPOSITE_XRF01,%
+2231,PURE,Precipitation_Section,HAT_BOTTOM_DAY_COMPOSITE_XRF02,%
+2232,PURE,Precipitation_Section,HAT_BOTTOM_DAY_COMPOSITE_XRF03,%
+2233,PURE,Precipitation_Section,HAT_BOTTOM_DAY_COMPOSITE_XRF04,%
+2234,PURE,Precipitation_Section,SPENT_LIQUOR_LIQUOR_SILICA_SIO2GPL,gpl
+2235,PURE,Precipitation_Section,SPENT_LIQUOR_LIQUOR_SILICA_CAUSTCONC,gpl
+2236,PURE,Precipitation_Section,SPENT_LIQUOR_LIQUOR_SILICA_RTIO,STATE
+2237,PURE,Precipitation_Section,SPENT_LIQUOR_LIQUOR_IMPURITIES_HIC_NA2SO4,g/l
+2238,PURE,Precipitation_Section,SPENT_LIQUOR_LIQUOR_IMPURITIES_HIC_NA2C2O4,g/l
+2239,PURE,Precipitation_Section,SPENT_LIQUOR_LIQUOR_IMPURITIES_HIC_P2O5,g/l
+2240,PURE,Precipitation_Section,SPENT_LIQUOR_LIQUOR_IMPURITIES_HIC_NACL,g/l
+2241,PURE,Precipitation_Section,SPENT_LIQUOR_V2O5_V2O5,gpl
+2242,PURE,Precipitation_Section,LIQUOR_THICKNER_LIQUOR_IMPURITIES_HIC_NA2SO4,g/l
+2243,PURE,Precipitation_Section,LIQUOR_THICKNER_LIQUOR_IMPURITIES_HIC_NA2C2O4,g/l
+2244,PURE,Precipitation_Section,LIQUOR_THICKNER_LIQUOR_IMPURITIES_HIC_P2O5,g/l
+2245,PURE,Precipitation_Section,LIQUOR_THICKNER_LIQUOR_IMPURITIES_HIC_NACL,g/l
+2246,PURE,Evaporatoration,13A_PRODUCT_CAUSTCONC,gpl
+2247,PURE,Evaporatoration,13A_PRODUCT_CAUSTY,%
+2248,PURE,Evaporatoration,13A_PRODUCT_RTIO,STATE
+2249,PURE,Evaporatoration,13B_PRODUCT_CAUSTCONC,gpl
+2250,PURE,Evaporatoration,13B_PRODUCT_CAUSTY,%
+2251,PURE,Evaporatoration,13B_PRODUCT_RTIO,STATE
+2252,PURE,Auxiliary_Section,OXALATE_PUMP_OFF_I_LIQUOR_IMPURITIES_HIC_NA2C2O4,g/l
+2253,PURE,Auxiliary_Section,OXALATE_PUMP_OFF_II_LIQUOR_IMPURITIES_HIC_NA2C2O4,g/l
+2254,PURE,Auxiliary_Section,OXALATE_PUMP_OFF_III_LIQUOR_IMPURITIES_HIC_NA2C2O4,g/l
+2255,PURE,Auxiliary_Section,OXALATE_CAKE_LIQUOR_IMPURITIES_HIC_PUR,%
+2256,PURE,Precipitation_Section,SECONDRY_SEED_OCC_SODA_NA2OASHYD,%
+2257,PURE,Precipitation_Section,SECONDRY_SEED_OCC_SODA_NA2OASAL,%
+2258,PURE,Precipitation_Section,FINE_SEED_OCC_SODA_MONTHLY_NA2OASHYD,%
+2259,PURE,Precipitation_Section,FINE_SEED_OCC_SODA_MONTHLY_NA2OASAL,%
+2260,PURE,Precipitation_Section,FINE_SEED_DAY_COMPOSITE_XRF01,%
+2261,PURE,Precipitation_Section,FINE_SEED_DAY_COMPOSITE_XRF02,%
+2262,PURE,Precipitation_Section,FINE_SEED_DAY_COMPOSITE_XRF03,%
+2263,PURE,Precipitation_Section,FINE_SEED_DAY_COMPOSITE_XRF04,%
+2264,PURE,Precipitation_Section,KILN_FEED_HYD_DAY_COMPOSITE_XRF01,%
+2265,PURE,Precipitation_Section,KILN_FEED_HYD_DAY_COMPOSITE_XRF02,%
+2266,PURE,Precipitation_Section,KILN_FEED_HYD_DAY_COMPOSITE_XRF03,%
+2267,PURE,Precipitation_Section,KILN_FEED_HYD_DAY_COMPOSITE_XRF04,%
+2268,PURE,Precipitation_Section,KILN_FEED_HYD_DAY_COMPOSITE_XRF05,%
+2269,PURE,Precipitation_Section,KILN_FEED_HYD_DAY_COMPOSITE_LOM1000_DEGREE_C,%
+2270,PURE,Precipitation_Section,KILN_FEED_HYD_DAY_COMPOSITE_PLUS_100D,%
+2271,PURE,Precipitation_Section,KILN_FEED_HYD_DAY_COMPOSITE_PLUS_200D,%
+2272,PURE,Precipitation_Section,KILN_FEED_HYD_DAY_COMPOSITE_PLUS_325D-,%
+2273,PURE,Precipitation_Section,KILN_FEED_HYD_DAY_COMPOSITE_MINUS_325D,%
+2274,PURE,Precipitation_Section,KILN_FEED_HYD_DRY_SCREEN_PLUS_100D,%
+2275,PURE,Precipitation_Section,KILN_FEED_HYD_DRY_SCREEN_PLUS_200D,%
+2276,PURE,Precipitation_Section,KILN_FEED_HYD_DRY_SCREEN_PLUS_325D-,%
+2277,PURE,Precipitation_Section,KILN_FEED_HYD_DRY_SCREEN_MINUS_325D,%
+2278,PURE,Precipitation_Section,KILN_FEED_HYD_MALVERN_GRANULOMETRY_10uMLVN,microM
+2279,PURE,Precipitation_Section,KILN_FEED_HYD_MALVERN_GRANULOMETRY_20uMLVN,microM
+2280,PURE,Precipitation_Section,KILN_FEED_HYD_MALVERN_GRANULOMETRY_30UMLVN,microM
+2281,PURE,Precipitation_Section,KILN_FEED_HYD_MALVERN_GRANULOMETRY_74uMLVN,microM
+2282,PURE,Precipitation_Section,KILN_FEED_HYD_MALVERN_GRANULOMETRY_105uMLVN,microM
+2283,PURE,Precipitation_Section,KILN_FEED_HYD_MALVERN_GRANULOMETRY_150uMLVN,microM
+2284,PURE,Precipitation_Section,KILN_FEED_HYD_MALVERN_GRANULOMETRY_MD50,microM
+2285,PURE,Precipitation_Section,KILN_FEED_HYD_MALVERN_GRANULOMETRY_MD10,microM
+2286,PURE,Precipitation_Section,KILN_FEED_HYD_MALVERN_GRANULOMETRY_MD90,microM
+2287,PURE,Precipitation_Section,KILN_FEED_HYD_MALVERN_GRANULOMETRY_HILALP_001,m2/g
+2288,PURE,Precipitation_Section,HASH_42_HYDRATE_SOLIDS_GPL_SOLIDSGPL,gpl
+2289,PURE,Precipitation_Section,HASH_47_HYDRATE_SOLIDS_GPL_SOLIDSGPL,gpl
+2290,PURE,Precipitation_Section,HASH_48_HYDRATE_SOLIDS_GPL_SOLIDSGPL,gpl
+2291,PURE,Precipitation_Section,HASH_52_HYDRATE_SOLIDS_GPL_SOLIDSGPL,gpl
+2292,PURE,Precipitation_Section,HASH_55_HYDRATE_SOLIDS_GPL_SOLIDSGPL,gpl
+2293,PURE,Precipitation_Section,HASH_56_HYDRATE_SOLIDS_GPL_SOLIDSGPL,gpl
+2294,PURE,Precipitation_Section,FINE_SEED_HYDRATE_SOLIDS_GPL_SOLIDSGPL,gpl
+2295,PURE,Precipitation_Section,COARSE_SEED_HYDRATE_SOLIDS_GPL_SOLIDSGPL,gpl
+2296,PURE,Cooling_Tower_26,COOLING_TOWER_15C_SODA,gpl
+2297,PURE,KILN_1,BELT_ALUMINA_K_1_MALVERN_GRANULOMETRY_3_5UMLVN,microM
+2298,PURE,KILN_1,BELT_ALUMINA_K_1_MALVERN_GRANULOMETRY_10UMLVN,microM
+2299,PURE,KILN_1,BELT_ALUMINA_K_1_MALVERN_GRANULOMETRY_20UMLVN,microM
+2300,PURE,KILN_1,BELT_ALUMINA_K_1_MALVERN_GRANULOMETRY_30UMLVN,microM
+2301,PURE,KILN_1,BELT_ALUMINA_K_1_MALVERN_GRANULOMETRY_45UMLVN,microM
+2302,PURE,KILN_1,BELT_ALUMINA_K_1_MALVERN_GRANULOMETRY_74UMLVN,microM
+2303,PURE,KILN_1,BELT_ALUMINA_K_1_MALVERN_GRANULOMETRY_105UMLVN,microM
+2304,PURE,KILN_1,BELT_ALUMINA_K_1_MALVERN_GRANULOMETRY_150UMLVN,microM
+2305,PURE,KILN_1,BELT_ALUMINA_K_1_MALVERN_GRANULOMETRY_MD50,microM
+2306,PURE,KILN_1,BELT_ALUMINA_K_1_MALVERN_GRANULOMETRY_MD10,microM
+2307,PURE,KILN_1,BELT_ALUMINA_K_1_MALVERN_GRANULOMETRY_MD90,microM
+2308,PURE,KILN_1,BELT_ALUMINA_K_1_MALVERN_GRANULOMETRY_SSA(M),m2/g
+2309,PURE,KILN_1,BELT_ALUMINA_K_1_MALVERN_GRANULOMETRY_HILALP_001,m2/g
+2310,PURE,KILN_2,BELT_ALUMINA_K_2_MALVERN_GRANULOMETRY_3_5uMLVN,microM
+2311,PURE,KILN_2,BELT_ALUMINA_K_2_MALVERN_GRANULOMETRY_10uMLVN,microM
+2312,PURE,KILN_2,BELT_ALUMINA_K_2_MALVERN_GRANULOMETRY_20uMLVN,microM
+2313,PURE,KILN_2,BELT_ALUMINA_K_2_MALVERN_GRANULOMETRY_30uMLVN,microM
+2314,PURE,KILN_2,BELT_ALUMINA_K_2_MALVERN_GRANULOMETRY_45uMLVN,microM
+2315,PURE,KILN_2,BELT_ALUMINA_K_2_MALVERN_GRANULOMETRY_74uMLVN,microM
+2316,PURE,KILN_2,BELT_ALUMINA_K_2_MALVERN_GRANULOMETRY_105uMLVN,microM
+2317,PURE,KILN_2,BELT_ALUMINA_K_2_MALVERN_GRANULOMETRY_150uMLVN,microM
+2318,PURE,KILN_2,BELT_ALUMINA_K_2_MALVERN_GRANULOMETRY_MD50,microM
+2319,PURE,KILN_2,BELT_ALUMINA_K_2_MALVERN_GRANULOMETRY_MD10,microM
+2320,PURE,KILN_2,BELT_ALUMINA_K_2_MALVERN_GRANULOMETRY_MD90,microM
+2321,PURE,KILN_2,BELT_ALUMINA_K_2_MALVERN_GRANULOMETRY_SSA_M,m2/g
+2322,PURE,KILN_2,BELT_ALUMINA_K_2_MALVERN_GRANULOMETRY_HILALP_001,m2/g
+2323,PURE,KILN_3,BELT_ALUMINA_K_3_MALVERN_GRANULOMETRY_3_5uMLVN,microM
+2324,PURE,KILN_3,BELT_ALUMINA_K_3_MALVERN_GRANULOMETRY_10uMLVN,microM
+2325,PURE,KILN_3,BELT_ALUMINA_K_3_MALVERN_GRANULOMETRY_20uMLVN,microM
+2326,PURE,KILN_3,BELT_ALUMINA_K_3_MALVERN_GRANULOMETRY_30uMLVN,microM
+2327,PURE,KILN_3,BELT_ALUMINA_K_3_MALVERN_GRANULOMETRY_45uMLVN,microM
+2328,PURE,KILN_3,BELT_ALUMINA_K_3_MALVERN_GRANULOMETRY_74uMLVN,microM
+2329,PURE,KILN_3,BELT_ALUMINA_K_3_MALVERN_GRANULOMETRY_105uMLVN,microM
+2330,PURE,KILN_3,BELT_ALUMINA_K_3_MALVERN_GRANULOMETRY_150uMLVN,microM
+2331,PURE,KILN_3,BELT_ALUMINA_K_3_MALVERN_GRANULOMETRY_MD50,microM
+2332,PURE,KILN_3,BELT_ALUMINA_K_3_MALVERN_GRANULOMETRY_MD10,microM
+2333,PURE,KILN_3,BELT_ALUMINA_K_3_MALVERN_GRANULOMETRY_MD90,microM
+2334,PURE,KILN_3,BELT_ALUMINA_K_3_MALVERN_GRANULOMETRY_SSA_M,m2/g
+2335,PURE,KILN_3,BELT_ALUMINA_K_3_MALVERN_GRANULOMETRY_HILALP_001,m2/g
+2336,PURE,KILN_4,BELT_ALUMINA_K_4_MALVERN_GRANULOMETRY_3_5UMLVN,microM
+2337,PURE,KILN_4,BELT_ALUMINA_K_4_MALVERN_GRANULOMETRY_10uMLVN,microM
+2338,PURE,KILN_4,BELT_ALUMINA_K_4_MALVERN_GRANULOMETRY_20uMLVN,microM
+2339,PURE,KILN_4,BELT_ALUMINA_K_4_MALVERN_GRANULOMETRY_30uMLVN,microM
+2340,PURE,KILN_4,BELT_ALUMINA_K_4_MALVERN_GRANULOMETRY_45uMLVN,microM
+2341,PURE,KILN_4,BELT_ALUMINA_K_4_MALVERN_GRANULOMETRY_74uMLVN,microM
+2342,PURE,KILN_4,BELT_ALUMINA_K_4_MALVERN_GRANULOMETRY_105uMLVN,microM
+2343,PURE,KILN_4,BELT_ALUMINA_K_4_MALVERN_GRANULOMETRY_150uMLVN,microM
+2344,PURE,KILN_4,BELT_ALUMINA_K_4_MALVERN_GRANULOMETRY_MD50,microM
+2345,PURE,KILN_4,BELT_ALUMINA_K_4_MALVERN_GRANULOMETRY_MD10,microM
+2346,PURE,KILN_4,BELT_ALUMINA_K_4_MALVERN_GRANULOMETRY_MD90,microM
+2347,PURE,KILN_4,BELT_ALUMINA_K_4_MALVERN_GRANULOMETRY_SSA_M,m2/g
+2348,PURE,KILN_4,BELT_ALUMINA_K_4_MALVERN_GRANULOMETRY_HILALP_001,m2/g
+2349,PURE,Precipitation_Section,HAT_MALVERN_GRANULOMETRY_10uMLVN,microM
+2350,PURE,Precipitation_Section,HAT_MALVERN_GRANULOMETRY_20uMLVN,microM
+2351,PURE,Precipitation_Section,HAT_MALVERN_GRANULOMETRY_30uMLVN,microM
+2352,PURE,Precipitation_Section,HAT_MALVERN_GRANULOMETRY_74uMLVN,microM
+2353,PURE,Precipitation_Section,HAT_MALVERN_GRANULOMETRY_105uMLVN,microM
+2354,PURE,Precipitation_Section,HAT_MALVERN_GRANULOMETRY_150uMLVN,microM
+2355,PURE,Precipitation_Section,HAT_MALVERN_GRANULOMETRY_MD50,microM
+2356,PURE,Precipitation_Section,HAT_MALVERN_GRANULOMETRY_MD10,microM
+2357,PURE,Precipitation_Section,HAT_MALVERN_GRANULOMETRY_MD90,microM
+2358,PURE,Precipitation_Section,HAT_MALVERN_GRANULOMETRY_HILALP_001,m2/g
+2359,PURE,Precipitation_Section,AGGLO_TANK_MALVERN_GRANULOMETRY_3_5UMLVN,microM
+2360,PURE,Precipitation_Section,AGGLO_TANK_MALVERN_GRANULOMETRY_10uMLVN,microM
+2361,PURE,Precipitation_Section,AGGLO_TANK_MALVERN_GRANULOMETRY_20uMLVN,microM
+2362,PURE,Precipitation_Section,AGGLO_TANK_MALVERN_GRANULOMETRY_30uMLVN,microM
+2363,PURE,Precipitation_Section,AGGLO_TANK_MALVERN_GRANULOMETRY_74uMLVN,microM
+2364,PURE,Precipitation_Section,AGGLO_TANK_MALVERN_GRANULOMETRY_105uMLVN,microM
+2365,PURE,Precipitation_Section,AGGLO_TANK_MALVERN_GRANULOMETRY_150uMLVN,microM
+2366,PURE,Precipitation_Section,AGGLO_TANK_MALVERN_GRANULOMETRY_MD50,microM
+2367,PURE,Precipitation_Section,AGGLO_TANK_MALVERN_GRANULOMETRY_MD10,microM
+2368,PURE,Precipitation_Section,AGGLO_TANK_MALVERN_GRANULOMETRY_MD90,microM
+2369,PURE,Precipitation_Section,AGGLO_TANK_MALVERN_GRANULOMETRY_SSA_M,m2/g
+2370,PURE,Precipitation_Section,AGGLO_TANK_-_MALVERN_GRANULOMETRY_HILALP_001,m2/g
+2371,PURE,Precipitation_Section,HASH_55_MALVERN_GRANULOMETRY_3_5uMLVN,microM
+2372,PURE,Precipitation_Section,HASH_55_MALVERN_GRANULOMETRY_10uMLVN,microM
+2373,PURE,Precipitation_Section,HASH_55_MALVERN_GRANULOMETRY_20uMLVN,microM
+2374,PURE,Precipitation_Section,HASH_55_MALVERN_GRANULOMETRY_30uMLVN,microM
+2375,PURE,Precipitation_Section,HASH_55_MALVERN_GRANULOMETRY_45uMLVN,microM
+2376,PURE,Precipitation_Section,HASH_55_MALVERN_GRANULOMETRY_74uMLVN,microM
+2377,PURE,Precipitation_Section,HASH_55_MALVERN_GRANULOMETRY_105uMLVN,microM
+2378,PURE,Precipitation_Section,HASH_55_MALVERN_GRANULOMETRY_150uMLVN,microM
+2379,PURE,Precipitation_Section,HASH_55_MALVERN_GRANULOMETRY_MD50,microM
+2380,PURE,Precipitation_Section,HASH_55_MALVERN_GRANULOMETRY_MD10,microM
+2381,PURE,Precipitation_Section,HASH_55_MALVERN_GRANULOMETRY_MD90,microM
+2382,PURE,Precipitation_Section,HASH_55_MALVERN_GRANULOMETRY_SSA_M,m2/g
+2383,PURE,Precipitation_Section,HASH_55_MALVERN_GRANULOMETRY_HILALP_001,m2/g
+2384,PURE,Wash_Thickner_Section,LIQUOR_THICKNER_C_O_F_SODA,gpl
+2385,PURE,Precipitation_Section,FEED_HYDRATE_OCC_SODA_MONTHLY_NA2OASHYD,%
+2386,PURE,Precipitation_Section,FEED_HYDRATE_OCC_SODA_MONTHLY_NA2OASAL,%
+2387,PURE,BALL_MILL_A,A_BIN_LVL,TON
+2388,PURE,BALL_MILL_B,B_BIN_LVL,TON
+2389,PURE,BALL_MILL_C,C_BIN_LVL,TON
+2390,PURE,BALL_MILL_D,D_BIN_LVL,TON
+2391,PURE,DIGESTION,PDS_1_TEMPERATURE,Celsius
+2392,PURE,DIGESTION,BOR_PRED,second
+2393,PURE,Precipitation_Section,D50_PREDICTION,micron
+2394,PURE,Precipitation_Section,200_PREDICTION,%
+2395,PURE,Precipitation_Section,100_PREDICTION,%
+2396,PURE,Precipitation_Section,325_PREDICTION,%
+2397,PURE,Precipitation_Section,FH_SODA_PREDICTION,state
+2398,PURE,KILN_1,SSA_PREDICTION,m2/g
+2399,PURE,ABM_4,MAIN_BEARING_TEMP_DE,bar
+2400,PURE,ABM_4,MAIN_BEARING_TEMP_NDE,Celsius
+2401,PURE,ABM_4,GB_BEARING_TEMP_DE,Celsius
+2402,PURE,ABM_4,GB_BEARING_TEMP_NDE,Celsius
+2403,PURE,ABM_4,MILL_BEARING_INLET_OIL_TEMP_DE,Celsius
+2404,PURE,ABM_4,MILL_BEARING_INLET_OIL_TEMP_NDE,Celsius
+2405,PURE,ABM_4,GB_VIBRATION,mm/sec
+2406,PURE,ABM_4,PINION_NDE_BEARING_VIBRATION_WEST,mm/sec
+2407,PURE,ABM_4,PINION_NDE_BEARING_VIBRATION_SOUTH,mm/sec
+2408,PURE,ABM_4,PINION_DE_BEARING_VIBRATION_EAST,mm/sec
+2409,PURE,ABM_4,PINION_DE_BEARING_VIBRATION_SOUTH,mm/sec
+2410,PURE,ABM_5,MAIN_BEARING_TEMP_DE,Celsius
+2411,PURE,ABM_5,MAIN_BEARING_TEMP_NDE,Celsius
+2412,PURE,ABM_5,GB_BEARING_TEMP_DE,Celsius
+2413,PURE,ABM_5,GB_BEARING_TEMP_NDE,Celsius
+2414,PURE,ABM_5,MILL_BEARING_INLET_OIL_TEMP_DE,Celsius
+2415,PURE,ABM_5,MILL_BEARING_INLET_OIL_TEMP_NDE,Celsius
+2416,PURE,ABM_5,GB_VIBRATION,mm/sec
+2417,PURE,ABM_5,PINION_NDE_BEARING_VIBRATION_WEST,mm/sec
+2418,PURE,ABM_5,PINION_NDE_BEARING_VIBRATION_SOUTH,mm/sec
+2419,PURE,ABM_5,PINION_DE_BEARING_VIBRATION_EAST,mm/sec
+2420,PURE,ABM_5,PINION_DE_BEARING_VIBRATION_SOUTH,mm/sec
+2421,PURE,Specials_Compressors,ELEMENT_2_INLET_TEMP_HT_1,Celsius
+2422,PURE,Specials_Compressors,ELEMENT_3_INLET_TEMP_HT_1,Celsius
+2423,PURE,Specials_Compressors,DP_AIR_FILTER_HT_1,bar
+2424,PURE,Specials_Compressors,COOLER_1_APPROACH_TEMP_HT_1,Celsius
+2425,PURE,Specials_Compressors,COOLER_2_APPROACH_TEMP_HT_1,Celsius
+2426,PURE,Specials_Compressors,ELEMENT_3_OUTLET_PRESSURE_HT_1,bar
+2427,PURE,Specials_Compressors,MOTOR_BEARING_DE_TEMP_HT_1,Celsius
+2428,PURE,Specials_Compressors,MOTOR_BEARING_NDE_TEMP_HT_1,Celsius
+2429,PURE,Specials_Compressors,DP_OIL_FILTER_HT_1,bar
+2430,PURE,Specials_Compressors,LOAD_COUNT_HT_1,Hrs
+2431,PURE,Specials_Compressors,LOAD_HOURS_HT_1,Hrs
+2432,PURE,Specials_Compressors,RUN_HOURS_HT_1,Hrs
+2433,PURE,Specials_Compressors,START_COUNT_HT_1,Hrs
+2434,PURE,Specials_Compressors,ELEMENT_2_INLET_TEMP_HT_2,Celsius
+2435,PURE,Specials_Compressors,ELEMENT_3_INLET_TEMP_HT_2,Celsius
+2436,PURE,Specials_Compressors,DP_AIR_FILTER_HT_2,bar
+2437,PURE,Specials_Compressors,COOLER_1_APPROACH_TEMP_HT_2,Celsius
+2438,PURE,Specials_Compressors,COOLER_2_APPROACH_TEMP_HT_2,Celsius
+2439,PURE,Specials_Compressors,ELEMENT_3_OUTLET_PRESSURE_HT_2,bar
+2440,PURE,Specials_Compressors,MOTOR_BEARING_DE_TEMP_HT_2,Celsius
+2441,PURE,Specials_Compressors,MOTOR_BEARING_NDE_TEMP_HT_2,Celsius
+2442,PURE,Specials_Compressors,DP_OIL_FILTER_HT_2,bar
+2443,PURE,Specials_Compressors,LOAD_COUNT_HT_2,Hrs
+2444,PURE,Specials_Compressors,LOAD_HOURS_HT_2,Hrs
+2445,PURE,Specials_Compressors,RUN_HOURS_HT_2,Hrs
+2446,PURE,Specials_Compressors,START_COUNT_HT_2,Hrs
+2447,PURE,Specials_Compressors,C1_APPROACH_TEMP,Celsius
+2448,PURE,Specials_Compressors,C2_APPROACH_TEMP,Celsius
+2449,PURE,Specials_Compressors,DRIVE_MOTOR_TEMP,Celsius
+2450,PURE,Specials_Compressors,STAGE_2_TEMP_CC_78_1,Celsius
+2451,PURE,Specials_Compressors,STAGE_3_TEMP_CC_78_1,Celsius
+2452,PURE,Specials_Compressors,STAGE_3_OULTET_PRESSURE_CC_78_1,bar
+2453,PURE,Specials_Compressors,MOTOR_BEARING_DE_TEMP_CC_78_1,Celsius
+2454,PURE,Specials_Compressors,MOTOR_BEARING_NDE_TEMP_CC_78_1,Celsius
+2455,PURE,Specials_Compressors,COOLING_WATER_IN_TEMP_CC_78_1,Celsius
+2456,PURE,Specials_Compressors,GEARBOX_TEMP_CC_78_1,Celsius
+2457,PURE,Specials_Compressors,RUN_HOURS_CC_78_1,Hrs
+2458,PURE,Specials_Compressors,LOAD_HOURS_CC_78_1,Hrs
+2459,PURE,Specials_Compressors,LOAD_COUNT_CC_78_1,Hrs
+2460,PURE,Specials_Compressors,START_COUNT_CC_78_1,Hrs
+2461,PURE,Specials_Compressors,SC_1_CW_INLET_TEMP,Celsius
+2462,PURE,Specials_Compressors,SC_1_OIL_TEMP,Celsius
+2463,PURE,Specials_Compressors,SC_1_STAGE_2_INLET_TEMP,Celsius
+2464,PURE,Specials_Compressors,SC_1_RUN_HOURS,Hrs
+2465,PURE,Specials_Compressors,SC_1_START_COUNT,Hrs
+2466,PURE,Specials_Compressors,SC_1_LOAD_HOURS,Hrs
+2467,PURE,Specials_Compressors,SC_2_CW_INLET_TEMP,Celsius
+2468,PURE,Specials_Compressors,SC_2_OIL_TEMP,Celsius
+2469,PURE,Specials_Compressors,SC_2_STAGE_2_INLET_TEMP,Celsius
+2470,PURE,Specials_Compressors,SC_2_RUN_HOURS,Hrs
+2471,PURE,Specials_Compressors,SC_2_START_COUNT,Hrs
+2472,PURE,Specials_Compressors,SC_3_CW_INLET_TEMP,Celsius
+2473,PURE,Specials_Compressors,SC_3_OIL_TEMP,Celsius
+2474,PURE,Specials_Compressors,SC_3_STAGE_2_INLET_TEMP,Celsius
+2475,PURE,Specials_Compressors,SC_3_RUN_HOURS,Hrs
+2476,PURE,Specials_Compressors,SC_3_START_COUNT,Hrs
+2477,PURE,CBM,DE_BEARING_TEMP,Celsius
+2478,PURE,CBM,NDE_BEARING_TEMP,Celsius
+2479,PURE,CBM,MAIN_GB_TEMP,Celsius
+2480,PURE,CBM_2,MAIN_GB_TEMP,Celsius
+2481,PURE,CBM_2,MOTOR_CURRENT,Amp
+2482,PURE,CBM_2,DE_BEARING_TEMP,Celsius
+2483,PURE,CBM_2,NDE_BEARING_TEMP,Celsius
+2484,PURE,NAFG,SOFT_WATER_PUMP_PRESSURE,kg/cm2
+2485,PURE,NAFG,SCREW_COMPRESSOR_PRESSURE,kg/cm3
+2486,PURE,NAFG,CENTRIFUGAL_COMPRESSOR_PRESSURE,kg/cm4
+2487,PURE,NAFG,COOLING_TOWER_PUMP_FLOW,m3/hr
+2488,PURE,NACM_120,OUTLET_TEMP,Celsius
+2489,PURE,ABM_1,MAIN_GEARBOX_TEMPREATURE,Celsius
+2490,PURE,ABM_1,TRUNION_BEARING_TEMPERATURE_NDE,Celsius
+2491,PURE,ABM_1,TRUNION_BEARING_TEMPERATURE_DE,Celsius
+2492,PURE,ABM_2,MAIN_GEARBOX_TEMPREATURE,Celsius
+2493,PURE,ABM_2,TRUNION_BEARING_TEMPERATURE_NDE,Celsius
+2494,PURE,ABM_2,TRUNION_BEARING_TEMPERATURE_DE,Celsius
+2495,PURE,ABM_3,MAIN_GEARBOX_TEMPREATURE,Celsius
+2496,PURE,ABM_3,TRUNION_BEARING_TEMPERATURE_NDE,Celsius
+2497,PURE,ABM_3,TRUNION_BEARING_TEMPERATURE_DE,Celsius
+2498,PURE,First_Wash_Section,FIRST_WASH_PF_VACCUM_PRESSURE,inchwc
