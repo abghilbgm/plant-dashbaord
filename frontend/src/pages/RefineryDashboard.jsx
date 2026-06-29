@@ -268,7 +268,7 @@ export default function RefineryDashboard() {
                   <div style={{ overflowX: "auto" }}>
                     <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 12 }}>
                       <thead>
-                        <tr style={{ borderBottom: "1px solid var(--border-card)" }}>
+                        <tr style={{ borderBottom: "1px solid #e2e8f0" }}>
                           <th style={{ textAlign: "left", padding: "12px 14px", color: "var(--text-sub)", width: "40%", fontSize: 11 }}>Parameter Descriptor</th>
                           <th style={{ textAlign: "center", padding: "12px 14px", color: "var(--text-sub)", fontSize: 11 }}>Today</th>
                           <th style={{ textAlign: "center", padding: "12px 14px", color: "var(--text-sub)", fontSize: 11 }}>Yesterday</th>
@@ -435,8 +435,8 @@ export default function RefineryDashboard() {
                 </div>
 
                 {/* COST */}
-                <div style={{ marginTop: 12, background: "rgba(255,255,255,0.02)", border: "1px solid var(--border-card)", borderRadius: 8, padding: 10 }}>
-                  <div style={{ fontSize: 10, fontWeight: 700, marginBottom: 6, borderBottom: "1px solid var(--border-card)", paddingBottom: 4, textTransform: "uppercase", color: "var(--text-sub)" }}>Cost (&#8377;/t)</div>
+                <div style={{ marginTop: 12, background: "#f8fafb", border: "1px solid #e2e8f0", borderRadius: 8, padding: 10 }}>
+                  <div style={{ fontSize: 10, fontWeight: 700, marginBottom: 6, borderBottom: "1px solid #e2e8f0", paddingBottom: 4, textTransform: "uppercase", color: "var(--accent-cyan)" }}>Cost (&#8377;/t)</div>
                   <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
                     <div style={{ textAlign: "center" }}>
                       <div style={{ fontSize: 16, fontWeight: 700, color: "var(--text-main)", fontFamily: "'JetBrains Mono', monospace" }}>{COST_DATA.rawMaterial}</div>
@@ -464,11 +464,11 @@ export default function RefineryDashboard() {
                 </div>
                 {/* Coal Stock & Quality */}
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8, marginTop: 8 }}>
-                  <div className="power-card" style={{ textAlign: "center", background: "rgba(245, 158, 11, 0.05)", borderColor: "rgba(245, 158, 11, 0.15)" }}>
+                  <div className="power-card" style={{ textAlign: "center", background: "#fff8e6", borderColor: "rgba(245, 158, 11, 0.25)" }}>
                     <div style={{ fontSize: 9, color: "var(--text-muted)" }}>Coal Stock</div>
                     <div style={{ fontSize: 17, fontWeight: 700, color: "var(--accent-orange)", fontFamily: "'JetBrains Mono', monospace" }}>50,237<span style={{ fontSize: 10 }}> t</span></div>
                   </div>
-                  <div className="power-card" style={{ textAlign: "center", background: "rgba(244, 63, 94, 0.05)", borderColor: "rgba(244, 63, 94, 0.15)" }}>
+                  <div className="power-card" style={{ textAlign: "center", background: "#fef2f2", borderColor: "rgba(244, 63, 94, 0.25)" }}>
                     <div style={{ fontSize: 9, color: "var(--text-muted)" }}>Coal Quality</div>
                     <div style={{ fontSize: 17, fontWeight: 700, color: "var(--accent-rose)", fontFamily: "'JetBrains Mono', monospace" }}>3,224.94<span style={{ fontSize: 10 }}> GCV</span></div>
                     <div style={{ fontSize: 9, color: "var(--text-muted)", marginTop: 2 }}>MTD: 3,239.36</div>
@@ -493,7 +493,7 @@ export default function RefineryDashboard() {
               <section className="dashboard-section">
                 <h3 className="dashboard-section-title">Dispatch (MTD)</h3>
                 {DISPATCH_DATA.map(d => (
-                  <div key={d.label} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "8px 0", borderBottom: "1px solid var(--border-card)" }}>
+                  <div key={d.label} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "8px 0", borderBottom: "1px solid #e8edf3" }}>
                     <span style={{ fontSize: 11, color: "var(--text-sub)" }}>{d.label}</span>
                     <span style={{ fontSize: 15, fontWeight: 700, color: "var(--accent-cyan)", fontFamily: "'JetBrains Mono', monospace" }}>{d.value}<span style={{ fontSize: 9, color: "var(--text-muted)" }}> {d.unit}</span></span>
                   </div>
@@ -504,7 +504,7 @@ export default function RefineryDashboard() {
               <section className="dashboard-section">
                 <h3 className="dashboard-section-title">Water Balance</h3>
                 {WATER_DATA.map(w => (
-                  <div key={w.label} style={{ padding: "8px 0", borderBottom: "1px solid var(--border-card)" }}>
+                  <div key={w.label} style={{ padding: "8px 0", borderBottom: "1px solid #e8edf3" }}>
                     <div style={{ fontSize: 10, color: "var(--text-sub)" }}>{w.label}</div>
                     <div style={{ fontSize: 17, fontWeight: 700, color: "var(--accent-cyan)", fontFamily: "'JetBrains Mono', monospace" }}>{w.value}<span style={{ fontSize: 10, color: "var(--text-muted)" }}> {w.unit}</span></div>
                     <div style={{ fontSize: 9, color: "var(--text-muted)", marginTop: 2 }}>{w.sub}</div>
@@ -550,14 +550,29 @@ export default function RefineryDashboard() {
       <header className="dashboard-header">
         <div className="dashboard-header-left">
           <div className="dashboard-logo">
-            <div className="dashboard-logo-box">AB</div>
-            <div>
-              <div style={{ fontSize: 15, fontWeight: 700, color: "#fff", letterSpacing: "0.5px" }}>BLG - Refinery Overview</div>
-              <div style={{ fontSize: 9, color: "rgba(255,255,255,0.6)", letterSpacing: 1.5, fontWeight: 600 }}>ADITYA BIRLA HINDALCO</div>
+            {/* Hindalco Logo SVG */}
+            <svg width="150" height="38" viewBox="0 0 150 38" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="hindalcoText" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#0072BC"/>
+                  <stop offset="100%" stopColor="#29ABE2"/>
+                </linearGradient>
+              </defs>
+              <text x="0" y="28" style={{ fontSize: 26, fontWeight: 900, fill: "url(#hindalcoText)", fontFamily: "'Inter', Arial, sans-serif", letterSpacing: -0.5 }}>HINDALCO</text>
+              {/* Blue plus */}
+              <line x1="125" y1="5" x2="125" y2="21" stroke="#29ABE2" strokeWidth="3.5" strokeLinecap="round"/>
+              <line x1="117" y1="13" x2="133" y2="13" stroke="#29ABE2" strokeWidth="3.5" strokeLinecap="round"/>
+              {/* Green plus */}
+              <line x1="136" y1="13" x2="136" y2="31" stroke="#00A651" strokeWidth="2.8" strokeLinecap="round"/>
+              <line x1="128" y1="22" x2="144" y2="22" stroke="#00A651" strokeWidth="2.8" strokeLinecap="round"/>
+            </svg>
+            <div style={{ marginLeft: 16, borderLeft: "2px solid rgba(255,255,255,0.15)", paddingLeft: 14 }}>
+              <div style={{ fontSize: 14, fontWeight: 700, color: "#fff", letterSpacing: "0.3px" }}>Belgaum Refinery</div>
+              <div style={{ fontSize: 9, color: "rgba(255,255,255,0.65)", letterSpacing: 1, fontWeight: 500 }}>PLANT MONITORING DASHBOARD</div>
             </div>
           </div>
         </div>
-        <div style={{ fontSize: 11, color: "rgba(255,255,255,0.7)", fontFamily: "'JetBrains Mono', monospace" }}>
+        <div style={{ fontSize: 11, color: "rgba(255,255,255,0.8)", fontFamily: "'JetBrains Mono', monospace" }}>
           {currentTime.toLocaleDateString("en-IN", { day: "2-digit", month: "short", year: "numeric" })} | {currentTime.toLocaleTimeString("en-IN", { hour: "2-digit", minute: "2-digit" })}
         </div>
       </header>

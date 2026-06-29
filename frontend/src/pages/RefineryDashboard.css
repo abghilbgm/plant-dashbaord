@@ -1,22 +1,22 @@
 :root {
-  --bg-app: #020612;
-  --bg-card: rgba(8, 17, 36, 0.65);
-  --border-card: rgba(255, 255, 255, 0.05);
-  --border-card-glow: rgba(255, 199, 44, 0.12);
-  --text-main: #f8fafc;
-  --text-sub: #94a3b8;
-  --text-muted: #475569;
+  --bg-app: #f4f7fa;
+  --bg-card: #ffffff;
+  --border-card: rgba(0, 114, 188, 0.08);
+  --border-card-glow: rgba(0, 114, 188, 0.15);
+  --text-main: #1a2a3a;
+  --text-sub: #4a6178;
+  --text-muted: #8a9bb0;
 
-  /* Accents */
-  --accent-cyan: #ffc72c;       /* Rich Gold */
-  --accent-green: #10b981;
-  --accent-orange: #f59e0b;
-  --accent-rose: #f43f5e;
-  --accent-purple: #8b5cf6;
-  --accent-blue: #3b82f6;
+  /* Hindalco Brand Colors */
+  --accent-cyan: #0072BC;         /* Hindalco Primary Blue */
+  --accent-green: #00A651;        /* Hindalco Green */
+  --accent-orange: #29ABE2;       /* Light Blue accent */
+  --accent-rose: #e53e3e;
+  --accent-purple: #6366f1;
+  --accent-blue: #0072BC;
 
   /* Gradients */
-  --grad-header: linear-gradient(135deg, #030816 0%, #081226 100%);
+  --grad-header: linear-gradient(135deg, #003d6b 0%, #0072BC 50%, #29ABE2 100%);
 }
 
 .dashboard-root {
@@ -32,13 +32,11 @@
 
 .dashboard-header {
   background: var(--grad-header);
-  padding: 12px 24px;
+  padding: 14px 28px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid var(--border-card);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 2px 12px rgba(0, 114, 188, 0.15);
 }
 
 .dashboard-header-left {
@@ -54,26 +52,18 @@
 }
 
 .dashboard-logo-box {
-  width: 38px;
-  height: 38px;
-  border-radius: 8px;
-  background: linear-gradient(135deg, #ffc72c, #8b5cf6);
-  display: grid;
-  place-items: center;
-  color: #030816;
-  font-weight: 800;
-  font-size: 14px;
-  box-shadow: 0 0 15px rgba(255, 199, 44, 0.3);
+  display: none;
 }
 
 .dashboard-nav {
-  background: rgba(8, 12, 22, 0.8);
-  padding: 0 20px;
+  background: #ffffff;
+  padding: 0 24px;
   display: flex;
-  gap: 4px;
+  gap: 2px;
   overflow-x: auto;
-  border-bottom: 1px solid var(--border-card);
+  border-bottom: 2px solid #e8edf3;
   scrollbar-width: none;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
 }
 .dashboard-nav::-webkit-scrollbar {
   display: none;
@@ -89,25 +79,25 @@
   cursor: pointer;
   white-space: nowrap;
   border-bottom: 3px solid transparent;
-  transition: all 0.25s ease;
-  font-family: 'Space Grotesk', sans-serif;
+  transition: all 0.2s ease;
+  font-family: 'Inter', sans-serif;
 }
 
 .dashboard-nav-btn:hover {
-  color: var(--text-main);
-  background: rgba(255, 255, 255, 0.03);
+  color: var(--accent-cyan);
+  background: rgba(0, 114, 188, 0.04);
 }
 
 .dashboard-nav-btn.active {
   color: var(--accent-cyan);
   border-bottom-color: var(--accent-cyan);
-  background: rgba(255, 199, 44, 0.05);
+  background: rgba(0, 114, 188, 0.06);
   font-weight: 600;
 }
 
 .dashboard-time-bar {
-  background: rgba(8, 12, 22, 0.5);
-  border-bottom: 1px solid var(--border-card);
+  background: #ffffff;
+  border-bottom: 1px solid #e8edf3;
   padding: 10px 24px;
   display: flex;
   align-items: center;
@@ -127,8 +117,8 @@
 }
 
 .dashboard-time-btn {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--border-card);
+  background: #f0f4f8;
+  border: 1px solid #dce3eb;
   border-radius: 6px;
   padding: 5px 12px;
   font-size: 11px;
@@ -136,24 +126,25 @@
   color: var(--text-sub);
   cursor: pointer;
   transition: all 0.2s ease;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 .dashboard-time-btn:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.15);
+  background: #e6f0fa;
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan);
 }
 
 .dashboard-time-btn.active {
   background: var(--accent-cyan);
   border-color: var(--accent-cyan);
-  color: #030816;
-  box-shadow: 0 0 10px rgba(255, 199, 44, 0.2);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 114, 188, 0.25);
 }
 
 .dashboard-date-input {
-  background: rgba(8, 12, 20, 0.8);
-  border: 1px solid var(--border-card);
+  background: #f8fafb;
+  border: 1px solid #dce3eb;
   border-radius: 6px;
   padding: 5px 10px;
   font-size: 11px;
@@ -163,12 +154,13 @@
 }
 .dashboard-date-input:focus {
   border-color: var(--accent-cyan);
+  box-shadow: 0 0 0 2px rgba(0, 114, 188, 0.1);
 }
 
 .dashboard-refresh-btn {
-  background: rgba(255, 199, 44, 0.07);
+  background: rgba(0, 114, 188, 0.08);
   color: var(--accent-cyan);
-  border: 1px solid rgba(255, 199, 44, 0.2);
+  border: 1px solid rgba(0, 114, 188, 0.2);
   border-radius: 6px;
   padding: 6px 14px;
   font-size: 11px;
@@ -178,9 +170,10 @@
 }
 
 .dashboard-refresh-btn:hover {
-  background: rgba(255, 199, 44, 0.15);
+  background: var(--accent-cyan);
   border-color: var(--accent-cyan);
-  box-shadow: 0 0 8px rgba(255, 199, 44, 0.2);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 114, 188, 0.25);
 }
 
 .dashboard-main {
@@ -277,20 +270,20 @@ tbody tr:hover {
   background-color: rgba(255, 255, 255, 0.02);
 }
 
-/* Custom Scrollbar for navigation/overflows */
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: rgba(8, 12, 20, 0.5);
+  background: #f0f4f8;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.1);
+  background: #c4d0dc;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: #9aadbe;
 }
 
 @media (max-width: 1400px) {
