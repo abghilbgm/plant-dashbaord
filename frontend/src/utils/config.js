@@ -1,127 +1,137 @@
 /**
- * DASHBOARD CONFIGURATION (NAME-BASED)
- * =====================================
- * Uses exact parameter names from the database master list.
- * No parameter IDs — just names as they appear in the DB.
- *
- * To add a new parameter:
- *   1. Add it to params_config.py (backend) with exact DB name
- *   2. Add it here in the relevant section with a display label
+ * DASHBOARD CONFIGURATION (AUTO-GENERATED)
+ * All 90 machines, 551 parameters from master CSV.
+ * Grouped by plant section.
+ * User can toggle params on/off from Settings panel.
  */
 
-// API base path (relative for Databricks App, proxied in Vite dev)
 export const API_BASE = "/api";
 
 // ============================================================
-// DASHBOARD SECTIONS — Controls the Overview page layout
-// "dashboard" = key in backend params_config.py
-// "name" = exact parameter name from DB (case-sensitive!)
-// "label" = what to show on the UI
+// MACHINE GROUPS — Top-level sections on dashboard
 // ============================================================
-export const SECTIONS = [
-  {
-    id: "production",
-    title: "Production",
-    type: "kpi_grid",
-    dashboard: "overall_plant",
-    params: [
-      { name: "Hydrate", label: "Hydrate Production", unit: "T" },
-      { name: "Bauxite Consumption", label: "Bauxite Consumption", unit: "T" },
-      { name: "Bauxite FOM", label: "Bauxite FOM", unit: "T" },
-      { name: "Hydrate PnB", label: "Hydrate P&B", unit: "T" },
-    ],
-  },
-  {
-    id: "raw_material",
-    title: "Raw Material",
-    type: "kpi_grid",
-    dashboard: "overall_plant",
-    params: [
-      { name: "Bauxite Receipt Own", label: "Bauxite Receipt", unit: "T" },
-      { name: "Lime Cao", label: "Lime CaO", unit: "%" },
-      { name: "Caustic Charged", label: "Caustic Charged", unit: "kg/T" },
-      { name: "Caustic Soda (Liq With Residue)", label: "Caustic Soda Loss", unit: "kg/T" },
-    ],
-  },
-  {
-    id: "efficiency",
-    title: "Efficiency",
-    type: "kpi_strip",
-    dashboard: "overall_plant",
-    params: [
-      { name: "Energy For Hydrate", label: "Energy/Hydrate", unit: "kWh/T" },
-      { name: "Boiler Oil", label: "Boiler Oil", unit: "kg/T" },
-      { name: "Caustic Charged", label: "Caustic Charged", unit: "kg/T" },
-      { name: "Caustic Charged PnB", label: "Caustic P&B", unit: "kg/T" },
-      { name: "Energy For Hydrate PnB", label: "Energy P&B", unit: "kWh/T" },
-    ],
-  },
-  {
-    id: "steam",
-    title: "Steam & Power",
-    type: "kpi_grid",
-    dashboard: "boiler_steam",
-    params: [
-      { name: "Boiler Total Steam Flow", label: "Total Steam", unit: "TPH" },
-      { name: "Steam Flow To Digester", label: "Steam to Digester", unit: "TPH" },
-      { name: "Process Steam Flow", label: "Process Steam", unit: "TPH" },
-      { name: "Evaporation Factor Steam", label: "Evap Factor", unit: "T/T" },
-      { name: "Make Up Water Flow", label: "Make Up Water", unit: "m3/hr" },
-      { name: "Condensate Temperature", label: "Condensate Temp", unit: "\u00b0C" },
-    ],
-  },
-  {
-    id: "calcination",
-    title: "Calcination",
-    type: "kpi_grid",
-    dashboard: "calcination",
-    params: [
-      { name: "Total Sx Production", label: "Sx Production", unit: "T" },
-      { name: "Total Spls  Production", label: "Spls Production", unit: "T" },
-      { name: "Calcinable Hydrate Stock", label: "Hydrate Stock", unit: "T" },
-      { name: "NG Consumption SX", label: "NG Consumption", unit: "SCM" },
-      { name: "TOTAL_EVACUATION", label: "Total Evacuation", unit: "" },
-    ],
-  },
-  {
-    id: "digestion",
-    title: "Digestion",
-    type: "kpi_grid",
-    dashboard: "digestion",
-    params: [
-      { name: "SLURRY_FLOW", label: "Slurry Flow", unit: "m3/hr" },
-      { name: "MIX_LIQUOR_FLOW", label: "Mix Liquor Flow", unit: "m3/hr" },
-      { name: "STEAM_FLOW_TO_LSH_AND_DIGESTER", label: "Steam to Digester", unit: "TPH" },
-      { name: "DIGESTER_1_TEMPERATURE", label: "Digester 1 Temp", unit: "\u00b0C" },
-      { name: "IBSH_OUTLET_TEMPERATURE", label: "IBSH Outlet Temp", unit: "\u00b0C" },
-      { name: "PDS_TANK_HOLDING_TIME", label: "PDS Holding Time", unit: "Hrs" },
-    ],
-  },
-  {
-    id: "water",
-    title: "Water Dashboard",
-    type: "kpi_grid",
-    dashboard: "overall_plant",
-    params: [
-      { name: "Fresh Water Supply From Pump House", label: "Fresh Water Intake", unit: "m3/hr" },
-      { name: "Mill Water to Standard Plant", label: "Mill Water (Std)", unit: "m3/hr" },
-      { name: "Mill Water to Specials Plant", label: "Mill Water (Spl)", unit: "m3/hr" },
-      { name: "Lagoon Water (Treated)", label: "Lagoon Water", unit: "MLD" },
-    ],
-  },
-  {
-    id: "precipitation",
-    title: "Precipitation",
-    type: "kpi_grid",
-    dashboard: "precipitation",
-    params: [
-      { name: "PHE Inlet Temp", label: "PHE Inlet Temp", unit: "\u00b0C" },
-      { name: "PHE Outlet Temp", label: "PHE Outlet Temp", unit: "\u00b0C" },
-      { name: "Fine Seed Tonnage", label: "Fine Seed", unit: "tph" },
-      { name: "Green Liq Flow", label: "Green Liq Flow", unit: "m3/hr" },
-    ],
-  },
+export const GROUPS = [
+  { id: "calcination", title: "Calcination", machines: [
+    { machine: "KILN_1", params: [{ name: "ALF3 Dosage", label: "ALF3 Dosage" }, { name: "CO", label: "CO" }, { name: "FGT", label: "FGT" }, { name: "ESP Inlet Temp", label: "ESP Inlet Temp" }, { name: "NG Flow", label: "NG Flow" }, { name: "Kiln 1 NG Flow", label: "Kiln 1 NG Flow" }, { name: "Oil Flow", label: "Oil Flow" }, { name: "Feed Rate", label: "Feed Rate" }, { name: "HZT", label: "HZT" }, { name: "Kiln 1 Cooler Outlet Temp", label: "Kiln 1 Cooler Outlet Temp" }, { name: "Wash Water To Pan Filter 1", label: "Wash Water To Pan Filter 1" }] },
+    { machine: "KILN_2", params: [{ name: "61-1 Tank Load cell", label: "61-1 Tank Load cell" }, { name: "61-1 Tan", label: "61-1 Tan" }] },
+    { machine: "KILN_3", params: [{ name: "20-1 tank load cell", label: "20-1 tank load cell" }, { name: "O2", label: "O2" }, { name: "ESP i_l Draft", label: "ESP i_l Draft" }, { name: "ESP i_l Temp", label: "ESP i_l Temp" }, { name: "Kiln 3 Main Drive", label: "Kiln 3 Main Drive" }, { name: "Stack", label: "Stack" }, { name: "Pre_Cal_NG_Flow", label: "Pre_Cal_NG_Flow" }, { name: "CO", label: "CO" }, { name: "FGT", label: "FGT" }, { name: "NG Burner i_l Pressure", label: "NG Burner i_l Pressure" }, { name: "", label: "" }] },
+    { machine: "KILN_4", params: [{ name: "73-1 tank load cell", label: "73-1 tank load cell" }, { name: "T-9D-1", label: "T-9D-1" }, { name: "FGT", label: "FGT" }, { name: "Hood Draft", label: "Hood Draft" }, { name: "Kiln 4 Oil Temp", label: "Kiln 4 Oil Temp" }, { name: "CO", label: "CO" }, { name: "ESP Inlet Temp", label: "ESP Inlet Temp" }, { name: "T-9D-2", label: "T-9D-2" }, { name: "NG Temperature", label: "NG Temperature" }, { name: "ESP Outlet Temp", label: "ESP Outlet Temp" }, { name: "Stack", label: "Stack" }, { name: "NG Skid", label: "NG Skid" }] },
+    { machine: "PCH", params: [{ name: "MILL_WATER_FLOW_TO_PCH_SLURRY_TANK", label: "MILL_WATER_FLOW_TO_PCH_SLURRY_TANK" }, { name: "PCH_TO_SGAC_DENSITY", label: "PCH_TO_SGAC_DENSITY" }, { name: "PCH_SLURRY_TANK_LEVEL", label: "PCH_SLURRY_TANK_LEVEL" }, { name: "", label: "" }] },
+    { machine: "Calcination_Section", params: [{ name: "4A RC Flow", label: "4A RC Flow" }, { name: "Mill Water To 9A Inj Tank", label: "Mill Water To 9A Inj Tank" }, { name: "4A RC", label: "4A RC" }] },
+  ]},
+  { id: "alumina_downstream", title: "Alumina Downstream", machines: [
+    { machine: "MM_1&3", params: [{ name: "Feed Bin Load Cell", label: "Feed Bin Load Cell" }, { name: "Product Bin Load Cell", label: "Product Bin Load Cell" }, { name: "MM1 Chamber Pressure", label: "MM1 Chamber Pressure" }, { name: "MM3 Venturi Pressure", label: "MM3 Venturi Pressure" }, { name: "Feed Bin Lo", label: "Feed Bin Lo" }] },
+    { machine: "MM_1", params: [{ name: "Air Flow", label: "Air Flow" }, { name: "Chamber Pressure", label: "Chamber Pressure" }, { name: "DC Diff Pressure", label: "DC Diff Pressure" }, { name: "Feed Screw Frequency", label: "Feed Screw Frequency" }, { name: "Feed Tank", label: "Feed Tank" }, { name: "Product Tank", label: "Product Tank" }, { name: "Venturi Press Psi", label: "Venturi Press Psi" }] },
+    { machine: "MM_3", params: [{ name: "Air Flow", label: "Air Flow" }, { name: "Feed Tank", label: "Feed Tank" }, { name: "Chamber Pressure", label: "Chamber Pressure" }, { name: "Product Tank", label: "Product Tank" }, { name: "DC Diff Pressure", label: "DC Diff Pressure" }, { name: "Feed Screw Frequency", label: "Feed Screw Frequency" }, { name: "DC Diff Press", label: "DC Diff Press" }] },
+    { machine: "ABM_1", params: [{ name: "ABM-01 Motor Current", label: "ABM-01 Motor Current" }, { name: "Feed Bin Load Cell Inverse", label: "Feed Bin Load Cell Inverse" }, { name: "Motor Load", label: "Motor Load" }, { name: "Feed Bin Load Cell", label: "Feed Bin Load Cell" }, { name: "MAIN_GEARBOX_TEMPREATURE", label: "MAIN_GEARBOX_TEMPREATURE" }, { name: "ABM-01 Motor C", label: "ABM-01 Motor C" }] },
+    { machine: "ABM_2", params: [{ name: "ABM-02 Motor Current", label: "ABM-02 Motor Current" }, { name: "Product Bin Load Cell", label: "Product Bin Load Cell" }, { name: "Motor Load", label: "Motor Load" }, { name: "ABM", label: "ABM" }] },
+    { machine: "ABM_3", params: [{ name: "ABM-03 Motor Current", label: "ABM-03 Motor Current" }, { name: "Feed Bin Load Cell", label: "Feed Bin Load Cell" }, { name: "Vent Filter DP", label: "Vent Filter DP" }, { name: "Motor Load", label: "Motor Load" }, { name: "Product Bin Load Cell", label: "Product Bin Load Cell" }, { name: "ABM-03 M", label: "ABM-03 M" }] },
+    { machine: "ABM_4", params: [{ name: "Bearing Inlet Oil Temp", label: "Bearing Inlet Oil Temp" }, { name: "Vent Filter DP", label: "Vent Filter DP" }, { name: "Feed Bin Weight 1", label: "Feed Bin Weight 1" }, { name: "Product Bin Weight BS", label: "Product Bin Weight BS" }, { name: "Main BRG Temp NDE", label: "Main BRG Temp NDE" }, { name: "Feed Bin Weight 2", label: "Feed Bin Weight 2" }, { name: "Mill Load", label: "Mill Load" }, { name: "Feed Bi", label: "Feed Bi" }] },
+    { machine: "ABM_5", params: [{ name: "Bearing Inlet Oil Temp", label: "Bearing Inlet Oil Temp" }, { name: "Product Bin Weight AS", label: "Product Bin Weight AS" }, { name: "Vent Filter DP", label: "Vent Filter DP" }, { name: "Mill Current", label: "Mill Current" }, { name: "Main BRG Temp NDE", label: "Main BRG Temp NDE" }, { name: "Product Bin Weight BS", label: "Product Bin Weight BS" }, { name: "Main BRG Temp DE", label: "Main BRG Temp DE" }, { name: "Mill Load", label: "Mill Load" }, { name: "Bearing Inlet Oil Tem", label: "Bearing Inlet Oil Tem" }] },
+    { machine: "AFG", params: [{ name: "Classifier RPM", label: "Classifier RPM" }, { name: "Load Cell Weight", label: "Load Cell Weight" }, { name: "Feed Bin Load Cell", label: "Feed Bin Load Cell" }, { name: "DC Diff Pressure", label: "DC Diff Pressure" }, { name: "Grinding Air Flow", label: "Grinding Air Flow" }, { name: "Rinsing Air Press", label: "Rinsing Air Press" }] },
+    { machine: "NAFG", params: [{ name: "CENTRIFUGAL_COMPRESSOR_PRESSURE", label: "CENTRIFUGAL_COMPRESSOR_PRESSURE" }, { name: "COOLING_TOWER_PUMP_FLOW", label: "COOLING_TOWER_PUMP_FLOW" }, { name: "", label: "" }] },
+    { machine: "CBM", params: [{ name: "Classifier Outlet Pressure", label: "Classifier Outlet Pressure" }, { name: "Venturi Pressure", label: "Venturi Pressure" }, { name: "Classifier Outlet", label: "Classifier Outlet" }] },
+    { machine: "CBM_2", params: [{ name: "DE_BEARING_TEMP", label: "DE_BEARING_TEMP" }, { name: "MAIN_GB_TEMP", label: "MAIN_GB_TEMP" }, { name: "NDE_BEARING_TEMP", label: "NDE_BEARING_TEMP" }, { name: "DE_BEARING", label: "DE_BEARING" }] },
+  ]},
+  { id: "hydrate_downstream", title: "Hydrate Downstream", machines: [
+    { machine: "HBM_1", params: [{ name: "Conveying Blower Pressure", label: "Conveying Blower Pressure" }, { name: "Total Power", label: "Total Power" }, { name: "Motor Load", label: "Motor Load" }, { name: "Product Bin Weight", label: "Product Bin Weight" }, { name: "", label: "" }] },
+    { machine: "HBM_2", params: [{ name: "Conveying Blower Pressure", label: "Conveying Blower Pressure" }, { name: "Total Power", label: "Total Power" }, { name: "Feed Bin Load Cell", label: "Feed Bin Load Cell" }, { name: "Product Bin Weight BS", label: "Product Bin Weight BS" }, { name: "Conveying Blo", label: "Conveying Blo" }] },
+    { machine: "HBM_3", params: [{ name: "MILLED_ALUMINA_OPERATING_PLAN", label: "MILLED_ALUMINA_OPERATING_PLAN" }, { name: "MILLED_ALUMINA_PRODUCTION", label: "MILLED_ALUMINA_PRODUCTION" }, { name: "MILLED_HYDRATE_OPERATING_PLAN", label: "MILLED_HYDRATE_OPERATING_PLAN" }, { name: "MILLED_HYDRATE_PRODUCTION", label: "MILLED_HYDRATE_PRODUCTION" }, { name: "MILLED_ALUMINA_PRODUCTIO", label: "MILLED_ALUMINA_PRODUCTIO" }] },
+    { machine: "HBM_4", params: [{ name: "MILLED_ALUMINA_OPERATING_PLAN", label: "MILLED_ALUMINA_OPERATING_PLAN" }, { name: "Motor Load", label: "Motor Load" }, { name: "MILLED_HYDRATE_PRODUCTION", label: "MILLED_HYDRATE_PRODUCTION" }, { name: "MILLED_HYDRATE_OPERATING_PLAN", label: "MILLED_HYDRATE_OPERATING_PLAN" }, { name: "MILLED_ALUMINA_PRODUCTION", label: "MILLED_ALUMINA_PRODUCTION" }, { name: "", label: "" }] },
+    { machine: "SFD", params: [{ name: "Feed Screw RPM", label: "Feed Screw RPM" }, { name: "First Wash Hydrate Flow", label: "First Wash Hydrate Flow" }, { name: "NG consumption Precalciner", label: "NG consumption Precalciner" }] },
+    { machine: "SFD_1", params: [{ name: "Appron Feeder Frequency", label: "Appron Feeder Frequency" }, { name: "Total Power", label: "Total Power" }, { name: "SFD-1 Dryer Outlet Temperature", label: "SFD-1 Dryer Outlet Temperature" }, { name: "Appron Feeder Fr", label: "Appron Feeder Fr" }] },
+    { machine: "SFD_2", params: [{ name: "Appron Feeder Frequency", label: "Appron Feeder Frequency" }, { name: "Dryer Inlet Temperature", label: "Dryer Inlet Temperature" }, { name: "Dust Collector DP", label: "Dust Collector DP" }, { name: "Dust Collector Outlet Temperature", label: "Dust Collector Outlet Temperature" }, { name: "Draft Pressure", label: "Draft Pressure" }, { name: "Dryer Outlet Temperature", label: "Dryer Outlet Temperature" }, { name: "NG consumption SFD 2", label: "NG consumption SFD 2" }, { name: "Dust Collector Outlet Tempera", label: "Dust Collector Outlet Tempera" }] },
+    { machine: "ACM_120", params: [{ name: "+325W", label: "+325W" }, { name: "Air Flow", label: "Air Flow" }, { name: "Air Pressure", label: "Air Pressure" }, { name: "Classifier Speed", label: "Classifier Speed" }, { name: "Dust Collecotr DP", label: "Dust Collecotr DP" }, { name: "Feed Bin Load Cell", label: "Feed Bin Load Cell" }, { name: "Feed Bin Weight", label: "Feed Bin Weight" }, { name: "Motor Load", label: "Motor Load" }, { name: "Feed RAL RPM", label: "Feed RAL RPM" }, { name: "Feed RAL-6 Speed", label: "Feed RAL-6 Speed" }, { name: "Feed RAL-8 Speed", label: "Feed RAL-8 Speed" }, { name: "Product Bin Weight", label: "Product Bin Weight" }, { name: "Total Power", label: "Total Power" }] },
+    { machine: "ACM_60", params: [{ name: "Classifier Speed", label: "Classifier Speed" }, { name: "Dust Collecotr DP", label: "Dust Collecotr DP" }, { name: "Feed Bin Load Cell", label: "Feed Bin Load Cell" }, { name: "Feed Bin Weight", label: "Feed Bin Weight" }, { name: "Dust Collecotr", label: "Dust Collecotr" }] },
+    { machine: "NACM_120", params: [{ name: "+325W", label: "+325W" }, { name: "MILL_VIBRATION", label: "MILL_VIBRATION" }, { name: "AIR_FLOW", label: "AIR_FLOW" }, { name: "FEED_RAL_6_SPEED", label: "FEED_RAL_6_SPEED" }, { name: "Total Power Consumption", label: "Total Power Consumption" }, { name: "CLASSIFIER_SPEED", label: "CLASSIFIER_SPEED" }, { name: "EXHAUST_FAN_CURRENT", label: "EXHAUST_FAN_CURRENT" }, { name: "FEED_RAL_8_SPEED", label: "FEED_RAL_8_SPEED" }, { name: "FEED_BIN_WEIGHT", label: "FEED_BIN_WEIGHT" }, { name: "CLASSIFIER_CURRENT", label: "CLASSIFIER_CURRENT" }, { name: "DUST_COLLECTOR_DP", label: "DUST_COLLECTOR_DP" }, { name: "EXHAUST_F", label: "EXHAUST_F" }] },
+    { machine: "Hydrate_Cutting", params: [{ name: "HYDRATE_CUTTING_PRODUCTION", label: "HYDRATE_CUTTING_PRODUCTION" }, { name: "HYDRATE_", label: "HYDRATE_" }] },
+    { machine: "Coated_Hydrate", params: [{ name: "COATED_HYDRATE_OPERATING_PLAN", label: "COATED_HYDRATE_OPERATING_PLAN" }, { name: "COATED_HYDRATE_PRODUCTION", label: "COATED_HYDRATE_PRODUCTION" }, { name: "CO", label: "CO" }] },
+    { machine: "STANDARD_HYDRATE", params: [{ name: "+100D", label: "+100D" }, { name: "+200D", label: "+200D" }, { name: "LOM_HYD", label: "LOM_HYD" }, { name: "MOISTURE", label: "MOISTURE" }, { name: "Na2OT", label: "Na2OT" }, { name: "+325D", label: "+325D" }, { name: "+", label: "+" }] },
+    { machine: "Third_Party_Milling", params: [{ name: "MILLED_ALUMINA_OPERATING_PLAN", label: "MILLED_ALUMINA_OPERATING_PLAN" }, { name: "MILLED_ALUMINA_PRODUCTION", label: "MILLED_ALUMINA_PRODUCTION" }, { name: "MI", label: "MI" }] },
+    { machine: "Blender", params: [{ name: "BLENDED_HYDRATE_OPERATING_PLAN", label: "BLENDED_HYDRATE_OPERATING_PLAN" }, { name: "BLENDED_HYDRATE_PRODUCTION", label: "BLENDED_HYDRATE_PRODUCTION" }, { name: "BLENDED_", label: "BLENDED_" }] },
+  ]},
+  { id: "water", title: "Water", machines: [
+    { machine: "Refinery_Water_Mapping", params: [{ name: "DRAIN_WATER_POINT-D_SODA", label: "DRAIN_WATER_POINT-D_SODA" }, { name: "DRAIN_WATER_POINT_A_SODA", label: "DRAIN_WATER_POINT_A_SODA" }, { name: "DRAIN_WATER_POINT_B_SODA", label: "DRAIN_WATER_POINT_B_SODA" }, { name: "MAIN_DRAIN_WATER_SODA", label: "MAIN_DRAIN_WATER_SODA" }, { name: "MW_CT_26A_D", label: "MW_CT_26A_D" }, { name: "TREATED_WATER_SODA", label: "TREATED_WATER_SODA" }, { name: "TREATED_WATE", label: "TREATED_WATE" }] },
+    { machine: "Cooling_Tower_26", params: [{ name: "COOLING_TOWER_15C_SODA", label: "COOLING_TOWER_15C_SODA" }, { name: "Cooling Tower Water Outlet Flow", label: "Cooling Tower Water Outlet Flow" }, { name: "Cooling Tower Water Inlet Temp", label: "Cooling Tower Water Inlet Temp" }, { name: "Cooling Tower Water Outlet T", label: "Cooling Tower Water Outlet T" }] },
+    { machine: "Specials_Water_Network", params: [{ name: "4A RC Flow", label: "4A RC Flow" }, { name: "4A RC Temp", label: "4A RC Temp" }, { name: "9A RC Temp", label: "9A RC Temp" }, { name: "First Wash RC Flow", label: "First Wash RC Flow" }, { name: "Fw RC Temp", label: "Fw RC Temp" }, { name: "HST TO First Wash Feed Slurry Temp", label: "HST TO First Wash Feed Slurry Temp" }, { name: "HST TO PF1 Feed Slurry Temp", label: "HST TO PF1 Feed Slurry Temp" }, { name: "K-1 RC Flow", label: "K-1 RC Flow" }, { name: "K-2 RC Flow", label: "K-2 RC Flow" }, { name: "Mill Water To 9A Inj Tank", label: "Mill Water To 9A Inj Tank" }, { name: "Total Mill Water Flow", label: "Total Mill Water Flow" }] },
+    { machine: "Specials_cooling_water_Network", params: [{ name: "26E CW PHE Inlet Temp", label: "26E CW PHE Inlet Temp" }, { name: "26E CW PHE Outlet Temp", label: "26E CW PHE Outlet Temp" }, { name: "26", label: "26" }] },
+    { machine: "Specials_Compressed_Air_Network", params: [{ name: "Airflow To 9A", label: "Airflow To 9A" }, { name: "PF Plant Air Flow", label: "PF Plant Air Flow" }, { name: "Airflow T", label: "Airflow T" }] },
+    { machine: "Specials_Compressors", params: [{ name: "78 CC BOV", label: "78 CC BOV" }, { name: "SC3 Outlet Temp", label: "SC3 Outlet Temp" }, { name: "78 CC CW Inlet Temp", label: "78 CC CW Inlet Temp" }, { name: "78 CC CW Inl", label: "78 CC CW Inl" }] },
+  ]},
+  { id: "evaporation", title: "Evaporation", machines: [
+    { machine: "Evaporatoration", params: [{ name: "13A 1st Body Chest Pressure", label: "13A 1st Body Chest Pressure" }, { name: "MAX_HT_FLOW", label: "MAX_HT_FLOW" }, { name: "13A 6th body Pressure", label: "13A 6th body Pressure" }, { name: "Spent Outlet Temp", label: "Spent Outlet Temp" }, { name: "13A 2nd Product Flow", label: "13A 2nd Product Flow" }, { name: "13B 5th body Pressure", label: "13B 5th body Pressure" }, { name: "13B 3rd body Pressure", label: "13B 3rd body Pressure" }, { name: "13A 1s", label: "13A 1s" }] },
+    { machine: "13A First Effect", params: [{ name: "13A First Body Level", label: "13A First Body Level" }, { name: "13A Fi", label: "13A Fi" }] },
+    { machine: "13A Second Effect", params: [{ name: "13A Second Body Level", label: "13A Second Body Level" }, { name: "13A Se", label: "13A Se" }] },
+    { machine: "13A Third Effect", params: [{ name: "13A Third Body Level", label: "13A Third Body Level" }, { name: "13A Th", label: "13A Th" }] },
+    { machine: "13A Fourth Effect", params: [{ name: "13A Fourth Body Level", label: "13A Fourth Body Level" }, { name: "13A Fo", label: "13A Fo" }] },
+    { machine: "13A Fifth Effect", params: [{ name: "13A Fifth Body Level", label: "13A Fifth Body Level" }, { name: "13A Fi", label: "13A Fi" }] },
+    { machine: "13A Sixth Effect", params: [{ name: "13A Sixth Body Level", label: "13A Sixth Body Level" }, { name: "13A Si", label: "13A Si" }] },
+    { machine: "13A Seventh Effect", params: [{ name: "13A Seventh Body Level", label: "13A Seventh Body Level" }, { name: "13A Seve", label: "13A Seve" }] },
+    { machine: "13B First Effect", params: [{ name: "13B First Body Level", label: "13B First Body Level" }, { name: "13B Fi", label: "13B Fi" }] },
+    { machine: "13B Second Effect", params: [{ name: "13B Second Body Level", label: "13B Second Body Level" }, { name: "13B Se", label: "13B Se" }] },
+    { machine: "13B Third Effect", params: [{ name: "13B Third Body Level", label: "13B Third Body Level" }, { name: "13B Th", label: "13B Th" }] },
+    { machine: "13B Fourth Effect", params: [{ name: "13B Fourth Body Level", label: "13B Fourth Body Level" }, { name: "13B Fo", label: "13B Fo" }] },
+    { machine: "13B Fifth Effect", params: [{ name: "13B Fifth Body Level", label: "13B Fifth Body Level" }, { name: "13B Fi", label: "13B Fi" }] },
+    { machine: "13B Sixth Effect", params: [{ name: "13B Sixth Body Level", label: "13B Sixth Body Level" }, { name: "13B Si", label: "13B Si" }] },
+  ]},
+  { id: "refinery", title: "Refinery", machines: [
+    { machine: "OVERALL_PLANT", params: [{ name: "ALUMINA_PRODUCTION_SPECIAL_INCLUDING_SX", label: "ALUMINA_PRODUCTION_SPECIAL_INCLUDING_SX" }, { name: "ALUMINA_PRODUCTION_S", label: "ALUMINA_PRODUCTION_S" }] },
+    { machine: "DIGESTION", params: [{ name: "0 LB FT I/L", label: "0 LB FT I/L" }, { name: "0 LB FT Vap", label: "0 LB FT Vap" }, { name: "0 LB Htr I/L", label: "0 LB Htr I/L" }, { name: "0LB Heater Inlet Temp", label: "0LB Heater Inlet Temp" }, { name: "10 LB FB O/L", label: "10 LB FB O/L" }, { name: "10 LB Ft Vap", label: "10 LB Ft Vap" }, { name: "PDS-1 I/L temperature", label: "PDS-1 I/L temperature" }, { name: "20 LB FT I/L", label: "20 LB FT I/L" }, { name: "20 LB Htr O/L", label: "20 LB Htr O/L" }, { name: "4A LSH Steam PRS Press", label: "4A LSH Steam PRS Press" }, { name: "Digester Steam Flow", label: "Digester Steam Flow" }, { name: "TT4_MXL_LOOP_FLOW", label: "TT4_MXL_LOOP_FLOW" }, { name: "Booster Pump O/L", label: "Booster Pump O/L" }, { name: "Dig - 2", label: "Dig - 2" }, { name: "Heater 2 Outlet Temp", label: "Heater 2 Outlet Temp" }, { name: "Dig - 3", label: "Dig - 3" }, { name: "Flow 0 LB", label: "Flow 0 LB" }, { name: "RED GLW", label: "RED GLW" }, { name: "Dig - 4", label: "Dig - 4" }, { name: "Digester-2 pressure", label: "Digester-2 pressure" }, { name: "Digester-3 pressure", label: "Digester-3 pressure" }, { name: "Digester-5 pressure", label: "Digester-5 pressure" }, { name: "Heater 9 Outlet Temp", label: "Heater 9 Outlet Temp" }, { name: "Thick Liq flow to TT-3", label: "Thick Liq flow to TT-3" }] },
+    { machine: "Precipitation_Section", params: [{ name: "13A RC Flow", label: "13A RC Flow" }, { name: "13A Spent Liq Feed Flow", label: "13A Spent Liq Feed Flow" }, { name: "13B Spent Liq Feed Flow", label: "13B Spent Liq Feed Flow" }, { name: "HWT_UF_14", label: "HWT_UF_14" }, { name: "13B Steam Flow", label: "13B Steam Flow" }, { name: "Treated Water To White Area", label: "Treated Water To White Area" }] },
+    { machine: "Wash_Thickner_Section", params: [{ name: "1ST_WASH_OVERFLOW_CAUSTY", label: "1ST_WASH_OVERFLOW_CAUSTY" }, { name: "Wash Filteration Pressure", label: "Wash Filteration Pressure" }, { name: "Filter Press 2 Slurry Feed Flow", label: "Filter Press 2 Slurry Feed Flow" }, { name: "Filter Press 2 Squeezing Pressure", label: "Filter Press 2 Squeezing Pressure" }, { name: "Filter Press 2 Hydraulic Pressure", label: "Filter Press 2 Hydraulic Pressure" }, { name: "Wash Water Flow", label: "Wash Water Flow" }, { name: "1ST_WASH_OVERFLOW_RTIO", label: "1ST_WASH_OVERFLOW_RTIO" }, { name: "28A Gland Water Flow", label: "28A Gland Water Flow" }, { name: "Liq_B Rake Motor Load", label: "Liq_B Rake Motor Load" }, { name: "Filter Press 1 Squeezing Pressure", label: "Filter Press 1 Squeezing Pressure" }, { name: "Filter Press 2 F", label: "Filter Press 2 F" }] },
+    { machine: "First_Wash_Section", params: [{ name: "1ST_WASH_HYD_MOISTMA", label: "1ST_WASH_HYD_MOISTMA" }, { name: "1ST_WASH_HYD_PERCENTAGE_SODA_NA2O", label: "1ST_WASH_HYD_PERCENTAGE_SODA_NA2O" }, { name: "FIRST_WASH_PF_VACCUM_PRESSURE", label: "FIRST_WASH_PF_VACCUM_PRESSURE" }, { name: "1ST_WASH_HY", label: "1ST_WASH_HY" }] },
+    { machine: "Filter_Press_Section", params: [{ name: "DMS_CAKE_MOIST", label: "DMS_CAKE_MOIST" }, { name: "DMS_CAKE_SOLIDS", label: "DMS_CAKE_SOLIDS" }, { name: "FILTER_PRESS_DAY_COMPOSITE_XRF05", label: "FILTER_PRESS_DAY_COMPOSITE_XRF05" }, { name: "Fresh Water To Filter Press", label: "Fresh Water To Filter Press" }, { name: "FILTER_PRESS_DAY_COMPOSI", label: "FILTER_PRESS_DAY_COMPOSI" }] },
+    { machine: "Filter_Press_1", params: [{ name: "Blowing", label: "Blowing" }, { name: "Wash Water Tank Level", label: "Wash Water Tank Level" }, { name: "Drip Tray Open", label: "Drip Tray Open" }, { name: "Releasing", label: "Releasing" }, { name: "Wash Tank Level", label: "Wash Tank Level" }, { name: "Emptying", label: "Emptying" }, { name: "Squeezing", label: "Squeezing" }, { name: "Plate Taking", label: "Plate Taking" }, { name: "Feeding Delay", label: "Feeding Delay" }, { name: "Squeez Tank Level", label: "Squeez Tank Level" }, { name: "Holding Pressure", label: "Holding Pressure" }, { name: "Plate Shifting", label: "Plate Shifting" }, { name: "Cycle Waiting", label: "Cycle Waiting" }, { name: "Was", label: "Was" }] },
+    { machine: "Filter_Press_2", params: [{ name: "Blowing", label: "Blowing" }, { name: "Squeezing Water Tank Level", label: "Squeezing Water Tank Level" }, { name: "Cycle Waiting", label: "Cycle Waiting" }, { name: "Squeezing Pressure", label: "Squeezing Pressure" }, { name: "Wash Water Tank Level", label: "Wash Water Tank Level" }, { name: "Wash Tank Level", label: "Wash Tank Level" }, { name: "Squeezing", label: "Squeezing" }, { name: "Squ", label: "Squ" }] },
+    { machine: "LIQ_A", params: [{ name: "Cytec Flow LPH", label: "Cytec Flow LPH" }, { name: "Under Flow Rate", label: "Under Flow Rate" }, { name: "Synfloc Flow PPM", label: "Synfloc Flow PPM" }, { name: "Synfloc Flow LPH", label: "Synfloc Flow LPH" }, { name: "Cytec Flow PPM", label: "Cytec Flow PPM" }, { name: "Motor Load", label: "Motor Load" }] },
+    { machine: "LIQ_B", params: [{ name: "Cytec Flow LPH", label: "Cytec Flow LPH" }, { name: "Under Flow Rate", label: "Under Flow Rate" }, { name: "Cytec Flow PPM", label: "Cytec Flow PPM" }, { name: "Wash Efficiency", label: "Wash Efficiency" }, { name: "Motor Load", label: "Motor Load" }, { name: "Synfloc Flow PPM", label: "Synfloc Flow PPM" }, { name: "Under Flow Ra", label: "Under Flow Ra" }] },
+    { machine: "LIQ_C", params: [{ name: "Cytec Flow LPH", label: "Cytec Flow LPH" }, { name: "", label: "" }] },
+    { machine: "LIQ_D", params: [{ name: "Cytec Flow LPH", label: "Cytec Flow LPH" }, { name: "Cytec Flow PPM", label: "Cytec Flow PPM" }, { name: "H_MUD_LEVEL", label: "H_MUD_LEVEL" }, { name: "Motor Load", label: "Motor Load" }, { name: "Under Flow", label: "Under Flow" }] },
+    { machine: "BALL_MILL_A", params: [{ name: "A_BIN_LVL", label: "A_BIN_LVL" }, { name: "Liquor Feed Rate", label: "Liquor Feed Rate" }, { name: "BALL_MILL_A", label: "BALL_MILL_A" }, { name: "BALL_MILL_A_KWH", label: "BALL_MILL_A_KWH" }, { name: "BALL_MILL_A_ACTIVE_POWER", label: "BALL_MILL_A_ACTIVE_POWER" }, { name: "BALL_MILL_A_LIQUOR_FLOW", label: "BALL_MILL_A_LIQUOR_FLOW" }, { name: "", label: "" }] },
+    { machine: "BALL_MILL_B", params: [{ name: "BALLMILL_B_COARSE_SLURRY_MINUS_100W", label: "BALLMILL_B_COARSE_SLURRY_MINUS_100W" }, { name: "BALLMILL_B_COARSE_SLURRY_MINUS_60W", label: "BALLMILL_B_COARSE_SLURRY_MINUS_60W" }, { name: "BALLMILL_B_COARSE_SLURRY_PLUS_100W", label: "BALLMILL_B_COARSE_SLURRY_PLUS_100W" }, { name: "BALLMILL_B_COARSE_SLURRY_PLUS_14W", label: "BALLMILL_B_COARSE_SLURRY_PLUS_14W" }, { name: "BALLMILL_B_COARSE_SLURRY_PLUS_30W", label: "BALLMILL_B_COARSE_SLURRY_PLUS_30W" }, { name: "BALLMILL_B_COARSE_SLURRY_PLUS_60W", label: "BALLMILL_B_COARSE_SLURRY_PLUS_60W" }, { name: "BALLMILL_B_COARSE_SLURRY_SOLIDS", label: "BALLMILL_B_COARSE_SLURRY_SOLIDS" }, { name: "BALL_MILL_B", label: "BALL_MILL_B" }, { name: "BALL_MILL_B_ACTIVE_POWER", label: "BALL_MILL_B_ACTIVE_POWER" }, { name: "BALL_MILL_B_LIQUOR_FLOW", label: "BALL_MILL_B_LIQUOR_FLOW" }, { name: "Liquor Feed Rate", label: "Liquor Feed Rate" }, { name: "BALL_MILL_B_KWH", label: "BALL_MILL_B_KWH" }, { name: "BALL_MILL_B_K", label: "BALL_MILL_B_K" }] },
+    { machine: "BALL_MILL_C", params: [{ name: "BALLMILL_C_COARSE_SLURRY_MINUS_60W", label: "BALLMILL_C_COARSE_SLURRY_MINUS_60W" }, { name: "BALLMILL_C_COARSE_SLURRY_PLUS_100W", label: "BALLMILL_C_COARSE_SLURRY_PLUS_100W" }, { name: "BALLMILL_C_COARSE_SLURRY_PLUS_14W", label: "BALLMILL_C_COARSE_SLURRY_PLUS_14W" }, { name: "BALLMILL_C_COARSE_SLURRY_PLUS_30W", label: "BALLMILL_C_COARSE_SLURRY_PLUS_30W" }, { name: "BALLMILL_C_COARSE_SLURRY_PLUS_60W", label: "BALLMILL_C_COARSE_SLURRY_PLUS_60W" }, { name: "BALLMILL_C_COARSE_SLURRY_SOLIDS", label: "BALLMILL_C_COARSE_SLURRY_SOLIDS" }, { name: "BALLMILL_C_COARSE_SL", label: "BALLMILL_C_COARSE_SL" }] },
+    { machine: "BALL_MILL_D", params: [{ name: "BALLMILL_D_COARSE_SLURRY_-MINUS_00W", label: "BALLMILL_D_COARSE_SLURRY_-MINUS_00W" }, { name: "BALLMILL_D_COARSE_SLURRY_MINUS_60W", label: "BALLMILL_D_COARSE_SLURRY_MINUS_60W" }, { name: "BALLMILL_D_COARSE_SLURRY_PLUS_100W", label: "BALLMILL_D_COARSE_SLURRY_PLUS_100W" }, { name: "BALLMILL_D_COARSE_SLURRY_PLUS_14W", label: "BALLMILL_D_COARSE_SLURRY_PLUS_14W" }, { name: "BALLMILL_D_COARSE_SLURRY_PLUS_30W", label: "BALLMILL_D_COARSE_SLURRY_PLUS_30W" }, { name: "BALLMILL_D_COARSE_SLURRY_PLUS_60W", label: "BALLMILL_D_COARSE_SLURRY_PLUS_60W" }, { name: "BALLMILL_D_COARSE_SLURRY_SOLIDS", label: "BALLMILL_D_COARSE_SLURRY_SOLIDS" }, { name: "BALL_MILL_D_ACTIVE_POWER", label: "BALL_MILL_D_ACTIVE_POWER" }, { name: "BALL_MILL_D_KWH", label: "BALL_MILL_D_KWH" }, { name: "BALL_MILL_D_LIQUOR_FLOW", label: "BALL_MILL_D_LIQUOR_FLOW" }, { name: "D_BIN_LVL", label: "D_BIN_LVL" }, { name: "Liquor Feed Rate", label: "Liquor Feed Rate" }, { name: "BALL_MILL_D", label: "BALL_MILL_D" }, { name: "", label: "" }] },
+    { machine: "OVERALL_BALL_MILL", params: [{ name: "C_1A_3_BELT_WEIGH_FEEDER", label: "C_1A_3_BELT_WEIGH_FEEDER" }, { name: "FEED_BAUXITE_MINUS_10M", label: "FEED_BAUXITE_MINUS_10M" }, { name: "FEED_BAUXITE_PLUSH_10M", label: "FEED_BAUXITE_PLUSH_10M" }, { name: "Fine Slurry Density", label: "Fine Slurry Density" }, { name: "Fine Slurry Density Digestion", label: "Fine Slurry Density Digestion" }] },
+    { machine: "T_3", params: [{ name: "Motor Load", label: "Motor Load" }, { name: "Synfloc Flow LPH", label: "Synfloc Flow LPH" }, { name: "Synfloc Flow PPM", label: "Synfloc Flow PPM" }, { name: "Under Flow Rate", label: "Under Flow Rate" }] },
+    { machine: "T_4", params: [{ name: "Motor Load", label: "Motor Load" }, { name: "Synfloc Flow LPH", label: "Synfloc Flow LPH" }, { name: "Synfloc Flow PPM", label: "Synfloc Flow PPM" }, { name: "Under Flow Rate", label: "Under Flow Rate" }, { name: "Motor Loa", label: "Motor Loa" }] },
+    { machine: "T_5", params: [{ name: "Motor Load", label: "Motor Load" }, { name: "Synfloc Flow LPH", label: "Synfloc Flow LPH" }, { name: "Synfloc Flow PPM", label: "Synfloc Flow PPM" }, { name: "Under Flow Rate", label: "Under Flow Rate" }] },
+    { machine: "T_6", params: [{ name: "Motor Load", label: "Motor Load" }, { name: "Synfloc Flow LPH", label: "Synfloc Flow LPH" }, { name: "Synfloc Flow PPM", label: "Synfloc Flow PPM" }, { name: "Under Flow Rate", label: "Under Flow Rate" }] },
+    { machine: "T_7", params: [{ name: "Motor Load", label: "Motor Load" }, { name: "Synfloc Flow LPH", label: "Synfloc Flow LPH" }, { name: "Synfloc Flow PPM", label: "Synfloc Flow PPM" }, { name: "Under Flow Rate", label: "Under Flow Rate" }] },
+    { machine: "Specials_Section", params: [{ name: "61-1 Tank Load cell", label: "61-1 Tank Load cell" }, { name: "77-4 tank load cell", label: "77-4 tank load cell" }, { name: "61-3 Tank Load cell", label: "61-3 Tank Load cell" }, { name: "HT 2 compressor running time", label: "HT 2 compressor running time" }, { name: "74-5 tank load cell", label: "74-5 tank load cell" }, { name: "77-9 tank load cell", label: "77-9 tank load cell" }, { name: "HT 1 compressor running time", label: "HT 1 compressor running time" }, { name: "C66-8 compressor 8 running time load", label: "C66-8 compressor 8 running time load" }, { name: "61-4 Tank Load cell", label: "61-4 Tank Load cell" }, { name: "77-8 tank load cell", label: "77-8 tank load cell" }, { name: "77-7 tank", label: "77-7 tank" }] },
+    { machine: "Auxiliary_Section", params: [{ name: "29A_PHE_WATER_FLOW", label: "29A_PHE_WATER_FLOW" }, { name: "HBD_FEED_FLOW", label: "HBD_FEED_FLOW" }, { name: "HBF_O_L_FLOW_TO_POND", label: "HBF_O_L_FLOW_TO_POND" }, { name: "OXALATE Filling Flow", label: "OXALATE Filling Flow" }, { name: "OXALATE Tank_4 Temp", label: "OXALATE Tank_4 Temp" }, { name: "OXALATE_SEED_T_5_11_TO_T_4", label: "OXALATE_SEED_T_5_11_TO_T_4" }, { name: "OXLATE_UNIT_2_FLOW", label: "OXLATE_UNIT_2_FLOW" }, { name: "OXLATE_UNIT_1_FLOW", label: "OXLATE_UNIT_1_FLOW" }, { name: "TANK_1_LEVEL", label: "TANK_1_LEVEL" }, { name: "TANK_9_TO_TANK_2_FLOW", label: "TANK_9_TO_TANK_2_FLOW" }, { name: "T_29_10 Tank Temp", label: "T_29_10 Tank Temp" }, { name: "VANADIUM F", label: "VANADIUM F" }] },
+    { machine: "Lime_Building", params: [{ name: "1A_TANK_LEVEL", label: "1A_TANK_LEVEL" }, { name: "1B Precoat Tank Temp", label: "1B Precoat Tank Temp" }, { name: "8A Steam Flow", label: "8A Steam Flow" }, { name: "8", label: "8" }] },
+    { machine: "High_Rating_Pumps", params: [{ name: "P-18A-3A", label: "P-18A-3A" }, { name: "P-", label: "P-" }] },
+  ]},
+  { id: "boiler_biomass", title: "Boiler & Biomass", machines: [
+    { machine: "Boiler_Section", params: [{ name: "Auxilary Steam Flow", label: "Auxilary Steam Flow" }, { name: "Boiler Total Steam Flow", label: "Boiler Total Steam Flow" }, { name: "Steam Flow To IBSH", label: "Steam Flow To IBSH" }, { name: "Steam Flow To 13A", label: "Steam Flow To 13A" }, { name: "Steam Flow To Digester", label: "Steam Flow To Digester" }, { name: "Specials Steam Flow", label: "Specials Steam Flow" }, { name: "Steam Flow To IBS", label: "Steam Flow To IBS" }] },
+    { machine: "Boiler_1", params: [{ name: "BOILER-1_PHVAL", label: "BOILER-1_PHVAL" }, { name: "B_1_DRUM_LEVEL_TXR", label: "B_1_DRUM_LEVEL_TXR" }, { name: "Boiler 1 NG Flow", label: "Boiler 1 NG Flow" }, { name: "B_1_FEED_WATER_FLOW_TXR", label: "B_1_FEED_WATER_FLOW_TXR" }, { name: "B_1_AIR_FLOW", label: "B_1_AIR_FLOW" }, { name: "Boiler 1 Steam Flow", label: "Boiler 1 Steam Flow" }, { name: "Boiler", label: "Boiler" }] },
+    { machine: "Boiler_2", params: [{ name: "BOILER_2_PHVAL", label: "BOILER_2_PHVAL" }, { name: "BOILER_2_PO4", label: "BOILER_2_PO4" }, { name: "BOILER_2_SULPHT_SO3", label: "BOILER_2_SULPHT_SO3" }, { name: "B_2_AIR_FLOW", label: "B_2_AIR_FLOW" }, { name: "Boiler 2 Steam Flow", label: "Boiler 2 Steam Flow" }, { name: "B_2_COMBUSTION_AIR_PRSSURE_TXR", label: "B_2_COMBUSTION_AIR_PRSSURE_TXR" }, { name: "B_2_OXYGEN_ANALYZER", label: "B_2_OXYGEN_ANALYZER" }, { name: "B_2_OX", label: "B_2_OX" }] },
+    { machine: "Boiler_3", params: [{ name: "BOILER_3_PHVAL", label: "BOILER_3_PHVAL" }, { name: "BOILER_3_SULPHT", label: "BOILER_3_SULPHT" }, { name: "B_3_OIL_PRESSURE_AFTER_C_V", label: "B_3_OIL_PRESSURE_AFTER_C_V" }, { name: "BOILER_3_PO4", label: "BOILER_3_PO4" }, { name: "B_3_AIR_FLOW", label: "B_3_AIR_FLOW" }, { name: "Boiler 3 NG Flow", label: "Boiler 3 NG Flow" }, { name: "B_3_DRUM_LEVEL_TXR", label: "B_3_DRUM_LEVEL_TXR" }, { name: "B_3_FEED_WATER_FLOW_TXR", label: "B_3_FEED_WATER_FLOW_TXR" }, { name: "Boiler 3 Steam Flow", label: "Boiler 3 Steam Flow" }] },
+    { machine: "Boiler_4", params: [{ name: "BOILER_4_PHVAL", label: "BOILER_4_PHVAL" }, { name: "B_4_DRUM_LEVEL_TXR", label: "B_4_DRUM_LEVEL_TXR" }, { name: "B_4_STEAM_DRUM_PRESSURE_TXR", label: "B_4_STEAM_DRUM_PRESSURE_TXR" }, { name: "Boiler 4 Steam Flow", label: "Boiler 4 Steam Flow" }, { name: "B_4_AIR_FLOW", label: "B_4_AIR_FLOW" }, { name: "B_4_FURNACE_PRESSURE_TXR", label: "B_4_FURNACE_PRESSURE_TXR" }, { name: "Boiler 4 NG Flow", label: "Boiler 4 NG Flow" }, { name: "B_4_FEED_WATER_FLOW_TXR", label: "B_4_FEED_WATER_FLOW_TXR" }, { name: "", label: "" }] },
+    { machine: "Boiler_5", params: [{ name: "BOILER_5_PHVAL", label: "BOILER_5_PHVAL" }, { name: "", label: "" }] },
+    { machine: "BIO_MASS", params: [{ name: "BOILER_FEED_WATER_FLOW", label: "BOILER_FEED_WATER_FLOW" }, { name: "DEAERATOR_TANK_LEVEL", label: "DEAERATOR_TANK_LEVEL" }, { name: "BOILER_STEAM_DRUM_LEVEL_2", label: "BOILER_STEAM_DRUM_LEVEL_2" }, { name: "BOILER_O_L_SUPERHEATED_STEAM_FLOW_1", label: "BOILER_O_L_SUPERHEATED_STEAM_FLOW_1" }, { name: "BOILER_FEED_WATER_FLO", label: "BOILER_FEED_WATER_FLO" }] },
+  ]},
+  { id: "other", title: "Other", machines: [
+    { machine: "OT", params: [{ name: "BOILER_HOUSE_BUDGET", label: "BOILER_HOUSE_BUDGET" }, { name: "BOILER_HOUSE_COST", label: "BOILER_HOUSE_COST" }, { name: "BOILER_HOUSE_GT", label: "BOILER_HOUSE_GT" }, { name: "CIVIL_ALUMINA_GT", label: "CIVIL_ALUMINA_GT" }, { name: "COMMERCIAL_ACCOUNTS_BUDGET", label: "COMMERCIAL_ACCOUNTS_BUDGET" }, { name: "COMMERCIAL_ACCOUNTS_GT", label: "COMMERCIAL_ACCOUNTS_GT" }, { name: "CPP_MECHANICAL_ENG_BUDGET", label: "CPP_MECHANICAL_ENG_BUDGET" }, { name: "CPP_MECHANICAL_ENG_COST", label: "CPP_MECHANICAL_ENG_COST" }, { name: "CPP_ELECTRICAL_ENG_BUDGET", label: "CPP_ELECTRICAL_ENG_BUDGET" }, { name: "CPP_PRODUCTION_COST", label: "CPP_PRODUCTION_COST" }, { name: "DISPATCH_BUDGET", label: "DISPATCH_BUDGET" }, { name: "MATERIALS_STORES_BUDGET", label: "MATERIALS_STORES_BUDGET" }, { name: "MATERIALS_STORES_COST", label: "MATERIALS_STORES_COST" }, { name: "CPP_MECHANICAL_ENG_GT", label: "CPP_MECHANICAL_ENG_GT" }, { name: "DISPATCH_COST", label: "DISPATCH_COST" }, { name: "HIC_ALUMINA_GT", label: "HIC_ALUMINA_GT" }, { name: "INSTRUMENTATION_ELECTRICAL_COST", label: "INSTRUMENTATION_ELECTRICAL_COST" }, { name: "MATERIALS_TRAFFIC_BUDGET", label: "MATERIALS_TRAFFIC_BUDGET" }, { name: "MATERIALS_TRAFFIC_GT", label: "MATERIALS_TRAFFIC_GT" }, { name: "MECHANICAL_ALUMINA_BUDGET", label: "MECHANICAL_ALUMINA_BUDGET" }, { name: "PRODUCTION_ALUMINA", label: "PRODUCTION_ALUMINA" }] },
+    { machine: "RECRUITMENT", params: [{ name: "AVG_AGE", label: "AVG_AGE" }, { name: "AVG_TAT", label: "AVG_TAT" }, { name: "EXTERNAL_HIRING", label: "EXTERNAL_HIRING" }, { name: "FEMALE", label: "FEMALE" }, { name: "FEMALE_TWO", label: "FEMALE_TWO" }, { name: "INTERVIEW_INPROCESS", label: "INTERVIEW_INPROCESS" }, { name: "IRS_HIRING", label: "IRS_HIRING" }, { name: "MALE", label: "MALE" }, { name: "NO_OF_CLOSED_POSITIONS", label: "NO_OF_CLOSED_POSITIONS" }, { name: "NO_OF_EXITS", label: "NO_OF_EXITS" }, { name: "NO_OF_POSITIONS", label: "NO_OF_POSITIONS" }, { name: "NO_OF_POSITIONS_OPEN", label: "NO_OF_POSITIONS_OPEN" }, { name: "RESIGNATION", label: "RESIGNATION" }, { name: "RETIREMENT", label: "RETIREMENT" }, { name: "TRANSFER", label: "TRANSFER" }, { name: "TRANSF", label: "TRANSF" }] },
+    { machine: "ABSENTEEISM", params: [{ name: "ALUMINA_LAB_AND_ENVIRONMENT_HRS", label: "ALUMINA_LAB_AND_ENVIRONMENT_HRS" }, { name: "BOILER_HOUSE_HRS", label: "BOILER_HOUSE_HRS" }, { name: "COMMERCIAL_ACCOUNTS_HRS", label: "COMMERCIAL_ACCOUNTS_HRS" }, { name: "CORPORATE_SAFETY_HRS", label: "CORPORATE_SAFETY_HRS" }, { name: "CPP_ENGG_ELE_HRS", label: "CPP_ENGG_ELE_HRS" }, { name: "CPP_ENGG_HRS", label: "CPP_ENGG_HRS" }, { name: "CPP_PRODUCTION_HRS", label: "CPP_PRODUCTION_HRS" }, { name: "CY_COUNT_OF_WORK_MEN_A", label: "CY_COUNT_OF_WORK_MEN_A" }, { name: "CY_COUNT_O", label: "CY_COUNT_O" }] },
+    { machine: "CSR", params: [{ name: "COMPLETED", label: "COMPLETED" }, { name: "IN_PROGRESS", label: "IN_PROGRESS" }, { name: "NO_OF_GD", label: "NO_OF_GD" }, { name: "PENDING", label: "PENDING" }, { name: "TOTAL_APPROVED_PROJECTS", label: "TOTAL_APPROVED_PROJECTS" }, { name: "TOTAL_BENEFICIARIES", label: "TOTAL_BENEFICIARIES" }, { name: "TOTAL_RESOLVED", label: "TOTAL_RESOLVED" }] },
+  ]},
 ];
+
+// ============================================================
+// FLAT SECTIONS for backward compat (one section per machine)
+// ============================================================
+export const SECTIONS = GROUPS.flatMap(g =>
+  g.machines.map(m => ({
+    id: `${g.id}__${m.machine}`,
+    group: g.id,
+    groupTitle: g.title,
+    title: m.machine.replace(/_/g, " "),
+    dashboard: m.machine,
+    params: m.params,
+  }))
+);
 
 // ============================================================
 // TIME RANGE OPTIONS
@@ -134,9 +144,6 @@ export const TIME_RANGES = [
   { label: "Custom", value: "custom" },
 ];
 
-// ============================================================
-// HELPER: Get today's date string
-// ============================================================
 export function getDateString(offset = 0) {
   const d = new Date();
   d.setDate(d.getDate() + offset);
