@@ -86,11 +86,11 @@ export default function RefineryDashboard() {
       <header className="dpr-header">
         <div className="dpr-header-left">
           <div className="dpr-logo-block">
-            <svg width="44" height="44" viewBox="0 0 44 44">
-              <rect width="44" height="44" rx="4" fill="#c41e1e"/>
-              <text x="22" y="16" textAnchor="middle" fill="#fff" style={{fontSize:7,fontWeight:700,fontFamily:"sans-serif"}}>ADITYA BIRLA</text>
-              <text x="22" y="30" textAnchor="middle" fill="#fff" style={{fontSize:8,fontWeight:900,fontFamily:"sans-serif"}}>HINDALCO</text>
-              <rect x="2" y="36" width="40" height="6" rx="1" fill="#f5a623"/>
+            <svg width="160" height="44" viewBox="0 0 160 44">
+              <rect width="160" height="44" rx="4" fill="#0057a0"/>
+              <text x="80" y="18" textAnchor="middle" fill="#fff" style={{fontSize:9,fontWeight:600,fontFamily:'Inter,sans-serif',letterSpacing:'1.5px'}}>ADITYA BIRLA GROUP</text>
+              <text x="80" y="34" textAnchor="middle" fill="#fff" style={{fontSize:14,fontWeight:900,fontFamily:'Inter,sans-serif',letterSpacing:'2px'}}>HINDALCO</text>
+              <rect x="30" y="39" width="100" height="2" rx="1" fill="#29ABE2"/>
             </svg>
           </div>
           <div className="dpr-title-block">

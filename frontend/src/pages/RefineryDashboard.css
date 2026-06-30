@@ -5,7 +5,7 @@
 .dpr-root { font-family: 'Inter', sans-serif; background: #f5f5f5; min-height: 100vh; font-size: 12px; color: #1a1a1a; }
 
 /* === HEADER === */
-.dpr-header { background: linear-gradient(to bottom, #1a1a2e 0%, #16213e 100%); padding: 8px 20px; display: flex; align-items: center; justify-content: space-between; }
+.dpr-header { background: linear-gradient(135deg, #003d6b 0%, #0057a0 60%, #0072BC 100%); padding: 8px 20px; display: flex; align-items: center; justify-content: space-between; }
 .dpr-header-left { display: flex; align-items: center; gap: 12px; }
 .dpr-logo-block { flex-shrink: 0; }
 .dpr-title-block {}
