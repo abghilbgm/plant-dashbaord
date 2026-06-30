@@ -2,12 +2,8 @@ import React, { useState, useEffect, useCallback, useMemo } from "react";
 import { API_BASE, GROUPS, SECTIONS, TIME_RANGES, getDateString } from "../utils/config";
 import "./RefineryDashboard.css";
 
-// Load hidden params from localStorage
 const STORAGE_KEY = "hindalco_hidden_params";
-const loadHidden = () => {
-  try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; }
-  catch { return {}; }
-};
+const loadHidden = () => { try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; } catch { return {}; } };
 const saveHidden = (h) => localStorage.setItem(STORAGE_KEY, JSON.stringify(h));
 
 export default function RefineryDashboard() {
@@ -31,17 +27,13 @@ export default function RefineryDashboard() {
     return selectedDate;
   }, [timeRange, selectedDate, customTo]);
 
-  // Fetch data for all machines in visible sections
   const fetchAllData = useCallback(async () => {
     setLoading(true);
     const date = getActiveDate();
     const dashKeys = [...new Set(SECTIONS.map(s => s.dashboard))];
-
     try {
       const results = await Promise.allSettled(
-        dashKeys.map(name =>
-          fetch(`${API_BASE}/dashboard/${name}?date=${date}`).then(r => r.json())
-        )
+        dashKeys.map(name => fetch(`${API_BASE}/dashboard/${name}?date=${date}`).then(r => r.json()))
       );
       const newData = {};
       results.forEach((result, idx) => {
@@ -55,40 +47,20 @@ export default function RefineryDashboard() {
       });
       setLiveData(newData);
       setLastUpdated(new Date());
-    } catch (err) {
-      console.error("Fetch error:", err);
-    } finally {
-      setLoading(false);
-    }
+    } catch (err) { console.error("Fetch error:", err); }
+    finally { setLoading(false); }
   }, [getActiveDate]);
 
   useEffect(() => { fetchAllData(); const i = setInterval(fetchAllData, 5*60*1000); return ()=>clearInterval(i); }, [fetchAllData]);
   useEffect(() => { const t = setInterval(()=>setCurrentTime(new Date()), 60000); return ()=>clearInterval(t); }, []);
 
-  // Toggle param visibility
   const toggleParam = (machine, paramName) => {
     const key = `${machine}::${paramName}`;
-    setHiddenParams(prev => {
-      const next = { ...prev };
-      if (next[key]) delete next[key]; else next[key] = true;
-      saveHidden(next);
-      return next;
-    });
+    setHiddenParams(prev => { const next = {...prev}; if(next[key]) delete next[key]; else next[key]=true; saveHidden(next); return next; });
   };
-
-  // Toggle entire machine
   const toggleMachine = (machine, params, hide) => {
-    setHiddenParams(prev => {
-      const next = { ...prev };
-      params.forEach(p => {
-        const key = `${machine}::${p.name}`;
-        if (hide) next[key] = true; else delete next[key];
-      });
-      saveHidden(next);
-      return next;
-    });
+    setHiddenParams(prev => { const next={...prev}; params.forEach(p=>{const k=`${machine}::${p.name}`; if(hide) next[k]=true; else delete next[k];}); saveHidden(next); return next; });
   };
-
   const isParamHidden = (machine, paramName) => !!hiddenParams[`${machine}::${paramName}`];
 
   const fmt = (val) => {
@@ -104,195 +76,129 @@ export default function RefineryDashboard() {
 
   const getVal = (dashboard, paramName, field) => liveData?.[dashboard]?.[paramName]?.[field] ?? null;
 
-  const getTrend = (dashboard, paramName) => {
-    const today = getVal(dashboard, paramName, "today");
-    const yesterday = getVal(dashboard, paramName, "yesterday");
-    if (today === null || yesterday === null || yesterday === 0) return { arrow: "", color: "#8a9bb0", pct: "" };
-    const pct = ((today - yesterday) / Math.abs(yesterday) * 100).toFixed(1);
-    if (today > yesterday) return { arrow: "\u25b2", color: "#00A651", pct: `+${pct}%` };
-    if (today < yesterday) return { arrow: "\u25bc", color: "#e53e3e", pct: `${pct}%` };
-    return { arrow: "", color: "#8a9bb0", pct: "" };
-  };
-
-  // Filter visible sections
   const visibleSections = useMemo(() => {
-    return SECTIONS.map(s => ({
-      ...s,
-      params: s.params.filter(p => !isParamHidden(s.dashboard, p.name))
-    })).filter(s => s.params.length > 0);
+    return SECTIONS.map(s => ({...s, params: s.params.filter(p => !isParamHidden(s.dashboard, p.name))})).filter(s => s.params.length > 0);
   }, [hiddenParams]);
 
-  // Group visible sections by group
-  const groupedSections = useMemo(() => {
-    const map = {};
-    visibleSections.forEach(s => {
-      if (!map[s.group]) map[s.group] = { title: s.groupTitle, sections: [] };
-      map[s.group].sections.push(s);
-    });
-    return map;
-  }, [visibleSections]);
-
   return (
-    <div className="dashboard-root">
+    <div className="dpr-root">
       {/* HEADER */}
-      <header className="dashboard-header">
-        <div className="dashboard-header-left">
-          <div className="dashboard-logo">
-            <svg width="145" height="36" viewBox="0 0 145 36" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <linearGradient id="hTextGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#ffffff"/>
-                  <stop offset="100%" stopColor="#bae6fd"/>
-                </linearGradient>
-              </defs>
-              <text x="0" y="25" style={{ fontSize: 22, fontWeight: 900, fill: "url(#hTextGrad)", fontFamily: "Inter, sans-serif", letterSpacing: -0.5 }}>HINDALCO</text>
-              <line x1="118" y1="4" x2="118" y2="18" stroke="#7dd3fc" strokeWidth="2.8" strokeLinecap="round"/>
-              <line x1="111" y1="11" x2="125" y2="11" stroke="#7dd3fc" strokeWidth="2.8" strokeLinecap="round"/>
-              <line x1="129" y1="11" x2="129" y2="27" stroke="#86efac" strokeWidth="2.4" strokeLinecap="round"/>
-              <line x1="122" y1="19" x2="136" y2="19" stroke="#86efac" strokeWidth="2.4" strokeLinecap="round"/>
+      <header className="dpr-header">
+        <div className="dpr-header-left">
+          <div className="dpr-logo-block">
+            <svg width="44" height="44" viewBox="0 0 44 44">
+              <rect width="44" height="44" rx="4" fill="#c41e1e"/>
+              <text x="22" y="16" textAnchor="middle" fill="#fff" style={{fontSize:7,fontWeight:700,fontFamily:"sans-serif"}}>ADITYA BIRLA</text>
+              <text x="22" y="30" textAnchor="middle" fill="#fff" style={{fontSize:8,fontWeight:900,fontFamily:"sans-serif"}}>HINDALCO</text>
+              <rect x="2" y="36" width="40" height="6" rx="1" fill="#f5a623"/>
             </svg>
-            <div className="header-divider"></div>
-            <div>
-              <div className="header-plant-name">Belgaum Refinery</div>
-              <div className="header-plant-sub">Plant Monitoring Dashboard</div>
-            </div>
+          </div>
+          <div className="dpr-title-block">
+            <div className="dpr-title">BLG - Refinery Overview</div>
+            <div className="dpr-subtitle">Plant Parameters Dashboard</div>
           </div>
         </div>
-        <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
-          <div className="header-time">
-            {currentTime.toLocaleDateString("en-IN", { day: "2-digit", month: "short", year: "numeric" })} &bull; {currentTime.toLocaleTimeString("en-IN", { hour: "2-digit", minute: "2-digit" })}
-          </div>
-          <button className="settings-btn" onClick={() => setShowSettings(true)} title="Configure Parameters">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 15a3 3 0 100-6 3 3 0 000 6z"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+        <div className="dpr-header-right">
+          <span className="dpr-datetime">{currentTime.toLocaleDateString("en-IN",{day:"2-digit",month:"short",year:"numeric"})} {currentTime.toLocaleTimeString("en-IN",{hour:"2-digit",minute:"2-digit"})}</span>
+          <button className="dpr-settings-btn" onClick={()=>setShowSettings(true)} title="Configure Parameters">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
           </button>
         </div>
       </header>
 
-      {/* TIME RANGE BAR */}
-      <div className="dashboard-time-bar">
-        <div className="dashboard-time-bar-left">
-          <span className="time-bar-label">Period:</span>
-          {TIME_RANGES.map(tr => (
-            <button key={tr.value} onClick={() => setTimeRange(tr.value)}
-              className={`dashboard-time-btn ${timeRange === tr.value ? "active" : ""}`}>
-              {tr.label}
-            </button>
-          ))}
-          {timeRange === "custom" && (
-            <span className="custom-date-row">
-              <input type="date" value={customFrom} onChange={e => setCustomFrom(e.target.value)} className="dashboard-date-input" />
-              <span className="date-sep">to</span>
-              <input type="date" value={customTo} onChange={e => setCustomTo(e.target.value)} className="dashboard-date-input" />
-            </span>
-          )}
-        </div>
-        <div className="dashboard-time-bar-right">
-          {loading && <span className="loading-indicator">Fetching data...</span>}
-          {lastUpdated && !loading && (
-            <span className="last-updated">Updated {lastUpdated.toLocaleTimeString("en-IN", { hour: "2-digit", minute: "2-digit" })}</span>
-          )}
-          <button onClick={fetchAllData} className="dashboard-refresh-btn">{"\u21bb"} Refresh</button>
-        </div>
-      </div>
-
-      {/* GROUP TABS */}
-      <div className="group-tabs">
+      {/* NAV TABS */}
+      <nav className="dpr-nav">
         {GROUPS.map(g => (
-          <button key={g.id} onClick={() => setActiveGroup(g.id)}
-            className={`group-tab ${activeGroup === g.id ? "active" : ""}`}>
-            {g.title}
-            <span className="group-tab-count">{g.machines.length}</span>
-          </button>
+          <button key={g.id} onClick={()=>setActiveGroup(g.id)} className={`dpr-nav-btn ${activeGroup===g.id?"active":""}`}>{g.title}</button>
         ))}
+      </nav>
+
+      {/* TIME BAR */}
+      <div className="dpr-timebar">
+        {TIME_RANGES.map(tr => (
+          <button key={tr.value} onClick={()=>setTimeRange(tr.value)} className={`dpr-time-btn ${timeRange===tr.value?"active":""}`}>{tr.label}</button>
+        ))}
+        {timeRange === "custom" && (
+          <span className="dpr-custom-dates">
+            <input type="date" value={customFrom} onChange={e=>setCustomFrom(e.target.value)} />
+            <span>to</span>
+            <input type="date" value={customTo} onChange={e=>setCustomTo(e.target.value)} />
+          </span>
+        )}
+        <span className="dpr-timebar-right">
+          {loading && <span className="dpr-loading">Loading...</span>}
+          {lastUpdated && !loading && <span className="dpr-updated">Last: {lastUpdated.toLocaleTimeString("en-IN",{hour:"2-digit",minute:"2-digit"})}</span>}
+          <button onClick={fetchAllData} className="dpr-refresh">{"\u21bb"}</button>
+        </span>
       </div>
 
-      {/* MAIN CONTENT — Show active group's machines */}
-      <main className="dashboard-main">
+      {/* MAIN GRID */}
+      <main className="dpr-main">
         {visibleSections.filter(s => s.group === activeGroup).map(section => (
-          <section key={section.id} className="dashboard-section">
-            <h3 className="dashboard-section-title">
-              <span className="section-icon"></span>
-              {section.title}
-            </h3>
-            <div className="param-grid">
-              {section.params.map(p => {
-                const today = getVal(section.dashboard, p.name, "today");
-                const yesterday = getVal(section.dashboard, p.name, "yesterday");
-                const mtd = getVal(section.dashboard, p.name, "mtd");
-                const trend = getTrend(section.dashboard, p.name);
-                const hasData = today !== null || yesterday !== null || mtd !== null;
-                return (
-                  <div key={p.name} className={`param-card ${hasData ? "has-data" : "no-data"}`}>
-                    <div className="param-label">{p.label}</div>
-                    <div className="param-value-row">
-                      <span className="param-value">{fmt(today)}</span>
-                      <span className="param-unit">{p.unit || ""}</span>
-                    </div>
-                    {hasData && trend.arrow && (
-                      <div className="param-trend" style={{ color: trend.color }}>{trend.arrow} {trend.pct}</div>
-                    )}
-                    <div className="param-compare">
-                      <div className="param-compare-item">
-                        <span className="compare-label">Yesterday</span>
-                        <span className="compare-value">{fmt(yesterday)}</span>
-                      </div>
-                      <div className="param-compare-item">
-                        <span className="compare-label">MTD</span>
-                        <span className="compare-value mtd">{fmt(mtd)}</span>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </section>
+          <div key={section.id} className="dpr-section">
+            <div className="dpr-section-title">{section.title}</div>
+            <table className="dpr-table">
+              <thead>
+                <tr>
+                  <th>Parameter</th>
+                  <th>Today</th>
+                  <th>Yesterday</th>
+                  <th>MTD</th>
+                </tr>
+              </thead>
+              <tbody>
+                {section.params.map(p => {
+                  const today = getVal(section.dashboard, p.name, "today");
+                  const yesterday = getVal(section.dashboard, p.name, "yesterday");
+                  const mtd = getVal(section.dashboard, p.name, "mtd");
+                  const hasData = today !== null;
+                  return (
+                    <tr key={p.name} className={hasData ? "" : "no-data"}>
+                      <td className="dpr-param-name">{p.label}</td>
+                      <td className="dpr-val today">{fmt(today)}</td>
+                      <td className="dpr-val yesterday">{fmt(yesterday)}</td>
+                      <td className="dpr-val mtd">{fmt(mtd)}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
         ))}
         {visibleSections.filter(s => s.group === activeGroup).length === 0 && (
-          <div className="empty-state">
-            <p>All parameters in this group are hidden.</p>
-            <button onClick={() => setShowSettings(true)} className="dashboard-refresh-btn">Open Settings to enable</button>
-          </div>
+          <div className="dpr-empty">All parameters hidden. Click <button onClick={()=>setShowSettings(true)}>Settings</button> to enable.</div>
         )}
       </main>
 
       {/* SETTINGS MODAL */}
       {showSettings && (
-        <div className="settings-overlay" onClick={() => setShowSettings(false)}>
-          <div className="settings-modal" onClick={e => e.stopPropagation()}>
-            <div className="settings-header">
+        <div className="dpr-overlay" onClick={()=>setShowSettings(false)}>
+          <div className="dpr-modal" onClick={e=>e.stopPropagation()}>
+            <div className="dpr-modal-header">
               <h2>Configure Parameters</h2>
-              <button className="settings-close" onClick={() => setShowSettings(false)}>&times;</button>
+              <button onClick={()=>setShowSettings(false)}>&times;</button>
             </div>
-            <div className="settings-search">
-              <input type="text" placeholder="Search parameters..." value={settingsSearch}
-                onChange={e => setSettingsSearch(e.target.value)} className="settings-search-input" />
+            <div className="dpr-modal-search">
+              <input type="text" placeholder="Search parameters..." value={settingsSearch} onChange={e=>setSettingsSearch(e.target.value)} />
             </div>
-            <div className="settings-body">
+            <div className="dpr-modal-body">
               {GROUPS.map(g => (
-                <div key={g.id} className="settings-group">
-                  <div className="settings-group-title">{g.title}</div>
+                <div key={g.id} className="dpr-modal-group">
+                  <div className="dpr-modal-group-title">{g.title}</div>
                   {g.machines.map(m => {
-                    const visibleCount = m.params.filter(p => !isParamHidden(m.machine, p.name)).length;
-                    const filtered = settingsSearch
-                      ? m.params.filter(p => p.name.toLowerCase().includes(settingsSearch.toLowerCase()) || m.machine.toLowerCase().includes(settingsSearch.toLowerCase()))
-                      : m.params;
+                    const vis = m.params.filter(p => !isParamHidden(m.machine, p.name)).length;
+                    const filtered = settingsSearch ? m.params.filter(p => p.name.toLowerCase().includes(settingsSearch.toLowerCase()) || m.machine.toLowerCase().includes(settingsSearch.toLowerCase())) : m.params;
                     if (filtered.length === 0) return null;
                     return (
-                      <div key={m.machine} className="settings-machine">
-                        <div className="settings-machine-header">
-                          <span className="settings-machine-name">{m.machine.replace(/_/g, " ")}</span>
-                          <span className="settings-machine-count">{visibleCount}/{m.params.length}</span>
-                          <button className="settings-toggle-all" onClick={() => toggleMachine(m.machine, m.params, visibleCount > 0)}>
-                            {visibleCount > 0 ? "Hide All" : "Show All"}
-                          </button>
+                      <div key={m.machine} className="dpr-modal-machine">
+                        <div className="dpr-modal-machine-hdr">
+                          <span>{m.machine.replace(/_/g," ")}</span>
+                          <span className="dpr-modal-count">{vis}/{m.params.length}</span>
+                          <button onClick={()=>toggleMachine(m.machine, m.params, vis>0)}>{vis>0?"Hide All":"Show All"}</button>
                         </div>
-                        <div className="settings-params-list">
+                        <div className="dpr-modal-params">
                           {filtered.map(p => (
-                            <label key={p.name} className="settings-param-item">
-                              <input type="checkbox" checked={!isParamHidden(m.machine, p.name)}
-                                onChange={() => toggleParam(m.machine, p.name)} />
-                              <span className="settings-param-name">{p.name}</span>
-                            </label>
+                            <label key={p.name}><input type="checkbox" checked={!isParamHidden(m.machine,p.name)} onChange={()=>toggleParam(m.machine,p.name)}/>{p.name}</label>
                           ))}
                         </div>
                       </div>
