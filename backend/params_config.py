@@ -21,7 +21,7 @@ DB_TABLE = "raw_parameter_fact"
 # Column names in the DB table (adjust if different)
 COL_MACHINE = "machine_name"
 COL_PARAMETER = "parameter_name"
-COL_VALUE = "value"
+COL_VALUE = "parameter_value"
 COL_TIMESTAMP = "timestamp"
 
 # ============================================================

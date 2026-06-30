@@ -183,7 +183,7 @@ def dashboard(name: str, date: str = None):
             
         parameters_output.append({
             "name": pname,
-            "category": meta[pname]["category"],
+            "category": meta.get(pname, {}).get("category", ""),
             "today": today_vals.get(pname),
             "yesterday": yesterday_val,
             "mtd": mtd_vals.get(pname),
