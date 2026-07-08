@@ -1,13 +1,16 @@
 import React, { useState, useEffect, useCallback, useMemo } from "react";
 import { API_BASE, GROUPS, SECTIONS, TIME_RANGES, getDateString } from "../utils/config";
+import { apiFetch } from "../api";
+import UnitHeadDashboardView from "../components/UnitHeadDashboardView";
 import "./RefineryDashboard.css";
 
 const STORAGE_KEY = "hindalco_hidden_params";
 const loadHidden = () => { try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; } catch { return {}; } };
 const saveHidden = (h) => localStorage.setItem(STORAGE_KEY, JSON.stringify(h));
 
-// Group order for Unit Head: Refinery first
-const GROUP_ORDER = ["refinery","calcination","alumina_downstream","hydrate_downstream","evaporation","water","boiler_biomass","other"];
+// Group order for Unit Head: Unit Head first, then Refinery
+const GROUP_ORDER = ["unit_head", "refinery","calcination","alumina_downstream","hydrate_downstream","evaporation","water","boiler_biomass","other"];
+const GROUP_ORDER_KEY = "hindalco_group_order";
 
 export default function RefineryDashboard() {
   const [currentTime, setCurrentTime] = useState(new Date());
@@ -16,16 +19,57 @@ export default function RefineryDashboard() {
   const [customFrom, setCustomFrom] = useState(getDateString(-7));
   const [customTo, setCustomTo] = useState(getDateString(0));
   const [liveData, setLiveData] = useState({});
+  const [uhData, setUhData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [lastUpdated, setLastUpdated] = useState(null);
   const [showSettings, setShowSettings] = useState(false);
   const [hiddenParams, setHiddenParams] = useState(loadHidden);
-  const [activeGroup, setActiveGroup] = useState("refinery");
+  const [activeGroup, setActiveGroup] = useState("unit_head");
   const [settingsSearch, setSettingsSearch] = useState("");
 
+  const [groupOrder, setGroupOrder] = useState(() => {
+    try {
+      const saved = JSON.parse(localStorage.getItem(GROUP_ORDER_KEY));
+      if (Array.isArray(saved) && saved.length) return saved;
+    } catch (err){}
+    return GROUP_ORDER;
+  });
+  const [draggingId, setDraggingId] = useState(null);
+
   const orderedGroups = useMemo(() => {
-    return GROUP_ORDER.map(id => GROUPS.find(g => g.id === id)).filter(Boolean);
-  }, []);
+    return groupOrder.map(id => {
+      if (id === "unit_head") {
+        return { id: "unit_head", title: "Unit Head Dashboard", machines: [] };
+      }
+      return GROUPS.find(g => g.id === id);
+    }).filter(Boolean);
+  }, [groupOrder]);
+
+  const handleDragStart = (e, id) => {
+    e.dataTransfer.setData('text/plain', id);
+    e.dataTransfer.effectAllowed = 'move';
+    setDraggingId(id);
+  };
+  const handleDragOver = (e) => {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = 'move';
+  };
+  const handleDrop = (e, targetId) => {
+    e.preventDefault();
+    const id = e.dataTransfer.getData('text/plain') || draggingId;
+    if (!id) return;
+    const from = groupOrder.indexOf(id);
+    const to = groupOrder.indexOf(targetId);
+    if (from === -1 || to === -1) return;
+    if (from === to) { setDraggingId(null); return; }
+    const next = [...groupOrder];
+    next.splice(from, 1);
+    next.splice(to, 0, id);
+    setGroupOrder(next);
+    try { localStorage.setItem(GROUP_ORDER_KEY, JSON.stringify(next)); } catch (err) {}
+    setDraggingId(null);
+  };
+  const handleDragEnd = () => setDraggingId(null);
 
   const getActiveDate = useCallback(() => {
     if (timeRange === "today") return getDateString(0);
@@ -39,9 +83,18 @@ export default function RefineryDashboard() {
     const date = getActiveDate();
     const dashKeys = [...new Set(SECTIONS.map(s => s.dashboard))];
     try {
-      const results = await Promise.allSettled(
-        dashKeys.map(name => fetch(`${API_BASE}/dashboard/${encodeURIComponent(name)}?date=${date}`).then(r => r.json()))
-      );
+      const responses = await Promise.allSettled([
+        apiFetch(`${API_BASE}/uh-dashboard?date=${date}`).then(r => r.json()),
+        ...dashKeys.map(name => apiFetch(`${API_BASE}/dashboard/${encodeURIComponent(name)}?date=${date}`).then(r => r.json()))
+      ]);
+
+      const [uhRes, ...results] = responses;
+      if (uhRes.status === "fulfilled" && !uhRes.value.error) {
+        setUhData(uhRes.value);
+      } else {
+        setUhData(null);
+      }
+
       const newData = {};
       results.forEach((result, idx) => {
         if (result.status === "fulfilled" && result.value.parameters) {
@@ -102,17 +155,10 @@ export default function RefineryDashboard() {
       {/* EXECUTIVE HEADER */}
       <header className="uh-header">
         <div className="uh-header-left">
-          <div className="uh-logo">
-            <svg width="48" height="48" viewBox="0 0 48 48">
-              <circle cx="24" cy="24" r="22" fill="none" stroke="#29ABE2" strokeWidth="2"/>
-              <circle cx="24" cy="24" r="18" fill="none" stroke="#0072BC" strokeWidth="1.5"/>
-              <path d="M14 32 L24 12 L34 32 Z" fill="none" stroke="#fff" strokeWidth="2" strokeLinejoin="round"/>
-              <line x1="17" y1="26" x2="31" y2="26" stroke="#29ABE2" strokeWidth="1.5"/>
-            </svg>
-          </div>
+          
           <div className="uh-title-area">
             <div className="uh-brand">HINDALCO INDUSTRIES LIMITED</div>
-            <div className="uh-title">Speciality Alumina Refinery &mdash; Unit Head Dashboard</div>
+            <div className="uh-title">Speciality Alumina Refinery Dashboard</div>
           </div>
         </div>
         <div className="uh-header-right">
@@ -134,7 +180,15 @@ export default function RefineryDashboard() {
       <nav className="uh-nav">
         <div className="uh-nav-tabs">
           {orderedGroups.map(g => (
-            <button key={g.id} onClick={()=>setActiveGroup(g.id)} className={`uh-tab ${activeGroup===g.id?"active":""}`}>
+            <button
+              key={g.id}
+              draggable
+              onDragStart={(e) => handleDragStart(e, g.id)}
+              onDragOver={handleDragOver}
+              onDrop={(e) => handleDrop(e, g.id)}
+              onDragEnd={handleDragEnd}
+              onClick={()=>setActiveGroup(g.id)}
+              className={`uh-tab ${activeGroup===g.id?"active":""} ${draggingId===g.id?"dragging":""}`}>
               <span className="uh-tab-label">{g.title}</span>
               <span className="uh-tab-count">{visibleSections.filter(s=>s.group===g.id).length}</span>
             </button>
@@ -168,52 +222,56 @@ export default function RefineryDashboard() {
 
       {/* MAIN CONTENT */}
       <main className="uh-main">
-        {activeSections.map(section => (
-          <div key={section.id} className="uh-section">
-            <div className="uh-section-header">
-              <span className="uh-section-icon">&#9670;</span>
-              <span className="uh-section-name">{section.title}</span>
-              <span className="uh-section-badge">{section.params.length} params</span>
+        {activeGroup === "unit_head" ? (
+          <UnitHeadDashboardView data={uhData} loading={loading} fmt={fmt} />
+        ) : (
+          activeSections.map(section => (
+            <div key={section.id} className="uh-section">
+              <div className="uh-section-header">
+                <span className="uh-section-icon">&#9670;</span>
+                <span className="uh-section-name">{section.title}</span>
+                <span className="uh-section-badge">{section.params.length} params</span>
+              </div>
+              <div className="uh-table-wrap">
+                <table className="uh-table">
+                  <thead>
+                    <tr>
+                      <th className="th-param">Parameter</th>
+                      <th className="th-val">Today</th>
+                      <th className="th-val">Yesterday</th>
+                      <th className="th-val">MTD Avg</th>
+                      <th className="th-trend">Trend</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {section.params.map(p => {
+                      const today = getVal(section.dashboard, p.name, "today");
+                      const yesterday = getVal(section.dashboard, p.name, "yesterday");
+                      const mtd = getVal(section.dashboard, p.name, "mtd");
+                      const trend = getTrend(today, yesterday);
+                      return (
+                        <tr key={p.name} className={today !== null ? "" : "no-data"}>
+                          <td className="td-param">{p.label || p.name}</td>
+                          <td className="td-val td-today">{fmt(today)}</td>
+                          <td className="td-val td-yesterday">{fmt(yesterday)}</td>
+                          <td className="td-val td-mtd">{fmt(mtd)}</td>
+                          <td className="td-trend">
+                            {trend !== null && (
+                              <span className={`trend-badge ${trend >= 0 ? "up" : "down"}`}>
+                                {trend >= 0 ? "\u25B2" : "\u25BC"} {Math.abs(trend).toFixed(1)}%
+                              </span>
+                            )}
+                          </td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
             </div>
-            <div className="uh-table-wrap">
-              <table className="uh-table">
-                <thead>
-                  <tr>
-                    <th className="th-param">Parameter</th>
-                    <th className="th-val">Today</th>
-                    <th className="th-val">Yesterday</th>
-                    <th className="th-val">MTD Avg</th>
-                    <th className="th-trend">Trend</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {section.params.map(p => {
-                    const today = getVal(section.dashboard, p.name, "today");
-                    const yesterday = getVal(section.dashboard, p.name, "yesterday");
-                    const mtd = getVal(section.dashboard, p.name, "mtd");
-                    const trend = getTrend(today, yesterday);
-                    return (
-                      <tr key={p.name} className={today !== null ? "" : "no-data"}>
-                        <td className="td-param">{p.label || p.name}</td>
-                        <td className="td-val td-today">{fmt(today)}</td>
-                        <td className="td-val td-yesterday">{fmt(yesterday)}</td>
-                        <td className="td-val td-mtd">{fmt(mtd)}</td>
-                        <td className="td-trend">
-                          {trend !== null && (
-                            <span className={`trend-badge ${trend >= 0 ? "up" : "down"}`}>
-                              {trend >= 0 ? "\u25B2" : "\u25BC"} {Math.abs(trend).toFixed(1)}%
-                            </span>
-                          )}
-                        </td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        ))}
-        {activeSections.length === 0 && (
+          ))
+        )}
+        {activeGroup !== "unit_head" && activeSections.length === 0 && (
           <div className="uh-empty">
             <p>No parameters visible for this section.</p>
             <button onClick={()=>setShowSettings(true)}>Open Settings to Configure</button>

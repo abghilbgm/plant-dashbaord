@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: plant-dashboard
+    env: docker
+    dockerfilePath: Dockerfile
+    plan: free
+    autoDeploy: true
+    buildCommand: ''
+    startCommand: ''
+    healthCheckPath: /

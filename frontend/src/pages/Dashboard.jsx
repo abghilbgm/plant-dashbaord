@@ -108,7 +108,7 @@ export default function Dashboard() {
   useEffect(() => {
     const fetchList = async () => {
       try {
-        const res = await fetch("http://localhost:8000/api/dashboards");
+        const res = await fetch(`/api/dashboards`, { headers: { Authorization: `Bearer ${localStorage.getItem('auth_token')}` } });
         if (res.ok) {
           const list = await res.json();
           setDashboardsList(list);
