@@ -1,0 +1,29 @@
+version: 0.2
+env:
+  variables:
+    REPO_NAME: plant-dashboard
+phases:
+  pre_build:
+    commands:
+      - echo "Starting pre_build"
+      - REGION=$(aws configure get region || echo "$AWS_DEFAULT_REGION")
+      - if [ -z "$REGION" ]; then REGION=us-east-1; fi
+      - 'echo "Using region: $REGION"'
+      - ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
+      - 'echo "Account: $ACCOUNT_ID"'
+      - echo "Ensure ECR repo exists..."
+      - aws ecr describe-repositories --repository-names "$REPO_NAME" --region $REGION || aws ecr create-repository --repository-name "$REPO_NAME" --region $REGION
+      - aws ecr get-login-password --region $REGION | docker login --username AWS --password-stdin $ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com
+  build:
+    commands:
+      - echo "Building Docker image"
+      - docker build -t $REPO_NAME:latest .
+      - docker tag $REPO_NAME:latest $ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com/$REPO_NAME:latest
+  post_build:
+    commands:
+      - echo "Pushing image to ECR"
+      - docker push $ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com/$REPO_NAME:latest
+      - 'echo "Image pushed: $ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com/$REPO_NAME:latest"'
+artifacts:
+  files:
+    - imagedefinitions.json

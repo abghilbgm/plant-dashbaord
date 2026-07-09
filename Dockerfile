@@ -1,6 +1,6 @@
 ### Multi-stage Dockerfile: build frontend, run FastAPI backend
 
-FROM node:18-alpine AS frontend-build
+FROM node:22-alpine AS frontend-build
 WORKDIR /app/frontend
 COPY frontend/package.json frontend/package-lock.json* ./
 COPY frontend/ ./
