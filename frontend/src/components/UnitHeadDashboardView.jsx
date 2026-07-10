@@ -1,4 +1,101 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { ComposedChart, Line, Bar, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, ResponsiveContainer, Legend } from 'recharts';
+
+// ── Weather helpers ────────────────────────────────────────────
+// Plant location: Hindalco Utkal Alumina, Rayagada, Odisha
+const PLANT_LAT = 15.8497;
+const PLANT_LON = 74.4977;
+const PLANT_LABEL = "Belagavi, Karnataka";
+
+const WMO_ICONS = {
+  0:  { icon: "☀️", label: "Clear" },
+  1:  { icon: "🌤️", label: "Mainly Clear" },
+  2:  { icon: "⛅", label: "Partly Cloudy" },
+  3:  { icon: "☁️", label: "Overcast" },
+  45: { icon: "🌫️", label: "Foggy" },
+  48: { icon: "🌫️", label: "Icy Fog" },
+  51: { icon: "🌦️", label: "Light Drizzle" },
+  53: { icon: "🌦️", label: "Drizzle" },
+  55: { icon: "🌧️", label: "Heavy Drizzle" },
+  61: { icon: "🌧️", label: "Light Rain" },
+  63: { icon: "🌧️", label: "Rain" },
+  65: { icon: "🌧️", label: "Heavy Rain" },
+  71: { icon: "❄️", label: "Light Snow" },
+  73: { icon: "❄️", label: "Snow" },
+  75: { icon: "❄️", label: "Heavy Snow" },
+  77: { icon: "🌨️", label: "Snow Grains" },
+  80: { icon: "🌦️", label: "Light Showers" },
+  81: { icon: "🌧️", label: "Showers" },
+  82: { icon: "⛈️", label: "Heavy Showers" },
+  85: { icon: "🌨️", label: "Snow Showers" },
+  86: { icon: "🌨️", label: "Heavy Snow Showers" },
+  95: { icon: "⛈️", label: "Thunderstorm" },
+  96: { icon: "⛈️", label: "Storm + Hail" },
+  99: { icon: "⛈️", label: "Heavy Storm + Hail" },
+};
+function wmoInfo(code) {
+  return WMO_ICONS[code] || { icon: "🌡️", label: `Code ${code}` };
+}
+
+const SHORT_DAYS = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+const SHORT_MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
+function formatDay(dateStr) {
+  const d = new Date(dateStr);
+  return `${SHORT_DAYS[d.getDay()]} ${d.getDate()} ${SHORT_MONTHS[d.getMonth()]}`;
+}
+
+function rainColor(mm) {
+  if (mm === 0) return "#4a5568";
+  if (mm < 5)  return "#3182ce";
+  if (mm < 20) return "#2b6cb0";
+  return "#1a365d";
+}
+
+function useWeatherForecast() {
+  const [weather, setWeather] = useState(null);
+  const [error, setError]   = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    let cancelled = false;
+    async function fetchWeather() {
+      setLoading(true);
+      try {
+        const today = new Date();
+        const end   = new Date(today);
+        end.setDate(end.getDate() + 15); // Open-Meteo free tier max is 16 days
+        const fmt = (d) => d.toISOString().split("T")[0];
+
+        const url = `https://api.open-meteo.com/v1/forecast?latitude=${PLANT_LAT}&longitude=${PLANT_LON}`
+          + `&daily=weathercode,temperature_2m_max,temperature_2m_min,precipitation_sum,windspeed_10m_max,precipitation_probability_max`
+          + `&timezone=Asia%2FKolkata`
+          + `&start_date=${fmt(today)}&end_date=${fmt(end)}`;
+
+        const res  = await fetch(url);
+        const json = await res.json();
+        if (!cancelled) {
+          if (json.error) {
+            setError(json.reason || "Failed to load weather data.");
+            setWeather(null);
+          } else {
+            setWeather(json.daily);
+            setError(null);
+          }
+        }
+      } catch (e) {
+        if (!cancelled) setError("Failed to load weather data.");
+      } finally {
+        if (!cancelled) setLoading(false);
+      }
+    }
+    fetchWeather();
+    const timer = setInterval(fetchWeather, 60 * 60 * 1000); // refresh hourly
+    return () => { cancelled = true; clearInterval(timer); };
+  }, []);
+
+  return { weather, error, loading };
+}
 
 export default function UnitHeadDashboardView({ data, loading, fmt }) {
   if (loading && !data) {
@@ -19,6 +116,7 @@ export default function UnitHeadDashboardView({ data, loading, fmt }) {
   }
 
   const { safety, production, fgStock, processParams, rawMaterials, powerEngg } = data;
+  const { weather: wx, error: wxError, loading: wxLoading } = useWeatherForecast();
 
   return (
     <div className="uh-grid-container">
@@ -71,6 +169,132 @@ export default function UnitHeadDashboardView({ data, loading, fmt }) {
           </div>
         </div>
       </div>
+
+
+      {/* WEATHER FORECAST CARD – 30 days */}
+      <div className="uh-card weather-card span-all">
+        <div className="uh-card-header">
+          <h3>🌦️ 16-Day Weather Forecast — {PLANT_LABEL}</h3>
+          <span className="wx-source">Source: Open-Meteo • Updates hourly</span>
+        </div>
+
+        {wxLoading && !wx && (
+          <div className="wx-loading"><div className="uh-spinner" style={{width:24,height:24,marginRight:10}}/>Loading forecast…</div>
+        )}
+        {wxError && !wx && (
+          <div className="wx-error">⚠️ {wxError}</div>
+        )}
+
+        {wx && (
+          <>
+            {/* Summary stats row */}
+            <div className="wx-summary-row">
+              <div className="wx-stat">
+                <span className="wx-stat-label">Hottest Day</span>
+                <span className="wx-stat-val" style={{color:"#fc8181"}}>
+                  {Math.max(...wx.temperature_2m_max).toFixed(0)}°C
+                  <small> on {formatDay(wx.time[wx.temperature_2m_max.indexOf(Math.max(...wx.temperature_2m_max))])}</small>
+                </span>
+              </div>
+              <div className="wx-stat">
+                <span className="wx-stat-label">Coolest Night</span>
+                <span className="wx-stat-val" style={{color:"#90cdf4"}}>
+                  {Math.min(...wx.temperature_2m_min).toFixed(0)}°C
+                  <small> on {formatDay(wx.time[wx.temperature_2m_min.indexOf(Math.min(...wx.temperature_2m_min))])}</small>
+                </span>
+              </div>
+              <div className="wx-stat">
+                <span className="wx-stat-label">Rainy Days</span>
+                <span className="wx-stat-val" style={{color:"#63b3ed"}}>
+                  {wx.precipitation_sum.filter(p => p > 0).length}
+                  <small> / 16 days</small>
+                </span>
+              </div>
+              <div className="wx-stat">
+                <span className="wx-stat-label">Total Rainfall</span>
+                <span className="wx-stat-val" style={{color:"#4299e1"}}>
+                  {wx.precipitation_sum.reduce((a,b)=>a+b,0).toFixed(1)} mm
+                </span>
+              </div>
+              <div className="wx-stat">
+                <span className="wx-stat-label">Max Wind Speed</span>
+                <span className="wx-stat-val" style={{color:"#b794f4"}}>
+                  {Math.max(...wx.windspeed_10m_max).toFixed(0)} km/h
+                </span>
+              </div>
+            </div>
+
+            {/* Trend Chart */}
+            <div style={{ width: '100%', height: 350, marginTop: 20, marginBottom: 30 }}>
+              <ResponsiveContainer width="100%" height="100%">
+                <ComposedChart
+                  data={wx.time.map((t, i) => ({
+                    name: new Date(t).getDate() + ' ' + SHORT_MONTHS[new Date(t).getMonth()],
+                    maxTemp: wx.temperature_2m_max[i],
+                    minTemp: wx.temperature_2m_min[i],
+                    rain: wx.precipitation_sum[i]
+                  }))}
+                  margin={{ top: 20, right: 20, bottom: 20, left: 20 }}
+                >
+                  <CartesianGrid stroke="#2d3748" strokeDasharray="3 3" vertical={false} />
+                  <XAxis dataKey="name" stroke="#a0aec0" fontSize={12} tickMargin={10} />
+                  <YAxis yAxisId="left" stroke="#a0aec0" fontSize={12} unit="°C" domain={['auto', 'auto']} />
+                  <YAxis yAxisId="right" orientation="right" stroke="#63b3ed" fontSize={12} unit="mm" allowDecimals={false} />
+                  <RechartsTooltip 
+                    contentStyle={{ backgroundColor: '#1a202c', border: '1px solid #4a5568', borderRadius: 8, color: '#e2e8f0' }}
+                    itemStyle={{ color: '#e2e8f0' }}
+                  />
+                  <Legend wrapperStyle={{ paddingTop: 20 }} />
+                  <Bar yAxisId="right" dataKey="rain" name="Rainfall" fill="#3182ce" radius={[4, 4, 0, 0]} maxBarSize={40} />
+                  <Line yAxisId="left" type="monotone" dataKey="maxTemp" name="Max Temp" stroke="#fc8181" strokeWidth={3} dot={{ r: 4, fill: '#1a202c' }} activeDot={{ r: 6 }} />
+                  <Line yAxisId="left" type="monotone" dataKey="minTemp" name="Min Temp" stroke="#63b3ed" strokeWidth={3} dot={{ r: 4, fill: '#1a202c' }} activeDot={{ r: 6 }} />
+                </ComposedChart>
+              </ResponsiveContainer>
+            </div>
+
+            {/* Scrollable day strip */}
+            <div className="wx-scroll-container">
+              {wx.time.map((dateStr, i) => {
+                const info = wmoInfo(wx.weathercode[i]);
+                const tMax = wx.temperature_2m_max[i];
+                const tMin = wx.temperature_2m_min[i];
+                const rain = wx.precipitation_sum[i];
+                const rainProb = wx.precipitation_probability_max[i];
+                const wind = wx.windspeed_10m_max[i];
+                const isToday = i === 0;
+                const maxRain = Math.max(...wx.precipitation_sum, 1);
+                return (
+                  <div key={dateStr} className={`wx-day-card ${isToday ? "wx-today" : ""}`}>
+                    <div className="wx-day-name">{isToday ? "Today" : SHORT_DAYS[new Date(dateStr).getDay()]}</div>
+                    <div className="wx-day-date">{new Date(dateStr).getDate()} {SHORT_MONTHS[new Date(dateStr).getMonth()]}</div>
+                    <div className="wx-icon">{info.icon}</div>
+                    <div className="wx-condition">{info.label}</div>
+                    <div className="wx-temps">
+                      <span className="wx-tmax">{tMax?.toFixed(0)}°</span>
+                      <span className="wx-tsep">/</span>
+                      <span className="wx-tmin">{tMin?.toFixed(0)}°</span>
+                    </div>
+                    {/* Rain probability bar */}
+                    <div className="wx-rain-prob-bar-bg">
+                      <div className="wx-rain-prob-bar" style={{width:`${rainProb || 0}%`, background: (rainProb||0) > 60 ? "#3182ce":"#63b3ed"}}/>
+                    </div>
+                    <div className="wx-rain-info">
+                      <span title="Rain probability">💧{rainProb ?? 0}%</span>
+                      {rain > 0 && <span style={{color:"#63b3ed", marginLeft:4}}>{rain.toFixed(1)}mm</span>}
+                    </div>
+                    <div className="wx-wind">💨 {wind?.toFixed(0)} km/h</div>
+                    {/* Rainfall column mini-bar */}
+                    <div className="wx-rain-bar-bg">
+                      <div className="wx-rain-bar" style={{height:`${(rain/maxRain)*100}%`, background: rainColor(rain)}}/>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </>
+        )}
+      </div>
+
 
       {/* 2. PRODUCTION & DESPATCH GRID */}
       <div className="uh-card production-card">
@@ -404,6 +628,7 @@ export default function UnitHeadDashboardView({ data, loading, fmt }) {
           </div>
         </div>
       </div>
+
     </div>
   );
 }

@@ -6,6 +6,9 @@ import pymysql.cursors
 from datetime import datetime, timedelta
 import random
 import warnings
+from functools import lru_cache
+import threading
+import time
 
 warnings.filterwarnings("ignore")
 
@@ -73,6 +76,56 @@ def query_db(sql, params=None):
             return cur.fetchall()
     finally:
         conn.close()
+
+
+# ---------- ACTIVE PARAMETERS CACHE (refreshed every 10 min) ----------
+_active_params_cache = {}  # {machine_name: set(param_names)}
+_active_params_lock = threading.Lock()
+_active_params_last_refresh = [0.0]
+_CACHE_TTL = 600  # 10 minutes
+
+
+def _refresh_active_params():
+    """Query DB for (machine, parameter) pairs with data in the last 24 hours."""
+    try:
+        since = datetime.now() - timedelta(hours=24)
+        sql = f"""
+            SELECT DISTINCT {COL_MACHINE} as machine_name, {COL_PARAMETER} as parameter_name
+            FROM {DB_TABLE}
+            WHERE {COL_TIMESTAMP} >= %s
+        """
+        rows = query_db(sql, (since,))
+        result = {}
+        for row in rows:
+            m = row["machine_name"]
+            p = row["parameter_name"]
+            result.setdefault(m, set()).add(p)
+        with _active_params_lock:
+            _active_params_cache.clear()
+            _active_params_cache.update(result)
+            _active_params_last_refresh[0] = time.time()
+        print(f"[active-params] Refreshed: {sum(len(v) for v in result.values())} params across {len(result)} machines")
+    except Exception as e:
+        print(f"[active-params] Refresh error: {e}")
+
+
+def get_active_params():
+    """Return active params dict, refreshing cache if stale."""
+    if time.time() - _active_params_last_refresh[0] > _CACHE_TTL or not _active_params_cache:
+        _refresh_active_params()
+    with _active_params_lock:
+        return {m: set(params) for m, params in _active_params_cache.items()}
+
+
+def is_param_active(machine: str, param: str) -> bool:
+    """Check if a specific (machine, parameter) is active in last 24h."""
+    active = get_active_params()
+    return param in active.get(machine, set())
+
+
+# Pre-warm cache at startup (background thread to not block startup)
+threading.Thread(target=_refresh_active_params, daemon=True).start()
+
 
 # ---------- CONFIG (from params_config.py) ----------
 def get_config(name):
@@ -159,9 +212,38 @@ def fetch_param_hourly(machine_name, param_names, date_dt):
 
 # ---------- API ENDPOINTS ----------
 
+@app.get("/api/active-parameters")
+def active_parameters():
+    """
+    Returns {machine_name: [param_name, ...]} for all parameters
+    that have had data in the DB in the last 24 hours.
+    """
+    active = get_active_params()
+    return {machine: sorted(list(params)) for machine, params in sorted(active.items())}
+
+
+@app.get("/api/dashboards/all")
+def list_all_dashboards():
+    """Returns every dashboard key (unfiltered)."""
+    return get_all_dashboards()
+
+
 @app.get("/api/dashboards")
 def list_dashboards():
-    return get_all_dashboards()
+    """Returns only dashboards that have ≥1 parameter active in the last 24h."""
+    active = get_active_params()
+    all_names = get_all_dashboards()
+    result = []
+    for name in all_names:
+        cfg = get_dashboard_config(name)
+        if not cfg:
+            continue
+        machine, param_names, _ = cfg
+        machine_active = active.get(machine, set())
+        # Keep dashboard only if at least one of its params is active
+        if any(p in machine_active for p in param_names):
+            result.append(name)
+    return result
 
 
 @app.get("/api/schema")
@@ -182,6 +264,11 @@ def dashboard(name: str, date: str = None):
         return {"error": "not found"}
 
     machine_name, param_names, meta = config
+
+    # Filter to only parameters that have data in the DB in the last 24h
+    active = get_active_params()
+    machine_active = active.get(machine_name, set())
+    param_names = [p for p in param_names if p in machine_active]
 
     # Calculate date ranges
     try:
@@ -236,12 +323,18 @@ def trend(name: str, date: str = None):
         return {"error": "not found"}
 
     machine_name, param_names, meta = config
+
+    # Filter to only parameters active in the last 24h
+    active = get_active_params()
+    machine_active = active.get(machine_name, set())
+    param_names = [p for p in param_names if p in machine_active]
+
     try:
         dt = datetime.strptime(date, "%Y-%m-%d") if date else datetime.now()
     except (ValueError, TypeError):
         dt = datetime.now()
 
-    # Query PostgreSQL for hourly trend by NAME
+    # Query DB for hourly trend by NAME
     result = fetch_param_hourly(machine_name, param_names, dt)
 
     return {"dashboard": name, "machine": machine_name, "date": date, "trend": result}

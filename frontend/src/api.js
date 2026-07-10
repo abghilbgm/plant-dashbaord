@@ -5,9 +5,16 @@ export function authHeaders() {
   return token ? { Authorization: `Bearer ${token}` } : {};
 }
 
-export function apiFetch(path, opts = {}) {
+export async function apiFetch(path, opts = {}) {
   const headers = { ...(opts.headers || {}), ...authHeaders() };
-  return fetch(path, { ...opts, headers });
+  const response = await fetch(path, { ...opts, headers });
+  
+  if (response.status === 401) {
+    localStorage.removeItem("auth_token");
+    window.location.reload();
+  }
+  
+  return response;
 }
 
 export const fetchDashboards = async () => {
@@ -17,6 +24,16 @@ export const fetchDashboards = async () => {
   } catch (error) {
     console.error("API Error:", error);
     return [];
+  }
+};
+
+export const fetchActiveParameters = async () => {
+  try {
+    const res = await apiFetch(`${API_BASE}/active-parameters`);
+    return await res.json(); // { machine_name: [param_name, ...] }
+  } catch (error) {
+    console.error("API Error (active-parameters):", error);
+    return {};
   }
 };
 
