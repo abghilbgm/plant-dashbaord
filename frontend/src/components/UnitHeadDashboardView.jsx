@@ -54,7 +54,7 @@ function rainColor(mm) {
 
 function useWeatherForecast() {
   const [weather, setWeather] = useState(null);
-  const [error, setError]   = useState(null);
+  const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -63,25 +63,106 @@ function useWeatherForecast() {
       setLoading(true);
       try {
         const today = new Date();
-        const end   = new Date(today);
-        end.setDate(end.getDate() + 15); // Open-Meteo free tier max is 16 days
-        const fmt = (d) => d.toISOString().split("T")[0];
+        const startOfMonth = new Date(today.getFullYear(), today.getMonth(), 1);
+        const endAug = new Date(today.getFullYear(), 7, 31);
+        const endForecast = new Date(today);
+        endForecast.setDate(endForecast.getDate() + 15);
+        
+        const yesterday = new Date(today);
+        yesterday.setDate(yesterday.getDate() - 1);
 
-        const url = `https://api.open-meteo.com/v1/forecast?latitude=${PLANT_LAT}&longitude=${PLANT_LON}`
-          + `&daily=weathercode,temperature_2m_max,temperature_2m_min,precipitation_sum,windspeed_10m_max,precipitation_probability_max`
-          + `&timezone=Asia%2FKolkata`
-          + `&start_date=${fmt(today)}&end_date=${fmt(end)}`;
+        const fmt = (d) => {
+          const m = (d.getMonth() + 1).toString().padStart(2, '0');
+          const day = d.getDate().toString().padStart(2, '0');
+          return `${d.getFullYear()}-${m}-${day}`;
+        };
 
-        const res  = await fetch(url);
-        const json = await res.json();
-        if (!cancelled) {
-          if (json.error) {
-            setError(json.reason || "Failed to load weather data.");
-            setWeather(null);
-          } else {
-            setWeather(json.daily);
-            setError(null);
+        const archiveUrl = `https://archive-api.open-meteo.com/v1/archive?latitude=${PLANT_LAT}&longitude=${PLANT_LON}&start_date=${fmt(startOfMonth)}&end_date=${fmt(yesterday)}&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,windspeed_10m_max,weathercode&timezone=Asia%2FKolkata`;
+        
+        const forecastUrl = `https://api.open-meteo.com/v1/forecast?latitude=${PLANT_LAT}&longitude=${PLANT_LON}&start_date=${fmt(startOfMonth)}&end_date=${fmt(endForecast)}&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_sum,windspeed_10m_max,precipitation_probability_max&models=ecmwf_ifs025,gfs_seamless,jma_seamless&timezone=Asia%2FKolkata`;
+
+        const climateStart = new Date(endForecast);
+        climateStart.setDate(climateStart.getDate() + 1);
+        const climateUrl = `https://climate-api.open-meteo.com/v1/climate?latitude=${PLANT_LAT}&longitude=${PLANT_LON}&start_date=${fmt(climateStart)}&end_date=${fmt(endAug)}&models=MPI_ESM1_2_XR&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,windspeed_10m_max&timezone=Asia%2FKolkata`;
+
+        const [resArc, resFor, resCli] = await Promise.all([
+          fetch(archiveUrl).then(r => r.json()).catch(() => ({})),
+          fetch(forecastUrl).then(r => r.json()).catch(() => ({})),
+          fetch(climateUrl).then(r => r.json()).catch(() => ({}))
+        ]);
+
+        if (cancelled) return;
+
+        const dateMap = new Map();
+        const getDay = (dateStr) => {
+          if (!dateMap.has(dateStr)) {
+            dateMap.set(dateStr, {
+              date: dateStr, actual: null, ecmwf: null, gfs: null, jma: null, climate: null,
+              weathercode: null, maxTemp: null, minTemp: null, rain: null, wind: null, rainProb: null
+            });
           }
+          return dateMap.get(dateStr);
+        };
+
+        if (resArc && resArc.daily && resArc.daily.time) {
+          resArc.daily.time.forEach((t, i) => {
+            const d = getDay(t);
+            d.actual = resArc.daily.precipitation_sum[i];
+            d.weathercode = resArc.daily.weathercode[i];
+            d.maxTemp = resArc.daily.temperature_2m_max[i];
+            d.minTemp = resArc.daily.temperature_2m_min[i];
+            d.rain = resArc.daily.precipitation_sum[i];
+            d.wind = resArc.daily.windspeed_10m_max[i];
+          });
+        }
+
+        if (resFor && resFor.daily && resFor.daily.time) {
+          resFor.daily.time.forEach((t, i) => {
+            const d = getDay(t);
+            if (d.weathercode === null) d.weathercode = resFor.daily.weather_code_ecmwf_ifs025?.[i] ?? resFor.daily.weather_code?.[i] ?? 0;
+            if (d.maxTemp === null) d.maxTemp = resFor.daily.temperature_2m_max_ecmwf_ifs025?.[i] ?? resFor.daily.temperature_2m_max?.[i] ?? 0;
+            if (d.minTemp === null) d.minTemp = resFor.daily.temperature_2m_min_ecmwf_ifs025?.[i] ?? resFor.daily.temperature_2m_min?.[i] ?? 0;
+            if (d.rain === null) d.rain = resFor.daily.precipitation_sum_ecmwf_ifs025?.[i] ?? resFor.daily.precipitation_sum?.[i] ?? 0;
+            if (d.wind === null) d.wind = resFor.daily.windspeed_10m_max_ecmwf_ifs025?.[i] ?? resFor.daily.windspeed_10m_max?.[i] ?? 0;
+            d.rainProb = resFor.daily.precipitation_probability_max?.[i] ?? null;
+
+            d.ecmwf = resFor.daily.precipitation_sum_ecmwf_ifs025?.[i] ?? null;
+            d.gfs = resFor.daily.precipitation_sum_gfs_seamless?.[i] ?? null;
+            d.jma = resFor.daily.precipitation_sum_jma_seamless?.[i] ?? null;
+          });
+        }
+
+        if (resCli && resCli.daily && resCli.daily.time) {
+          resCli.daily.time.forEach((t, i) => {
+            const d = getDay(t);
+            if (d.maxTemp === null) d.maxTemp = resCli.daily.temperature_2m_max?.[i] ?? 0;
+            if (d.minTemp === null) d.minTemp = resCli.daily.temperature_2m_min?.[i] ?? 0;
+            if (d.rain === null) d.rain = resCli.daily.precipitation_sum?.[i] ?? 0;
+            if (d.wind === null) d.wind = resCli.daily.windspeed_10m_max?.[i] ?? 0;
+
+            d.climate = resCli.daily.precipitation_sum?.[i] ?? null;
+          });
+        }
+
+        const sortedDates = Array.from(dateMap.keys()).sort();
+        if (sortedDates.length > 0) {
+          setWeather({
+            time: sortedDates,
+            weathercode: sortedDates.map(t => dateMap.get(t).weathercode),
+            temperature_2m_max: sortedDates.map(t => dateMap.get(t).maxTemp),
+            temperature_2m_min: sortedDates.map(t => dateMap.get(t).minTemp),
+            precipitation_sum: sortedDates.map(t => dateMap.get(t).rain),
+            precipitation_probability_max: sortedDates.map(t => dateMap.get(t).rainProb),
+            windspeed_10m_max: sortedDates.map(t => dateMap.get(t).wind),
+            rain_actual: sortedDates.map(t => dateMap.get(t).actual),
+            rain_ecmwf: sortedDates.map(t => dateMap.get(t).ecmwf),
+            rain_gfs: sortedDates.map(t => dateMap.get(t).gfs),
+            rain_jma: sortedDates.map(t => dateMap.get(t).jma),
+            rain_climate: sortedDates.map(t => dateMap.get(t).climate)
+          });
+          setError(null);
+        } else {
+          setError("Failed to load weather data.");
         }
       } catch (e) {
         if (!cancelled) setError("Failed to load weather data.");
@@ -90,7 +171,7 @@ function useWeatherForecast() {
       }
     }
     fetchWeather();
-    const timer = setInterval(fetchWeather, 60 * 60 * 1000); // refresh hourly
+    const timer = setInterval(fetchWeather, 60 * 60 * 1000);
     return () => { cancelled = true; clearInterval(timer); };
   }, []);
 
@@ -171,11 +252,11 @@ export default function UnitHeadDashboardView({ data, loading, fmt }) {
       </div>
 
 
-      {/* WEATHER FORECAST CARD – 30 days */}
+      {/* WEATHER FORECAST CARD – Extended */}
       <div className="uh-card weather-card span-all">
         <div className="uh-card-header">
-          <h3>🌦️ 16-Day Weather Forecast — {PLANT_LABEL}</h3>
-          <span className="wx-source">Source: Open-Meteo • Updates hourly</span>
+          <h3>🌦️ Extended Weather Forecast (till Aug 31) — {PLANT_LABEL}</h3>
+          <span className="wx-source">Sources: Historical, ECMWF, GFS, JMA, Climate (MPI_ESM)</span>
         </div>
 
         {wxLoading && !wx && (
@@ -224,30 +305,31 @@ export default function UnitHeadDashboardView({ data, loading, fmt }) {
               </div>
             </div>
 
-            {/* Trend Chart */}
-            <div style={{ width: '100%', height: 350, marginTop: 20, marginBottom: 30 }}>
+            {/* Trend Chart (Rainfall) */}
+            <div style={{ width: '100%', height: 350, marginTop: 10, marginBottom: 30 }}>
+              <h4 style={{ color: '#e2e8f0', marginBottom: 10, textAlign: 'center' }}>Rainfall (Actual vs Predicted)</h4>
               <ResponsiveContainer width="100%" height="100%">
                 <ComposedChart
                   data={wx.time.map((t, i) => ({
                     name: new Date(t).getDate() + ' ' + SHORT_MONTHS[new Date(t).getMonth()],
-                    maxTemp: wx.temperature_2m_max[i],
-                    minTemp: wx.temperature_2m_min[i],
-                    rain: wx.precipitation_sum[i]
+                    actual: wx.rain_actual[i],
+                    ecmwf: wx.rain_ecmwf[i],
+                    gfs: wx.rain_gfs[i],
+                    jma: wx.rain_jma[i],
+                    climate: wx.rain_climate[i]
                   }))}
-                  margin={{ top: 20, right: 20, bottom: 20, left: 20 }}
+                  margin={{ top: 10, right: 20, bottom: 20, left: 20 }}
                 >
                   <CartesianGrid stroke="#2d3748" strokeDasharray="3 3" vertical={false} />
                   <XAxis dataKey="name" stroke="#a0aec0" fontSize={12} tickMargin={10} />
-                  <YAxis yAxisId="left" stroke="#a0aec0" fontSize={12} unit="°C" domain={['auto', 'auto']} />
-                  <YAxis yAxisId="right" orientation="right" stroke="#63b3ed" fontSize={12} unit="mm" allowDecimals={false} />
-                  <RechartsTooltip 
-                    contentStyle={{ backgroundColor: '#1a202c', border: '1px solid #4a5568', borderRadius: 8, color: '#e2e8f0' }}
-                    itemStyle={{ color: '#e2e8f0' }}
-                  />
+                  <YAxis stroke="#63b3ed" fontSize={12} unit="mm" allowDecimals={false} />
+                  <RechartsTooltip contentStyle={{ backgroundColor: '#1a202c', border: '1px solid #4a5568', borderRadius: 8, color: '#e2e8f0' }} itemStyle={{ color: '#e2e8f0' }} />
                   <Legend wrapperStyle={{ paddingTop: 20 }} />
-                  <Bar yAxisId="right" dataKey="rain" name="Rainfall" fill="#3182ce" radius={[4, 4, 0, 0]} maxBarSize={40} />
-                  <Line yAxisId="left" type="monotone" dataKey="maxTemp" name="Max Temp" stroke="#fc8181" strokeWidth={3} dot={{ r: 4, fill: '#1a202c' }} activeDot={{ r: 6 }} />
-                  <Line yAxisId="left" type="monotone" dataKey="minTemp" name="Min Temp" stroke="#63b3ed" strokeWidth={3} dot={{ r: 4, fill: '#1a202c' }} activeDot={{ r: 6 }} />
+                  <Bar dataKey="actual" name="Actual (Historical)" fill="#38a169" radius={[4, 4, 0, 0]} maxBarSize={40} />
+                  <Line type="monotone" dataKey="ecmwf" name="ECMWF Predicted" stroke="#63b3ed" strokeWidth={2} dot={false} />
+                  <Line type="monotone" dataKey="gfs" name="GFS Predicted" stroke="#f6ad55" strokeWidth={2} dot={false} />
+                  <Line type="monotone" dataKey="jma" name="JMA Predicted" stroke="#ecc94b" strokeWidth={2} dot={false} />
+                  <Line type="monotone" dataKey="climate" name="Climate Predicted" stroke="#b794f4" strokeWidth={2} strokeDasharray="5 5" dot={false} />
                 </ComposedChart>
               </ResponsiveContainer>
             </div>
@@ -261,7 +343,11 @@ export default function UnitHeadDashboardView({ data, loading, fmt }) {
                 const rain = wx.precipitation_sum[i];
                 const rainProb = wx.precipitation_probability_max[i];
                 const wind = wx.windspeed_10m_max[i];
-                const isToday = i === 0;
+                
+                const tDate = new Date();
+                const todayStr = `${tDate.getFullYear()}-${(tDate.getMonth()+1).toString().padStart(2,'0')}-${tDate.getDate().toString().padStart(2,'0')}`;
+                const isToday = dateStr === todayStr;
+                
                 const maxRain = Math.max(...wx.precipitation_sum, 1);
                 return (
                   <div key={dateStr} className={`wx-day-card ${isToday ? "wx-today" : ""}`}>
